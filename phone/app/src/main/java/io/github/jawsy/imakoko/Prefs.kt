@@ -8,6 +8,11 @@ object Prefs {
     private fun p(ctx: Context): SharedPreferences =
         ctx.getSharedPreferences("imakoko", Context.MODE_PRIVATE)
 
+    fun watch(ctx: Context, l: SharedPreferences.OnSharedPreferenceChangeListener) =
+        p(ctx).registerOnSharedPreferenceChangeListener(l)
+    fun unwatch(ctx: Context, l: SharedPreferences.OnSharedPreferenceChangeListener) =
+        p(ctx).unregisterOnSharedPreferenceChangeListener(l)
+
     fun setup(ctx: Context): Setup? = p(ctx).getString("setup", null)?.let { Setup.parse(it) }
     fun saveSetup(ctx: Context, s: Setup) = p(ctx).edit().putString("setup", s.toJson()).apply()
 

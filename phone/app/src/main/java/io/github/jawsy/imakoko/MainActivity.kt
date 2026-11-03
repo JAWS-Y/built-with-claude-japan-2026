@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.NotificationManager
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -45,9 +46,18 @@ class MainActivity : Activity() {
         findViewById<Button>(R.id.stop).setOnClickListener { stop() }
     }
 
+    // Writes from PushService and LocationReceiver show up while the screen is open
+    private val changed = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> refresh() }
+
     override fun onResume() {
         super.onResume()
+        Prefs.watch(this, changed)
         refresh()
+    }
+
+    override fun onPause() {
+        Prefs.unwatch(this, changed)
+        super.onPause()
     }
 
     // ------------------------------------------------------------ setup
@@ -144,23 +154,14 @@ class MainActivity : Activity() {
         message = "送り始めました。"
         val ctx = applicationContext
         FirebaseMessaging.getInstance().isAutoInitEnabled = true
-        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Background.run {
-                    Store.writeToken(ctx, task.result)
-                    runOnUiThread { refresh() }
-                }
-            } else {
-                message = "通知の宛先を Firebase から受け取れませんでした。"
-                refresh()
-            }
+        // The address arrives in PushService.onRegistered, which writes it
+        FirebaseMessaging.getInstance().register().addOnFailureListener {
+            message = "通知の宛先を Firebase から受け取れませんでした。"
+            refresh()
         }
         Tracking.once(this) { loc ->
             if (loc != null) {
-                Background.run {
-                    Store.writeLocation(ctx, loc)
-                    runOnUiThread { refresh() }
-                }
+                Background.run { Store.writeLocation(ctx, loc) }
             }
         }
         refresh()
@@ -176,11 +177,8 @@ class MainActivity : Activity() {
         val s = Prefs.setup(this)
         if (s != null && App.start(this, s)) {
             FirebaseMessaging.getInstance().isAutoInitEnabled = false
-            FirebaseMessaging.getInstance().deleteToken()
-            Background.run {
-                Store.forget(ctx)
-                runOnUiThread { refresh() }
-            }
+            FirebaseMessaging.getInstance().unregister()
+            Background.run { Store.forget(ctx) }
         }
         refresh()
     }
