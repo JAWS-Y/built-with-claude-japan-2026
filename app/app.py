@@ -513,7 +513,8 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items):
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
     title = ('【試し】' if fake else '') + f"{area['class20']['name']}: {names}"
     return {'notify': True, 'title': title, 'body': '\n'.join(lines),
-            'key': key, 'place_found': bool(place)}
+            'key': key, 'place_found': bool(place), 'places': [z['key'] for z in zone_items or []
+                                                               if z['key'] in zone_keys and z.get('in')]}
 
 
 SOURCES = [

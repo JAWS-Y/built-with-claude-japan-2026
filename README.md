@@ -26,6 +26,54 @@ URL なら `?lat=35.7106&lon=139.8133&demo=flood:4`、JSON なら `python3 app.p
 `demo` は `rain`（大雨）・`landslide`（土砂災害）・`flood`（氾濫）・`tide`（高潮）と、`:2`～`:5` のレベルです。
 作りものの警報は、名前・知らせの題・本文のすべてに「試し」と書きます。
 
+## 携帯に通知する
+
+携帯のアプリ（`phone/`）が自分の位置を Firebase に書き、PC の `app/phone.py` がそれを読みに行って調べます。
+知らせることがあると、PC が Firebase Cloud Messaging の優先度の高い push で携帯に送ります。
+携帯を置いたままでも push で起きるので、知らせが遅れません。PC は読みに行くだけで、外からの接続は受けません。
+
+位置を読めるのは PC のサービスアカウントだけです（`firestore.rules` で携帯からも誰からも読めません）。
+位置は PC の画面にも記録にも出しません。
+
+### 用意（最初の 1 回）
+
+1. Firebase コンソールで新しいプロジェクトを作ります。料金プランは Spark（無料）のままにします。Google アナリティクスは要りません。
+2. Android アプリを追加します。パッケージ名は `io.github.jawsy.imakoko` です。`google-services.json` をダウンロードして PC に置きます（このリポジトリには入れません）。
+3. Firestore Database を作ります。本番環境モード、場所は `asia-northeast1`（東京）です。「ルール」に `firestore.rules` の中身を貼って公開します。
+4. プロジェクトの設定 → サービス アカウント → 新しい秘密鍵を生成します。できた JSON を PC に置き、`chmod 600` にします（このリポジトリには入れません）。
+5. PC で携帯を 1 台つなぎます。出てきた 1 行（設定の文）を携帯に送ります。
+
+```
+cd app
+python3 phone.py pair --google-services ~/firebase/google-services.json --name phone
+```
+
+6. 携帯にアプリを入れて開き、「設定」に設定の文を貼って「設定を保存」、「位置を送り始める」を押します。
+   通知・位置・位置の「常に許可」を順に聞かれます。
+
+### 試す・動かす
+
+```
+python3 phone.py test --key ~/firebase/service-account.json            # 作りものの警報（土砂災害 4）で、いま 1 回送る
+python3 phone.py test --key ~/firebase/service-account.json --demo flood:3
+python3 phone.py watch --key ~/firebase/service-account.json           # 3 分ごとに調べ、新しい知らせだけ送る
+```
+
+`watch` は、警報が新しく出た・レベルが上がった・場所の区域が変わったときだけ送ります。同じ警報の出し直しでは送りません。
+携帯から 2 時間より長く位置が届いていないときは、知らせにそのことを書きます。
+テストは `python3 -m unittest test_phone test_app` です。
+
+### 携帯アプリを組む
+
+JDK 17 と Android SDK（platform 35、build-tools 35.0.0）が要ります。
+
+```
+cd phone
+./gradlew testDebugUnitTest assembleDebug
+```
+
+できた APK は `phone/app/build/outputs/apk/debug/app-debug.apk` です。
+
 ## 読んでいるもの
 
 - 気象庁: 警報・注意報、指定河川洪水予報、キキクル（土砂災害・浸水害）、降水ナウキャスト、アメダス

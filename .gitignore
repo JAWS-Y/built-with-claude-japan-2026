@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+# 携帯に送る仕組みの鍵と状態（PC だけに置く）
+.phone/
+google-services.json
+*service-account*.json
+# 携帯アプリを組んだもの
+phone/.gradle/
+phone/build/
+phone/app/build/
+phone/local.properties
+*.apk

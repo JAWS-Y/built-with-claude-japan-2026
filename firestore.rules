@@ -1,0 +1,22 @@
+rules_version = '2';
+
+// 携帯は、自分の長いでたらめな id の文書に、位置と通知の宛先だけを書ける。
+// 誰も読めない。PC はサービスアカウントで読む（ルールはサービスアカウントにはかからない）。
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /devices/{device} {
+      allow read: if false;
+      allow create, update: if device.size() >= 40 && device.size() <= 64
+        && request.resource.data.keys().hasOnly(['lat', 'lon', 'accuracy', 'at', 'token'])
+        && request.resource.data.get('lat', 0) is number
+        && request.resource.data.get('lat', 0) >= -90 && request.resource.data.get('lat', 0) <= 90
+        && request.resource.data.get('lon', 0) is number
+        && request.resource.data.get('lon', 0) >= -180 && request.resource.data.get('lon', 0) <= 180
+        && request.resource.data.get('accuracy', 0) is number
+        && request.resource.data.get('at', 0) is int
+        && request.resource.data.get('token', '') is string
+        && request.resource.data.get('token', '').size() <= 4096;
+      allow delete: if device.size() >= 40 && device.size() <= 64;
+    }
+  }
+}
