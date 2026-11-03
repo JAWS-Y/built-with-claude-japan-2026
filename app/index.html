@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>いまいる場所の公式情報（試作）</title>
+<style>
+  :root { --fg:#1b1b1b; --muted:#5f6368; --line:#d9d9d9; --bg:#fafafa; --card:#fff;
+          --l5:#0c000c; --l4:#aa00aa; --l3:#ff2800; --l2:#f2e700; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.6 system-ui, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+         color:var(--fg); background:var(--bg); }
+  header { position:sticky; top:0; z-index:2; background:var(--card); border-bottom:1px solid var(--line);
+           padding:12px 16px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; }
+  h1 { font-size:18px; margin:0; flex:1 1 auto; }
+  button { font:inherit; min-height:48px; padding:0 20px; border-radius:8px; border:1px solid #1a73e8;
+           background:#1a73e8; color:#fff; cursor:pointer; touch-action:manipulation; }
+  button:disabled { opacity:.6; }
+  #status { width:100%; color:var(--muted); font-size:14px; }
+  main { max-width:860px; margin:0 auto; padding:12px 16px 48px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:12px 0; }
+  h2 { font-size:17px; margin:0 0 8px; }
+  ul { margin:0; padding-left:1.2em; }
+  li { margin:4px 0; }
+  a { color:#1a0dab; }
+  .muted { color:var(--muted); font-size:14px; }
+  .badge { display:inline-block; min-width:4.5em; text-align:center; border-radius:4px; padding:0 6px; margin-right:6px;
+           font-size:14px; font-weight:600; background:#eee; }
+  .lv5 { background:var(--l5); color:#fff; } .lv4 { background:var(--l4); color:#fff; }
+  .lv3 { background:var(--l3); color:#fff; } .lv2 { background:var(--l2); color:#000; }
+  .hit { font-weight:600; }
+  #notice { border:3px solid var(--l3); }
+  #notice h2 { color:#b31b00; }
+  #notice p { white-space:pre-line; margin:0 0 8px; }
+  .links a { display:inline-block; margin:4px 12px 4px 0; min-height:32px; }
+  table { border-collapse:collapse; width:100%; }
+  td, th { text-align:left; padding:4px 8px 4px 0; border-bottom:1px solid #eee; vertical-align:top; }
+  th { font-weight:normal; color:var(--muted); white-space:nowrap; }
+  .error { color:#b31b00; }
+</style>
+</head>
+<body>
+<header>
+  <h1>いまいる場所の公式情報（試作）</h1>
+  <button id="go" type="button">現在地で調べる</button>
+  <div id="status">「現在地で調べる」を押すと、位置情報と通知の許可を聞きます。5分ごとに調べ直します。</div>
+</header>
+<main id="out"></main>
+<script>
+'use strict';
+const out = document.getElementById('out');
+const statusEl = document.getElementById('status');
+const go = document.getElementById('go');
+const REFRESH_MS = 5 * 60 * 1000;
+let timer = null, fixed = null;
+
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === 'class') e.className = v; else e.setAttribute(k, v);
+  }
+  for (const k of kids.flat()) if (k !== null && k !== undefined && k !== false)
+    e.append(k instanceof Node ? k : String(k));
+  return e;
+}
+const link = (href, text) => el('a', {href, target: '_blank', rel: 'noopener noreferrer'}, text);
+const badge = (level, text) => el('span', {class: 'badge' + (level >= 2 ? ' lv' + level : '')}, text);
+const section = (title, ...kids) => el('section', {}, el('h2', {}, title), ...kids);
+
+function showWarnings(d) {
+  const a = d.area, w = d.warning;
+  if (!a) return section('警報・注意報', el('p', {class: 'error'}, 'この地点の区域が分かりませんでした。'));
+  const where = el('p', {}, `${a.office.name} ${a.class10.name} ${a.class20.name}`,
+    a.method !== 'polygon' ? el('span', {class: 'muted'}, '（区域の境界に入る所が見つからず、近い区域を使っています）') : null);
+  if (!w) return section('警報・注意報', where, el('p', {class: 'error'}, '警報・注意報を読めませんでした。'));
+  const all = w.warnings.concat(w.flood);
+  const list = all.length ? el('ul', {}, all.map(x => el('li', {class: x.group1 && x.level >= 3 ? 'hit' : null},
+      badge(x.level, 'レベル' + x.level), x.name, el('span', {class: 'muted'}, `　${x.status} ${x.time}`),
+      x.detail && Object.keys(x.detail).length
+        ? el('div', {class: 'muted'}, Object.values(x.detail).join(' ／ ')) : null)))
+    : el('p', {}, 'いま出ている警報・注意報はありません。');
+  const unknown = w.unknown_codes.length
+    ? el('p', {class: 'muted'}, w.unknown_codes.map(c => `コード ${c}（名前不明）`).join('、') + ' も出ています。') : null;
+  return section('警報・注意報（気象庁）', where, list, unknown,
+    el('p', {class: 'links'}, link(w.link, '気象庁の警報・注意報のページ'), link(w.flood_link, '指定河川洪水予報のページ')));
+}
+
+function showZones(z) {
+  if (!z) return section('この場所の性質（ハザードマップ）', el('p', {class: 'error'}, '読めませんでした。'));
+  const rows = z.items.map(i => el('tr', {class: i.in ? 'hit' : null}, el('th', {}, i.label),
+    el('td', {}, i.error ? el('span', {class: 'error'}, '読めませんでした')
+      : i.in ? '入っている' + (i.value ? '（' + i.value + '）' : '') : '入っていない')));
+  return section('この場所の性質（ハザードマップ）', el('table', {}, rows),
+    el('p', {class: 'muted'}, '「入っていない」は、その地図にこの地点の色がないことです。地図が作られていない所もあります。'),
+    el('p', {class: 'links'}, link(z.link, '重ねるハザードマップで見る')));
+}
+
+function showKiki(k) {
+  if (!k) return section('キキクル（気象庁）', el('p', {class: 'error'}, '読めませんでした。'));
+  return section('キキクル（気象庁）', el('ul', {}, k.map(i => el('li', {class: i.level >= 3 ? 'hit' : null},
+    badge(i.level || 0, i.level ? 'レベル' + i.level + '相当' : '—'), i.label, '：', i.meaning,
+    el('span', {class: 'muted'}, `　${i.time}　`), link(i.link, '地図')))));
+}
+
+function showRain(n, a) {
+  const kids = [];
+  if (n) {
+    const t = [['いま', n.now], ['30分後', n.plus30], ['60分後', n.plus60]].filter(r => r[1]);
+    kids.push(el('h2', {}, '降水ナウキャスト（気象庁）'),
+      el('table', {}, t.map(([k, v]) => el('tr', {}, el('th', {}, `${k}（${v.time}）`), el('td', {}, v.rain)))),
+      el('p', {class: 'links'}, link(n.link, '降水ナウキャストの地図')));
+  } else kids.push(el('h2', {}, '降水ナウキャスト（気象庁）'), el('p', {class: 'error'}, '読めませんでした。'));
+  if (a) {
+    const v = x => x === null || x === undefined ? '—' : x + ' mm';
+    kids.push(el('h2', {}, `アメダス ${a.station}（${a.km} km 先、${a.time}）`),
+      el('table', {}, [['10分間', a.precipitation10m], ['1時間', a.precipitation1h], ['3時間', a.precipitation3h],
+        ['24時間', a.precipitation24h]].map(([k, x]) => el('tr', {}, el('th', {}, k + 'の雨量'), el('td', {}, v(x))))),
+      el('p', {class: 'links'}, link(a.link, 'アメダスのページ')));
+  }
+  return el('section', {}, kids);
+}
+
+function showLore(l) {
+  if (!l) return section('自然災害伝承碑（国土地理院）', el('p', {class: 'error'}, '読めませんでした。'));
+  if (!l.count) return section('自然災害伝承碑（国土地理院）', el('p', {}, `${l.radius_km} km 以内にはありません。`));
+  return section(`自然災害伝承碑（国土地理院、${l.radius_km} km 以内に ${l.count} 基）`,
+    el('ul', {}, l.items.map(i => el('li', {}, `${i.km} km　${i.name}（${i.kind}${i.year ? '、' + i.year : ''}）　`,
+      link(i.link, '地図'), i.disaster ? el('div', {class: 'muted'}, i.disaster) : null))));
+}
+
+function notify(n) {
+  if (!n.notify) return;
+  const last = localStorage.getItem('lastNoticeKey');
+  if (last === n.key) return;
+  localStorage.setItem('lastNoticeKey', n.key);
+  if ('Notification' in window && Notification.permission === 'granted') new Notification(n.title, {body: n.body});
+}
+
+function render(d) {
+  out.replaceChildren();
+  const n = d.notice;
+  if (n.notify) {
+    const s = section(n.title, el('p', {}, n.body),
+      el('p', {class: 'links'}, link(d.warning.link, '気象庁の警報・注意報'), d.zones ? link(d.zones.link, '重ねるハザードマップ') : null));
+    s.id = 'notice';
+    out.append(s);
+  }
+  out.append(showWarnings(d), showZones(d.zones), showKiki(d.kikikuru), showRain(d.nowcast, d.amedas), showLore(d.lore));
+  if (d.errors.length) out.append(section('読めなかったもの',
+    el('ul', {}, d.errors.map(e => el('li', {class: 'error'}, `${e.part}: ${e.error}`)))));
+  out.append(section('この試作にまだ入れていないもの', el('ul', {}, d.not_included.map(t => el('li', {}, t)))),
+    section('出典', el('ul', {}, d.sources.map(s => el('li', {}, link(s.url, s.name), el('div', {class: 'muted'}, s.note))))));
+  notify(n);
+}
+
+async function check(lat, lon) {
+  statusEl.textContent = '調べています…';
+  try {
+    const r = await fetch(`/api/here?lat=${lat}&lon=${lon}`);
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || r.status);
+    render(d);
+    statusEl.textContent = `${d.checked_at} に調べました（${lat.toFixed(4)}, ${lon.toFixed(4)}）。5分ごとに調べ直します。`;
+  } catch (e) {
+    statusEl.textContent = '調べられませんでした: ' + e.message;
+  }
+}
+
+function locate() {
+  if (fixed) return check(fixed.lat, fixed.lon);
+  if (!navigator.geolocation) { statusEl.textContent = 'このブラウザは位置情報を使えません。'; return; }
+  statusEl.textContent = '現在地を取っています…';
+  navigator.geolocation.getCurrentPosition(
+    p => check(p.coords.latitude, p.coords.longitude),
+    e => { statusEl.textContent = '現在地を取れませんでした: ' + e.message; },
+    {enableHighAccuracy: true, timeout: 20000, maximumAge: 60000});
+}
+
+go.addEventListener('click', async () => {
+  if ('Notification' in window && Notification.permission === 'default') {
+    try { await Notification.requestPermission(); } catch (e) { /* 通知なしでも続ける */ }
+  }
+  locate();
+  clearInterval(timer);
+  timer = setInterval(locate, REFRESH_MS);
+});
+
+const q = new URLSearchParams(location.search);
+if (q.has('lat') && q.has('lon')) {
+  fixed = {lat: Number(q.get('lat')), lon: Number(q.get('lon'))};
+  go.textContent = '指定の地点で調べる';
+  locate();
+  timer = setInterval(locate, REFRESH_MS);
+}
+</script>
+</body>
+</html>
