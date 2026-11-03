@@ -16,6 +16,9 @@
   button { font:inherit; min-height:48px; padding:0 20px; border-radius:8px; border:1px solid #1a73e8;
            background:#1a73e8; color:#fff; cursor:pointer; touch-action:manipulation; }
   button:disabled { opacity:.6; }
+  select { font:inherit; min-height:48px; padding:0 8px; border-radius:8px; border:1px solid var(--line); background:#fff; }
+  label.demo { display:flex; gap:6px; align-items:center; font-size:14px; color:var(--muted); }
+  #demoNote { background:#fff3cd; border-color:#e0c060; }
   #status { width:100%; color:var(--muted); font-size:14px; }
   main { max-width:860px; margin:0 auto; padding:12px 16px 48px; }
   section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:12px 0; }
@@ -43,6 +46,7 @@
 <header>
   <h1>いまいる場所の公式情報（試作）</h1>
   <button id="go" type="button">現在地で調べる</button>
+  <label class="demo">試し<select id="demo"><option value="">なし（本物だけ）</option></select></label>
   <div id="status">「現在地で調べる」を押すと、位置情報と通知の許可を聞きます。5分ごとに調べ直します。</div>
 </header>
 <main id="out"></main>
@@ -51,6 +55,12 @@
 const out = document.getElementById('out');
 const statusEl = document.getElementById('status');
 const go = document.getElementById('go');
+const demoSel = document.getElementById('demo');
+const HAZ = {rain: '大雨', landslide: '土砂災害', flood: '氾濫', tide: '高潮'};
+const RANK = {2: '注意報', 3: '警報', 4: '危険警報', 5: '特別警報'};
+const ZEN = {2: '２', 3: '３', 4: '４', 5: '５'};
+for (const h of Object.keys(HAZ)) for (const lv of [2, 3, 4, 5])
+  demoSel.append(el('option', {value: `${h}:${lv}`}, `作りもの：レベル${ZEN[lv]}${HAZ[h]}${RANK[lv]}`));
 const REFRESH_MS = 5 * 60 * 1000;
 let timer = null, fixed = null;
 
@@ -139,6 +149,11 @@ function notify(n) {
 
 function render(d) {
   out.replaceChildren();
+  if (d.demo) {
+    const s = section('試しです', el('p', {}, '作りものの警報を 1 つ足しています。気象庁は出していません。ほかはいまの本物の情報です。'));
+    s.id = 'demoNote';
+    out.append(s);
+  }
   const n = d.notice;
   if (n.notify) {
     const s = section(n.title, el('p', {}, n.body),
@@ -157,11 +172,13 @@ function render(d) {
 async function check(lat, lon) {
   statusEl.textContent = '調べています…';
   try {
-    const r = await fetch(`/api/here?lat=${lat}&lon=${lon}`);
+    const demo = demoSel.value ? '&demo=' + encodeURIComponent(demoSel.value) : '';
+    const r = await fetch(`/api/here?lat=${lat}&lon=${lon}${demo}`);
     const d = await r.json();
     if (!r.ok) throw new Error(d.error || r.status);
     render(d);
-    statusEl.textContent = `${d.checked_at} に調べました（${lat.toFixed(4)}, ${lon.toFixed(4)}）。5分ごとに調べ直します。`;
+    statusEl.textContent = `${d.checked_at} に調べました（${lat.toFixed(4)}, ${lon.toFixed(4)}）。5分ごとに調べ直します。`
+      + (d.demo ? '（試し）' : '');
   } catch (e) {
     statusEl.textContent = '調べられませんでした: ' + e.message;
   }
@@ -186,7 +203,12 @@ go.addEventListener('click', async () => {
   timer = setInterval(locate, REFRESH_MS);
 });
 
+let started = false;
+go.addEventListener('click', () => { started = true; });
+demoSel.addEventListener('change', () => { if (started || fixed) locate(); });
+
 const q = new URLSearchParams(location.search);
+if (q.has('demo') && [...demoSel.options].some(o => o.value === q.get('demo'))) demoSel.value = q.get('demo');
 if (q.has('lat') && q.has('lon')) {
   fixed = {lat: Number(q.get('lat')), lon: Number(q.get('lon'))};
   go.textContent = '指定の地点で調べる';

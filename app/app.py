@@ -485,7 +485,13 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items):
     kiki_keys = {k for h in hazards for k in LINKS[h]['kiki']}
     lore_kinds = {k for h in hazards for k in LINKS[h]['lore']}
     names = '、'.join(dict.fromkeys(w['name'] for w in trig))
-    lines = [f"{area['class20']['name']}に{names}が出ています（気象庁）。"]
+    real = '、'.join(dict.fromkeys(w['name'] for w in trig if not w.get('demo')))
+    fake = '、'.join(dict.fromkeys(warning_name(w['hazard'], w['level']) for w in trig if w.get('demo')))
+    lines = []
+    if fake:
+        lines.append(f'これは試しです。{fake}は作りもので、気象庁は出していません。ほかはいまの本物の情報です。')
+    if real:
+        lines.append(f"{area['class20']['name']}に{real}が出ています（気象庁）。")
     place = []
     for z in zone_items or []:
         if z['key'] in zone_keys and z.get('in'):
@@ -505,7 +511,8 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items):
             lines.append(f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります（国土地理院）。")
             break
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
-    return {'notify': True, 'title': f"{area['class20']['name']}: {names}", 'body': '\n'.join(lines),
+    title = ('【試し】' if fake else '') + f"{area['class20']['name']}: {names}"
+    return {'notify': True, 'title': title, 'body': '\n'.join(lines),
             'key': key, 'place_found': bool(place)}
 
 
@@ -530,8 +537,42 @@ def in_japan(lat, lon):
     return 20.0 <= lat <= 46.5 and 122.0 <= lon <= 154.0
 
 
-def here(lat, lon):
-    out = {'point': {'lat': lat, 'lon': lon}, 'checked_at': datetime.now(JST).strftime('%Y-%m-%d %H:%M'),
+# ---------------------------------------------------------------- 試し（作りものの警報）
+
+DEMO_LEVELS = (2, 3, 4, 5)
+
+
+def parse_demo(text):
+    """'landslide:4' -> ('landslide', 4). The level defaults to 4. ValueError for anything else."""
+    hazard, _, level = text.partition(':')
+    level = int(level) if level else 4
+    if hazard not in GROUP1 or level not in DEMO_LEVELS:
+        raise ValueError(text)
+    return hazard, level
+
+
+def demo_warning(hazard, level, now):
+    """A made-up warning to try the notice with. Its name, status and the notice say it is made up."""
+    codes = FLOOD_CODES if hazard == 'flood' else {c: lv for c, (h, lv) in WARNING_CODES.items() if h == hazard}
+    code = next(c for c, lv in codes.items() if lv == level)
+    w = {'code': code, 'hazard': hazard, 'level': level, 'name': warning_name(hazard, level) + '（試しの作りもの）',
+         'status': '試し', 'reportDatetime': now.isoformat(timespec='seconds'), 'time': now.strftime('%m/%d %H:%M'),
+         'group1': True, 'demo': True}
+    if hazard == 'flood':
+        w['detail'] = {}
+    return w
+
+
+def add_demo(warn, demo, now):
+    """warn with the made-up warning put first in its list (氾濫 goes with the river information)."""
+    w = demo_warning(*demo, now)
+    part = 'flood' if w['hazard'] == 'flood' else 'warnings'
+    return {**warn, part: [w] + warn[part]}
+
+
+def here(lat, lon, demo=None):
+    now = datetime.now(JST)
+    out = {'point': {'lat': lat, 'lon': lon}, 'checked_at': now.strftime('%Y-%m-%d %H:%M'),
            'errors': [], 'sources': SOURCES, 'not_included': NOT_INCLUDED}
 
     def run(part, fn, *args):
@@ -550,6 +591,9 @@ def here(lat, lon):
         warn = run('警報・注意報', warnings_for, area) if area else None
         for k, f in jobs.items():
             out[k] = f.result()
+    if demo and warn:
+        warn = add_demo(warn, demo, now)
+    out['demo'] = {'hazard': demo[0], 'level': demo[1]} if demo else None
     out['area'], out['warning'] = area, warn
     out['notice'] = build_notice(area, warn, (out['zones'] or {}).get('items'), out['kikikuru'], out['nowcast'],
                                  (out['lore'] or {}).get('items')) if area else {'notify': False}
@@ -591,7 +635,13 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(400, {'error': 'lat と lon を数で渡してください'})
             if not in_japan(lat, lon):
                 return self._json(400, {'error': '日本の範囲の外です'})
-            return self._json(200, here(lat, lon))
+            demo = None
+            if q.get('demo', [''])[0]:
+                try:
+                    demo = parse_demo(q['demo'][0])
+                except ValueError:
+                    return self._json(400, {'error': 'demo は rain・landslide・flood・tide と :2～5 です（例 landslide:4）'})
+            return self._json(200, here(lat, lon, demo))
         return self._json(404, {'error': 'not found'})
 
     def log_message(self, fmt, *args):  # the position is in the query; do not log it
@@ -601,13 +651,15 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--point', help='lat,lon を 1 回だけ調べて JSON を表示')
+    ap.add_argument('--demo', type=parse_demo, metavar='HAZARD[:LEVEL]',
+                    help='--point と一緒に使う。作りものの警報を足して知らせを試す（例 landslide:4）')
     ap.add_argument('--port', type=int, default=8765)
     a = ap.parse_args()
     if a.point:
         lat, lon = (float(v) for v in a.point.split(','))
         if not in_japan(lat, lon):
             sys.exit('日本の範囲の外です')
-        print(json.dumps(here(lat, lon), ensure_ascii=False, indent=1))
+        print(json.dumps(here(lat, lon, a.demo), ensure_ascii=False, indent=1))
         return
     srv = ThreadingHTTPServer(('127.0.0.1', a.port), Handler)
     print(f'http://127.0.0.1:{a.port}/ を開いてください（Ctrl+C で止まります）')

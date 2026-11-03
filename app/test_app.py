@@ -204,6 +204,52 @@ class NoticeTest(unittest.TestCase):
         self.assertNotEqual(a['key'], app.build_notice(AREA, w, [], [], None, [])['key'])
 
 
+class DemoTest(unittest.TestCase):
+    NOW = app.datetime(2026, 11, 3, 23, 30, 5, tzinfo=app.JST)
+
+    def test_parse(self):
+        self.assertEqual(app.parse_demo('landslide:5'), ('landslide', 5))
+        self.assertEqual(app.parse_demo('tide'), ('tide', 4))
+        for bad in ('wind:3', 'rain:9', 'rain:x', '', 'flood:1'):
+            with self.assertRaises(ValueError):
+                app.parse_demo(bad)
+
+    def test_every_choice_has_a_code(self):
+        for h in app.GROUP1:
+            for lv in app.DEMO_LEVELS:
+                w = app.demo_warning(h, lv, self.NOW)
+                table = app.FLOOD_CODES if h == 'flood' else {c: v[1] for c, v in app.WARNING_CODES.items()}
+                self.assertEqual(table[w['code']], lv)
+                self.assertIn('試しの作りもの', w['name'])
+
+    def test_fake_alone_is_marked_and_not_called_official(self):
+        w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), self.NOW)
+        n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
+        self.assertTrue(n['notify'])
+        self.assertTrue(n['title'].startswith('【試し】'))
+        self.assertTrue(n['body'].startswith('これは試しです。レベル４土砂災害危険警報は作りもので、気象庁は出していません。'))
+        self.assertNotIn('が出ています（気象庁）', n['body'])
+        self.assertIn('土砂キキクルはこの地点で', n['body'])
+
+    def test_fake_with_real(self):
+        w = app.add_demo(warn(('03', 'rain', 3)), ('tide', 5), self.NOW)
+        n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
+        self.assertIn('レベル５高潮特別警報は作りもので', n['body'])
+        self.assertIn('千代田区にレベル３大雨警報が出ています（気象庁）', n['body'])
+        self.assertEqual(w['warnings'][0]['hazard'], 'tide')
+
+    def test_flood_goes_with_rivers_and_key_changes(self):
+        w = app.add_demo({'warnings': [], 'flood': []}, ('flood', 3), self.NOW)
+        self.assertEqual(len(w['flood']), 1)
+        a = app.build_notice(AREA, w, [], [], None, [])['key']
+        later = app.add_demo({'warnings': [], 'flood': []}, ('flood', 3), self.NOW + app.timedelta(seconds=1))
+        self.assertNotEqual(a, app.build_notice(AREA, later, [], [], None, [])['key'])
+
+    def test_level2_fake_does_not_notify(self):
+        w = app.add_demo({'warnings': [], 'flood': []}, ('rain', 2), self.NOW)
+        self.assertFalse(app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)['notify'])
+
+
 class ServerTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -232,6 +278,7 @@ class ServerTest(unittest.TestCase):
         self.assertEqual(self.get('/api/here?lat=1&lon=1')[0], 400)
         self.assertEqual(self.get('/api/here?lat=x&lon=1')[0], 400)
         self.assertEqual(self.get('/nothing')[0], 404)
+        self.assertEqual(self.get('/api/here?lat=35.68&lon=139.75&demo=wind:3')[0], 400)
 
     def test_other_host_refused(self):
         self.assertEqual(self.get('/', host='example.com')[0], 403)
