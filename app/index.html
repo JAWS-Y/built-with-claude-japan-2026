@@ -185,6 +185,27 @@ function showRoad(r) {
       link(i.link, '地図'), i.pdf ? '　' : null, i.pdf ? link(i.pdf, '箇所表') : null))), ...notes);
 }
 
+function showWildlife(w) {
+  const title = 'クマ等の出没（県の公開データ';
+  if (!w) return section(title + '）', el('p', {class: 'error'}, '読めませんでした。'));
+  if (!w.covered) return section(title + '）',
+    el('p', {}, 'クマ等の出没の記録を機械で読める形（CSV など）で読めるのは、いまは秋田県の分だけです。この地点の近くの分は入っていません。'));
+  const span = `${w.radius_km} km 以内・${w.days} 日以内`;
+  const notes = [
+    el('p', {class: 'muted'}, '県が時々まとめて公開する記録で、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。'),
+    ...w.sources.map(s => el('p', {class: 'muted'}, `出典：${s.title}（${s.license}、`, link(s.page, s.page),
+      `）を加工して作成（地点からの距離を計算し、新しい順に並べて数えています）。記録は ${s.data_until} までです。`)),
+    w.other_prefs ? el('p', {class: 'muted'}, '近くのほかの県の分は入っていません。') : null,
+    el('p', {class: 'links'}, w.sources.map(s => link(s.map, s.map_name + 'の地図で見る')))];
+  if (!w.count) return section(title + '）', el('p', {}, `${span}の記録はありません。`), ...notes);
+  const tally = o => Object.entries(o).map(([k, v]) => `${k} ${v} 件`).join('、');
+  return section(`${title}、${span}に ${w.count} 件）`,
+    el('p', {}, `獣の種類：${tally(w.by_animal)}`), el('p', {}, `記録の種類：${tally(w.by_kind)}`),
+    el('p', {class: 'muted'}, `新しい順に ${w.items.length} 件：`),
+    el('ul', {}, w.items.map(i => el('li', {}, `${i.time}　${i.animal} ${i.kind}${i.heads ? `（${i.heads} 頭）` : ''}　${i.km} km　${i.town}　`,
+      link(i.link, '地図')))), ...notes);
+}
+
 let renderSeq = 0;
 
 function render(d) {
@@ -203,7 +224,8 @@ function render(d) {
     s.id = 'notice';
     out.append(s);
   }
-  out.append(showWarnings(d), showZones(d.zones), showKiki(d.kikikuru), showRain(d.nowcast, d.amedas), showLore(d.lore), showRoad(d.road_flood));
+  out.append(showWarnings(d), showZones(d.zones), showKiki(d.kikikuru), showRain(d.nowcast, d.amedas), showLore(d.lore), showRoad(d.road_flood),
+    showWildlife(d.wildlife));
   if (d.errors.length) out.append(section('読めなかったもの',
     el('ul', {}, d.errors.map(e => el('li', {class: 'error'}, `${e.part}: ${e.error}`)))));
   out.append(section('この試作にまだ入れていないもの', el('ul', {}, d.not_included.map(t => el('li', {}, t)))),

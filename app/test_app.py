@@ -220,7 +220,8 @@ KML = '''<?xml version="1.0" encoding="UTF-8"?>
 </Document></kml>'''
 RELM = {'1310100': {'name': '千代田区', 'ne': [35.71, 139.71], 'sw': [35.69, 139.69]},
         '1110000': {'name': '埼玉の所', 'ne': [35.95, 139.70], 'sw': [35.72, 139.40]},
-        '4720100': {'name': '那覇市', 'ne': [26.25, 127.72], 'sw': [26.17, 127.65]}}
+        '4720100': {'name': '那覇市', 'ne': [26.25, 127.72], 'sw': [26.17, 127.65]},
+        '0520100': {'name': '秋田市', 'ne': [39.80, 140.20], 'sw': [39.60, 140.00]}}
 
 
 class RoadFloodTest(unittest.TestCase):
@@ -287,6 +288,101 @@ class RoadFloodTest(unittest.TestCase):
         self.assertNotIn('冠水', n['body'])
         n = app.build_notice(AREA, warn(('03', 'rain', 3)), [], [], None, [], {**ROAD, 'count': 0, 'items': []})
         self.assertNotIn('冠水', n['body'])
+
+
+AKITA = app.WILDLIFE_SETS['05']
+WILD_CSV = ('\ufeff出没情報ID,情報種別,市町村,地番情報,目撃日時,獣種,性別,単独か親子,頭数,目撃時の状況,x(緯度),y(経度)\n'
+            '1,目撃,秋田市,〇〇,2026/09/20 06:10,ツキノワグマ,不明,単独,1,"道を横切った\n山へ入った",39.7010,140.1000\n'
+            '2,痕跡(食害),秋田市,〇〇,2026/09/25 17:00,ツキノワグマ,不明,不明,0,柿,39.7100,140.1000\n'
+            '3,目撃,秋田市,〇〇,2026/09/25 17:00,ニホンジカ,不明,単独,1,,39.7020,140.1000\n'
+            '4,目撃,秋田市,〇〇,2026/09/28 05:00,ツキノワグマ,不明,親子,3,,39.7500,140.1000\n'
+            '5,目撃,秋田市,〇〇,2025/08/01 12:00,ツキノワグマ,不明,単独,1,,39.7001,140.1000\n'
+            '6,目撃,秋田市,〇〇,日時なし,ツキノワグマ,不明,単独,1,,39.7001,140.1000\n'
+            '7,目撃,秋田市,〇〇,2026/09/26 08:00,イノシシ,不明,単独,1,,緯度なし,140.1000\n').encode()
+
+
+class WildlifeTest(unittest.TestCase):
+    NOW = app.datetime(2026, 10, 1, 12, 0, tzinfo=app.JST)
+
+    def setUp(self):
+        self.fetched, self.saved = [], (app.fetch, app.fetch_json)
+        self.pages, self.pkg = {AKITA['csv']: WILD_CSV}, ConnectionResetError('reset')
+        app._wild_parsed.clear()
+
+        def fetch(url, ttl):
+            self.fetched.append(url)
+            page = self.pages.get(url)
+            if isinstance(page, Exception):
+                raise page
+            return page
+
+        def fetch_json(url, ttl):
+            if url == AKITA['api']:
+                if isinstance(self.pkg, Exception):
+                    raise self.pkg
+                return self.pkg
+            return RELM
+        app.fetch, app.fetch_json = fetch, fetch_json
+
+    def tearDown(self):
+        app.fetch, app.fetch_json = self.saved
+        app._wild_parsed.clear()
+
+    def test_parse_skips_bad_rows(self):
+        rows = app.parse_wildlife(WILD_CSV)
+        self.assertEqual(len(rows), 5)  # 日時なし・緯度なし are skipped; the quoted line break stays in one row
+        self.assertEqual(rows[0][:2], (39.701, 140.1))
+        self.assertEqual(rows[0][3:], ('目撃', 'ツキノワグマ', 1, '秋田市'))
+        with self.assertRaises(ValueError):
+            app.parse_wildlife('a,b\n1,2\n'.encode())
+
+    def test_radius_days_order_and_counts(self):
+        w = app.wildlife(39.70, 140.10, now=self.NOW)
+        self.assertTrue(w['covered'])
+        self.assertFalse(w['other_prefs'])
+        self.assertEqual(w['count'], 3)  # 5.5 km away and 14 months old are left out
+        self.assertEqual([i['time'] for i in w['items']], ['2026/09/25 17:00', '2026/09/25 17:00', '2026/09/20 06:10'])
+        self.assertEqual([i['animal'] for i in w['items']], ['ニホンジカ', 'ツキノワグマ', 'ツキノワグマ'])  # same time: nearer first
+        self.assertEqual(w['by_animal'], {'ツキノワグマ': 2, 'ニホンジカ': 1})
+        self.assertEqual(w['by_kind'], {'目撃': 2, '痕跡(食害)': 1})
+        self.assertEqual(w['items'][1]['heads'], 0)
+        self.assertIn('#16/39.710000/140.100000/', w['items'][1]['link'])
+        self.assertEqual(w['sources'][0]['url'], AKITA['csv'])
+        self.assertEqual(w['sources'][0]['data_until'], '2026/09/28')
+        self.assertEqual(w['errors'], [])
+
+    def test_parse_once_per_download(self):
+        app.wildlife(39.70, 140.10, now=self.NOW)
+        rows = app._wild_parsed[AKITA['csv']][1]
+        app.wildlife(39.71, 140.10, now=self.NOW)
+        self.assertIs(app._wild_parsed[AKITA['csv']][1], rows)
+
+    def test_csv_url_from_catalog(self):
+        url = 'https://ckan.pref.akita.lg.jp/dataset/x/resource/y/download/new_kumadas.csv'
+        self.pkg = {'result': {'title': '県の題', 'resources': [
+            {'format': 'CSV', 'url': 'https://elsewhere.example/kumadas.csv'},
+            {'format': 'PDF', 'url': 'https://ckan.pref.akita.lg.jp/a.pdf'},
+            {'format': 'csv', 'url': url}]}}
+        self.pages = {url: WILD_CSV}
+        w = app.wildlife(39.70, 140.10, now=self.NOW)
+        self.assertEqual((w['sources'][0]['url'], w['sources'][0]['title']), (url, '県の題'))
+        self.assertNotIn('https://elsewhere.example/kumadas.csv', self.fetched)
+
+    def test_outside_akita(self):
+        w = app.wildlife(35.70, 139.70, now=self.NOW)
+        self.assertEqual((w['covered'], w['other_prefs'], w['count'], self.fetched), (False, True, 0, []))
+
+    def test_download_failed_raises(self):
+        self.pages = {AKITA['csv']: ConnectionResetError('reset')}
+        with self.assertRaises(RuntimeError):
+            app.wildlife(39.70, 140.10, now=self.NOW)
+        self.pages = {}
+        with self.assertRaisesRegex(RuntimeError, '404'):
+            app.wildlife(39.70, 140.10, now=self.NOW)
+
+    def test_not_in_the_notice(self):
+        n = app.build_notice(AREA, warn(('03', 'rain', 3)), [], [], None, [], ROAD)
+        self.assertNotIn('クマ', n['body'])
 
 
 class DemoTest(unittest.TestCase):

@@ -9,7 +9,9 @@
   python3 app.py --point 35.71,139.82    → その地点の結果を JSON で表示
 """
 import argparse
+import csv
 import html
+import io
 import json
 import math
 import os
@@ -20,6 +22,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -560,6 +563,106 @@ def road_flood(lat, lon, radius_km=3.0, limit=5):
                      '&z=15&base=pale&ls=kansui_multi%2C0.8&disp=1&vs=c1j0l0u0t0h0z0')}
 
 
+# ---------------------------------------------------------------- クマ等の出没（県の公開データ）
+
+WILDLIFE_SETS = {  # 県番号 → 出没の記録を CSV で公開しているデータセット（CKAN）。地図や PDF だけの県は入れていない
+    '05': {'name': '秋田県 ツキノワグマ等情報マップシステム「クマダス」', 'license': 'CC BY 4.0',
+           'api': 'https://ckan.pref.akita.lg.jp/api/3/action/package_show?id=050008_shizenhogoka_003',
+           'csv': ('https://ckan.pref.akita.lg.jp/dataset/f801a10f-f076-47e4-b5a6-0bb5569639e0/resource/'
+                   '0678f9b3-4bf7-4212-9c0e-c0cb9b09b3cf/download/050008_kumadas.csv'),
+           'page': 'https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003',
+           'map': 'https://kumadas.net/', 'map_name': 'クマダス（秋田県）'},
+}
+WILDLIFE_COLUMNS = ('目撃日時', '情報種別', '獣種', '頭数', '市町村', 'x(緯度)', 'y(経度)')
+_wild_parsed, _wild_lock = {}, threading.Lock()
+
+
+def parse_wildlife(data):
+    """Rows of a クマダス-style CSV: (lat, lon, datetime, 情報種別, 獣種, 頭数, 市町村). Bad rows are skipped."""
+    rows = csv.reader(io.StringIO(data.decode('utf-8-sig', 'replace')))
+    head = next(rows, [])
+    missing = [c for c in WILDLIFE_COLUMNS if c not in head]
+    if missing:
+        raise ValueError(f'CSV の列がありません: {missing}')
+    at = [head.index(c) for c in WILDLIFE_COLUMNS]
+    out = []
+    for r in rows:
+        try:
+            when, kind, animal, heads, town, la, lo = (r[i].strip() for i in at)
+            out.append((float(la), float(lo), datetime.strptime(when, '%Y/%m/%d %H:%M').replace(tzinfo=JST),
+                        kind, animal, int(heads) if heads.isdigit() else None, town))
+        except (IndexError, ValueError):
+            continue
+    return out
+
+
+def _wildlife_rows(url, data):
+    """parse_wildlife, kept while fetch() hands back the same bytes."""
+    with _wild_lock:
+        hit = _wild_parsed.get(url)
+        if hit and hit[0] is data:
+            return hit[1]
+    rows = parse_wildlife(data)
+    with _wild_lock:
+        _wild_parsed[url] = (data, rows)
+    return rows
+
+
+def _wildlife_csv(s):
+    """The CSV url from the data catalog (it changes when the 県 renames the file), else the known one."""
+    host = urllib.parse.urlsplit(s['api']).netloc
+    try:
+        pkg = fetch_json(s['api'], DAY)['result']
+        for r in pkg['resources']:
+            u = urllib.parse.urlsplit(r.get('url') or '')
+            if (r.get('format') or '').upper() == 'CSV' and u.scheme == 'https' and u.netloc == host:
+                return r['url'], pkg.get('title') or s['name']
+    except Exception:
+        pass
+    return s['csv'], s['name']
+
+
+def wildlife(lat, lon, radius_km=3.0, days=365, limit=5, now=None):
+    now = now or datetime.now(JST)
+    since = now - timedelta(days=days)
+    found, used, errors = [], [], []
+    prefs = prefs_near(lat, lon, radius_km)
+    for pref in prefs:
+        if pref not in WILDLIFE_SETS:
+            continue
+        s = WILDLIFE_SETS[pref]
+        url, title = _wildlife_csv(s)
+        try:
+            data = fetch(url, DAY)
+            if data is None:
+                raise RuntimeError('ありません（404）')
+            rows = _wildlife_rows(url, data)
+        except Exception as e:
+            errors.append(f"{s['name']}（{url}）: {type(e).__name__}: {e}")
+            continue
+        newest = max((r[2] for r in rows), default=None)
+        used.append({'name': s['name'], 'title': title, 'url': url, 'page': s['page'], 'map': s['map'],
+                     'map_name': s['map_name'], 'license': s['license'],
+                     'data_until': newest.strftime('%Y/%m/%d') if newest else None})
+        for la, lo, when, kind, animal, heads, town in rows:
+            if when < since or when > now:
+                continue
+            d = km(lat, lon, la, lo)
+            if d <= radius_km:
+                found.append({'km': round(d, 2), 'time': when.strftime('%Y/%m/%d %H:%M'), 'kind': kind,
+                              'animal': animal, 'heads': heads, 'town': town, 'source': s['name'],
+                              'link': f'https://maps.gsi.go.jp/#16/{la:.6f}/{lo:.6f}/&base=std'})
+    if errors and not used:
+        raise RuntimeError(' ／ '.join(errors))
+    found.sort(key=lambda x: (x['time'], -x['km']), reverse=True)  # 新しい順、同じ時刻なら近い順
+
+    def tally(key):
+        return dict(Counter(f[key] for f in found).most_common())
+    return {'radius_km': radius_km, 'days': days, 'covered': any(p in WILDLIFE_SETS for p in prefs),
+            'count': len(found), 'by_animal': tally('animal'), 'by_kind': tally('kind'), 'items': found[:limit],
+            'sources': used, 'other_prefs': any(p not in WILDLIFE_SETS for p in prefs), 'errors': errors}
+
+
 # ---------------------------------------------------------------- 知らせ
 
 LINKS = {
@@ -644,11 +747,23 @@ SOURCES = [
              '加工は、地点からの距離を計算して近い順に並べたことです。'
              '国が「冠水のおそれがある・過去に冠水した道路」として挙げている箇所で、載っていないことは冠水しないことを意味しません。'
              '各局の利用規約は公共データ利用規約（PDL1.0）。'},
+    {'name': '秋田県 ツキノワグマ等情報マップシステム「クマダス」データ（秋田県オープンデータカタログ）',
+     'url': 'https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003',
+     'note': '出典：秋田県「ツキノワグマ等情報マップシステム『クマダス』データ」（CC BY 4.0）を加工して作成。'
+             '加工は、地点からの距離を計算し、新しい順に並べて数えたことです。'
+             '県が時々まとめて公開するデータで、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。'},
 ]
 NOT_INCLUDED = [
     '洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。',
     '道路冠水想定箇所の沖縄県の分: 国土交通省の道路防災情報webマップに沖縄県の分が無いため入っていません。',
     '浸水継続時間・津波の深さ: 凡例をまだ読み取っていないため、津波は「区域に入るか」だけです。',
+    'クマ等の出没（秋田県のほか）: ほかの都道府県は出没を地図や PDF で出していて、'
+    '機械で読める形（CSV など）の公開データが見つかっていないため入っていません。',
+    '犯罪の情報: 警察の公開データは、利用規約のページを読めなかったか、過去の集計だけか、自由に使える規約でないため入れていません。',
+    '林野火災注意報: 市町村ごとに出され、全国をまとめて読める公式の配信が見つかっていないため入れていません'
+    '（乾燥注意報は警報・注意報の欄に出ます）。',
+    '雪による通行止め: 冬にならないと中身の形を確かめられないため、まだ入れていません（大雪・なだれ・着雪などの警報・注意報と、'
+    '雪崩危険箇所は出ます）。',
     'Claude による文の組み立て: PC で ANTHROPIC_API_KEY を設定したときだけ使います。'
     'Claude には公式の事実だけを渡し、返ってきた文はアプリが 1 文ずつ確かめ、外れたら事実を並べた文に戻します。',
 ]
@@ -702,19 +817,21 @@ def here(lat, lon, demo=None):
         except Exception as e:
             out['errors'].append({'part': part, 'error': f'{type(e).__name__}: {e}'})
             return None
-    with ThreadPoolExecutor(7) as ex:
+    with ThreadPoolExecutor(8) as ex:
         jobs = {'kikikuru': ex.submit(run, 'キキクル', kikikuru, lat, lon),
                 'nowcast': ex.submit(run, '降水ナウキャスト', nowcast, lat, lon),
                 'amedas': ex.submit(run, 'アメダス', amedas, lat, lon),
                 'zones': ex.submit(run, 'ハザードマップ', zones, lat, lon),
                 'lore': ex.submit(run, '自然災害伝承碑', lore, lat, lon),
-                'road_flood': ex.submit(run, '道路冠水想定箇所', road_flood, lat, lon)}
+                'road_flood': ex.submit(run, '道路冠水想定箇所', road_flood, lat, lon),
+                'wildlife': ex.submit(run, 'クマ等の出没', wildlife, lat, lon)}
         area = run('区域', find_area, lat, lon)
         warn = run('警報・注意報', warnings_for, area) if area else None
         for k, f in jobs.items():
             out[k] = f.result()
-    for e in (out['road_flood'] or {}).get('errors', []):
-        out['errors'].append({'part': '道路冠水想定箇所', 'error': e})
+    for part, k in (('道路冠水想定箇所', 'road_flood'), ('クマ等の出没', 'wildlife')):
+        for e in (out[k] or {}).get('errors', []):
+            out['errors'].append({'part': part, 'error': e})
     if demo and warn:
         warn = add_demo(warn, demo, now)
     out['demo'] = {'hazard': demo[0], 'level': demo[1]} if demo else None
