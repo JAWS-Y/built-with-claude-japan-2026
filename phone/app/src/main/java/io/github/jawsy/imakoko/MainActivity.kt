@@ -16,6 +16,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.messaging.FirebaseMessaging
 import org.json.JSONArray
 import org.json.JSONObject
@@ -63,9 +64,10 @@ class MainActivity : Activity() {
     // ------------------------------------------------------------ setup
 
     private fun saveSetup() {
-        val s = Setup.parse(setupText.text.toString())
+        val read = Setup.read(setupText.text.toString())
+        val s = read.setup
         message = when {
-            s == null -> "設定の文が読めません。PC の「python3 phone.py pair」が出した 1 行をそのまま貼ります。"
+            s == null -> "設定の文が読めません（${read.problem}）。PC の「python3 phone.py pair」が出した文を貼ります。"
             Prefs.tracking(this) -> "位置を送っている間は設定を変えられません。先に「止める」を押します。"
             !App.start(this, s) -> {
                 Prefs.saveSetup(this, s)
@@ -74,9 +76,12 @@ class MainActivity : Activity() {
             else -> {
                 Prefs.saveSetup(this, s)
                 setupText.setText("")
-                "設定を保存しました。"
+                "設定を保存しました。上の「位置を送り始める」を押します。"
             }
         }
+        // the status is at the top of the screen, out of sight from this button, so say it here too
+        findViewById<TextView>(R.id.setup_result).text = message
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         refresh()
     }
 
