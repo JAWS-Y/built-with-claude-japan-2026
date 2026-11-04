@@ -190,20 +190,24 @@ def firestore_value(v):
 # ---------------------------------------------------------------- 知らせ → push
 
 def push_key(out):
-    """What the phone has been told: area, the triggering warnings and the zones the spot is in.
-    A new report of the same warnings is not news; a higher level, another area or another zone is."""
+    """What the phone has been told: area, the triggering warnings, the zones the spot is in and the newest bear record.
+    A new report of the same warnings is not news; a higher level, another area, another zone or a newer record is."""
     warn, n = out.get('warning') or {}, out['notice']
     codes = sorted({w['code'] for w in warn.get('warnings', []) + warn.get('flood', []) if w['group1'] and w['level'] >= 3})
-    return '|'.join([out['area']['class20']['code'], ','.join(codes), ','.join(sorted(n.get('places', []))),
-                     'demo' if out.get('demo') else ''])
+    parts = [out['area']['class20']['code'], ','.join(codes), ','.join(sorted(n.get('places', []))),
+             'demo' if out.get('demo') else '']
+    if n.get('wildlife'):  # 記録そのもの。地点との距離は携帯が少し動くだけで変わるので入れない
+        parts.append(f"bear:{n['wildlife']['time']}@{n['wildlife']['link']}")
+    return '|'.join(parts)
 
 
 def links_for(out):
-    """Official pages for the notice: the warning pages, the キキクル maps of the hazards and the hazard map."""
+    """Official pages for the notice: the warning pages, the キキクル maps of the hazards, the hazard map,
+    and for a bear record the prefecture's map and the spot of the record."""
     warn, n = out.get('warning') or {}, out['notice']
     trig = [w for w in warn.get('warnings', []) + warn.get('flood', []) if w['group1'] and w['level'] >= 3]
     hazards = {w['hazard'] for w in trig}
-    links = [['気象庁の警報・注意報', warn['link']]]
+    links = [['気象庁の警報・注意報', warn['link']]] if trig else []
     if 'flood' in hazards:
         links.append(['指定河川洪水予報', warn['flood_link']])
     kiki_keys = {k for h in hazards for k in app.LINKS[h]['kiki']}
@@ -212,6 +216,12 @@ def links_for(out):
             links.append([k['label'].split('（')[0], k['link']])
     if out.get('zones') and n.get('places'):
         links.append(['重ねるハザードマップ', out['zones']['link']])
+    b = n.get('wildlife')
+    if b:
+        for src in (out.get('wildlife') or {}).get('sources', []):
+            if src['name'] == b['source']:
+                links.append([src['map_name'], src['map']])
+        links.append(['記録の地点（地理院地図）', b['link']])
     return links
 
 

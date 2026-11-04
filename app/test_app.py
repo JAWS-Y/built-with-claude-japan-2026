@@ -8,6 +8,7 @@ import zlib
 from http.server import ThreadingHTTPServer
 
 import app
+import compose
 from png import Png, _paeth
 
 
@@ -380,9 +381,50 @@ class WildlifeTest(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, '404'):
             app.wildlife(39.70, 140.10, now=self.NOW)
 
-    def test_not_in_the_notice(self):
-        n = app.build_notice(AREA, warn(('03', 'rain', 3)), [], [], None, [], ROAD)
+    def bear_notice(self, w=None, lat=39.70):
+        wild = app.wildlife(lat, 140.10, now=self.NOW)
+        return app.build_notice(AREA, w or {'warnings': [], 'flood': []}, [], [], RAIN, [], ROAD, wild)
+
+    def test_notify_rule(self):
+        b = app.wildlife(39.70, 140.10, now=self.NOW)['notify']
+        # the bear 1.11 km away, the deer 0.22 km away and the bear 14 months ago are left out
+        self.assertEqual((b['count'], b['newest']['time'], b['newest']['km']), (1, '2026/09/20 06:10', 0.11))
+        self.assertEqual((b['newest']['short'], b['newest']['data_until']), ('秋田県 クマダス', '2026/09/28'))
+        later = app.wildlife(39.70, 140.10, now=self.NOW + app.timedelta(days=61))['notify']
+        self.assertEqual((later['count'], later['newest']), (0, None))
+
+    def test_bear_alone_notifies(self):
+        n = self.bear_notice()
+        self.assertEqual((n['notify'], n['weather']), (True, False))
+        self.assertEqual(n['title'], '千代田区: ツキノワグマの出没の記録')
+        self.assertEqual([f['id'] for f in n['facts']], ['wildlife'])  # no rain or road without a warning
+        self.assertIn('1km 以内で、60 日以内にツキノワグマの記録が 1 件あります。', n['body'])
+        self.assertTrue(n['body'].endswith('いちばん新しいのは 2026/09/20 06:10 の目撃で、0.11km 先です（秋田県 クマダス）。'))
+        self.assertEqual(n['wildlife']['time'], '2026/09/20 06:10')
+        lines = compose.validate(n['facts'], {'lines': [{'text': n['facts'][0]['text'] + '。', 'facts': ['wildlife']}]})
+        self.assertEqual(lines, n['body'].split('\n'))
+
+    def test_bear_with_warning(self):
+        n = self.bear_notice(warn(('03', 'rain', 3)))
+        self.assertEqual(n['title'], '千代田区: レベル３大雨警報、ツキノワグマの出没の記録')
+        self.assertTrue(n['weather'])
+        self.assertEqual([f['id'] for f in n['facts']], ['warning', 'rain', 'road', 'wildlife'])
+
+    def test_no_bear_near(self):
+        self.assertEqual(self.bear_notice(lat=39.72), {'notify': False})  # nearest bear 1.11 km
+        n = self.bear_notice(warn(('03', 'rain', 3)), lat=39.72)
         self.assertNotIn('クマ', n['body'])
+        self.assertIsNone(n['wildlife'])
+
+    def test_key_follows_the_record_not_the_distance(self):
+        a, moved = self.bear_notice(), self.bear_notice(lat=39.7003)
+        self.assertNotEqual(a['facts'][0]['text'], moved['facts'][0]['text'])  # 0.11 km → 0.08 km
+        self.assertEqual(a['key'], moved['key'])
+        self.pages = {AKITA['csv']: WILD_CSV + '8,目撃,秋田市,〇〇,2026/09/30 07:00,ツキノワグマ,不明,単独,1,,39.7005,140.1000\n'.encode()}
+        app._wild_parsed.clear()
+        newer = self.bear_notice()
+        self.assertNotEqual(a['key'], newer['key'])
+        self.assertIn('2 件', newer['body'])
 
 
 class DemoTest(unittest.TestCase):

@@ -22,14 +22,27 @@ def b64u_decode(text):
     return base64.urlsafe_b64decode(text + '=' * (-len(text) % 4))
 
 
-def out_for(w, zone_items=ZONE_ITEMS, demo=None, checked='2026-11-03 23:50'):
+BEAR = {'km': 0.11, 'time': '2026/09/20 06:10', 'kind': '目撃', 'animal': 'ツキノワグマ', 'heads': 1, 'town': '秋田市',
+        'source': app.WILDLIFE_SETS['05']['name'], 'short': '秋田県 クマダス', 'data_until': '2026/09/28',
+        'link': 'https://maps.gsi.go.jp/#16/39.701000/140.100000/&base=std'}
+
+
+def wild_for(bear):
+    return {'sources': [{'name': app.WILDLIFE_SETS['05']['name'], 'map': 'https://kumadas.net/',
+                         'map_name': 'クマダス（秋田県）'}],
+            'notify': {'animals': ['ツキノワグマ'], 'radius_km': 1.0, 'days': 60, 'count': 1 if bear else 0,
+                       'newest': bear}}
+
+
+def out_for(w, zone_items=ZONE_ITEMS, demo=None, checked='2026-11-03 23:50', bear=None):
     """here() output built from the test_app fixtures (no network)."""
     zones = {'items': zone_items, 'link': f'https://disaportal.gsi.go.jp/maps/?ll={LAT},{LON}'}
     kiki = [{**k, 'link': f"https://www.jma.go.jp/bosai/risk/#elements:{k['key']}"} for k in KIKI]
     w = {**w, 'link': 'https://www.jma.go.jp/bosai/warning/', 'flood_link': 'https://www.jma.go.jp/bosai/flood/'}
+    wild = wild_for(bear)
     return {'point': {'lat': LAT, 'lon': LON}, 'checked_at': checked, 'area': AREA, 'warning': w,
-            'kikikuru': kiki, 'zones': zones, 'demo': demo,
-            'notice': app.build_notice(AREA, w, zone_items, kiki, RAIN, LORE)}
+            'kikikuru': kiki, 'zones': zones, 'demo': demo, 'wildlife': wild,
+            'notice': app.build_notice(AREA, w, zone_items, kiki, RAIN, LORE, None, wild)}
 
 
 @unittest.skipUnless(shutil.which('openssl'), 'openssl is not installed')
@@ -176,6 +189,28 @@ class PushTest(unittest.TestCase):
         self.assertTrue(m['body'].startswith('はじめの行'))
         self.assertTrue(m['body'].endswith('携帯から最後に位置が届いたのは 3 時間 5 分前です。'))
         self.assertEqual(json.loads(m['links'])[0][0], '気象庁の警報・注意報')
+
+    def test_bear_alone(self):
+        o = out_for(warn(), bear=BEAR)
+        self.assertEqual([n for n, _ in phone.links_for(o)], ['クマダス（秋田県）', '記録の地点（地理院地図）'])
+        m = phone.message_for(o)
+        self.assertEqual(m['title'], '千代田区: ツキノワグマの出没の記録')
+        self.assertIn('0.11km 先です（秋田県 クマダス）。', m['body'])
+        self.assertEqual(json.loads(m['links'])[1][1], BEAR['link'])
+        o['warning'] = None  # the warning part failed; the bear notice still goes out
+        self.assertEqual(len(phone.links_for(o)), 2)
+
+    def test_bear_key_follows_the_record(self):
+        a = phone.push_key(out_for(warn(), bear=BEAR))
+        self.assertEqual(a, phone.push_key(out_for(warn(), bear={**BEAR, 'km': 0.4})))  # the phone moved a little
+        self.assertNotEqual(a, phone.push_key(out_for(warn(), bear={**BEAR, 'time': '2026/09/29 17:00'})))
+        self.assertNotIn('bear:', phone.push_key(out_for(warn(('49', 'landslide', 4)))))
+
+    def test_bear_with_warning(self):
+        o = out_for(warn(('49', 'landslide', 4)), bear=BEAR)
+        self.assertEqual([n for n, _ in phone.links_for(o)],
+                         ['気象庁の警報・注意報', '土砂キキクル', '重ねるハザードマップ', 'クマダス（秋田県）', '記録の地点（地理院地図）'])
+        self.assertTrue(phone.push_key(o).endswith(f"|bear:{BEAR['time']}@{BEAR['link']}"))
 
     def test_no_instructions(self):
         m = phone.message_for(out_for(warn(('03', 'rain', 3), ('49', 'landslide', 4))), age=9 * 3600)

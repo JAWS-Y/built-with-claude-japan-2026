@@ -571,8 +571,11 @@ WILDLIFE_SETS = {  # 県番号 → 出没の記録を CSV で公開している�
            'csv': ('https://ckan.pref.akita.lg.jp/dataset/f801a10f-f076-47e4-b5a6-0bb5569639e0/resource/'
                    '0678f9b3-4bf7-4212-9c0e-c0cb9b09b3cf/download/050008_kumadas.csv'),
            'page': 'https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003',
-           'map': 'https://kumadas.net/', 'map_name': 'クマダス（秋田県）'},
+           'map': 'https://kumadas.net/', 'map_name': 'クマダス（秋田県）', 'short': '秋田県 クマダス'},
 }
+# 知らせのきっかけにする記録: この獣で、地点からこの距離・この日数のうちにあるもの。
+# 県のデータは月ごとにまとめて出る（月末から 1 週間ほどあと）ので、30 日では出たときにはもう古い
+WILDLIFE_NOTIFY = {'animals': ('ツキノワグマ',), 'radius_km': 1.0, 'days': 60}
 WILDLIFE_COLUMNS = ('目撃日時', '情報種別', '獣種', '頭数', '市町村', 'x(緯度)', 'y(経度)')
 _wild_parsed, _wild_lock = {}, threading.Lock()
 
@@ -624,9 +627,10 @@ def _wildlife_csv(s):
 
 def wildlife(lat, lon, radius_km=3.0, days=365, limit=5, now=None):
     now = now or datetime.now(JST)
-    since = now - timedelta(days=days)
-    found, used, errors = [], [], []
-    prefs = prefs_near(lat, lon, radius_km)
+    rule = WILDLIFE_NOTIFY
+    since, since_n = now - timedelta(days=days), now - timedelta(days=rule['days'])
+    found, hits, used, errors = [], [], [], []
+    prefs = prefs_near(lat, lon, max(radius_km, rule['radius_km']))
     for pref in prefs:
         if pref not in WILDLIFE_SETS:
             continue
@@ -645,22 +649,29 @@ def wildlife(lat, lon, radius_km=3.0, days=365, limit=5, now=None):
                      'map_name': s['map_name'], 'license': s['license'],
                      'data_until': newest.strftime('%Y/%m/%d') if newest else None})
         for la, lo, when, kind, animal, heads, town in rows:
-            if when < since or when > now:
+            if when < min(since, since_n) or when > now:
                 continue
             d = km(lat, lon, la, lo)
-            if d <= radius_km:
-                found.append({'km': round(d, 2), 'time': when.strftime('%Y/%m/%d %H:%M'), 'kind': kind,
-                              'animal': animal, 'heads': heads, 'town': town, 'source': s['name'],
-                              'link': f'https://maps.gsi.go.jp/#16/{la:.6f}/{lo:.6f}/&base=std'})
+            item = {'km': round(d, 2), 'time': when.strftime('%Y/%m/%d %H:%M'), 'kind': kind,
+                    'animal': animal, 'heads': heads, 'town': town, 'source': s['name'], 'short': s['short'],
+                    'data_until': used[-1]['data_until'],
+                    'link': f'https://maps.gsi.go.jp/#16/{la:.6f}/{lo:.6f}/&base=std'}
+            if when >= since and d <= radius_km:
+                found.append(item)
+            if when >= since_n and d <= rule['radius_km'] and animal in rule['animals']:
+                hits.append(item)
     if errors and not used:
         raise RuntimeError(' ／ '.join(errors))
-    found.sort(key=lambda x: (x['time'], -x['km']), reverse=True)  # 新しい順、同じ時刻なら近い順
+    for items in (found, hits):
+        items.sort(key=lambda i: (i['time'], -i['km']), reverse=True)  # 新しい順、同じ時刻なら近い順
 
     def tally(key):
         return dict(Counter(f[key] for f in found).most_common())
     return {'radius_km': radius_km, 'days': days, 'covered': any(p in WILDLIFE_SETS for p in prefs),
             'count': len(found), 'by_animal': tally('animal'), 'by_kind': tally('kind'), 'items': found[:limit],
-            'sources': used, 'other_prefs': any(p not in WILDLIFE_SETS for p in prefs), 'errors': errors}
+            'sources': used, 'other_prefs': any(p not in WILDLIFE_SETS for p in prefs), 'errors': errors,
+            'notify': {'animals': list(rule['animals']), 'radius_km': rule['radius_km'], 'days': rule['days'],
+                       'count': len(hits), 'newest': hits[0] if hits else None}}
 
 
 # ---------------------------------------------------------------- 知らせ
@@ -673,15 +684,17 @@ LINKS = {
 }
 
 
-def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None):
-    """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out. The text lists official facts only.
+def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild=None):
+    """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out, or a bear was recorded near the spot
+    (WILDLIFE_NOTIFY). Each part can notify alone. The text lists official facts only.
 
     `facts` keeps each fact apart from its source, so a writer (compose.py) can join them into sentences
     and the code can still put the sources back. `body` is the plain text: lead + one line per fact.
     """
     trig = [w for w in (warn or {}).get('warnings', []) + (warn or {}).get('flood', [])
             if w['group1'] and w['level'] >= 3]
-    if not trig:
+    bear = ((wild or {}).get('notify') or {})
+    if not trig and not bear.get('count'):
         return {'notify': False}
     hazards = {w['hazard'] for w in trig}
     zone_keys = {k for h in hazards for k in LINKS[h]['zones']}
@@ -712,7 +725,7 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None):
         if k['key'] in kiki_keys and k.get('level') is not None:
             fact(f"kiki-{k['key']}", f"{k['label'].split('（')[0]}はこの地点で「{k['meaning']}」です",
                  f"気象庁 {k['time']}")
-    if rain and 'now' in rain:
+    if trig and rain and 'now' in rain:  # 雨の事実は、大雨などの警報が出ているときだけ添える
         text = f"降水ナウキャストではこの地点 いま {rain['now']['rain']}"
         if 'plus60' in rain:
             text += f"、60分後 {rain['plus60']['rain']}"
@@ -725,12 +738,22 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None):
         near = road['items'][0]
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'])
-    lines = lead + [f"{f['text']}（{f['source']}）。" for f in facts if f['plain']]
+    heads = [names] if names else []
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
-    title = ('【試し】' if fake else '') + f"{area_name}: {names}"
+    if bear.get('count'):
+        b = bear['newest']
+        animals = '・'.join(bear['animals'])
+        fact('wildlife', f"県が {b['data_until']} までの分を公開している出没の記録では、この地点から {bear['radius_km']:g}km 以内で、"
+                         f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
+                         f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'])
+        heads.append(f'{animals}の出没の記録')
+        key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
+    lines = lead + [f"{f['text']}（{f['source']}）。" for f in facts if f['plain']]
+    title = ('【試し】' if fake else '') + f"{area_name}: " + '、'.join(heads)
     return {'notify': True, 'title': title, 'body': '\n'.join(lines), 'lead': lead, 'facts': facts,
-            'key': key, 'place_found': bool(place), 'places': [z['key'] for z in zone_items or []
-                                                               if z['key'] in zone_keys and z.get('in')]}
+            'key': key, 'weather': bool(trig), 'wildlife': bear['newest'] if bear.get('count') else None,
+            'place_found': bool(place), 'places': [z['key'] for z in zone_items or []
+                                                   if z['key'] in zone_keys and z.get('in')]}
 
 
 SOURCES = [
@@ -751,7 +774,8 @@ SOURCES = [
      'url': 'https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003',
      'note': '出典：秋田県「ツキノワグマ等情報マップシステム『クマダス』データ」（CC BY 4.0）を加工して作成。'
              '加工は、地点からの距離を計算し、新しい順に並べて数えたことです。'
-             '県が時々まとめて公開するデータで、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。'},
+             '県が時々まとめて公開するデータで、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。'
+             'ツキノワグマの記録が地点から 1km 以内・60 日以内にあると、知らせのきっかけにします（イノシシ・シカは画面に出すだけです）。'},
 ]
 NOT_INCLUDED = [
     '洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。',
@@ -837,7 +861,8 @@ def here(lat, lon, demo=None):
     out['demo'] = {'hazard': demo[0], 'level': demo[1]} if demo else None
     out['area'], out['warning'] = area, warn
     out['notice'] = build_notice(area, warn, (out['zones'] or {}).get('items'), out['kikikuru'], out['nowcast'],
-                                 (out['lore'] or {}).get('items'), out['road_flood']) if area else {'notify': False}
+                                 (out['lore'] or {}).get('items'), out['road_flood'], out['wildlife']) \
+        if area else {'notify': False}
     return out
 
 

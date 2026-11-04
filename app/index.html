@@ -191,7 +191,10 @@ function showWildlife(w) {
   if (!w.covered) return section(title + '）',
     el('p', {}, 'クマ等の出没の記録を機械で読める形（CSV など）で読めるのは、いまは秋田県の分だけです。この地点の近くの分は入っていません。'));
   const span = `${w.radius_km} km 以内・${w.days} 日以内`;
+  const rule = w.notify;
   const notes = [
+    el('p', {}, `知らせのきっかけにするのは、${rule.animals.join('・')}の記録が ${rule.radius_km} km 以内・${rule.days} 日以内にあるときです`
+      + `（いま ${rule.count} 件）。ほかの獣は画面に出すだけです。`),
     el('p', {class: 'muted'}, '県が時々まとめて公開する記録で、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。'),
     ...w.sources.map(s => el('p', {class: 'muted'}, `出典：${s.title}（${s.license}、`, link(s.page, s.page),
       `）を加工して作成（地点からの距離を計算し、新しい順に並べて数えています）。記録は ${s.data_until} までです。`)),
@@ -220,7 +223,10 @@ function render(d) {
   if (n.notify) {
     const s = section(n.title, el('p', {id: 'noticeBody'}, n.body),
       el('p', {class: 'muted', id: 'composerNote'}, composerNote(n.composer)),
-      el('p', {class: 'links'}, link(d.warning.link, '気象庁の警報・注意報'), d.zones ? link(d.zones.link, '重ねるハザードマップ') : null));
+      el('p', {class: 'links'}, n.weather && d.warning ? link(d.warning.link, '気象庁の警報・注意報') : null,
+        n.weather && d.zones ? link(d.zones.link, '重ねるハザードマップ') : null,
+        ...(n.wildlife ? d.wildlife.sources.filter(s => s.name === n.wildlife.source).map(s => link(s.map, s.map_name))
+          .concat([link(n.wildlife.link, '記録の地点（地理院地図）')]) : [])));
     s.id = 'notice';
     out.append(s);
   }
