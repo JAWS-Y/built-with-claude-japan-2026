@@ -147,6 +147,21 @@ function notify(n) {
   if ('Notification' in window && Notification.permission === 'granted') new Notification(n.title, {body: n.body});
 }
 
+function showRoad(r) {
+  const title = '道路冠水想定箇所（国土交通省 道路防災情報webマップ';
+  if (!r) return section(title + '）', el('p', {class: 'error'}, '読めませんでした。'));
+  const notes = [
+    el('p', {class: 'muted'}, '国が「冠水のおそれがある・過去に冠水した道路」として挙げている箇所です。載っていないことは冠水しないことを意味しません。'),
+    ...r.sources.map(s => el('p', {class: 'muted'}, `出典：${s.bureau}ホームページ（`, link(s.url, s.url),
+      '）を加工して作成（地点からの距離を計算して近い順に並べています）')),
+    r.missing_prefs.length ? el('p', {class: 'muted'}, '沖縄県の分は道路防災情報webマップにありません。') : null,
+    el('p', {class: 'links'}, link(r.link, '重ねるハザードマップで見る'))];
+  if (!r.count) return section(title + '）', el('p', {}, `${r.radius_km} km 以内にはありません。`), ...notes);
+  return section(`${title}、${r.radius_km} km 以内に ${r.count} か所）`,
+    el('ul', {}, r.items.map(i => el('li', {}, `${i.km} km　${i.name}（${i.bureau}）　`,
+      link(i.link, '地図'), i.pdf ? '　' : null, i.pdf ? link(i.pdf, '箇所表') : null))), ...notes);
+}
+
 function render(d) {
   out.replaceChildren();
   if (d.demo) {
@@ -161,7 +176,7 @@ function render(d) {
     s.id = 'notice';
     out.append(s);
   }
-  out.append(showWarnings(d), showZones(d.zones), showKiki(d.kikikuru), showRain(d.nowcast, d.amedas), showLore(d.lore));
+  out.append(showWarnings(d), showZones(d.zones), showKiki(d.kikikuru), showRain(d.nowcast, d.amedas), showLore(d.lore), showRoad(d.road_flood));
   if (d.errors.length) out.append(section('読めなかったもの',
     el('ul', {}, d.errors.map(e => el('li', {class: 'error'}, `${e.part}: ${e.error}`)))));
   out.append(section('この試作にまだ入れていないもの', el('ul', {}, d.not_included.map(t => el('li', {}, t)))),

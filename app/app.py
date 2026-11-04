@@ -9,6 +9,7 @@
   python3 app.py --point 35.71,139.82    → その地点の結果を JSON で表示
 """
 import argparse
+import html
 import json
 import math
 import os
@@ -464,17 +465,111 @@ def lore(lat, lon, radius_km=10.0, limit=5):
     return {'radius_km': radius_km, 'count': len(found), 'items': found[:limit]}
 
 
-# ---------------------------------------------------------------- 知らせ
+# ---------------------------------------------------------------- 道路冠水想定箇所（道路防災情報webマップ）
 
-LINKS = {
-    'rain': {'zones': ['naisui'], 'kiki': ['inund'], 'lore': ['洪水']},
-    'landslide': {'zones': ['dosekiryu', 'kyukeisha', 'jisuberi'], 'kiki': ['land'], 'lore': ['土砂災害']},
-    'flood': {'zones': ['flood', 'kaoku_hanran', 'kaoku_kagan'], 'kiki': [], 'lore': ['洪水']},
-    'tide': {'zones': ['hightide'], 'kiki': [], 'lore': ['高潮']},
+# 局ごとの道路防災情報webマップ。KML は <base>kml/<県番号>_<ローマ字>_kansui_point.kml。どの局も PDL1.0。
+KANSUI_BUREAUS = {
+    'hkd': ('国土交通省 北海道開発局', 'https://www.hkd.mlit.go.jp/ky/kn/dou_iji/splaat0000006cn3/'),
+    'thr': ('国土交通省 東北地方整備局', 'https://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/'),
+    'ktr': ('国土交通省 関東地方整備局', 'https://www.ktr.mlit.go.jp/honkyoku/road/doro_bosaijoho_webmap/'),
+    'hrr': ('国土交通省 北陸地方整備局', 'https://www.hrr.mlit.go.jp/road/doro_bousaijoho_webmap/'),
+    'cbr': ('国土交通省 中部地方整備局', 'https://www.cbr.mlit.go.jp/road_map/doro_bosaijoho_webmap/'),
+    'kkr': ('国土交通省 近畿地方整備局', 'https://www.kkr.mlit.go.jp/road/doro_bosaijoho_webmap/'),
+    'cgr': ('国土交通省 中国地方整備局', 'https://www.cgr.mlit.go.jp/doro_bosaijoho_webmap/'),
+    'skr': ('国土交通省 四国地方整備局', 'https://www.skr.mlit.go.jp/road/doro_bosaijoho_webmap/'),
+    'qsr': ('国土交通省 九州地方整備局', 'https://www.qsr.mlit.go.jp/n-michi/doro_bosaijoho_webmap/'),
+}
+KANSUI_PREFS = {  # 県番号（気象庁の区域コードの上 2 桁）→ (局, ローマ字)。沖縄県（47）の分は無い
+    '01': ('hkd', 'hokkaido'),
+    '02': ('thr', 'aomori'), '03': ('thr', 'iwate'), '04': ('thr', 'miyagi'), '05': ('thr', 'akita'),
+    '06': ('thr', 'yamagata'), '07': ('thr', 'fukushima'),
+    '08': ('ktr', 'ibaraki'), '09': ('ktr', 'tochigi'), '10': ('ktr', 'gunma'), '11': ('ktr', 'saitama'),
+    '12': ('ktr', 'chiba'), '13': ('ktr', 'tokyo'), '14': ('ktr', 'kanagawa'), '19': ('ktr', 'yamanashi'),
+    '20': ('ktr', 'nagano'),
+    '15': ('hrr', 'niigata'), '16': ('hrr', 'toyama'), '17': ('hrr', 'ishikawa'),
+    '21': ('cbr', 'gifu'), '22': ('cbr', 'shizuoka'), '23': ('cbr', 'aichi'), '24': ('cbr', 'mie'),
+    '18': ('kkr', 'fukui'), '25': ('kkr', 'shiga'), '26': ('kkr', 'kyoto'), '27': ('kkr', 'osaka'),
+    '28': ('kkr', 'hyogo'), '29': ('kkr', 'nara'), '30': ('kkr', 'wakayama'),
+    '31': ('cgr', 'tottori'), '32': ('cgr', 'shimane'), '33': ('cgr', 'okayama'), '34': ('cgr', 'hiroshima'),
+    '35': ('cgr', 'yamaguchi'),
+    '36': ('skr', 'tokushima'), '37': ('skr', 'kagawa'), '38': ('skr', 'ehime'), '39': ('skr', 'kochi'),
+    '40': ('qsr', 'fukuoka'), '41': ('qsr', 'saga'), '42': ('qsr', 'nagasaki'), '43': ('qsr', 'kumamoto'),
+    '44': ('qsr', 'oita'), '45': ('qsr', 'miyazaki'), '46': ('qsr', 'kagoshima'),
 }
 
 
-def build_notice(area, warn, zone_items, kiki, rain, lore_items):
+def kansui_url(pref):
+    bureau, roman = KANSUI_PREFS[pref]
+    return KANSUI_BUREAUS[bureau][1] + f'kml/{pref}_{roman}_kansui_point.kml'
+
+
+def parse_kansui(kml, url):
+    """Points of a 道路冠水想定箇所 KML: name, lat, lon and the 箇所表 PDF (relative links resolved against url)."""
+    points = []
+    for pm in re.findall(r'<Placemark\b.*?</Placemark>', kml, re.S):
+        c = re.search(r'<coordinates>\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)', pm)
+        if not c:
+            continue
+        name = re.search(r'<name>(.*?)</name>', pm, re.S)
+        href = re.search(r'href="([^"]+)"', pm)
+        pdf = urllib.parse.urljoin(url, html.unescape(href.group(1))) if href else ''
+        points.append({'name': _plain(html.unescape(name.group(1) if name else '')),
+                       'lat': float(c.group(2)), 'lon': float(c.group(1)),
+                       'pdf': pdf if pdf.startswith(('https://', 'http://')) else ''})
+    return points
+
+
+def prefs_near(lat, lon, radius_km):
+    """県番号 of the prefectures whose area (気象庁の区域の外枠) comes within radius_km of the point."""
+    relm = fetch_json(JMA + '/bosai/common/const/class20relm.json', DAY)
+    dlat = radius_km / 111.0
+    dlon = radius_km / (111.0 * math.cos(math.radians(lat)))
+    return sorted({c[:2] for c, v in relm.items()
+                   if v['sw'][0] - dlat <= lat <= v['ne'][0] + dlat and v['sw'][1] - dlon <= lon <= v['ne'][1] + dlon})
+
+
+def road_flood(lat, lon, radius_km=3.0, limit=5):
+    found, used, missing, errors = [], [], [], []
+    for pref in prefs_near(lat, lon, radius_km):
+        if pref not in KANSUI_PREFS:
+            missing.append(pref)
+            continue
+        url = kansui_url(pref)
+        bureau = KANSUI_BUREAUS[KANSUI_PREFS[pref][0]][0]
+        try:
+            data = fetch(url, DAY)
+        except Exception as e:
+            errors.append(f'{bureau}（{url}）: {type(e).__name__}: {e}')
+            continue
+        if data is None:
+            errors.append(f'{bureau}（{url}）: ありません（404）')
+            continue
+        used.append({'bureau': bureau, 'url': url})
+        for p in parse_kansui(data.decode('utf-8', 'replace'), url):
+            d = km(lat, lon, p['lat'], p['lon'])
+            if d <= radius_km:
+                found.append({**p, 'km': round(d, 2), 'bureau': bureau,
+                              'link': f"https://maps.gsi.go.jp/#17/{p['lat']:.6f}/{p['lon']:.6f}/&base=std"})
+    if errors and not used:
+        raise RuntimeError(' ／ '.join(errors))
+    found.sort(key=lambda x: x['km'])
+    return {'radius_km': radius_km, 'count': len(found), 'items': found[:limit], 'sources': used,
+            'missing_prefs': missing, 'errors': errors,
+            'link': (f'https://disaportal.gsi.go.jp/hazardmap/maps/index.html?ll={lat:.6f},{lon:.6f}'
+                     '&z=15&base=pale&ls=kansui_multi%2C0.8&disp=1&vs=c1j0l0u0t0h0z0')}
+
+
+# ---------------------------------------------------------------- 知らせ
+
+LINKS = {
+    'rain': {'zones': ['naisui'], 'kiki': ['inund'], 'lore': ['洪水'], 'road': True},
+    'landslide': {'zones': ['dosekiryu', 'kyukeisha', 'jisuberi'], 'kiki': ['land'], 'lore': ['土砂災害'], 'road': False},
+    'flood': {'zones': ['flood', 'kaoku_hanran', 'kaoku_kagan'], 'kiki': [], 'lore': ['洪水'], 'road': True},
+    'tide': {'zones': ['hightide'], 'kiki': [], 'lore': ['高潮'], 'road': False},
+}
+
+
+def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None):
     """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out. The text lists official facts only."""
     trig = [w for w in (warn or {}).get('warnings', []) + (warn or {}).get('flood', [])
             if w['group1'] and w['level'] >= 3]
@@ -510,6 +605,10 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items):
         if any(kind in item['kind'] for kind in lore_kinds):
             lines.append(f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります（国土地理院）。")
             break
+    if road and road.get('count') and any(LINKS[h]['road'] for h in hazards):
+        near = road['items'][0]
+        lines.append(f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
+                     f"いちばん近いのは {near['km']}km 先の「{near['name']}」です（{near['bureau']}）。")
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
     title = ('【試し】' if fake else '') + f"{area['class20']['name']}: {names}"
     return {'notify': True, 'title': title, 'body': '\n'.join(lines),
@@ -525,10 +624,16 @@ SOURCES = [
      'note': 'データは国土交通省・都道府県・市町村等。地図画像の画素の色を読み取って文字にしています。'},
     {'name': '国土地理院 自然災害伝承碑', 'url': 'https://www.gsi.go.jp/bousaichiri/denshouhi.html',
      'note': '出典：国土地理院 自然災害伝承碑。'},
+    {'name': '道路防災情報webマップ 道路冠水想定箇所（国土交通省 各地方整備局・北海道開発局）',
+     'url': 'https://www.mlit.go.jp/road/bosai/doro_bosaijoho_webmap/',
+     'note': '出典：各局ホームページ（使った KML の URL は結果の road_flood.sources）を加工して作成。'
+             '加工は、地点からの距離を計算して近い順に並べたことです。'
+             '国が「冠水のおそれがある・過去に冠水した道路」として挙げている箇所で、載っていないことは冠水しないことを意味しません。'
+             '各局の利用規約は公共データ利用規約（PDL1.0）。'},
 ]
 NOT_INCLUDED = [
     '洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。',
-    '道路冠水の情報（自治体ごとの公開データ）: 次に入れます。',
+    '道路冠水想定箇所の沖縄県の分: 国土交通省の道路防災情報webマップに沖縄県の分が無いため入っていません。',
     '浸水継続時間・津波の深さ: 凡例をまだ読み取っていないため、津波は「区域に入るか」だけです。',
     'Claude による文の組み立て: この試作では入れていません（知らせの文は公式の事実を並べるだけ）。',
 ]
@@ -582,22 +687,25 @@ def here(lat, lon, demo=None):
         except Exception as e:
             out['errors'].append({'part': part, 'error': f'{type(e).__name__}: {e}'})
             return None
-    with ThreadPoolExecutor(6) as ex:
+    with ThreadPoolExecutor(7) as ex:
         jobs = {'kikikuru': ex.submit(run, 'キキクル', kikikuru, lat, lon),
                 'nowcast': ex.submit(run, '降水ナウキャスト', nowcast, lat, lon),
                 'amedas': ex.submit(run, 'アメダス', amedas, lat, lon),
                 'zones': ex.submit(run, 'ハザードマップ', zones, lat, lon),
-                'lore': ex.submit(run, '自然災害伝承碑', lore, lat, lon)}
+                'lore': ex.submit(run, '自然災害伝承碑', lore, lat, lon),
+                'road_flood': ex.submit(run, '道路冠水想定箇所', road_flood, lat, lon)}
         area = run('区域', find_area, lat, lon)
         warn = run('警報・注意報', warnings_for, area) if area else None
         for k, f in jobs.items():
             out[k] = f.result()
+    for e in (out['road_flood'] or {}).get('errors', []):
+        out['errors'].append({'part': '道路冠水想定箇所', 'error': e})
     if demo and warn:
         warn = add_demo(warn, demo, now)
     out['demo'] = {'hazard': demo[0], 'level': demo[1]} if demo else None
     out['area'], out['warning'] = area, warn
     out['notice'] = build_notice(area, warn, (out['zones'] or {}).get('items'), out['kikikuru'], out['nowcast'],
-                                 (out['lore'] or {}).get('items')) if area else {'notify': False}
+                                 (out['lore'] or {}).get('items'), out['road_flood']) if area else {'notify': False}
     return out
 
 
