@@ -16,7 +16,7 @@ python3 app.py
 ブラウザで http://127.0.0.1:8765/ を開き、「現在地で調べる」を押します。
 URL に `?lat=34.47&lon=132.47` を付けると、その地点で調べます。
 `python3 app.py --point 34.47,132.47` は、結果を JSON で出します。
-テストは `python3 -m unittest test_app` です。
+テストは `python3 -m unittest test_app test_compose` です。
 
 ### 試し（作りものの警報）
 
@@ -61,7 +61,7 @@ python3 phone.py watch --key ~/firebase/service-account.json           # 3 分�
 
 `watch` は、警報が新しく出た・レベルが上がった・場所の区域が変わったときだけ送ります。同じ警報の出し直しでは送りません。
 携帯から 2 時間より長く位置が届いていないときは、知らせにそのことを書きます。
-テストは `python3 -m unittest test_phone test_app` です。
+テストは `python3 -m unittest test_phone test_app test_compose` です。
 
 ### 携帯アプリを組む
 
@@ -73,6 +73,28 @@ cd phone
 ```
 
 できた APK は `phone/app/build/outputs/apk/debug/app-debug.apk` です。
+
+## Claude で知らせの文を組み立てる
+
+知らせの文は、PC で Claude API のキーを設定したときだけ Claude が組み立てます。設定しなければ、公式の事実を並べた文のままです。
+
+```
+pip install -U anthropic
+export ANTHROPIC_API_KEY=...      # 環境変数だけに置きます。ファイルやこのリポジトリには書きません
+python3 app.py
+```
+
+- Claude に渡すのは、知らせに入れる公式の事実の文と id だけです。位置・出典・URL は渡しません。
+- Claude は事実をつないで読みやすい文にし、文ごとにどの事実を使ったかを返します（JSON の形を決めて受け取ります）。
+- アプリが 1 文ずつ確かめます。
+  - 事実をすべて使っているか。
+  - 事実にない数字・数字の幅・漢数字の数・「」や（）の中の名前が無いか。
+  - どう動くか（避難・ください など）、安全・心配ない、予想・おそれ を書いていないか。事実の文にもともとある言葉は使えます。
+- 1 つでも外れたら Claude の文は使わず、事実を並べた文に戻します。画面には戻した理由を出します。
+- 出典は Claude に書かせず、文ごとに使った事実の出典をアプリが付け直します。
+- 同じ事実の知らせには 1 回だけ問い合わせ、返事を覚えておきます。モデルは `claude-opus-5-5` で、混んでいるときは API 側の代わりのモデルに回ります。
+- 画面は、まず事実を並べた文を出し、Claude の文が確かめ終わったら差し替えます。携帯の通知には、Claude がまとめたことを 1 行書き添えます。
+- 使わないときは `--no-claude`（`app.py`、`phone.py watch`・`phone.py test`）か `IMAKOKO_CLAUDE=off` です。モデルは `IMAKOKO_CLAUDE_MODEL` で変えられます。
 
 ## 読んでいるもの
 

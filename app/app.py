@@ -24,6 +24,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+import compose
 from png import Png
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -570,7 +571,11 @@ LINKS = {
 
 
 def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None):
-    """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out. The text lists official facts only."""
+    """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out. The text lists official facts only.
+
+    `facts` keeps each fact apart from its source, so a writer (compose.py) can join them into sentences
+    and the code can still put the sources back. `body` is the plain text: lead + one line per fact.
+    """
     trig = [w for w in (warn or {}).get('warnings', []) + (warn or {}).get('flood', [])
             if w['group1'] and w['level'] >= 3]
     if not trig:
@@ -579,39 +584,48 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None):
     zone_keys = {k for h in hazards for k in LINKS[h]['zones']}
     kiki_keys = {k for h in hazards for k in LINKS[h]['kiki']}
     lore_kinds = {k for h in hazards for k in LINKS[h]['lore']}
+    area_name = area['class20']['name']
     names = '、'.join(dict.fromkeys(w['name'] for w in trig))
     real = '、'.join(dict.fromkeys(w['name'] for w in trig if not w.get('demo')))
     fake = '、'.join(dict.fromkeys(warning_name(w['hazard'], w['level']) for w in trig if w.get('demo')))
-    lines = []
+    lead, facts = [], []
+
+    def fact(fid, text, source, plain=True):
+        facts.append({'id': fid, 'text': text, 'source': source, 'plain': plain})
+
     if fake:
-        lines.append(f'これは試しです。{fake}は作りもので、気象庁は出していません。ほかはいまの本物の情報です。')
+        lead.append(f'これは試しです。{fake}は作りもので、気象庁は出していません。ほかはいまの本物の情報です。')
+        fact('demo', f'{area_name}に{fake}が出ています（これは試しの作りもので、気象庁は出していません）', '試し',
+             plain=False)
     if real:
-        lines.append(f"{area['class20']['name']}に{real}が出ています（気象庁）。")
+        fact('warning', f'{area_name}に{real}が出ています', '気象庁')
     place = []
     for z in zone_items or []:
         if z['key'] in zone_keys and z.get('in'):
             place.append(f"{z['label']}" + (f"（{z['value']}）" if z.get('value') else ''))
     if place:
-        lines.append('いる場所は ' + '、'.join(place) + ' に入っています（ハザードマップポータル）。')
+        fact('zone', 'いる場所は ' + '、'.join(place) + ' に入っています', 'ハザードマップポータル')
     for k in kiki or []:
         if k['key'] in kiki_keys and k.get('level') is not None:
-            lines.append(f"{k['label'].split('（')[0]}はこの地点で「{k['meaning']}」です（気象庁 {k['time']}）。")
+            fact(f"kiki-{k['key']}", f"{k['label'].split('（')[0]}はこの地点で「{k['meaning']}」です",
+                 f"気象庁 {k['time']}")
     if rain and 'now' in rain:
         text = f"降水ナウキャストではこの地点 いま {rain['now']['rain']}"
         if 'plus60' in rain:
             text += f"、60分後 {rain['plus60']['rain']}"
-        lines.append(text + '（気象庁）。')
+        fact('rain', text, '気象庁')
     for item in lore_items or []:
         if any(kind in item['kind'] for kind in lore_kinds):
-            lines.append(f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります（国土地理院）。")
+            fact('lore', f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります", '国土地理院')
             break
     if road and road.get('count') and any(LINKS[h]['road'] for h in hazards):
         near = road['items'][0]
-        lines.append(f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
-                     f"いちばん近いのは {near['km']}km 先の「{near['name']}」です（{near['bureau']}）。")
+        fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
+                     f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'])
+    lines = lead + [f"{f['text']}（{f['source']}）。" for f in facts if f['plain']]
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
-    title = ('【試し】' if fake else '') + f"{area['class20']['name']}: {names}"
-    return {'notify': True, 'title': title, 'body': '\n'.join(lines),
+    title = ('【試し】' if fake else '') + f"{area_name}: {names}"
+    return {'notify': True, 'title': title, 'body': '\n'.join(lines), 'lead': lead, 'facts': facts,
             'key': key, 'place_found': bool(place), 'places': [z['key'] for z in zone_items or []
                                                                if z['key'] in zone_keys and z.get('in')]}
 
@@ -635,7 +649,8 @@ NOT_INCLUDED = [
     '洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。',
     '道路冠水想定箇所の沖縄県の分: 国土交通省の道路防災情報webマップに沖縄県の分が無いため入っていません。',
     '浸水継続時間・津波の深さ: 凡例をまだ読み取っていないため、津波は「区域に入るか」だけです。',
-    'Claude による文の組み立て: この試作では入れていません（知らせの文は公式の事実を並べるだけ）。',
+    'Claude による文の組み立て: PC で ANTHROPIC_API_KEY を設定したときだけ使います。'
+    'Claude には公式の事実だけを渡し、返ってきた文はアプリが 1 文ずつ確かめ、外れたら事実を並べた文に戻します。',
 ]
 
 
@@ -714,6 +729,24 @@ def here(lat, lon, demo=None):
 
 class Handler(BaseHTTPRequestHandler):
     server_version = 'hackathon-prototype'
+    writer = None       # compose.ClaudeClient when Claude writes the text
+    pending = {}        # facts key -> notice waiting for /api/compose (a few only)
+    pending_lock = threading.Lock()
+
+    def _with_writer(self, out):
+        """Answer at once with the plain text; the page asks /api/compose for Claude's text."""
+        n = out.get('notice') or {}
+        if not self.writer or not n.get('notify'):
+            return out
+        hit = compose.cached(n)
+        if hit:
+            return dict(out, notice=hit)
+        key = compose.facts_key(n)
+        with self.pending_lock:
+            self.pending[key] = n
+            while len(self.pending) > 16:
+                self.pending.pop(next(iter(self.pending)))
+        return dict(out, notice=dict(n, composer={'pending': True, 'id': key}))
 
     def _send(self, code, body, ctype):
         self.send_response(code)
@@ -750,7 +783,14 @@ class Handler(BaseHTTPRequestHandler):
                     demo = parse_demo(q['demo'][0])
                 except ValueError:
                     return self._json(400, {'error': 'demo は rain・landslide・flood・tide と :2～5 です（例 landslide:4）'})
-            return self._json(200, here(lat, lon, demo))
+            return self._json(200, self._with_writer(here(lat, lon, demo)))
+        if url.path == '/api/compose':
+            key = urllib.parse.parse_qs(url.query).get('id', [''])[0]
+            with self.pending_lock:
+                n = self.pending.get(key)
+            if not n or not self.writer:
+                return self._json(404, {'error': 'その知らせはもうありません（調べ直してください）'})
+            return self._json(200, {'notice': compose.compose(n, self.writer)})
         return self._json(404, {'error': 'not found'})
 
     def log_message(self, fmt, *args):  # the position is in the query; do not log it
@@ -763,13 +803,21 @@ def main():
     ap.add_argument('--demo', type=parse_demo, metavar='HAZARD[:LEVEL]',
                     help='--point と一緒に使う。作りものの警報を足して知らせを試す（例 landslide:4）')
     ap.add_argument('--port', type=int, default=8765)
+    ap.add_argument('--no-claude', action='store_true', help='Claude で知らせの文を組み立てない（公式の事実を並べるだけ）')
     a = ap.parse_args()
+    writer = None if a.no_claude else compose.client_from_env()
     if a.point:
         lat, lon = (float(v) for v in a.point.split(','))
         if not in_japan(lat, lon):
             sys.exit('日本の範囲の外です')
-        print(json.dumps(here(lat, lon, a.demo), ensure_ascii=False, indent=1))
+        out = here(lat, lon, a.demo)
+        if out.get('notice'):
+            out['notice'] = compose.compose(out['notice'], writer)
+        print(json.dumps(out, ensure_ascii=False, indent=1))
         return
+    Handler.writer = writer
+    print('知らせの文は ' + ('Claude が組み立て、アプリが確かめます' if writer else '公式の事実を並べたものです'
+                          '（Claude を使うには ANTHROPIC_API_KEY と pip install -U anthropic）'))
     srv = ThreadingHTTPServer(('127.0.0.1', a.port), Handler)
     print(f'http://127.0.0.1:{a.port}/ を開いてください（Ctrl+C で止まります）')
     try:

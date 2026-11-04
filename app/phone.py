@@ -27,6 +27,7 @@ import urllib.request
 from datetime import datetime
 
 import app
+import compose
 from app import JST, UA, here, in_japan, parse_demo
 
 PACKAGE = 'io.github.jawsy.imakoko'
@@ -214,10 +215,15 @@ def links_for(out):
     return links
 
 
+COMPOSED_NOTE = '（この文は Claude が公式の事実だけからまとめ、アプリが確かめたものです）'
+
+
 def message_for(out, age=None):
     """The FCM data (strings only) for a notice, cut to fit the FCM size limit."""
     n = out['notice']
     lines = n['body'].split('\n')
+    if n.get('composer', {}).get('ok'):
+        lines.append(COMPOSED_NOTE)
     if age is not None and age > OLD_POSITION:
         lines.append(f'携帯から最後に位置が届いたのは {age // 3600} 時間 {age % 3600 // 60} 分前です。')
     data = {'title': n['title'], 'links': json.dumps(links_for(out), ensure_ascii=False),
@@ -280,7 +286,7 @@ def log(text):
     print(f"{datetime.now(JST).strftime('%m/%d %H:%M:%S')} {text}", flush=True)
 
 
-def check_device(g, state, name, demo=None, force=False):
+def check_device(g, state, name, demo=None, force=False, writer=None):
     """Read the phone's position, look it up and push when there is news. Returns what happened (no position)."""
     pos = g.position(state['devices'][name]['id'])
     if not pos or 'lat' not in pos or 'lon' not in pos:
@@ -296,6 +302,10 @@ def check_device(g, state, name, demo=None, force=False):
     key = push_key(out)
     if key == state['last'].get(name) and not force:
         return '知らせは送ったものから変わっていません'
+    out['notice'] = compose.compose(out['notice'], writer)
+    c = out['notice'].get('composer')
+    if c:
+        log(f"{name}: 文は " + (f"Claude（{c['by']}）" if c['ok'] else f"公式の事実を並べたもの（{c['reason']}）"))
     age = int(time.time()) - pos['at'] if isinstance(pos.get('at'), int) else None
     result = g.send(pos['token'], message_for(out, age))
     if result == 'sent':
@@ -306,12 +316,12 @@ def check_device(g, state, name, demo=None, force=False):
     return '送れませんでした: ' + result
 
 
-def check_all(g, state, demo=None, force=False, only=None):
+def check_all(g, state, demo=None, force=False, only=None, writer=None):
     for name in sorted(state['devices']):
         if only and name != only:
             continue
         try:
-            log(f'{name}: ' + check_device(g, state, name, demo, force))
+            log(f'{name}: ' + check_device(g, state, name, demo, force, writer))
         except Exception as e:
             log(f'{name}: 調べられませんでした（{type(e).__name__}: {e}）')
     save_state(state)
@@ -337,6 +347,7 @@ def main():
         p.add_argument('--demo', type=parse_demo, default=('landslide', 4) if cmd == 'test' else None,
                        metavar='HAZARD[:LEVEL]', help='作りものの警報を足す（test は landslide:4 が既定）')
         p.add_argument('--name', help='この携帯だけ')
+        p.add_argument('--no-claude', action='store_true', help='Claude で文を組み立てない（公式の事実を並べるだけ）')
         if cmd == 'watch':
             p.add_argument('--every', type=int, default=180, help='調べる間隔（秒、60 以上）')
     sub.add_parser('list', help='つないだ携帯の名前')
@@ -365,14 +376,16 @@ def main():
         return
     if not state['devices']:
         raise SystemExit('つないだ携帯がありません（先に pair）')
+    writer = None if a.no_claude else compose.client_from_env()
+    log('文は ' + ('Claude が組み立て、アプリが確かめます' if writer else '公式の事実を並べたものです'))
     if a.cmd == 'test':
-        check_all(g, state, a.demo, force=True, only=a.name)
+        check_all(g, state, a.demo, force=True, only=a.name, writer=writer)
         return
     every = max(60, a.every)
     log(f'{every} 秒ごとに調べます（Ctrl+C で止まります）')
     try:
         while True:
-            check_all(g, state, a.demo, only=a.name)
+            check_all(g, state, a.demo, only=a.name, writer=writer)
             time.sleep(every)
     except KeyboardInterrupt:
         pass

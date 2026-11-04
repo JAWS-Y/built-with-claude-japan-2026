@@ -147,6 +147,29 @@ function notify(n) {
   if ('Notification' in window && Notification.permission === 'granted') new Notification(n.title, {body: n.body});
 }
 
+function composerNote(c) {
+  if (!c) return '';
+  if (c.pending) return 'Claude が文を組み立てています…（いまは公式の事実を並べた文です）';
+  if (c.ok) return `この文は Claude（${c.by}）が公式の事実だけから組み立て、アプリが確かめたものです。`;
+  return `公式の事実を並べた文です（Claude の文は使いませんでした: ${c.reason}）。`;
+}
+
+// Claude's text comes after the page is drawn; the plain text is there until then
+async function settle(n, seq) {
+  let done;
+  try {
+    const r = await fetch(`/api/compose?id=${encodeURIComponent(n.composer.id)}`);
+    const d = await r.json();
+    done = r.ok && d.notice ? d.notice : Object.assign({}, n, {composer: {ok: false, reason: d.error || r.status}});
+  } catch (e) {
+    done = Object.assign({}, n, {composer: {ok: false, reason: e.message}});
+  }
+  if (seq !== renderSeq) return;  // a newer check has redrawn the page
+  document.getElementById('noticeBody').textContent = done.body;
+  document.getElementById('composerNote').textContent = composerNote(done.composer);
+  notify(done);
+}
+
 function showRoad(r) {
   const title = '道路冠水想定箇所（国土交通省 道路防災情報webマップ';
   if (!r) return section(title + '）', el('p', {class: 'error'}, '読めませんでした。'));
@@ -162,7 +185,10 @@ function showRoad(r) {
       link(i.link, '地図'), i.pdf ? '　' : null, i.pdf ? link(i.pdf, '箇所表') : null))), ...notes);
 }
 
+let renderSeq = 0;
+
 function render(d) {
+  const seq = ++renderSeq;
   out.replaceChildren();
   if (d.demo) {
     const s = section('試しです', el('p', {}, '作りものの警報を 1 つ足しています。気象庁は出していません。ほかはいまの本物の情報です。'));
@@ -171,7 +197,8 @@ function render(d) {
   }
   const n = d.notice;
   if (n.notify) {
-    const s = section(n.title, el('p', {}, n.body),
+    const s = section(n.title, el('p', {id: 'noticeBody'}, n.body),
+      el('p', {class: 'muted', id: 'composerNote'}, composerNote(n.composer)),
       el('p', {class: 'links'}, link(d.warning.link, '気象庁の警報・注意報'), d.zones ? link(d.zones.link, '重ねるハザードマップ') : null));
     s.id = 'notice';
     out.append(s);
@@ -181,7 +208,8 @@ function render(d) {
     el('ul', {}, d.errors.map(e => el('li', {class: 'error'}, `${e.part}: ${e.error}`)))));
   out.append(section('この試作にまだ入れていないもの', el('ul', {}, d.not_included.map(t => el('li', {}, t)))),
     section('出典', el('ul', {}, d.sources.map(s => el('li', {}, link(s.url, s.name), el('div', {class: 'muted'}, s.note))))));
-  notify(n);
+  if (n.composer && n.composer.pending) settle(n, seq);
+  else notify(n);
 }
 
 async function check(lat, lon) {
