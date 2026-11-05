@@ -35,7 +35,7 @@ class MainActivity : Activity(), ScreenView.Actions {
             val barTop = bar.paddingTop
             root.setOnApplyWindowInsetsListener { v, insets ->
                 val bars = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.ime())
-                // the blue bar runs up under the status bar; the rest keeps clear of the bars
+                // the pale blue bar runs up under the status bar; the rest keeps clear of the bars
                 v.setPadding(bars.left, 0, bars.right, bars.bottom)
                 bar.setPadding(bar.paddingLeft, barTop + bars.top, bar.paddingRight, bar.paddingBottom)
                 insets

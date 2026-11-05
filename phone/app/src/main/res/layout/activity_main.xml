@@ -6,7 +6,7 @@
     android:background="@color/bg"
     android:orientation="vertical">
 
-    <!-- the blue bar stays put while the rest scrolls; it runs up under the status bar -->
+    <!-- the pale blue bar stays put while the rest scrolls; it runs up under the status bar -->
     <LinearLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
