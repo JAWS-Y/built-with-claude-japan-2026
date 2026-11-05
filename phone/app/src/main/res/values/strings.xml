@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">いまいる場所の公式情報</string>
-    <string name="intro">いまいる場所に大雨・土砂災害・高潮・氾濫のレベル３以上が出ると、その場所の性質（ハザードマップの区域など）とあわせて、あなたの PC から通知が届きます。通知は公式情報の事実と出典へのリンクだけです。</string>
     <string name="privacy">この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。「止める」で Firebase の位置と通知の宛先を消します。</string>
-    <string name="setup_title">設定</string>
-    <string name="setup_hint">PC の「python3 phone.py pair」が出した設定の文</string>
+    <string name="section_notice">最後に届いた知らせ</string>
+    <string name="section_watch">見守り</string>
+    <string name="section_setup">設定</string>
+    <string name="pages">公式のページ</string>
+    <string name="no_notice">まだ知らせは届いていません</string>
+    <string name="no_notice_about">いまいる場所に警報やクマの出没などがあると、通知でお知らせします。</string>
+    <string name="setup_intro">はじめに、PC の「python3 phone.py pair」が出した設定の文を貼って保存します。</string>
+    <string name="setup_hint">設定の文を貼る</string>
     <string name="save_setup">設定を保存</string>
+    <string name="change">変える</string>
+    <string name="close">閉じる</string>
+    <string name="fix">直す</string>
     <string name="start">位置を送り始める</string>
     <string name="stop">止める</string>
-    <string name="last_notice">最後に届いた知らせ</string>
-    <string name="no_notice">まだ届いていません。</string>
     <string name="channel">公式情報</string>
-    <string name="channel_about">レベル３以上が出ているときの、いまいる場所の公式情報</string>
+    <string name="channel_about">いまいる場所に出ている警報などと、その場所の公式のページ</string>
     <string name="background_title">位置の許可を「常に」に</string>
     <string name="background_text">アプリを閉じているときも位置を送るには、次の画面で位置の許可を「常に許可」にします。</string>
     <string name="next">次へ</string>

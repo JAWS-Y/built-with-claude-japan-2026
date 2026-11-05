@@ -258,12 +258,14 @@ def message_for(out, age=None):
     n = out['notice']
     tail = list(n.get('notes', []))
     links = links_for(out)
-    lines = [site_line(name, n.get('area', '')) for name, _ in sorted(links, key=page_order)][:PHONE_LINES]
+    # the app lists the pages under the same names as the notice's body
+    pages = [[site_line(name, n.get('area', '')), url] for name, url in sorted(links, key=page_order)]
+    lines = [name for name, _ in pages][:PHONE_LINES]
     if age is not None and age > OLD_POSITION:
         tail.append(f'位置は {age // 3600} 時間 {age % 3600 // 60} 分前のもの')
-    data = {'title': n['title'], 'links': json.dumps(links, ensure_ascii=False),
-            'buttons': json.dumps(buttons_for(links), ensure_ascii=False), 'level': str(n.get('level', 0)),
-            'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0',
+    data = {'title': n['title'], 'area': n.get('area', ''), 'links': json.dumps(pages, ensure_ascii=False),
+            'notes': '\n'.join(tail), 'buttons': json.dumps(buttons_for(links), ensure_ascii=False),
+            'level': str(n.get('level', 0)), 'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0',
             'summary': (lines or tail)[0]}
     while True:
         data['body'] = '\n'.join(lines + tail)

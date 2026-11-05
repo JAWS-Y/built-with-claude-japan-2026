@@ -191,7 +191,10 @@ class PushTest(unittest.TestCase):
         self.assertEqual(m['body'].split('\n'), ['千代田区の警報・注意報（気象庁）', 'この場所の土砂キキクル（気象庁）',
                                                   'この場所の重ねるハザードマップ', '位置は 3 時間 5 分前のもの'])
         self.assertEqual(m['summary'], '千代田区の警報・注意報（気象庁）')  # the folded line names the place
-        self.assertEqual(json.loads(m['links'])[0][0], '気象庁の警報・注意報')
+        # the app lists every page under the body's names, and the notes apart
+        self.assertEqual([n for n, _ in json.loads(m['links'])], m['body'].split('\n')[:3])
+        self.assertEqual(m['notes'], '位置は 3 時間 5 分前のもの')
+        self.assertEqual(m['area'], '千代田区')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['警報を開く', '土砂キキクル'])
         self.assertEqual(m['level'], '4')
 

@@ -1,140 +1,274 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
 
     <LinearLayout
+        android:id="@+id/column"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/intro"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:lineSpacingExtra="4dp"
-            android:textSize="15sp" />
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal"
-            tools:ignore="ButtonStyle">
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/start"
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textColor="@color/text"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/chip"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/text"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- the setup moves up here until it is saved -->
+
+        <TextView
+            android:id="@+id/notice_label"
+            style="@style/Section"
+            android:text="@string/section_notice" />
+
+        <LinearLayout
+            android:id="@+id/notice_card"
+            style="@style/Card">
+
+            <LinearLayout
+                android:id="@+id/notice_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:id="@+id/notice_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notice_when"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/notice_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/note_bg"
+                android:lineSpacingExtra="4dp"
+                android:padding="12dp"
+                android:textColor="@color/text"
+                android:textIsSelectable="true"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/pages_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/pages"
+                android:textColor="@color/sub"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/links"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/notice_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/sub"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/empty_card"
+            style="@style/Card"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/no_notice"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/no_notice_about"
+                android:textColor="@color/sub"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/watch_label"
+            style="@style/Section"
+            android:text="@string/section_watch" />
+
+        <LinearLayout
+            android:id="@+id/watch_card"
+            style="@style/Card"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:id="@+id/rows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/start"
+                style="@style/Big"
                 android:text="@string/start" />
 
             <Button
                 android:id="@+id/stop"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
+                style="@style/Quiet"
                 android:text="@string/stop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setup_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Section"
+                android:text="@string/section_setup" />
+
+            <LinearLayout
+                style="@style/Card"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/setup_done"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/setup_state"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/text"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/setup_toggle"
+                        style="@style/Link"
+                        android:text="@string/change" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setup_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/setup_intro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/setup_intro"
+                        android:textColor="@color/text"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/setup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/note_bg"
+                        android:fontFamily="monospace"
+                        android:gravity="top|start"
+                        android:hint="@string/setup_hint"
+                        android:importantForAutofill="no"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:minLines="3"
+                        android:padding="12dp"
+                        android:textColor="@color/text"
+                        android:textColorHint="@color/sub"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/save_setup"
+                        style="@style/Big"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/save_setup" />
+
+                    <TextView
+                        android:id="@+id/setup_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/text"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/last_notice"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/notice_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/no_notice"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/notice_body"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:lineSpacingExtra="3dp"
-            android:textIsSelectable="true"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/notice_meta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="13sp" />
-
-        <LinearLayout
-            android:id="@+id/links"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="vertical" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/setup_title"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/setup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="monospace"
-            android:hint="@string/setup_hint"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine|textNoSuggestions"
-            android:minLines="3"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/save_setup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/save_setup" />
-
-        <TextView
-            android:id="@+id/setup_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:lineSpacingExtra="2dp"
             android:text="@string/privacy"
-            android:textSize="13sp" />
+            android:textColor="@color/sub"
+            android:textSize="12sp" />
     </LinearLayout>
 </ScrollView>

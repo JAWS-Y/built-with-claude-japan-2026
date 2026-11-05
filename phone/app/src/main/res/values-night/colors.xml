@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF121417</color>
+    <color name="card">#FF1E2126</color>
+    <color name="text">#FFE8EAED</color>
+    <color name="sub">#FFA4ABB5</color>
+    <color name="line">#FF2E3238</color>
+    <color name="accent">#FF3D7DD8</color>
+    <color name="on_accent">#FFFFFFFF</color>
+    <color name="ok">#FF81C995</color>
+    <color name="idle">#FF7D848E</color>
+    <color name="warn">#FFFDD663</color>
+    <color name="bad">#FFF28B82</color>
+    <color name="note_bg">#FF262A30</color>
+    <color name="head_plain">#FF37474F</color>
+</resources>

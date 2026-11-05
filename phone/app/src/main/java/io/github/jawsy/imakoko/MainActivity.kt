@@ -4,30 +4,27 @@ import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.NotificationManager
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.view.WindowInsets
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.messaging.FirebaseMessaging
-import org.json.JSONArray
-import org.json.JSONObject
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
-class MainActivity : Activity() {
-    private lateinit var status: TextView
+class MainActivity : Activity(), ScreenView.Actions {
     private lateinit var setupText: EditText
+    private lateinit var setupResult: TextView
     private var message = ""
+    private var editing = false // the setup box is open after the setup was saved
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +37,13 @@ class MainActivity : Activity() {
                 insets
             }
         }
-        status = findViewById(R.id.status)
         setupText = findViewById(R.id.setup)
+        setupResult = findViewById(R.id.setup_result)
+        findViewById<View>(R.id.setup_toggle).setOnClickListener {
+            editing = !editing
+            setupResult.text = ""
+            refresh()
+        }
         findViewById<Button>(R.id.save_setup).setOnClickListener { saveSetup() }
         findViewById<Button>(R.id.start).setOnClickListener { askNotify() }
         findViewById<Button>(R.id.stop).setOnClickListener { stop() }
@@ -66,22 +68,24 @@ class MainActivity : Activity() {
     private fun saveSetup() {
         val read = Setup.read(setupText.text.toString())
         val s = read.setup
-        message = when {
-            s == null -> "設定の文が読めません（${read.problem}）。PC の「python3 phone.py pair」が出した文を貼ります。"
-            Prefs.tracking(this) -> "位置を送っている間は設定を変えられません。先に「止める」を押します。"
+        // a problem stays by the paste box; a saved setup closes it and the next step shows by the start button
+        var said = ""
+        when {
+            s == null -> said = "設定の文が読めません（${read.problem}）。PC の「python3 phone.py pair」が出した文を貼ります。"
+            Prefs.tracking(this) -> said = "位置を送っている間は設定を変えられません。先に「止める」を押します。"
             !App.start(this, s) -> {
                 Prefs.saveSetup(this, s)
-                "保存しました。別の Firebase に切り替えたので、アプリを一度閉じて開き直します。"
+                message = "保存しました。別の Firebase に切り替えたので、アプリを一度閉じて開き直します。"
             }
             else -> {
                 Prefs.saveSetup(this, s)
                 setupText.setText("")
-                "設定を保存しました。上の「位置を送り始める」を押します。"
+                message = "設定を保存しました。「位置を送り始める」を押します。"
             }
         }
-        // the status is at the top of the screen, out of sight from this button, so say it here too
-        findViewById<TextView>(R.id.setup_result).text = message
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        if (said.isEmpty()) editing = false
+        setupResult.text = said
+        Toast.makeText(this, said.ifEmpty { message }, Toast.LENGTH_LONG).show()
         refresh()
     }
 
@@ -156,7 +160,7 @@ class MainActivity : Activity() {
             return
         }
         Prefs.setTracking(this, true)
-        message = "送り始めました。"
+        message = "" // the rows say it
         val ctx = applicationContext
         FirebaseMessaging.getInstance().isAutoInitEnabled = true
         // The address arrives in PushService.onRegistered, which writes it
@@ -177,7 +181,7 @@ class MainActivity : Activity() {
     private fun stop() {
         Tracking.stop(this)
         Prefs.setTracking(this, false)
-        message = "止めました。"
+        message = ""
         val ctx = applicationContext
         val s = Prefs.setup(this)
         if (s != null && App.start(this, s)) {
@@ -190,65 +194,38 @@ class MainActivity : Activity() {
 
     // ------------------------------------------------------------ screen
 
-    private fun time(ms: Long) = SimpleDateFormat("M/d H:mm", Locale.JAPAN).format(Date(ms))
-
-    private fun refresh() {
-        val s = Prefs.setup(this)
-        val lines = mutableListOf<String>()
-        lines += if (s == null) "設定: まだです" else "設定: 済み（Firebase ${s.projectId}）"
-        val fine = granted(Manifest.permission.ACCESS_FINE_LOCATION)
-        val coarse = granted(Manifest.permission.ACCESS_COARSE_LOCATION)
-        val always = granted(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-        lines += when {
-            !fine && !coarse -> "位置の許可: なし"
-            !always -> "位置の許可: アプリを使っている間だけ（閉じているときは送れません）"
-            else -> "位置の許可: 常に"
+    override fun open(url: String) {
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, "ページを開くアプリがありません。", Toast.LENGTH_LONG).show()
         }
-        if (coarse && !fine) lines += "位置はおおよそだけです（ハザードマップの区域の当てはめがずれます）"
-        val notifies = getSystemService(NotificationManager::class.java).areNotificationsEnabled()
-        lines += if (notifies) "通知: 出せます" else "通知: 許可されていません"
-        lines += if (Prefs.tracking(this)) "位置を送る: 動いています" else "位置を送る: 止まっています"
-        Prefs.lastWrite(this)?.let { (at, result) -> lines += "最後の書き込み: ${time(at)} $result" }
-        if (message.isNotEmpty()) lines += message
-        status.text = lines.joinToString("\n")
-        findViewById<Button>(R.id.start).isEnabled = s != null && !Prefs.tracking(this)
-        findViewById<Button>(R.id.stop).isEnabled = Prefs.tracking(this)
-        showNotice()
     }
 
-    private fun showNotice() {
-        val raw = Prefs.notice(this) ?: return
-        val n = try {
-            JSONObject(raw)
-        } catch (e: Exception) {
-            return
-        }
-        findViewById<TextView>(R.id.notice_title).text = n.optString("title")
-        findViewById<TextView>(R.id.notice_body).text = n.optString("body")
-        val meta = mutableListOf<String>()
-        if (n.has("received")) meta += "届いた時刻 ${time(n.optLong("received"))}"
-        if (n.optString("checked").isNotEmpty()) meta += "PC が調べた時刻 ${n.optString("checked")}"
-        if (n.optString("demo") == "1") meta += "作りものの警報で試した知らせです"
-        findViewById<TextView>(R.id.notice_meta).text = meta.joinToString("\n")
+    override fun fix(f: Screen.Fix) {
+        startActivity(
+            when (f) {
+                Screen.Fix.NOTIFICATIONS ->
+                    Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+                Screen.Fix.APP -> Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", packageName, null))
+            },
+        )
+    }
 
-        val box = findViewById<LinearLayout>(R.id.links)
-        box.removeAllViews()
-        val links = try {
-            JSONArray(n.optString("links", "[]"))
-        } catch (e: Exception) {
-            JSONArray()
-        }
-        for (i in 0 until links.length()) {
-            val pair = links.optJSONArray(i) ?: continue
-            val name = pair.optString(0)
-            val url = pair.optString(1)
-            if (!url.startsWith("https://")) continue
-            val b = Button(this)
-            b.text = name
-            b.isAllCaps = false
-            b.setOnClickListener { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
-            box.addView(b)
-        }
+    private fun refresh() {
+        val state = Screen.State(
+            project = Prefs.setup(this)?.projectId,
+            tracking = Prefs.tracking(this),
+            fine = granted(Manifest.permission.ACCESS_FINE_LOCATION),
+            coarse = granted(Manifest.permission.ACCESS_COARSE_LOCATION),
+            always = granted(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
+            notifies = getSystemService(NotificationManager::class.java).areNotificationsEnabled(),
+            lastWrite = Prefs.lastWrite(this),
+            message = message,
+            notice = Prefs.notice(this),
+            now = System.currentTimeMillis(),
+        )
+        ScreenView.draw(findViewById(R.id.root), state, editing, this)
     }
 
     companion object {
