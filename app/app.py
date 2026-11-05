@@ -684,12 +684,24 @@ LINKS = {
 }
 
 
+def rain_line(rain):
+    """降水ナウキャストの「いま」と「60分後」を、通知の 1 行に短くする。値は気象庁の地図の読み取りのまま。"""
+    now, later = rain['now']['rain'], (rain.get('plus60') or {}).get('rain')
+    text = 'いまは降っていない' if now == '降っていない' else f'いま {now}'
+    if later:
+        same = 'も' if later == now else ('は' if later == '降っていない' else '')
+        text += f"／1 時間後{same}" + ('降っていない' if later == '降っていない' else f' {later}')
+    return text
+
+
 def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild=None):
     """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out, or a bear was recorded near the spot
     (WILDLIFE_NOTIFY). Each part can notify alone. The text lists official facts only.
 
     `facts` keeps each fact apart from its source, so a writer (compose.py) can join them into sentences
-    and the code can still put the sources back. `body` is the plain text: lead + one line per fact.
+    and the code can still put the sources back. `body` is the plain text for the phone: one short line per
+    fact, the place first (the first line is what a folded notification shows), then the warning, then
+    `notes` (the 試し note, which always stays last).
     """
     trig = [w for w in (warn or {}).get('warnings', []) + (warn or {}).get('flood', [])
             if w['group1'] and w['level'] >= 3]
@@ -701,56 +713,66 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
     kiki_keys = {k for h in hazards for k in LINKS[h]['kiki']}
     lore_kinds = {k for h in hazards for k in LINKS[h]['lore']}
     area_name = area['class20']['name']
-    names = '、'.join(dict.fromkeys(w['name'] for w in trig))
     real = '、'.join(dict.fromkeys(w['name'] for w in trig if not w.get('demo')))
     fake = '、'.join(dict.fromkeys(warning_name(w['hazard'], w['level']) for w in trig if w.get('demo')))
-    lead, facts = [], []
+    notes, facts = [], []
 
-    def fact(fid, text, source, plain=True):
-        facts.append({'id': fid, 'text': text, 'source': source, 'plain': plain})
+    def fact(fid, text, source, line=None):
+        facts.append({'id': fid, 'text': text, 'source': source, 'plain': line is not None, 'line': line})
 
     if fake:
-        lead.append(f'これは試しです。{fake}は作りもので、気象庁は出していません。ほかはいまの本物の情報です。')
-        fact('demo', f'{area_name}に{fake}が出ています（これは試しの作りもので、気象庁は出していません）', '試し',
-             plain=False)
+        notes.append(f'{fake}は試しの作りもので、気象庁は出していません。ほかはいまの本物の情報です。')
+        fact('demo', f'{area_name}に{fake}が出ています（これは試しの作りもので、気象庁は出していません）', '試し')
     if real:
-        fact('warning', f'{area_name}に{real}が出ています', '気象庁')
+        fact('warning', f'{area_name}に{real}が出ています', '気象庁', f'警報　{real}（気象庁）')
     place = []
     for z in zone_items or []:
         if z['key'] in zone_keys and z.get('in'):
             place.append(f"{z['label']}" + (f"（{z['value']}）" if z.get('value') else ''))
     if place:
-        fact('zone', 'いる場所は ' + '、'.join(place) + ' に入っています', 'ハザードマップポータル')
+        fact('zone', 'いる場所は ' + '、'.join(place) + ' に入っています', 'ハザードマップポータル',
+             'この地点　' + '、'.join(place) + 'に入っている（ハザードマップ）')
     for k in kiki or []:
         if k['key'] in kiki_keys and k.get('level') is not None:
-            fact(f"kiki-{k['key']}", f"{k['label'].split('（')[0]}はこの地点で「{k['meaning']}」です",
-                 f"気象庁 {k['time']}")
+            name = k['label'].split('（')[0]
+            fact(f"kiki-{k['key']}", f"{name}はこの地点で「{k['meaning']}」です", f"気象庁 {k['time']}",
+                 f"この地点　{name}「{k['meaning']}」{k['time'].split(' ')[-1]}")
     if trig and rain and 'now' in rain:  # 雨の事実は、大雨などの警報が出ているときだけ添える
         text = f"降水ナウキャストではこの地点 いま {rain['now']['rain']}"
         if 'plus60' in rain:
             text += f"、60分後 {rain['plus60']['rain']}"
-        fact('rain', text, '気象庁')
+        fact('rain', text, '気象庁', f'雨　{rain_line(rain)}（ナウキャスト）')
     for item in lore_items or []:
         if any(kind in item['kind'] for kind in lore_kinds):
-            fact('lore', f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります", '国土地理院')
+            fact('lore', f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります", '国土地理院',
+                 f"伝承碑　{item['km']}km 先に{item['kind']}の碑「{item['name']}」（国土地理院）")
             break
     if road and road.get('count') and any(LINKS[h]['road'] for h in hazards):
         near = road['items'][0]
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
-                     f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'])
-    heads = [names] if names else []
+                     f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
+             f"道路　{road['radius_km']:g}km 以内に道路冠水想定箇所 {road['count']} か所。"
+             f"いちばん近いのは {near['km']}km 先の「{near['name']}」（{near['bureau']}）")
+    # 題は短く（ロック画面で切れないように）: 「千代田区　土砂災害 レベル4（試し）」
+    heads = list(dict.fromkeys(f"{LEVELED[w['hazard']]} レベル{w['level']}" + ('（試し）' if w.get('demo') else '')
+                               for w in sorted(trig, key=lambda w: -w['level'])))
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
     if bear.get('count'):
         b = bear['newest']
         animals = '・'.join(bear['animals'])
         fact('wildlife', f"県が {b['data_until']} までの分を公開している出没の記録では、この地点から {bear['radius_km']:g}km 以内で、"
                          f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
-                         f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'])
+                         f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
+             f"{animals}　{bear['radius_km']:g}km 以内・{bear['days']} 日以内の記録が {bear['count']} 件。"
+             f"いちばん新しいのは {b['time']} の{b['kind']}、{b['km']}km 先（{b['short']}、{b['data_until']} までの分）")
         heads.append(f'{animals}の出没の記録')
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
-    lines = lead + [f"{f['text']}（{f['source']}）。" for f in facts if f['plain']]
-    title = ('【試し】' if fake else '') + f"{area_name}: " + '、'.join(heads)
-    return {'notify': True, 'title': title, 'body': '\n'.join(lines), 'lead': lead, 'facts': facts,
+    shown = [f for f in facts if f['plain']]
+    lines = [f['line'] for f in shown if f['id'] != 'warning'] + [f['line'] for f in shown if f['id'] == 'warning']
+    title = f"{area_name}　" + '、'.join(heads)
+    return {'notify': True, 'title': title, 'body': '\n'.join(lines + notes), 'notes': notes, 'facts': facts,
+            'summary': (lines + notes)[0],  # the folded line stays a place fact even when Claude writes the body
+            'level': max((w['level'] for w in trig), default=0),
             'key': key, 'weather': bool(trig), 'wildlife': bear['newest'] if bear.get('count') else None,
             'place_found': bool(place), 'places': [z['key'] for z in zone_items or []
                                                    if z['key'] in zone_keys and z.get('in')]}

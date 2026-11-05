@@ -173,7 +173,7 @@ class ComposeTest(unittest.TestCase):
         self.assertIs(compose.compose(quiet, c), quiet)
         self.assertEqual(c.calls, 0)
 
-    def test_demo_lead_stays_first(self):
+    def test_demo_note_stays_last(self):
         w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), app.datetime(2026, 11, 3, tzinfo=app.JST))
         n = app.build_notice(AREA, w, [], [], None, [])
         self.assertEqual([(f['id'], f['plain'], f['source']) for f in n['facts']], [('demo', False, '試し')])
@@ -181,8 +181,8 @@ class ComposeTest(unittest.TestCase):
             {'text': '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）。',
              'facts': ['demo']}]}))
         self.assertTrue(out['composer']['ok'], out['composer'])
-        self.assertEqual(out['body'].split('\n'), n['lead'] + [
-            '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。'])
+        self.assertEqual(out['body'].split('\n'), [
+            '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。'] + n['notes'])
 
     def test_client_from_env(self):
         with mock.patch.dict(os.environ, {}, clear=True):

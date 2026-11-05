@@ -225,24 +225,44 @@ def links_for(out):
     return links
 
 
+# 通知の下のボタン（2 つまで）。短い名前で、公式のページをそのまま開く
+BUTTON_NAMES = {'気象庁の警報・注意報': '警報を開く', '指定河川洪水予報': '洪水予報', '重ねるハザードマップ': 'ハザードマップ',
+                '記録の地点（地理院地図）': '記録の地点'}
+
+
+def buttons_for(links):
+    """The notice's first two pages as short buttons: the warning page first, then the キキクル map."""
+    order = lambda link: (0 if link[0] == '気象庁の警報・注意報' else 1 if 'キキクル' in link[0] else 2)
+    return [[BUTTON_NAMES.get(name, name.split('（')[0]), url] for name, url in sorted(links, key=order)[:2]]
+
+
 COMPOSED_NOTE = '（この文は Claude が公式の事実だけからまとめ、アプリが確かめたものです）'
 
 
 def message_for(out, age=None):
-    """The FCM data (strings only) for a notice, cut to fit the FCM size limit."""
+    """The FCM data (strings only) for a notice, cut to fit the FCM size limit.
+
+    The first line (what a folded notification shows) and the tail (the 試し note, the Claude note, the age of
+    the position) always stay; lines in the middle go first."""
     n = out['notice']
+    tail = list(n.get('notes', []))
     lines = n['body'].split('\n')
+    if tail and lines[-len(tail):] == tail:
+        lines = lines[:-len(tail)]
     if n.get('composer', {}).get('ok'):
-        lines.append(COMPOSED_NOTE)
+        tail.append(COMPOSED_NOTE)
     if age is not None and age > OLD_POSITION:
-        lines.append(f'携帯から最後に位置が届いたのは {age // 3600} 時間 {age % 3600 // 60} 分前です。')
-    data = {'title': n['title'], 'links': json.dumps(links_for(out), ensure_ascii=False),
-            'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0'}
+        tail.append(f'携帯から最後に位置が届いたのは {age // 3600} 時間 {age % 3600 // 60} 分前です。')
+    links = links_for(out)
+    data = {'title': n['title'], 'links': json.dumps(links, ensure_ascii=False),
+            'buttons': json.dumps(buttons_for(links), ensure_ascii=False), 'level': str(n.get('level', 0)),
+            'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0',
+            'summary': n.get('summary') or (lines or tail)[0]}
     while True:
-        data['body'] = '\n'.join(lines)
+        data['body'] = '\n'.join(lines + tail)
         if len(json.dumps(data, ensure_ascii=False).encode()) <= DATA_LIMIT or len(lines) <= 1:
             return data
-        lines.pop(-2 if len(lines) > 2 else -1)
+        lines.pop(-1)
 
 
 # ---------------------------------------------------------------- 状態（.phone/phone.json、このユーザーだけが読める）

@@ -228,7 +228,7 @@ def client_from_env():
 
 
 def facts_key(notice):
-    data = json.dumps([notice.get('lead'), notice.get('facts')], ensure_ascii=False, sort_keys=True)
+    data = json.dumps([notice.get('notes'), notice.get('facts')], ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(data.encode('utf-8')).hexdigest()[:32]
 
 
@@ -256,7 +256,7 @@ def cached(notice):
 def _apply(notice, done):
     out = dict(notice, plain_body=notice['body'], composer=done['composer'])
     if done['composer']['ok']:
-        out['body'] = '\n'.join(notice.get('lead', []) + done['lines'])
+        out['body'] = '\n'.join(done['lines'] + notice.get('notes', []))  # the 試し note stays last
     return out
 
 
