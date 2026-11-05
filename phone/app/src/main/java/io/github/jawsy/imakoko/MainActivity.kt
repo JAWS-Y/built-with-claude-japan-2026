@@ -31,9 +31,13 @@ class MainActivity : Activity(), ScreenView.Actions {
         setContentView(R.layout.activity_main)
         val root = findViewById<View>(R.id.root)
         if (Build.VERSION.SDK_INT >= 35) {
+            val bar = findViewById<View>(R.id.bar)
+            val barTop = bar.paddingTop
             root.setOnApplyWindowInsetsListener { v, insets ->
                 val bars = insets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.ime())
-                v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+                // the blue bar runs up under the status bar; the rest keeps clear of the bars
+                v.setPadding(bars.left, 0, bars.right, bars.bottom)
+                bar.setPadding(bar.paddingLeft, barTop + bars.top, bar.paddingRight, bar.paddingBottom)
                 insets
             }
         }

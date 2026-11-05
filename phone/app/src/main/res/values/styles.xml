@@ -30,6 +30,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Go" parent="Big">
+        <item name="android:background">@drawable/btn_go</item>
+    </style>
+
     <style name="Quiet" parent="Big">
         <item name="android:layout_height">48dp</item>
         <item name="android:background">@drawable/btn_quiet</item>

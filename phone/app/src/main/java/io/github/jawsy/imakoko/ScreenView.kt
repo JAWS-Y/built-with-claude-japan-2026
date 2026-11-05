@@ -1,6 +1,7 @@
 package io.github.jawsy.imakoko
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -20,7 +21,11 @@ object ScreenView {
 
     fun draw(root: View, s: Screen.State, editing: Boolean, act: Actions) {
         val chip = Screen.chip(s)
-        root.findViewById<TextView>(R.id.chip).text = dotted(chip.text, root.context.getColor(color(chip.kind)))
+        val ctx = root.context
+        root.findViewById<TextView>(R.id.chip).apply {
+            text = dotted(chip.text, ctx.getColor(color(chip.kind)))
+            backgroundTintList = ColorStateList.valueOf(ctx.getColor(chipBg(chip.kind)))
+        }
         notice(root, Screen.card(s.notice, s.now), act)
         watch(root, s, act)
         setup(root, s, editing)
@@ -32,18 +37,12 @@ object ScreenView {
         card.visibility = if (c == null) View.GONE else View.VISIBLE
         root.findViewById<View>(R.id.empty_card).visibility = if (c == null) View.VISIBLE else View.GONE
         if (c == null) return
-        // the colored head keeps to the card's round corners
+        // the stripe in the level color keeps to the card's round corners
         card.clipToOutline = true
-        root.findViewById<View>(R.id.notice_head).setBackgroundColor(Look.color(c.level) ?: ctx.getColor(R.color.head_plain))
-        // the yellow of level 2 needs dark letters
-        val dark = c.level == "2"
-        root.findViewById<TextView>(R.id.notice_title).apply {
-            text = c.title
-            setTextColor(if (dark) 0xFF1B1D21.toInt() else 0xFFFFFFFF.toInt())
-        }
+        root.findViewById<View>(R.id.notice_stripe).setBackgroundColor(Look.color(c.level) ?: ctx.getColor(R.color.accent))
+        root.findViewById<TextView>(R.id.notice_title).text = c.title
         root.findViewById<TextView>(R.id.notice_when).apply {
             text = c.head
-            setTextColor(if (dark) 0xCC1B1D21.toInt() else 0xDDFFFFFF.toInt())
             visibility = shown(c.head)
         }
         root.findViewById<TextView>(R.id.notice_notes).apply {
@@ -82,11 +81,11 @@ object ScreenView {
         val column = root.findViewById<LinearLayout>(R.id.column)
         val part = root.findViewById<View>(R.id.setup_part)
         val set = s.project != null
-        // until the setup is saved it is the first thing to do, so it sits right under the title;
+        // until the setup is saved it is the first thing to do, so it sits at the top;
         // after that it goes down above the privacy note. Moved only when it must, so the paste box keeps its focus.
-        if (column.indexOfChild(part) != if (set) column.childCount - 2 else 1) {
+        if (column.indexOfChild(part) != if (set) column.childCount - 2 else 0) {
             column.removeView(part)
-            column.addView(part, if (set) column.childCount - 1 else 1)
+            column.addView(part, if (set) column.childCount - 1 else 0)
         }
         root.findViewById<View>(R.id.setup_done).visibility = if (set) View.VISIBLE else View.GONE
         if (set) root.findViewById<TextView>(R.id.setup_state).text = "済み（Firebase ${s.project}）"
@@ -163,6 +162,13 @@ object ScreenView {
         Screen.Kind.WARN -> R.color.warn
         Screen.Kind.BAD -> R.color.bad
         Screen.Kind.INFO -> R.color.accent
+    }
+
+    private fun chipBg(k: Screen.Kind) = when (k) {
+        Screen.Kind.OK -> R.color.chip_ok
+        Screen.Kind.WARN -> R.color.chip_warn
+        Screen.Kind.BAD -> R.color.chip_bad
+        Screen.Kind.IDLE, Screen.Kind.INFO -> R.color.chip_idle
     }
 
     private fun shown(s: CharSequence) = if (s.isEmpty()) View.GONE else View.VISIBLE

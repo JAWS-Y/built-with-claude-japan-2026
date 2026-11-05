@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="launcher_bg">#FF1F5FA8</color>
-    <color name="bg">#FFF5F6F8</color>
+    <!-- white, blue and green: blue for the bar and the links, green for what is working -->
+    <color name="launcher_bg">#FF1A5CB0</color>
+    <color name="bar">#FF1A5CB0</color>
+    <color name="on_bar">#FFFFFFFF</color>
+    <color name="bg">#FFF2F6FA</color>
     <color name="card">#FFFFFFFF</color>
-    <color name="text">#FF1B1D21</color>
-    <color name="sub">#FF5F6670</color>
-    <color name="line">#FFE3E6EA</color>
-    <color name="accent">#FF1F5FA8</color>
+    <color name="text">#FF14212F</color>
+    <color name="sub">#FF566577</color>
+    <color name="line">#FFDCE4EE</color>
+    <color name="accent">#FF1A5CB0</color>
+    <color name="primary">#FF1A5CB0</color>
+    <color name="go">#FF157F40</color>
     <color name="on_accent">#FFFFFFFF</color>
-    <color name="ok">#FF1E8E3E</color>
-    <color name="idle">#FF8A9099</color>
+    <color name="ok">#FF157F40</color>
+    <color name="idle">#FF8A96A3</color>
     <color name="warn">#FFB06000</color>
     <color name="bad">#FFC5221F</color>
-    <color name="note_bg">#FFF1F3F5</color>
-    <color name="head_plain">#FF455A64</color>
+    <color name="note_bg">#FFEBF2FA</color>
+    <color name="chip_ok">#FFE2F3E8</color>
+    <color name="chip_idle">#FFEEF2F6</color>
+    <color name="chip_warn">#FFFFF0DB</color>
+    <color name="chip_bad">#FFFCE6E5</color>
 </resources>
