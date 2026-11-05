@@ -188,7 +188,8 @@ class PushTest(unittest.TestCase):
         self.assertTrue(all(isinstance(v, str) for v in m.values()))
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
         self.assertTrue(m['body'].startswith('はじめの行'))
-        self.assertTrue(m['body'].endswith('携帯から最後に位置が届いたのは 3 時間 5 分前です。'))
+        self.assertTrue(m['body'].endswith('位置は 3 時間 5 分前のもの'))
+        self.assertEqual(len(m['body'].split('\n')), phone.PHONE_LINES + 1)
         self.assertEqual(json.loads(m['links'])[0][0], '気象庁の警報・注意報')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['警報を開く', '土砂キキクル'])
         self.assertEqual(m['level'], '4')
@@ -203,15 +204,15 @@ class PushTest(unittest.TestCase):
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
         lines = m['body'].split('\n')
         self.assertEqual((lines[0], lines[-2]), ('はじめの行', note))
-        self.assertTrue(lines[-1].startswith('携帯から最後に位置が届いたのは'))
-        self.assertTrue(m['summary'].startswith('この地点　'))  # the folded line is about the place
+        self.assertTrue(lines[-1].startswith('位置は '))
+        self.assertTrue(m['summary'].startswith('ここ　'))  # the folded line is about the place
 
     def test_bear_alone(self):
         o = out_for(warn(), bear=BEAR)
         self.assertEqual([n for n, _ in phone.links_for(o)], ['クマダス（秋田県）', '記録の地点（地理院地図）'])
         m = phone.message_for(o)
         self.assertEqual(m['title'], '千代田区　ツキノワグマの出没の記録')
-        self.assertIn('0.11km 先（秋田県 クマダス、', m['body'])
+        self.assertEqual(m['body'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['クマダス', '記録の地点'])
         self.assertEqual(m['level'], '0')
         self.assertEqual(json.loads(m['links'])[1][1], BEAR['link'])

@@ -224,7 +224,8 @@ class PhoneComposeTest(unittest.TestCase):
         plain = out['notice']['body']
         with mock.patch.object(phone, 'here', return_value=out), mock.patch.object(phone, 'log'):
             phone.check_device(g, state, 'mine', writer=compose.FakeClient(with_line(3, '「C」があります。')))
-        self.assertEqual(g.sent[0][1]['body'], plain)
+        self.assertEqual(g.sent[0][1]['body'], phone.message_for(out)['body'])
+        self.assertTrue(set(g.sent[0][1]['body'].split('\n')) <= set(plain.split('\n')))
         self.assertNotIn(phone.COMPOSED_NOTE, g.sent[0][1]['body'])
 
 

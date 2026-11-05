@@ -685,13 +685,23 @@ LINKS = {
 
 
 def rain_line(rain):
-    """降水ナウキャストの「いま」と「60分後」を、通知の 1 行に短くする。値は気象庁の地図の読み取りのまま。"""
-    now, later = rain['now']['rain'], (rain.get('plus60') or {}).get('rain')
-    text = 'いまは降っていない' if now == '降っていない' else f'いま {now}'
-    if later:
-        same = 'も' if later == now else ('は' if later == '降っていない' else '')
-        text += f"／1 時間後{same}" + ('降っていない' if later == '降っていない' else f' {later}')
+    """降水ナウキャストの「いま」と「1 時間後」を、通知の 1 行に短くする。値は気象庁の地図の読み取りのまま。"""
+    def short(v):
+        return 'なし' if v == '降っていない' else v
+    text = f"いま {short(rain['now']['rain'])}"
+    if rain.get('plus60'):
+        text += f"、1時間後 {short(rain['plus60']['rain'])}"
     return text
+
+
+def zone_short(z):
+    """区域の短い名前: 「土石流の警戒区域」「洪水浸水想定区域 0.5～3m」。"""
+    label, value = z['label'], z.get('value')
+    if value and value.endswith('警戒区域') and '（' in label:
+        return label.split('（')[1].rstrip('）') + 'の' + value
+    if value:
+        return f"{label.split('（')[0]} {value}"
+    return label
 
 
 def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild=None):
@@ -721,38 +731,37 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         facts.append({'id': fid, 'text': text, 'source': source, 'plain': line is not None, 'line': line})
 
     if fake:
-        notes.append(f'{fake}は試しの作りもので、気象庁は出していません。ほかはいまの本物の情報です。')
+        notes.append('警報は試しの作りもの。ほかは本物')
         fact('demo', f'{area_name}に{fake}が出ています（これは試しの作りもので、気象庁は出していません）', '試し')
     if real:
-        fact('warning', f'{area_name}に{real}が出ています', '気象庁', f'警報　{real}（気象庁）')
+        fact('warning', f'{area_name}に{real}が出ています', '気象庁', f'警報　{real}')
     place = []
     for z in zone_items or []:
         if z['key'] in zone_keys and z.get('in'):
             place.append(f"{z['label']}" + (f"（{z['value']}）" if z.get('value') else ''))
     if place:
         fact('zone', 'いる場所は ' + '、'.join(place) + ' に入っています', 'ハザードマップポータル',
-             'この地点　' + '、'.join(place) + 'に入っている（ハザードマップ）')
+             'ここ　' + '、'.join(zone_short(z) for z in zone_items if z['key'] in zone_keys and z.get('in')))
     for k in kiki or []:
         if k['key'] in kiki_keys and k.get('level') is not None:
             name = k['label'].split('（')[0]
             fact(f"kiki-{k['key']}", f"{name}はこの地点で「{k['meaning']}」です", f"気象庁 {k['time']}",
-                 f"この地点　{name}「{k['meaning']}」{k['time'].split(' ')[-1]}")
+                 f"ここ　{name}「{k['meaning']}」")
     if trig and rain and 'now' in rain:  # 雨の事実は、大雨などの警報が出ているときだけ添える
         text = f"降水ナウキャストではこの地点 いま {rain['now']['rain']}"
         if 'plus60' in rain:
             text += f"、60分後 {rain['plus60']['rain']}"
-        fact('rain', text, '気象庁', f'雨　{rain_line(rain)}（ナウキャスト）')
+        fact('rain', text, '気象庁', f'雨　{rain_line(rain)}')
     for item in lore_items or []:
         if any(kind in item['kind'] for kind in lore_kinds):
             fact('lore', f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります", '国土地理院',
-                 f"伝承碑　{item['km']}km 先に{item['kind']}の碑「{item['name']}」（国土地理院）")
+                 f"伝承碑　{item['km']}km 先（{item['kind']}）")
             break
     if road and road.get('count') and any(LINKS[h]['road'] for h in hazards):
         near = road['items'][0]
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
-             f"道路　{road['radius_km']:g}km 以内に道路冠水想定箇所 {road['count']} か所。"
-             f"いちばん近いのは {near['km']}km 先の「{near['name']}」（{near['bureau']}）")
+             f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）")
     # 題は短く（ロック画面で切れないように）: 「千代田区　土砂災害 レベル4（試し）」
     heads = list(dict.fromkeys(f"{LEVELED[w['hazard']]} レベル{w['level']}" + ('（試し）' if w.get('demo') else '')
                                for w in sorted(trig, key=lambda w: -w['level'])))
@@ -763,8 +772,7 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         fact('wildlife', f"県が {b['data_until']} までの分を公開している出没の記録では、この地点から {bear['radius_km']:g}km 以内で、"
                          f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
                          f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
-             f"{animals}　{bear['radius_km']:g}km 以内・{bear['days']} 日以内の記録が {bear['count']} 件。"
-             f"いちばん新しいのは {b['time']} の{b['kind']}、{b['km']}km 先（{b['short']}、{b['data_until']} までの分）")
+             f"{animals}　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）")
         heads.append(f'{animals}の出没の記録')
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
     shown = [f for f in facts if f['plain']]

@@ -37,6 +37,7 @@ FIRESTORE = 'https://firestore.googleapis.com/v1'
 FCM = 'https://fcm.googleapis.com/v1'
 DATA_LIMIT = 3800  # FCM data messages carry up to 4096 bytes
 OLD_POSITION = 2 * 3600
+PHONE_LINES = 3  # lines of facts on the phone's notice, before the notes
 
 
 # ---------------------------------------------------------------- RS256（標準ライブラリだけで）
@@ -236,7 +237,7 @@ def buttons_for(links):
     return [[BUTTON_NAMES.get(name, name.split('（')[0]), url] for name, url in sorted(links, key=order)[:2]]
 
 
-COMPOSED_NOTE = '（この文は Claude が公式の事実だけからまとめ、アプリが確かめたものです）'
+COMPOSED_NOTE = '（Claude がまとめ、アプリが確かめた文）'
 
 
 def message_for(out, age=None):
@@ -249,10 +250,12 @@ def message_for(out, age=None):
     lines = n['body'].split('\n')
     if tail and lines[-len(tail):] == tail:
         lines = lines[:-len(tail)]
+    if len(lines) > PHONE_LINES:  # the rest is on the app's screen
+        lines = lines[:PHONE_LINES - 1] + lines[-1:]
     if n.get('composer', {}).get('ok'):
         tail.append(COMPOSED_NOTE)
     if age is not None and age > OLD_POSITION:
-        tail.append(f'携帯から最後に位置が届いたのは {age // 3600} 時間 {age % 3600 // 60} 分前です。')
+        tail.append(f'位置は {age // 3600} 時間 {age % 3600 // 60} 分前のもの')
     links = links_for(out)
     data = {'title': n['title'], 'links': json.dumps(links, ensure_ascii=False),
             'buttons': json.dumps(buttons_for(links), ensure_ascii=False), 'level': str(n.get('level', 0)),
