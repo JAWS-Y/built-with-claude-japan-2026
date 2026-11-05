@@ -183,36 +183,35 @@ class PushTest(unittest.TestCase):
 
     def test_message_is_strings_and_fits(self):
         o = out_for(warn(('49', 'landslide', 4)))
-        o['notice']['body'] = '\n'.join(['はじめの行'] + [f'{i}行目 ' + 'あ' * 200 for i in range(40)])
         m = phone.message_for(o, age=3 * 3600 + 5 * 60)
         self.assertTrue(all(isinstance(v, str) for v in m.values()))
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
-        self.assertTrue(m['body'].startswith('はじめの行'))
-        self.assertTrue(m['body'].endswith('位置は 3 時間 5 分前のもの'))
-        self.assertEqual(len(m['body'].split('\n')), phone.PHONE_LINES + 1)
+        self.assertEqual(m['title'], '土砂災害に気をつけて')
+        # the body names the official pages for this place, in the buttons' order; the facts are on the PC
+        self.assertEqual(m['body'].split('\n'), ['千代田区の警報・注意報（気象庁）', 'この場所の土砂キキクル（気象庁）',
+                                                  'この場所の重ねるハザードマップ', '位置は 3 時間 5 分前のもの'])
+        self.assertEqual(m['summary'], '千代田区の警報・注意報（気象庁）')  # the folded line names the place
         self.assertEqual(json.loads(m['links'])[0][0], '気象庁の警報・注意報')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['警報を開く', '土砂キキクル'])
         self.assertEqual(m['level'], '4')
 
-    def test_trimming_keeps_the_demo_note(self):
+    def test_demo_note_stays_last(self):
         o = out_for(app.add_demo(warn(), ('landslide', 4), datetime(2026, 11, 3, 23, 50)),
                     demo={'hazard': 'landslide', 'level': 4})
-        self.assertEqual(o['notice']['title'], '千代田区　土砂災害 レベル4（試し）')
-        note = o['notice']['notes'][-1]
-        o['notice']['body'] = '\n'.join(['はじめの行'] + [f'{i}行目 ' + 'あ' * 200 for i in range(40)] + [note])
         m = phone.message_for(o, age=3 * 3600)
-        self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
+        self.assertEqual(m['title'], '土砂災害に気をつけて（試し）')
         lines = m['body'].split('\n')
-        self.assertEqual((lines[0], lines[-2]), ('はじめの行', note))
+        self.assertEqual(lines[0], '千代田区の警報・注意報（気象庁）')
+        self.assertEqual(lines[-2], '警報は試しの作りもの。ほかは本物')
         self.assertTrue(lines[-1].startswith('位置は '))
-        self.assertTrue(m['summary'].startswith('ここ　'))  # the folded line is about the place
+        self.assertEqual(m['demo'], '1')
 
     def test_bear_alone(self):
         o = out_for(warn(), bear=BEAR)
         self.assertEqual([n for n, _ in phone.links_for(o)], ['クマダス（秋田県）', '記録の地点（地理院地図）'])
         m = phone.message_for(o)
-        self.assertEqual(m['title'], '千代田区　ツキノワグマの出没の記録')
-        self.assertEqual(m['body'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
+        self.assertEqual(m['title'], 'ツキノワグマに気をつけて')
+        self.assertEqual(m['body'], 'クマダス（秋田県）\n記録の地点（地理院地図）')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['クマダス', '記録の地点'])
         self.assertEqual(m['level'], '0')
         self.assertEqual(json.loads(m['links'])[1][1], BEAR['link'])

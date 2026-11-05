@@ -762,8 +762,8 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
              f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）")
-    # 題は短く（ロック画面で切れないように）: 「千代田区　土砂災害 レベル4（試し）」
-    heads = list(dict.fromkeys(f"{LEVELED[w['hazard']]} レベル{w['level']}" + ('（試し）' if w.get('demo') else '')
+    # 題は短く、何の知らせかだけ: 「土砂災害に気をつけて（試し）」。レベルは色で出す
+    heads = list(dict.fromkeys((LEVELED[w['hazard']], bool(w.get('demo')))
                                for w in sorted(trig, key=lambda w: -w['level'])))
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
     if bear.get('count'):
@@ -773,12 +773,15 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
                          f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
                          f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
              f"{animals}　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）")
-        heads.append(f'{animals}の出没の記録')
+        heads.append((animals, False))
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
     shown = [f for f in facts if f['plain']]
     lines = [f['line'] for f in shown if f['id'] != 'warning'] + [f['line'] for f in shown if f['id'] == 'warning']
-    title = f"{area_name}　" + '、'.join(heads)
-    return {'notify': True, 'title': title, 'body': '\n'.join(lines + notes), 'notes': notes, 'facts': facts,
+    if all(demo for _, demo in heads):
+        title = '・'.join(name for name, _ in heads) + 'に気をつけて（試し）'
+    else:
+        title = '・'.join(name + ('（試し）' if demo else '') for name, demo in heads) + 'に気をつけて'
+    return {'notify': True, 'title': title, 'area': area_name, 'body': '\n'.join(lines + notes), 'notes': notes, 'facts': facts,
             'summary': (lines + notes)[0],  # the folded line stays a place fact even when Claude writes the body
             'level': max((w['level'] for w in trig), default=0),
             'key': key, 'weather': bool(trig), 'wildlife': bear['newest'] if bear.get('count') else None,

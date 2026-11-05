@@ -27,7 +27,6 @@ import urllib.request
 from datetime import datetime
 
 import app
-import compose
 from app import JST, UA, here, in_japan, parse_demo
 
 PACKAGE = 'io.github.jawsy.imakoko'
@@ -37,7 +36,7 @@ FIRESTORE = 'https://firestore.googleapis.com/v1'
 FCM = 'https://fcm.googleapis.com/v1'
 DATA_LIMIT = 3800  # FCM data messages carry up to 4096 bytes
 OLD_POSITION = 2 * 3600
-PHONE_LINES = 3  # lines of facts on the phone's notice, before the notes
+PHONE_LINES = 3  # official pages named on the phone's notice, before the notes
 
 
 # ---------------------------------------------------------------- RS256（標準ライブラリだけで）
@@ -231,36 +230,41 @@ BUTTON_NAMES = {'気象庁の警報・注意報': '警報を開く', '指定河�
                 '記録の地点（地理院地図）': '記録の地点'}
 
 
+def page_order(link):
+    return 0 if link[0] == '気象庁の警報・注意報' else 1 if 'キキクル' in link[0] else 2
+
+
 def buttons_for(links):
     """The notice's first two pages as short buttons: the warning page first, then the キキクル map."""
-    order = lambda link: (0 if link[0] == '気象庁の警報・注意報' else 1 if 'キキクル' in link[0] else 2)
-    return [[BUTTON_NAMES.get(name, name.split('（')[0]), url] for name, url in sorted(links, key=order)[:2]]
+    return [[BUTTON_NAMES.get(name, name.split('（')[0]), url] for name, url in sorted(links, key=page_order)[:2]]
 
 
-COMPOSED_NOTE = '（Claude がまとめ、アプリが確かめた文）'
+def site_line(name, area):
+    """A page's name for the notice's body, with the place it is about (the links themselves are the buttons)."""
+    if name == '気象庁の警報・注意報':
+        return f'{area}の警報・注意報（気象庁）'
+    if 'キキクル' in name or name == '指定河川洪水予報':
+        return f'この場所の{name}（気象庁）'
+    if name == '重ねるハザードマップ':
+        return 'この場所の重ねるハザードマップ'
+    return name
 
 
 def message_for(out, age=None):
     """The FCM data (strings only) for a notice, cut to fit the FCM size limit.
 
-    The first line (what a folded notification shows) and the tail (the 試し note, the Claude note, the age of
-    the position) always stay; lines in the middle go first."""
+    The body names the official pages for this place, in the buttons' order (the facts are on the PC's
+    screen). The tail (the 試し note, the age of the position) always stays; the last pages go first."""
     n = out['notice']
     tail = list(n.get('notes', []))
-    lines = n['body'].split('\n')
-    if tail and lines[-len(tail):] == tail:
-        lines = lines[:-len(tail)]
-    if len(lines) > PHONE_LINES:  # the rest is on the app's screen
-        lines = lines[:PHONE_LINES - 1] + lines[-1:]
-    if n.get('composer', {}).get('ok'):
-        tail.append(COMPOSED_NOTE)
+    links = links_for(out)
+    lines = [site_line(name, n.get('area', '')) for name, _ in sorted(links, key=page_order)][:PHONE_LINES]
     if age is not None and age > OLD_POSITION:
         tail.append(f'位置は {age // 3600} 時間 {age % 3600 // 60} 分前のもの')
-    links = links_for(out)
     data = {'title': n['title'], 'links': json.dumps(links, ensure_ascii=False),
             'buttons': json.dumps(buttons_for(links), ensure_ascii=False), 'level': str(n.get('level', 0)),
             'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0',
-            'summary': n.get('summary') or (lines or tail)[0]}
+            'summary': (lines or tail)[0]}
     while True:
         data['body'] = '\n'.join(lines + tail)
         if len(json.dumps(data, ensure_ascii=False).encode()) <= DATA_LIMIT or len(lines) <= 1:
@@ -319,7 +323,7 @@ def log(text):
     print(f"{datetime.now(JST).strftime('%m/%d %H:%M:%S')} {text}", flush=True)
 
 
-def check_device(g, state, name, demo=None, force=False, writer=None):
+def check_device(g, state, name, demo=None, force=False):
     """Read the phone's position, look it up and push when there is news. Returns what happened (no position)."""
     pos = g.position(state['devices'][name]['id'])
     if not pos or 'lat' not in pos or 'lon' not in pos:
@@ -335,10 +339,6 @@ def check_device(g, state, name, demo=None, force=False, writer=None):
     key = push_key(out)
     if key == state['last'].get(name) and not force:
         return '知らせは送ったものから変わっていません'
-    out['notice'] = compose.compose(out['notice'], writer)
-    c = out['notice'].get('composer')
-    if c:
-        log(f"{name}: 文は " + (f"Claude（{c['by']}）" if c['ok'] else f"公式の事実を並べたもの（{c['reason']}）"))
     age = int(time.time()) - pos['at'] if isinstance(pos.get('at'), int) else None
     result = g.send(pos['token'], message_for(out, age))
     if result == 'sent':
@@ -349,12 +349,12 @@ def check_device(g, state, name, demo=None, force=False, writer=None):
     return '送れませんでした: ' + result
 
 
-def check_all(g, state, demo=None, force=False, only=None, writer=None):
+def check_all(g, state, demo=None, force=False, only=None):
     for name in sorted(state['devices']):
         if only and name != only:
             continue
         try:
-            log(f'{name}: ' + check_device(g, state, name, demo, force, writer))
+            log(f'{name}: ' + check_device(g, state, name, demo, force))
         except Exception as e:
             log(f'{name}: 調べられませんでした（{type(e).__name__}: {e}）')
     save_state(state)
@@ -380,7 +380,6 @@ def main():
         p.add_argument('--demo', type=parse_demo, default=('landslide', 4) if cmd == 'test' else None,
                        metavar='HAZARD[:LEVEL]', help='作りものの警報を足す（test は landslide:4 が既定）')
         p.add_argument('--name', help='この携帯だけ')
-        p.add_argument('--no-claude', action='store_true', help='Claude で文を組み立てない（公式の事実を並べるだけ）')
         if cmd == 'watch':
             p.add_argument('--every', type=int, default=180, help='調べる間隔（秒、60 以上）')
     sub.add_parser('list', help='つないだ携帯の名前')
@@ -409,16 +408,14 @@ def main():
         return
     if not state['devices']:
         raise SystemExit('つないだ携帯がありません（先に pair）')
-    writer = None if a.no_claude else compose.client_from_env()
-    log('文は ' + ('Claude が組み立て、アプリが確かめます' if writer else '公式の事実を並べたものです'))
     if a.cmd == 'test':
-        check_all(g, state, a.demo, force=True, only=a.name, writer=writer)
+        check_all(g, state, a.demo, force=True, only=a.name)
         return
     every = max(60, a.every)
     log(f'{every} 秒ごとに調べます（Ctrl+C で止まります）')
     try:
         while True:
-            check_all(g, state, a.demo, only=a.name, writer=writer)
+            check_all(g, state, a.demo, only=a.name)
             time.sleep(every)
     except KeyboardInterrupt:
         pass

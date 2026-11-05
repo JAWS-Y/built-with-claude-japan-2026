@@ -182,7 +182,7 @@ class NoticeTest(unittest.TestCase):
         lines = n['body'].split('\n')
         self.assertEqual(lines[0], 'ここ　土石流の警戒区域')
         self.assertEqual(lines[-1], '警報　レベル４土砂災害危険警報')  # the place first, the warning after
-        self.assertEqual(n['title'], '千代田区　土砂災害 レベル4')
+        self.assertEqual(n['title'], '土砂災害に気をつけて')  # the level is the color
         self.assertEqual(n['level'], 4)
         self.assertEqual(n['summary'], lines[0])
         self.assertNotIn('内水', n['body'])
@@ -412,7 +412,7 @@ class WildlifeTest(unittest.TestCase):
     def test_bear_alone_notifies(self):
         n = self.bear_notice()
         self.assertEqual((n['notify'], n['weather']), (True, False))
-        self.assertEqual(n['title'], '千代田区　ツキノワグマの出没の記録')
+        self.assertEqual(n['title'], 'ツキノワグマに気をつけて')
         self.assertEqual(n['level'], 0)
         self.assertEqual([f['id'] for f in n['facts']], ['wildlife'])  # no rain or road without a warning
         self.assertEqual(n['body'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
@@ -422,7 +422,7 @@ class WildlifeTest(unittest.TestCase):
 
     def test_bear_with_warning(self):
         n = self.bear_notice(warn(('03', 'rain', 3)))
-        self.assertEqual(n['title'], '千代田区　大雨 レベル3、ツキノワグマの出没の記録')
+        self.assertEqual(n['title'], '大雨・ツキノワグマに気をつけて')
         self.assertTrue(n['weather'])
         self.assertEqual([f['id'] for f in n['facts']], ['warning', 'rain', 'road', 'wildlife'])
 
@@ -465,7 +465,7 @@ class DemoTest(unittest.TestCase):
         w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), self.NOW)
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
         self.assertTrue(n['notify'])
-        self.assertEqual(n['title'], '千代田区　土砂災害 レベル4（試し）')  # 試し once, where the lock screen shows it
+        self.assertEqual(n['title'], '土砂災害に気をつけて（試し）')  # 試し where the lock screen shows it
         lines = n['body'].split('\n')
         self.assertTrue(lines[0].startswith('ここ　'))
         self.assertEqual(lines[-1], '警報は試しの作りもの。ほかは本物')
@@ -479,7 +479,7 @@ class DemoTest(unittest.TestCase):
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
         self.assertTrue(n['body'].endswith('警報　レベル３大雨警報\n警報は試しの作りもの。ほかは本物'))
         self.assertNotIn('高潮特別警報', n['body'])  # the fake one is only in the title
-        self.assertEqual(n['title'], '千代田区　高潮 レベル5（試し）、大雨 レベル3')
+        self.assertEqual(n['title'], '高潮（試し）・大雨に気をつけて')
         self.assertEqual(w['warnings'][0]['hazard'], 'tide')
 
     def test_flood_goes_with_rivers_and_key_changes(self):

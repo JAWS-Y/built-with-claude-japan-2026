@@ -2,19 +2,15 @@
 python3 -m unittest test_compose"""
 import json
 import os
-import shutil
-import tempfile
 import threading
-import time
 import unittest
 import urllib.request
 from unittest import mock
 
 import app
 import compose
-import phone
 from test_app import AREA, KIKI, LORE, RAIN, ROAD, ZONE_ITEMS, warn
-from test_phone import LAT, LON, FakeGoogle, out_for
+from test_phone import LAT, LON, out_for
 
 
 def landslide():
@@ -194,39 +190,6 @@ class ComposeTest(unittest.TestCase):
         # the rules Claude gets name what the app also checks
         for word in ('どう動けばよいか', '安全', '予想', '出典は書かないでください', 'facts'):
             self.assertIn(word, compose.SYSTEM)
-
-
-class PhoneComposeTest(unittest.TestCase):
-    def setUp(self):
-        compose._cache.clear()
-        self.dir = tempfile.mkdtemp()
-        p = mock.patch.object(phone, 'STATE', os.path.join(self.dir, '.phone', 'phone.json'))
-        p.start()
-        self.addCleanup(p.stop)
-        self.addCleanup(shutil.rmtree, self.dir)
-
-    def test_push_uses_checked_text_and_says_so(self):
-        g = FakeGoogle({'lat': LAT, 'lon': LON, 'at': 0, 'token': 'fcm'})
-        state = {'devices': {'mine': {'id': 'dev'}}, 'last': {}}
-        with mock.patch.object(phone, 'here', return_value=out_for(warn(('49', 'landslide', 4)))), \
-                mock.patch.object(phone, 'log'):
-            text = phone.check_device(g, state, 'mine', writer=compose.FakeClient(GOOD))
-        self.assertTrue(text.startswith('送りました'))
-        body = g.sent[0][1]['body'].split('\n')
-        self.assertEqual(body[0], '千代田区にレベル4土砂災害危険警報が出ていて、いる場所は土砂災害警戒区域（土石流）に入っています'
-                                  '（気象庁・ハザードマップポータル）。')
-        self.assertIn(phone.COMPOSED_NOTE, body)
-
-    def test_push_falls_back_to_plain(self):
-        g = FakeGoogle({'lat': LAT, 'lon': LON, 'at': time.time(), 'token': 'fcm'})
-        state = {'devices': {'mine': {'id': 'dev'}}, 'last': {}}
-        out = out_for(warn(('49', 'landslide', 4)))
-        plain = out['notice']['body']
-        with mock.patch.object(phone, 'here', return_value=out), mock.patch.object(phone, 'log'):
-            phone.check_device(g, state, 'mine', writer=compose.FakeClient(with_line(3, '「C」があります。')))
-        self.assertEqual(g.sent[0][1]['body'], phone.message_for(out)['body'])
-        self.assertTrue(set(g.sent[0][1]['body'].split('\n')) <= set(plain.split('\n')))
-        self.assertNotIn(phone.COMPOSED_NOTE, g.sent[0][1]['body'])
 
 
 class ServerComposeTest(unittest.TestCase):
