@@ -1,0 +1,218 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分では何も読めない。名古屋で一緒に住む孫が PC と携帯を設定した。「次へ」のあと古い Android の許可画面で孫が迷い、何度かやり直した。本人は『これで危ないとき鳴る』とだけ聞いた。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "新宿の娘の家に行った帰り。赤い字と🌊を見て、英語の『Warning (Flood)』を何とか読み、水が危ないと思った。でも Level 3 がどれくらいかは分からない。雨が降っていないので気にせず、そのまま電車に乗った。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "押上のお寺の集まりで。紫の字で前と色がちがう。『Urgent』の意味がはっきり分からない。『0.5～3m』の数字は見えたが、自分の足もとのことだとは分からなかった。友だちに見せて聞いた。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 1,
+    "gist": "広島の知り合いの家で。⛰️と紫の字。『Landslide』が分からず、山の何かが危ないらしいとだけ思った。長い本文は途中で読むのをやめて閉じた。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "名古屋の家の近く。新宿のときと同じ🌊なので、また川の水だと思った。『Storm Surge』は分からず、海からの水だとは気づかなかった。雨も降っていないので、急がなかった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "秋田の親せきの家で。🐻と『bear』でクマだと分かった。10 と 1 km は読めたが、いま近くにいるのか、前の記録なのかは分からない。色もなく、あまり急ぐ知らせに見えなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ミャンマー語がどこにもない。手がかりは英語の一行だけで、83 歳の私には英語もやっと。",
+    "severity": 3,
+    "fix_hint": "題と一行目をミャンマー語でも出す"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "日本語で、しかも PC とコマンドが要る。孫がいなければ使い始められない。",
+    "severity": 2,
+    "fix_hint": "QR を読むだけで設定が終わるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に許可」にします。",
+    "kind": "操作",
+    "why": "古い Android の画面は文字がちがい、『常に許可』が見つからない。私は急いで『あとで』を押しがち。そうすると位置が送られない。",
+    "severity": 3,
+    "fix_hint": "機種ごとの画面を絵で見せ、許可が済んだかを札で知らせる"
+   },
+   {
+    "scene": 0,
+    "where": "届き方",
+    "quote": "音・振動・画面の上に出るかは、その携帯の設定のとおり",
+    "kind": "音・振動",
+    "why": "古い携帯は音なしや、裏で止まる設定のことが多い。私は気が散りやすく、鳴らないと見落とす。",
+    "severity": 2,
+    "fix_hint": "はじめに試しの通知を鳴らし、音と振動が出るかを確かめる"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "レベル4",
+    "kind": "色",
+    "why": "赤と紫、3 と 4 のどちらが危ないのかの説明がない。紫を軽いと思うかもしれない。",
+    "severity": 2,
+    "fix_hint": "『いちばん危ない手前』などの段階を、どの言葉の人にも分かる形で示す"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Sumida City: Level 4 Urgent Warning (Flood)",
+    "kind": "言葉",
+    "why": "何をすればいいかが書いていない。逃げるのか、家にいるのかが分からない。",
+    "severity": 2,
+    "fix_hint": "『高い所へ逃げる』のようなすることを一言そえる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "言語",
+    "why": "いちばん大事な『ここが水につかる』に英語がない。数字だけでは自分の場所のことだと分からない。",
+    "severity": 2,
+    "fix_hint": "『ここ』の行も英語・母語にし、上の方に出す"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "Landslide",
+    "kind": "言葉",
+    "why": "英語の難しい言葉で、私には何の危険か分からない。",
+    "severity": 2,
+    "fix_hint": "やさしい言葉か絵（山がくずれる）を出す"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "洪水と同じ🌊なので、川の水だと思った。海から水が来るとは分からない。",
+    "severity": 2,
+    "fix_hint": "高潮は洪水とちがう絵文字や絵にする"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "順番",
+    "why": "雨がないと読めると、もう安心だと思って急がない。",
+    "severity": 2,
+    "fix_hint": "『雨がなくても危ない』と分かる書き方にするか、下の方に回す"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "ここ　土砂キキクル「今後の情報等に留意」",
+    "kind": "長さ・量",
+    "why": "行が多くて、私は途中で読むのをやめてしまう。大事な一行が埋もれる。",
+    "severity": 2,
+    "fix_hint": "たたんだときの一行に、危険と『ここ』だけを短く出す"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "開く公式のページは日本語だけで、押しても何も分からない。",
+    "severity": 1,
+    "fix_hint": "ボタンに、開く先が日本語だと分かる印をつける"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "10 records within 1 km (last 60 days)",
+    "kind": "数字・単位",
+    "why": "色がなく、いまクマが近くにいるのか、前の記録なのか分からない。急ぎ方が決められない。",
+    "severity": 1,
+    "fix_hint": "いちばん新しい記録の日と、外に出るときの注意を一言出す"
+   }
+  ],
+  "outside": [
+   "ミャンマー語での読み上げ",
+   "知らせが来たとき、孫や家族にも同じ知らせが届く",
+   "近くの避難所への道案内を、絵や矢印で見せる",
+   "することを絵だけで見せるカード（高い所へ、家の2階へ、など）"
+  ],
+  "overall": "鳴れば絵文字と色で『何か危ない』とは分かる。でもミャンマー語がなく、英語も難しいので、何の危険か、何をすればいいかが分からない。結局、孫に電話して聞くことになる。"
+ },
+ "cost_usd": 0.1376654,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7654,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 3798,
+  "output_tokens_details": {
+   "thinking_tokens": 1234
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7654,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3798,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7654,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7654
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 43.7,
+ "person": {
+  "id": "P003",
+  "age": 83,
+  "lang": "ミャンマー語",
+  "body": "ADHD",
+  "situation": "古い携帯を使っている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:09:05"
+}

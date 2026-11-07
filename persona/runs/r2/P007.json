@@ -1,0 +1,210 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 0,
+    "gist": "家にPCは無い。会社の支援の人が自分のPCで「python3 phone.py pair」を動かし、設定の文を貼ってくれた。本人は画面の日本語が読めず、何のアプリかも分からないまま。位置の確かめの「あとで」「次へ」も読めず、支援の人に押してもらった。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 1,
+    "gist": "友だちと新宿に出かけていた。音が鳴ってロック画面を見たが、読めるのは🌊と赤い字と「3」だけ。ひろげたら英語の行があり「Warning」は何となく分かったが「Flood」は分からない。水のことで危ないのかな、と思っただけで、何もしなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 1,
+    "gist": "押上へ買い物に行っていた。また🌊。今度は紫で「4」。赤のほうが危ないと思ったので、前より軽い知らせだと思った。「Urgent」は分からない。「0.5～3m」の数字は見えたが、何の数字か分からない。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 1,
+    "gist": "広島の友だちの家に来ていた。⛰️と紫と「4」。山の何かとは思ったが「Landslide」は分からない。ボタンを押すと日本語のページが開いて、すぐ閉じた。友だちに携帯を見せて聞いた。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "港区の工場で働いている。🌊なので、海が近いから海が危ないのかなと思った。でも新宿のときと同じ絵なので、違いは分からない。「Storm Surge」は分からず、どこへ行けばいいかも分からない。まわりの人のまねをするつもり。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "秋田へ旅行中。🐻の絵と英語の「bear」「1 km」「10」で、近くにクマがいるらしいと分かって怖くなった。「records」「60 days」の意味はよく分からず、いまクマがいるのか、前にいたのかは分からない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCを持っていないし、pythonもFirebaseも分からない。支援の人がいなかったら、一つも知らせが来ない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、ボタン一つで始められるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "説明が日本語だけ。「あとで」を押すと、アプリを閉じたときに位置が送られず、知らせが来なくなる。",
+    "severity": 2,
+    "fix_hint": "携帯の言語（インドネシア語）で、絵と矢印をつけて「次へ」だけを大きく見せる"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面に出るのは日本語だけで、英語はひろげないと見えない。本人はひろげ方も知らない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行に、携帯の言語の短い一言を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "日本語のほかには英語しかない。「Flood」「Urgent」「Landslide」「Storm Surge」は分からない。インドネシア語なら分かる。",
+    "severity": 3,
+    "fix_hint": "携帯の言語に合わせてインドネシア語（banjir など）で出す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "🌊 レベル3 氾濫（はんらん）に気をつけて",
+    "kind": "言葉",
+    "why": "どの言葉で読んでも「気をつけて」だけで、何をすればいいか書いていない。知的障害もあるので、自分で考えて動くのはむずかしい。",
+    "severity": 2,
+    "fix_hint": "「高い所へ行く」など、することを一つだけ短く書き、絵もつける"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 紫）",
+    "kind": "色",
+    "why": "赤のほうが危ないと思っていて、紫のレベル4を軽いと受けとってしまった。",
+    "severity": 2,
+    "fix_hint": "色にたよらず、レベルを「4/5」のように大きな数字や目盛りで見せる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "数字・単位",
+    "why": "数字は読めるが、「ここ」の字もどんな数字かも分からない。水がその高さまで来るとは伝わらない。",
+    "severity": 2,
+    "fix_hint": "人の背と水の高さをくらべた絵や、携帯の言語の一言をつける"
+   },
+   {
+    "scene": 3,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「土砂災害の地図」",
+    "kind": "言語",
+    "why": "ボタンの名前が日本語で、押すと開くページも日本語だけ。押しても何も分からない。",
+    "severity": 2,
+    "fix_hint": "ボタン名は携帯の言語にし、開いたページに言語の切りかえがあるかも見せる"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "洪水も高潮も同じ🌊なので、何がちがうのか分からない。",
+    "severity": 1,
+    "fix_hint": "高潮と洪水で、絵を別のものにする"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "しんじゅくくに れべる3 はんらん けいほう",
+    "kind": "長さ・量",
+    "why": "ひらがなの行は読めないし、日本語の行がたくさん並んでいて、自分が読める英語の行を探しにくい。",
+    "severity": 1,
+    "fix_hint": "携帯の言語の行をいちばん上に出し、ほかの行は短くする"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days)",
+    "kind": "言葉",
+    "why": "「records」「last 60 days」がむずかしい。いまクマがいるのか、前にいたのか分からない。",
+    "severity": 1,
+    "fix_hint": "「この近くで、この2か月にクマが10回見られた」と簡単に言う"
+   },
+   {
+    "scene": 1,
+    "where": "PCの画面",
+    "quote": "新宿区にレベル３氾濫警報が出ています。",
+    "kind": "届かない",
+    "why": "PCを持っていないし、PCの画面も日本語の長い文だけ。",
+    "severity": 1,
+    "fix_hint": "くわしい説明も、携帯の中で携帯の言語で見られるようにする"
+   }
+  ],
+  "outside": [
+   "インドネシア語で出す、読み上げる",
+   "することを絵で見せる（高い所へ行く、建物に入る、山から離れる など）",
+   "近くの避難所への道を案内する",
+   "支援の人や友だちに、同じ知らせを送る",
+   "外国人向けの多言語の公式情報（Safety tips など）へ案内する"
+  ],
+  "overall": "音が鳴るので「何かある」ことは分かります。でも日本語ばかりで、英語もむずかしい言葉なので、何が危ないのか、どうすればいいのかが分かりません。🐻だけはすぐ分かりました。インドネシア語と絵があれば助かります。"
+ },
+ "cost_usd": 0.15508139999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7656,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4668,
+  "output_tokens_details": {
+   "thinking_tokens": 1943
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7656,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4668,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7656,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7656
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 48.6,
+ "person": {
+  "id": "P007",
+  "age": 22,
+  "lang": "インドネシア語",
+  "body": "軽い知的障害",
+  "situation": "都心の駅の近くにいる",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:09:58"
+}

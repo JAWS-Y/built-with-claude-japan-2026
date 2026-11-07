@@ -1,0 +1,211 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "一人では無理。「python3 phone.py pair」「Firebase」は何のことか分からず、夫に PC の設定をしてもらった。位置の許可の画面も日本語で読めず、夫に「常に許可」を押してもらった。「公式情報」という名前は漢字で何となく『公式の情報』と分かる程度。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "赤い字と🌊、「Level 3 Warning (Flood)」と漢字の「新宿区」「氾濫」「警報」から、新宿で洪水の警報と分かった。「ここ」がないので自分がいる場所が危ないのか分からない。「冠水想定 4 か所」は読めない。雨の行は「雨」だけ読めて、もう降っているのかと迷った。何をすればいいか分からず、そのまま駅へ歩いた。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "紫の字で Level 4、「Urgent Warning (Flood)」「危険」から、前より強い洪水の警報と分かった。でも紫が赤より上とは知らなかった。「ここ　洪水浸水想定区域 0.5～3m」は「ここ」が読めず、0.5～3m を距離かと思った。自分の足元が水に沈むかもしれない場所だとは気づかなかった。ボタンを押すと日本語のページが開き、閉じた。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "⛰️と「Landslide」「土砂災害」「危険」から、山が崩れる危険と分かった。「急傾斜地の崩壊の警戒区域」は漢字から危なそうだと感じたが、自分がいる場所のことだとは分からなかった。「伝承碑 0.81km 先」は、0.81km 先で崩れたのかと思って不安になった。妊娠中で急いで動けず、どこへ行けばいいかも分からない。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "🌊と Level 4、紫で危ないとは思った。「高潮」は中国語では『ピーク・満ち潮』の意味なので、ただの満ち潮くらいに感じた。「Storm Surge」の英語は知らなかった。海が近いのは分かるが、ここが 0.5～1m 水に浸かる場所だとは読み取れなかった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "🐻の絵と「Asian black bear: 10 records within 1 km」から、近くでクマが10回出たと分かった。外を歩くのが怖くなった。でも地図のページは日本語で、どこで出たのか、どうすればいいかは分からなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PC やコマンドの知識がいるうえ、説明は日本語だけ。一人では始められず、知らせが一つも届かない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、QRコードを読むなどで設定でき、説明に中国語があるように"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "日本語が読めず、何を選べばよいか分からない。「使用中のみ」を選ぶと、アプリを閉じている間に知らせが来ない。",
+    "severity": 2,
+    "fix_hint": "中国語や絵で「『常に許可』を押す」と見せる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "中国語の行がない。分かる手がかりは漢字の当て推量と、少しの英語だけ。",
+    "severity": 2,
+    "fix_hint": "中国語（簡体字）の一行を加える"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "しんじゅくくに れべる3 はんらん けいほう",
+    "kind": "言語",
+    "why": "ひらがなの行は読めず、場所をとるだけ。",
+    "severity": 1,
+    "fix_hint": "ふだん使う言葉を選べるようにし、その言葉の行を出す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）",
+    "kind": "言葉",
+    "why": "「冠水想定」は中国語にない言い方で、意味が分からない。英語の行もこの行にはない。",
+    "severity": 1,
+    "fix_hint": "「道路が水に沈むかもしれない所」と英語・中国語でも書く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "言語",
+    "why": "読めるのは「雨」だけ。もう降っているのか、降っていないのか分からない。",
+    "severity": 1,
+    "fix_hint": "英語・中国語や☀️の絵で「いま降っていない」と見せる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "言語",
+    "why": "「ここ」が読めず、自分のいる場所のことだと分からない。0.5～3m も距離と思ってしまい、水の深さとは気づかない。",
+    "severity": 2,
+    "fix_hint": "「You are in a flood area: water 0.5–3 m deep」を中国語でも書く"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 氾濫（はんらん）に気をつけて",
+    "kind": "色",
+    "why": "赤と紫のどちらが重いか知らない。レベル4で何をすべきか（避難）も書いていない。",
+    "severity": 2,
+    "fix_hint": "「Level 4 = 避難する」を英語・中国語で書く"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "開いた公式のページが日本語だけで、何も読めない。",
+    "severity": 2,
+    "fix_hint": "ボタンの名前を英語・中国語でも書き、開いた先が日本語だと前もって知らせる"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（土砂災害）",
+    "kind": "言葉",
+    "why": "記念碑のことだと分からない。0.81km 先でいま崩れているのかと思い、こわくなる。",
+    "severity": 1,
+    "fix_hint": "「昔の災害の記念碑」と英語・中国語でも書くか、急ぎの知らせからは外す"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "ここ　土砂キキクル「今後の情報等に留意」",
+    "kind": "言語",
+    "why": "カタカナの「キキクル」は読めない。漢字だけ見ると「気をつけて」くらいの軽い意味に見え、レベル4との違いに迷う。",
+    "severity": 1,
+    "fix_hint": "英語・中国語で危ない度合いを書く"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "漢字・読み",
+    "why": "中国語の「高潮」は満ち潮やピークの意味で、そこまで危ないと感じない。英語の「Storm Surge」も知らない言葉。",
+    "severity": 2,
+    "fix_hint": "中国語の「风暴潮」や、やさしい英語の「sea water flooding」を添える"
+   }
+  ],
+  "outside": [
+   "中国語（簡体字）での知らせ全体と、言葉を選ぶ設定",
+   "「いますること」（避難する・高い所へ・建物の中へ）を短く出す",
+   "近くの避難所への道案内",
+   "妊娠中など、急いで動けない人に早めに知らせる設定",
+   "家族（夫）にも同じ知らせを送る",
+   "クマに会ったときにどうするかの短い説明"
+  ],
+  "overall": "絵文字と色、それに漢字と英語の当て推量で、危ないことと何の危険かまでは分かりました。でも、自分がいる所が危ないのか、何をすればいいのかは分かりません。中国語が一行でもあれば、まったく違ったと思います。設定も夫がいないとできませんでした。"
+ },
+ "cost_usd": 0.1554694,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7647,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4691,
+  "output_tokens_details": {
+   "thinking_tokens": 1772
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7647,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4691,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7647,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7647
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 49.0,
+ "person": {
+  "id": "P048",
+  "age": 35,
+  "lang": "中国語",
+  "body": "なし",
+  "situation": "妊娠中",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:16:25"
+}

@@ -1,0 +1,237 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "地域の国際交流協会のボランティアが家に来て、古いノートPCで python や Firebase の設定をしてくれた。自分では画面の日本語が読めず、何をしているか分からないまま。位置の許可の確かめも読めず、ボランティアが「次へ」を押してくれた。ひとりでは絶対に設定できなかった。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "子どもと新宿へ買い物に来ていた。ロック画面に赤い字と🌊、「レベル3」が出たが、たたんだままでは日本語だけで分からない。ひろげて3行目の英語「Level 3 Warning (Flood)」で洪水の警報らしいと分かった。でも空は晴れていて、どのくらい危ないのか、子どもを連れて何をすればいいのか分からず、そのまま駅に向かった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "押上のスカイツリーへ子どもと遊びに来ていた。紫の字で「Level 4 Urgent Warning (Flood)」。Urgent なので前より危ないとは思った。「0.5～3m」という数字は見えたが、それが今いる場所の水の深さの想定だとは読めなかった。ボタンを押すと日本語のページが開き、閉じた。どこへ行けばいいか分からず、夫に電話した。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "広島の友だちの家に子どもと泊まりに来ていた。⛰️と「Landslide」で、土砂崩れのことだと何とか分かった。でも、いる家が崖崩れの警戒区域に入っていることは日本語なので分からず、雨も降っていないので、家の中にいれば大丈夫だと思ってしまった。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "名古屋の港の近くの水族館に子どもと来ていた。🌊と「Level 4 Urgent」で危ないとは分かったが、「Storm Surge」の意味が分からない。前と同じ🌊なので川の洪水か津波かと迷い、海から離れればいいのか高い所へ行けばいいのか決められなかった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "秋田の知り合いの家にいた。🐻と「Asian black bear: 10 records within 1 km」で、近くにクマが出たと分かった。子どもを外で遊ばせるのはやめた。でも色が付いていないので、洪水ほど急ぎではないのかと思った。「records」が今いるのか前に出たのか分からず、地図のボタンも日本語のページだった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PC で python を動かして Firebase の設定をするのは、自分ではまったくできない。手伝う人がいなければ、知らせが一つも届かない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、QRコードを読むか一度押すだけで使い始められるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "アプリの画面",
+    "quote": "見守り」: 状態の札「設定がまだです",
+    "kind": "言語",
+    "why": "アプリの画面が全部日本語で、設定ができたのか、まだなのかも分からない。",
+    "severity": 2,
+    "fix_hint": "状態を ✓ や ✗ の印と色でも見せ、インドネシア語を選べるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "日本語の説明が読めず、「あとで」を押せば位置が送られず、知らせが届かなくなる。どちらを押せばいいか分からない。",
+    "severity": 2,
+    "fix_hint": "「常に許可」を選ぶ様子を絵で見せ、説明を携帯の言語で出す"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "公式情報",
+    "kind": "言語",
+    "why": "携帯の設定に出る通知の種類の名前が日本語だけで、何の通知か分からず切ってしまうかもしれない。",
+    "severity": 1,
+    "fix_hint": "種類の名前に英語かインドネシア語も付ける（例: 防災 Disaster alert）"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面やたたんだ通知では日本語だけで、英語は本文の3行目にしか無い。ひろげないと何の知らせか分からない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行目か題に、短い英語（Flood Lv3 など）を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "英語は母語ではないので少ししか読めない。インドネシア語ならすぐ分かるのに。",
+    "severity": 2,
+    "fix_hint": "携帯の言語に合わせてインドネシア語の1行を出す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "レベル3",
+    "kind": "数字・単位",
+    "why": "日本の警戒レベル（3は子どもや高齢者は避難を始める、など）を知らないので、数字を見ても何をすればいいか分からない。子連れの自分が動くべきなのか分からない。",
+    "severity": 2,
+    "fix_hint": "レベルの数字に、すること（Lv3: 子ども連れは避難の準備・開始）を英語で添える"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "言葉",
+    "why": "晴れているのに洪水警報なので、間違いかと思った。「雨なし」も読めず、雨が降っていなくても川があふれるとは分からない。",
+    "severity": 1,
+    "fix_hint": "「ここは雨がなくても上流の雨で川があふれる」と英語で一言そえる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "言語",
+    "why": "いちばん大事な「いまいる場所が水につかる区域で、深さ0.5～3m」が日本語だけ。数字は見えても意味が分からない（警戒区域の崖も同じ）。",
+    "severity": 2,
+    "fix_hint": "「You are in a flood zone: water 0.5–3 m（大人の腰から2階まで）」のように英語と絵で出す"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 紫）",
+    "kind": "色",
+    "why": "赤より紫が危ないという日本の決まりを知らない。インドネシアでは赤がいちばん危ない感じがする。",
+    "severity": 1,
+    "fix_hint": "色だけに頼らず、レベルの高さを印や英語の言葉（Urgent / Danger）で強く見せる"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "ボタンの名前が日本語で、押すと日本語の公式ページが開くだけ。何も読めず閉じた。",
+    "severity": 2,
+    "fix_hint": "ボタン名に英語を付け、英語版がある公式ページ（気象庁の多言語ページなど）へつなぐ"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "Hiroshima City Asaminami Ward: Level 4 Urgent Warning (Landslide)",
+    "kind": "長さ・量",
+    "why": "英語の行が長く、大事な「Landslide」が最後にあって通知では切れやすい。",
+    "severity": 1,
+    "fix_hint": "英語は危険の名前を先に（Landslide Lv4 – Asaminami）"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "言葉",
+    "why": "洪水と高潮が同じ🌊で、英語の「Storm Surge」も知らない言葉。川の洪水か津波か分からず、どちらへ逃げるか迷った。",
+    "severity": 2,
+    "fix_hint": "高潮は別の印にし、「sea water rising – move away from the sea / go high」とやさしい英語で書く"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days)",
+    "kind": "言葉",
+    "why": "「records」が、いまクマがいるのか過去の記録なのか分からない。色も付いていないので、急ぎかどうか判断できない。",
+    "severity": 1,
+    "fix_hint": "「10 bear sightings nearby in the last 60 days」のように分かりやすくし、いちばん新しい日付も出す"
+   },
+   {
+    "scene": 1,
+    "where": "PCの画面",
+    "quote": "新宿区にレベル３氾濫警報が出ています。",
+    "kind": "言語",
+    "why": "PC の画面は説明がいちばん詳しいのに、全部日本語で英語が一つもない。",
+    "severity": 1,
+    "fix_hint": "PC の画面にも英語（できればインドネシア語）の要約を付ける"
+   }
+  ],
+  "outside": [
+   "インドネシア語で知らせを出す切りかえ",
+   "子ども連れで、いま何をすればいいか（逃げる・待つ）の一言",
+   "近くの避難所や高い建物への道案内",
+   "家族（夫）に同じ知らせを送る働き",
+   "外国人向けの相談窓口や多言語の防災ページへのリンク"
+  ],
+  "overall": "英語の1行と絵文字のおかげで「危ないこと」は少し分かりました。でも、いる場所がどう危ないのか、子どもを連れて何をすればいいのかは日本語でしか書いていなくて分かりません。それに、PCがないと使い始めることもできません。"
+ },
+ "cost_usd": 0.1688214,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7656,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 5355,
+  "output_tokens_details": {
+   "thinking_tokens": 1875
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7656,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 5355,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7656,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7656
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 56.2,
+ "person": {
+  "id": "P067",
+  "age": 43,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "小さい子を連れている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:20:00"
+}

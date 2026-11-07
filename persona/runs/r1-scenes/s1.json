@@ -1,0 +1,377 @@
+{
+ "point": {
+  "lat": 35.6895,
+  "lon": 139.6917
+ },
+ "checked_at": "2026-11-07 15:29",
+ "errors": [],
+ "sources": [
+  {
+   "name": "気象庁ホームページ",
+   "url": "https://www.jma.go.jp/",
+   "note": "出典：気象庁ホームページ（警報・注意報、氾濫の情報、キキクル、降水ナウキャスト、アメダス）。キキクルと降水ナウキャストは、地図画像の画素の色を読み取って文字にしています。"
+  },
+  {
+   "name": "ハザードマップポータルサイト（国土交通省・国土地理院）",
+   "url": "https://disaportal.gsi.go.jp/",
+   "note": "データは国土交通省・都道府県・市町村等。地図画像の画素の色を読み取って文字にしています。"
+  },
+  {
+   "name": "国土地理院 自然災害伝承碑",
+   "url": "https://www.gsi.go.jp/bousaichiri/denshouhi.html",
+   "note": "出典：国土地理院 自然災害伝承碑。"
+  },
+  {
+   "name": "道路防災情報webマップ 道路冠水想定箇所（国土交通省 各地方整備局・北海道開発局）",
+   "url": "https://www.mlit.go.jp/road/bosai/doro_bosaijoho_webmap/",
+   "note": "出典：各局ホームページ（使った KML の URL は結果の road_flood.sources）を加工して作成。加工は、地点からの距離を計算して近い順に並べたことです。国が「冠水のおそれがある・過去に冠水した道路」として挙げている箇所で、載っていないことは冠水しないことを意味しません。各局の利用規約は公共データ利用規約（PDL1.0）。"
+  },
+  {
+   "name": "秋田県 ツキノワグマ等情報マップシステム「クマダス」データ（秋田県オープンデータカタログ）",
+   "url": "https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003",
+   "note": "出典：秋田県「ツキノワグマ等情報マップシステム『クマダス』データ」（CC BY 4.0）を加工して作成。加工は、地点からの距離を計算し、新しい順に並べて数えたことです。県が時々まとめて公開するデータで、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。ツキノワグマの記録が地点から 1km 以内・60 日以内にあると、知らせのきっかけにします（イノシシ・シカは画面に出すだけです）。"
+  }
+ ],
+ "not_included": [
+  "洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。",
+  "道路冠水想定箇所の沖縄県の分: 国土交通省の道路防災情報webマップに沖縄県の分が無いため入っていません。",
+  "浸水継続時間・津波の深さ: 凡例をまだ読み取っていないため、津波は「区域に入るか」だけです。",
+  "クマ等の出没（秋田県のほか）: ほかの都道府県は出没を地図や PDF で出していて、機械で読める形（CSV など）の公開データが見つかっていないため入っていません。",
+  "犯罪の情報: 警察の公開データは、利用規約のページを読めなかったか、過去の集計だけか、自由に使える規約でないため入れていません。",
+  "林野火災注意報: 市町村ごとに出され、全国をまとめて読める公式の配信が見つかっていないため入れていません（乾燥注意報は警報・注意報の欄に出ます）。",
+  "雪による通行止め: 冬にならないと中身の形を確かめられないため、まだ入れていません（大雪・なだれ・着雪などの警報・注意報と、雪崩危険箇所は出ます）。",
+  "Claude による文の組み立て: PC で ANTHROPIC_API_KEY を設定したときだけ使います。Claude には公式の事実だけを渡し、返ってきた文はアプリが 1 文ずつ確かめ、外れたら事実を並べた文に戻します。"
+ ],
+ "kikikuru": [
+  {
+   "key": "land",
+   "label": "土砂キキクル（土砂災害の危険度分布）",
+   "level": 0,
+   "meaning": "今後の情報等に留意",
+   "time": "11/07 15:10",
+   "link": "https://www.jma.go.jp/bosai/risk/#zoom:13/lat:35.689500/lon:139.691700/colordepth:normal/elements:land"
+  },
+  {
+   "key": "inund",
+   "label": "浸水キキクル（大雨による浸水の危険度分布）",
+   "level": 0,
+   "meaning": "今後の情報等に留意",
+   "time": "11/07 15:10",
+   "link": "https://www.jma.go.jp/bosai/risk/#zoom:13/lat:35.689500/lon:139.691700/colordepth:normal/elements:inund"
+  }
+ ],
+ "nowcast": {
+  "now": {
+   "time": "11/07 15:25",
+   "rain": "降っていない"
+  },
+  "link": "https://www.jma.go.jp/bosai/nowc/#zoom:13/lat:35.689500/lon:139.691700/colordepth:normal/elements:hrpns",
+  "plus30": {
+   "time": "11/07 15:55",
+   "rain": "降っていない"
+  },
+  "plus60": {
+   "time": "11/07 16:25",
+   "rain": "降っていない"
+  }
+ },
+ "amedas": {
+  "station": "東京",
+  "kana": "トウキョウ",
+  "id": "44132",
+  "km": 5.3,
+  "time": "11/07 15:20",
+  "precipitation10m": 0.0,
+  "precipitation1h": 0.0,
+  "precipitation3h": 0.0,
+  "precipitation24h": 0.0,
+  "link": "https://www.jma.go.jp/bosai/amedas/#amdno=44132"
+ },
+ "zones": {
+  "items": [
+   {
+    "key": "flood",
+    "label": "洪水浸水想定区域（想定最大規模）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kaoku_hanran",
+    "label": "家屋倒壊等氾濫想定区域（氾濫流）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kaoku_kagan",
+    "label": "家屋倒壊等氾濫想定区域（河岸侵食）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "naisui",
+    "label": "内水浸水想定区域",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "hightide",
+    "label": "高潮浸水想定区域",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "tsunami",
+    "label": "津波浸水想定",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "dosekiryu",
+    "label": "土砂災害警戒区域（土石流）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kyukeisha",
+    "label": "土砂災害警戒区域（急傾斜地の崩壊）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "jisuberi",
+    "label": "土砂災害警戒区域（地すべり）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "nadare",
+    "label": "雪崩危険箇所",
+    "in": false,
+    "value": null
+   }
+  ],
+  "link": "https://disaportal.gsi.go.jp/maps/?ll=35.689500,139.691700&z=16&base=pale"
+ },
+ "lore": {
+  "radius_km": 10.0,
+  "count": 32,
+  "items": [
+   {
+    "km": 1.57,
+    "name": "大震災紀念碑",
+    "disaster": "関東大震災 (1923年9月1日)",
+    "kind": "地震",
+    "year": "1929",
+    "address": "東京都新宿区新宿2-9-2",
+    "info": "大正12年(1923)9月1日に発生した関東大震災では、旧四谷区でも死傷者168名燃火500戸などの被害があった。震災を記憶に留めるため、区内の新聞社を発起人に、区議会・町会・商業組合等103の賛助者・団体により建立された。「大震災紀念碑」の書は当時の増上寺法主による。",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/13104/13104-001.jpg",
+    "link": "https://maps.gsi.go.jp/#15/35.689688/139.709123/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 3.01,
+    "name": "水掛け地蔵と大震火災死亡群霊塔",
+    "disaster": "関東大震災 (1923年9月1日)",
+    "kind": "地震",
+    "year": "1924",
+    "address": "東京都新宿区西早稲田2-1-14",
+    "info": "大正12年(1923)9月1日に発生した関東大震災で、旧牛込区では死傷者105名全半壊926戸などの被害を受けたが、火災はほとんどなく比較的被害が少なかったため多くの避難民を受け入れた。碑は震災の死者を弔うため翌年建立された。二体の地蔵菩薩立像は高野山御廟橋から遷されたもの。",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/13104/13104-002.jpg",
+    "link": "https://maps.gsi.go.jp/#15/35.706602/139.717573/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 5.28,
+    "name": "昭和天皇御野立所の碑",
+    "disaster": "関東大震災 (1923年9月1日)",
+    "kind": "地震",
+    "year": "不明",
+    "address": "東京都千代田区北の丸公園1番",
+    "info": "大正12年(1923)9月1日の関東大震災は死者10万人を超える大災害で、遷都の噂が流れるほどであった。この地は昭和5年(1930)、復興祝賀式典の前々日に下町一帯の復興状況を視察された昭和天皇が最初に立ち寄った場所。当時はここから東京湾まで見通すことができた。風化により平成元年(1989)再建。",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/13101/13101-004.jpg",
+    "link": "https://maps.gsi.go.jp/#15/35.694312/139.749828/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 5.53,
+    "name": "工部大学校阯碑",
+    "disaster": "関東大震災 (1923年9月1日)",
+    "kind": "地震",
+    "year": "1939",
+    "address": "東京都千代田区霞が関3-2-2(文部科学省構内)",
+    "info": "大正12年(1923)9月1日の関東大震災は死者10万人、全壊・全焼30万棟を超える日本史上最大の自然災害であった。この地にあった過去に工部大学校として使われた建物も倒壊し、復興事業で文部省や会計検査院などが建てられた。碑は倒壊した建物のレンガなどで作られている。",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/13101/13101-001.jpg",
+    "link": "https://maps.gsi.go.jp/#15/35.670586/139.748322/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 5.62,
+    "name": "震災殉職記念碑",
+    "disaster": "関東大震災 (1923年9月1日)",
+    "kind": "地震",
+    "year": "1924",
+    "address": "東京都文京区小石川4-12-8(光円寺)",
+    "info": "大正12年(1923)9月1日午前11時58分、相模湾北部を震源としてマグニチュード7.9の大地震とそれにともなう大火災が発生し、博文館小石川工場の一部が倒壊し、労働者41名の死者がでた。",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/13105/13105-003.jpg",
+    "link": "https://maps.gsi.go.jp/#15/35.715829/139.744881/&base=std&ls=std%7Cdisaster_lore_all"
+   }
+  ]
+ },
+ "road_flood": {
+  "radius_km": 3.0,
+  "count": 4,
+  "items": [
+   {
+    "name": "初台アンダー",
+    "lat": 35.682461,
+    "lon": 139.688278,
+    "pdf": "https://www.ktr.mlit.go.jp/honkyoku/road/doro_bosaijoho_webmap/attachment/tokyoto-02-003.pdf",
+    "km": 0.84,
+    "bureau": "国土交通省 関東地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/35.682461/139.688278/&base=std"
+   },
+   {
+    "name": "代々木3丁目 （小田急線山谷架道橋下）",
+    "lat": 35.682174,
+    "lon": 139.696949,
+    "pdf": "https://www.ktr.mlit.go.jp/honkyoku/road/doro_bosaijoho_webmap/attachment/tokyoto-02-050.pdf",
+    "km": 0.94,
+    "bureau": "国土交通省 関東地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/35.682174/139.696949/&base=std"
+   },
+   {
+    "name": "百人町１丁目 （第一大久保ガード）",
+    "lat": 35.698065,
+    "lon": 139.699484,
+    "pdf": "https://www.ktr.mlit.go.jp/honkyoku/road/doro_bosaijoho_webmap/attachment/tokyoto-02-031.pdf",
+    "km": 1.18,
+    "bureau": "国土交通省 関東地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/35.698065/139.699484/&base=std"
+   },
+   {
+    "name": "新宿御苑トンネル",
+    "lat": 35.687602,
+    "lon": 139.710487,
+    "pdf": "https://www.ktr.mlit.go.jp/honkyoku/road/doro_bosaijoho_webmap/attachment/tokyoto-02-002.pdf",
+    "km": 1.71,
+    "bureau": "国土交通省 関東地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/35.687602/139.710487/&base=std"
+   }
+  ],
+  "sources": [
+   {
+    "bureau": "国土交通省 関東地方整備局",
+    "url": "https://www.ktr.mlit.go.jp/honkyoku/road/doro_bosaijoho_webmap/kml/13_tokyo_kansui_point.kml"
+   }
+  ],
+  "missing_prefs": [],
+  "errors": [],
+  "link": "https://disaportal.gsi.go.jp/hazardmap/maps/index.html?ll=35.689500,139.691700&z=15&base=pale&ls=kansui_multi%2C0.8&disp=1&vs=c1j0l0u0t0h0z0"
+ },
+ "wildlife": {
+  "radius_km": 3.0,
+  "days": 365,
+  "covered": false,
+  "count": 0,
+  "by_animal": {},
+  "by_kind": {},
+  "items": [],
+  "sources": [],
+  "other_prefs": true,
+  "errors": [],
+  "notify": {
+   "animals": [
+    "ツキノワグマ"
+   ],
+   "radius_km": 1.0,
+   "days": 60,
+   "count": 0,
+   "newest": null
+  }
+ },
+ "demo": {
+  "hazard": "flood",
+  "level": 3
+ },
+ "area": {
+  "method": "polygon",
+  "class20": {
+   "code": "1310400",
+   "name": "新宿区"
+  },
+  "class15": {
+   "code": "130011",
+   "name": "２３区西部"
+  },
+  "class10": {
+   "code": "130010",
+   "name": "東京地方"
+  },
+  "office": {
+   "code": "130000",
+   "name": "東京都",
+   "officeName": "気象庁"
+  }
+ },
+ "warning": {
+  "warnings": [],
+  "flood": [
+   {
+    "code": "31",
+    "hazard": "flood",
+    "level": 3,
+    "name": "レベル３氾濫警報（試しの作りもの）",
+    "status": "試し",
+    "reportDatetime": "2026-11-07T15:29:32+09:00",
+    "time": "11/07 15:29",
+    "group1": true,
+    "demo": true,
+    "detail": {}
+   }
+  ],
+  "unknown_codes": [],
+  "link": "https://www.jma.go.jp/bosai/warning/#area_type=class20s&area_code=1310400&lang=ja",
+  "flood_link": "https://www.jma.go.jp/bosai/flood/"
+ },
+ "notice": {
+  "notify": true,
+  "title": "氾濫に気をつけて（試し）",
+  "area": "新宿区",
+  "body": "新宿区にレベル３氾濫警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。\nこの場所の3km以内には、国が道路冠水想定箇所として挙げている所が4か所あり、いちばん近いのは0.84km先の「初台アンダー」です（国土交通省 関東地方整備局）。\n降水ナウキャストでは、この地点はいま降っておらず、60分後も降っていないとされています（気象庁）。\n警報は試しの作りもの。ほかは本物",
+  "notes": [
+   "警報は試しの作りもの。ほかは本物"
+  ],
+  "facts": [
+   {
+    "id": "demo",
+    "text": "新宿区にレベル３氾濫警報が出ています（これは試しの作りもので、気象庁は出していません）",
+    "source": "試し",
+    "plain": false,
+    "line": null
+   },
+   {
+    "id": "rain",
+    "text": "降水ナウキャストではこの地点 いま 降っていない、60分後 降っていない",
+    "source": "気象庁",
+    "plain": true,
+    "line": "雨　いま なし、1時間後 なし"
+   },
+   {
+    "id": "road",
+    "text": "3km 以内に、国が道路冠水想定箇所として挙げている所が 4 か所あります。いちばん近いのは 0.84km 先の「初台アンダー」です",
+    "source": "国土交通省 関東地方整備局",
+    "plain": true,
+    "line": "道路　冠水想定 4 か所（3km 以内）"
+   }
+  ],
+  "summary": "雨　いま なし、1時間後 なし",
+  "level": 3,
+  "key": "1310400|31@2026-11-07T15:29:32+09:00",
+  "weather": true,
+  "wildlife": null,
+  "place_found": false,
+  "places": [],
+  "plain_body": "雨　いま なし、1時間後 なし\n道路　冠水想定 4 か所（3km 以内）\n警報は試しの作りもの。ほかは本物",
+  "composer": {
+   "ok": true,
+   "by": "claude-opus-5-5",
+   "request_id": "req_011Cgo6Wwf2Suf4ATMKH1Msk"
+  }
+ }
+}

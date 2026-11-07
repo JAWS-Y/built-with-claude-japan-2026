@@ -1,0 +1,430 @@
+{
+ "point": {
+  "lat": 39.7375,
+  "lon": 140.132
+ },
+ "checked_at": "2026-11-07 15:30",
+ "errors": [],
+ "sources": [
+  {
+   "name": "気象庁ホームページ",
+   "url": "https://www.jma.go.jp/",
+   "note": "出典：気象庁ホームページ（警報・注意報、氾濫の情報、キキクル、降水ナウキャスト、アメダス）。キキクルと降水ナウキャストは、地図画像の画素の色を読み取って文字にしています。"
+  },
+  {
+   "name": "ハザードマップポータルサイト（国土交通省・国土地理院）",
+   "url": "https://disaportal.gsi.go.jp/",
+   "note": "データは国土交通省・都道府県・市町村等。地図画像の画素の色を読み取って文字にしています。"
+  },
+  {
+   "name": "国土地理院 自然災害伝承碑",
+   "url": "https://www.gsi.go.jp/bousaichiri/denshouhi.html",
+   "note": "出典：国土地理院 自然災害伝承碑。"
+  },
+  {
+   "name": "道路防災情報webマップ 道路冠水想定箇所（国土交通省 各地方整備局・北海道開発局）",
+   "url": "https://www.mlit.go.jp/road/bosai/doro_bosaijoho_webmap/",
+   "note": "出典：各局ホームページ（使った KML の URL は結果の road_flood.sources）を加工して作成。加工は、地点からの距離を計算して近い順に並べたことです。国が「冠水のおそれがある・過去に冠水した道路」として挙げている箇所で、載っていないことは冠水しないことを意味しません。各局の利用規約は公共データ利用規約（PDL1.0）。"
+  },
+  {
+   "name": "秋田県 ツキノワグマ等情報マップシステム「クマダス」データ（秋田県オープンデータカタログ）",
+   "url": "https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003",
+   "note": "出典：秋田県「ツキノワグマ等情報マップシステム『クマダス』データ」（CC BY 4.0）を加工して作成。加工は、地点からの距離を計算し、新しい順に並べて数えたことです。県が時々まとめて公開するデータで、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。ツキノワグマの記録が地点から 1km 以内・60 日以内にあると、知らせのきっかけにします（イノシシ・シカは画面に出すだけです）。"
+  }
+ ],
+ "not_included": [
+  "洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。",
+  "道路冠水想定箇所の沖縄県の分: 国土交通省の道路防災情報webマップに沖縄県の分が無いため入っていません。",
+  "浸水継続時間・津波の深さ: 凡例をまだ読み取っていないため、津波は「区域に入るか」だけです。",
+  "クマ等の出没（秋田県のほか）: ほかの都道府県は出没を地図や PDF で出していて、機械で読める形（CSV など）の公開データが見つかっていないため入っていません。",
+  "犯罪の情報: 警察の公開データは、利用規約のページを読めなかったか、過去の集計だけか、自由に使える規約でないため入れていません。",
+  "林野火災注意報: 市町村ごとに出され、全国をまとめて読める公式の配信が見つかっていないため入れていません（乾燥注意報は警報・注意報の欄に出ます）。",
+  "雪による通行止め: 冬にならないと中身の形を確かめられないため、まだ入れていません（大雪・なだれ・着雪などの警報・注意報と、雪崩危険箇所は出ます）。",
+  "Claude による文の組み立て: PC で ANTHROPIC_API_KEY を設定したときだけ使います。Claude には公式の事実だけを渡し、返ってきた文はアプリが 1 文ずつ確かめ、外れたら事実を並べた文に戻します。"
+ ],
+ "kikikuru": [
+  {
+   "key": "land",
+   "label": "土砂キキクル（土砂災害の危険度分布）",
+   "level": 0,
+   "meaning": "今後の情報等に留意",
+   "time": "11/07 15:10",
+   "link": "https://www.jma.go.jp/bosai/risk/#zoom:13/lat:39.737500/lon:140.132000/colordepth:normal/elements:land"
+  },
+  {
+   "key": "inund",
+   "label": "浸水キキクル（大雨による浸水の危険度分布）",
+   "level": 0,
+   "meaning": "今後の情報等に留意",
+   "time": "11/07 15:10",
+   "link": "https://www.jma.go.jp/bosai/risk/#zoom:13/lat:39.737500/lon:140.132000/colordepth:normal/elements:inund"
+  }
+ ],
+ "nowcast": {
+  "now": {
+   "time": "11/07 15:25",
+   "rain": "降っていない"
+  },
+  "link": "https://www.jma.go.jp/bosai/nowc/#zoom:13/lat:39.737500/lon:140.132000/colordepth:normal/elements:hrpns",
+  "plus30": {
+   "time": "11/07 15:55",
+   "rain": "降っていない"
+  },
+  "plus60": {
+   "time": "11/07 16:25",
+   "rain": "降っていない"
+  }
+ },
+ "amedas": {
+  "station": "秋田",
+  "kana": "アキタ",
+  "id": "32402",
+  "km": 3.7,
+  "time": "11/07 15:20",
+  "precipitation10m": 0.0,
+  "precipitation1h": 0.0,
+  "precipitation3h": 0.0,
+  "precipitation24h": 3.5,
+  "link": "https://www.jma.go.jp/bosai/amedas/#amdno=32402"
+ },
+ "zones": {
+  "items": [
+   {
+    "key": "flood",
+    "label": "洪水浸水想定区域（想定最大規模）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kaoku_hanran",
+    "label": "家屋倒壊等氾濫想定区域（氾濫流）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kaoku_kagan",
+    "label": "家屋倒壊等氾濫想定区域（河岸侵食）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "naisui",
+    "label": "内水浸水想定区域",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "hightide",
+    "label": "高潮浸水想定区域",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "tsunami",
+    "label": "津波浸水想定",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "dosekiryu",
+    "label": "土砂災害警戒区域（土石流）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kyukeisha",
+    "label": "土砂災害警戒区域（急傾斜地の崩壊）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "jisuberi",
+    "label": "土砂災害警戒区域（地すべり）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "nadare",
+    "label": "雪崩危険箇所",
+    "in": true,
+    "value": null
+   }
+  ],
+  "link": "https://disaportal.gsi.go.jp/maps/?ll=39.737500,140.132000&z=16&base=pale"
+ },
+ "lore": {
+  "radius_km": 10.0,
+  "count": 0,
+  "items": []
+ },
+ "road_flood": {
+  "radius_km": 3.0,
+  "count": 7,
+  "items": [
+   {
+    "name": "天徳寺地下道",
+    "lat": 39.7353,
+    "lon": 140.1176,
+    "pdf": "http://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/attachment/akitaken-02-401.pdf",
+    "km": 1.26,
+    "bureau": "国土交通省 東北地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/39.735300/140.117600/&base=std"
+   },
+   {
+    "name": "菅野地下道",
+    "lat": 39.7382,
+    "lon": 140.112,
+    "pdf": "http://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/attachment/akitaken-02-402.pdf",
+    "km": 1.71,
+    "bureau": "国土交通省 東北地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/39.738200/140.112000/&base=std"
+   },
+   {
+    "name": "八幡田地下道",
+    "lat": 39.7407,
+    "lon": 140.1062,
+    "pdf": "http://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/attachment/akitaken-02-401.pdf",
+    "km": 2.23,
+    "bureau": "国土交通省 東北地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/39.740700/140.106200/&base=std"
+   },
+   {
+    "name": "外旭川木崎地下道",
+    "lat": 39.7527,
+    "lon": 140.1139,
+    "pdf": "http://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/attachment/akitaken-02-402.pdf",
+    "km": 2.29,
+    "bureau": "国土交通省 東北地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/39.752700/140.113900/&base=std"
+   },
+   {
+    "name": "明田地下道",
+    "lat": 39.7121,
+    "lon": 140.1296,
+    "pdf": "http://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/attachment/akitaken-02-402.pdf",
+    "km": 2.83,
+    "bureau": "国土交通省 東北地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/39.712100/140.129600/&base=std"
+   }
+  ],
+  "sources": [
+   {
+    "bureau": "国土交通省 東北地方整備局",
+    "url": "https://www.thr.mlit.go.jp/road/doro_bosaijoho_webmap/kml/05_akita_kansui_point.kml"
+   }
+  ],
+  "missing_prefs": [],
+  "errors": [],
+  "link": "https://disaportal.gsi.go.jp/hazardmap/maps/index.html?ll=39.737500,140.132000&z=15&base=pale&ls=kansui_multi%2C0.8&disp=1&vs=c1j0l0u0t0h0z0"
+ },
+ "wildlife": {
+  "radius_km": 3.0,
+  "days": 365,
+  "covered": true,
+  "count": 378,
+  "by_animal": {
+   "ツキノワグマ": 348,
+   "イノシシ": 16,
+   "ニホンジカ": 14
+  },
+  "by_kind": {
+   "目撃": 359,
+   "痕跡(その他)": 18,
+   "痕跡(食害)": 1
+  },
+  "items": [
+   {
+    "km": 2.37,
+    "time": "2026/10/29 01:30",
+    "kind": "目撃",
+    "animal": "ニホンジカ",
+    "heads": 1,
+    "town": "秋田市",
+    "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "short": "秋田県 クマダス",
+    "data_until": "2026/10/31",
+    "link": "https://maps.gsi.go.jp/#16/39.757428/140.141852/&base=std"
+   },
+   {
+    "km": 0.0,
+    "time": "2026/10/28 20:40",
+    "kind": "目撃",
+    "animal": "ツキノワグマ",
+    "heads": 1,
+    "town": "秋田市",
+    "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "short": "秋田県 クマダス",
+    "data_until": "2026/10/31",
+    "link": "https://maps.gsi.go.jp/#16/39.737488/140.131996/&base=std"
+   },
+   {
+    "km": 0.93,
+    "time": "2026/10/28 18:00",
+    "kind": "目撃",
+    "animal": "ツキノワグマ",
+    "heads": 1,
+    "town": "秋田市",
+    "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "short": "秋田県 クマダス",
+    "data_until": "2026/10/31",
+    "link": "https://maps.gsi.go.jp/#16/39.729436/140.134968/&base=std"
+   },
+   {
+    "km": 0.74,
+    "time": "2026/10/25 17:45",
+    "kind": "目撃",
+    "animal": "ツキノワグマ",
+    "heads": 1,
+    "town": "秋田市",
+    "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "short": "秋田県 クマダス",
+    "data_until": "2026/10/31",
+    "link": "https://maps.gsi.go.jp/#16/39.730979/140.133735/&base=std"
+   },
+   {
+    "km": 0.56,
+    "time": "2026/10/24 18:45",
+    "kind": "目撃",
+    "animal": "ツキノワグマ",
+    "heads": 1,
+    "town": "秋田市",
+    "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "short": "秋田県 クマダス",
+    "data_until": "2026/10/31",
+    "link": "https://maps.gsi.go.jp/#16/39.733883/140.136623/&base=std"
+   }
+  ],
+  "sources": [
+   {
+    "name": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "title": "【秋田県】ツキノワグマ等情報マップシステム『クマダス』データ（20261031時点）",
+    "url": "https://ckan.pref.akita.lg.jp/dataset/f801a10f-f076-47e4-b5a6-0bb5569639e0/resource/0678f9b3-4bf7-4212-9c0e-c0cb9b09b3cf/download/050008_kumadas.csv",
+    "page": "https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003",
+    "map": "https://kumadas.net/",
+    "map_name": "クマダス（秋田県）",
+    "license": "CC BY 4.0",
+    "data_until": "2026/10/31"
+   }
+  ],
+  "other_prefs": false,
+  "errors": [],
+  "notify": {
+   "animals": [
+    "ツキノワグマ"
+   ],
+   "radius_km": 1.0,
+   "days": 60,
+   "count": 10,
+   "newest": {
+    "km": 0.0,
+    "time": "2026/10/28 20:40",
+    "kind": "目撃",
+    "animal": "ツキノワグマ",
+    "heads": 1,
+    "town": "秋田市",
+    "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+    "short": "秋田県 クマダス",
+    "data_until": "2026/10/31",
+    "link": "https://maps.gsi.go.jp/#16/39.737488/140.131996/&base=std"
+   }
+  }
+ },
+ "demo": null,
+ "area": {
+  "method": "bbox",
+  "class20": {
+   "code": "0520100",
+   "name": "秋田市"
+  },
+  "class15": {
+   "code": "050011",
+   "name": "秋田中央地域"
+  },
+  "class10": {
+   "code": "050010",
+   "name": "沿岸"
+  },
+  "office": {
+   "code": "050000",
+   "name": "秋田県",
+   "officeName": "秋田地方気象台"
+  }
+ },
+ "warning": {
+  "warnings": [
+   {
+    "code": "05",
+    "hazard": "wind",
+    "level": 3,
+    "name": "暴風警報",
+    "status": "継続",
+    "reportDatetime": "2026-11-06T21:09:00+09:00",
+    "time": "11/06 21:09",
+    "group1": false
+   },
+   {
+    "code": "07",
+    "hazard": "wave",
+    "level": 3,
+    "name": "波浪警報",
+    "status": "発表",
+    "reportDatetime": "2026-11-06T18:04:00+09:00",
+    "time": "11/06 18:04",
+    "group1": false
+   },
+   {
+    "code": "14",
+    "hazard": "thunder",
+    "level": 2,
+    "name": "雷注意報",
+    "status": "継続",
+    "reportDatetime": "2026-11-06T21:09:00+09:00",
+    "time": "11/06 21:09",
+    "group1": false
+   }
+  ],
+  "flood": [],
+  "unknown_codes": [],
+  "link": "https://www.jma.go.jp/bosai/warning/#area_type=class20s&area_code=0520100&lang=ja",
+  "flood_link": "https://www.jma.go.jp/bosai/flood/"
+ },
+ "notice": {
+  "notify": true,
+  "title": "ツキノワグマに気をつけて",
+  "area": "秋田市",
+  "body": "ツキノワグマ　1km 以内に 10 件（60 日以内）",
+  "notes": [],
+  "facts": [
+   {
+    "id": "wildlife",
+    "text": "県が 2026/10/31 までの分を公開している出没の記録では、この地点から 1km 以内で、60 日以内にツキノワグマの記録が 10 件あります。いちばん新しいのは 2026/10/28 20:40 の目撃で、0.0km 先です",
+    "source": "秋田県 クマダス",
+    "plain": true,
+    "line": "ツキノワグマ　1km 以内に 10 件（60 日以内）"
+   }
+  ],
+  "summary": "ツキノワグマ　1km 以内に 10 件（60 日以内）",
+  "level": 0,
+  "key": "0520100||bear:2026/10/28 20:40@https://maps.gsi.go.jp/#16/39.737488/140.131996/&base=std",
+  "weather": false,
+  "wildlife": {
+   "km": 0.0,
+   "time": "2026/10/28 20:40",
+   "kind": "目撃",
+   "animal": "ツキノワグマ",
+   "heads": 1,
+   "town": "秋田市",
+   "source": "秋田県 ツキノワグマ等情報マップシステム「クマダス」",
+   "short": "秋田県 クマダス",
+   "data_until": "2026/10/31",
+   "link": "https://maps.gsi.go.jp/#16/39.737488/140.131996/&base=std"
+  },
+  "place_found": false,
+  "places": [],
+  "plain_body": "ツキノワグマ　1km 以内に 10 件（60 日以内）",
+  "composer": {
+   "ok": false,
+   "reason": "事実より文が多い"
+  }
+ }
+}

@@ -1,0 +1,396 @@
+{
+ "point": {
+  "lat": 34.47,
+  "lon": 132.47
+ },
+ "checked_at": "2026-11-07 15:29",
+ "errors": [],
+ "sources": [
+  {
+   "name": "気象庁ホームページ",
+   "url": "https://www.jma.go.jp/",
+   "note": "出典：気象庁ホームページ（警報・注意報、氾濫の情報、キキクル、降水ナウキャスト、アメダス）。キキクルと降水ナウキャストは、地図画像の画素の色を読み取って文字にしています。"
+  },
+  {
+   "name": "ハザードマップポータルサイト（国土交通省・国土地理院）",
+   "url": "https://disaportal.gsi.go.jp/",
+   "note": "データは国土交通省・都道府県・市町村等。地図画像の画素の色を読み取って文字にしています。"
+  },
+  {
+   "name": "国土地理院 自然災害伝承碑",
+   "url": "https://www.gsi.go.jp/bousaichiri/denshouhi.html",
+   "note": "出典：国土地理院 自然災害伝承碑。"
+  },
+  {
+   "name": "道路防災情報webマップ 道路冠水想定箇所（国土交通省 各地方整備局・北海道開発局）",
+   "url": "https://www.mlit.go.jp/road/bosai/doro_bosaijoho_webmap/",
+   "note": "出典：各局ホームページ（使った KML の URL は結果の road_flood.sources）を加工して作成。加工は、地点からの距離を計算して近い順に並べたことです。国が「冠水のおそれがある・過去に冠水した道路」として挙げている箇所で、載っていないことは冠水しないことを意味しません。各局の利用規約は公共データ利用規約（PDL1.0）。"
+  },
+  {
+   "name": "秋田県 ツキノワグマ等情報マップシステム「クマダス」データ（秋田県オープンデータカタログ）",
+   "url": "https://ckan.pref.akita.lg.jp/dataset/050008_shizenhogoka_003",
+   "note": "出典：秋田県「ツキノワグマ等情報マップシステム『クマダス』データ」（CC BY 4.0）を加工して作成。加工は、地点からの距離を計算し、新しい順に並べて数えたことです。県が時々まとめて公開するデータで、いまの出没をすぐ映すものではありません。載っていないことは出没しないことを意味しません。ツキノワグマの記録が地点から 1km 以内・60 日以内にあると、知らせのきっかけにします（イノシシ・シカは画面に出すだけです）。"
+  }
+ ],
+ "not_included": [
+  "洪水キキクル（川の線のデータ）: 今は日本全体どのタイルも空で、中身の形を確かめられていないため入れていません。",
+  "道路冠水想定箇所の沖縄県の分: 国土交通省の道路防災情報webマップに沖縄県の分が無いため入っていません。",
+  "浸水継続時間・津波の深さ: 凡例をまだ読み取っていないため、津波は「区域に入るか」だけです。",
+  "クマ等の出没（秋田県のほか）: ほかの都道府県は出没を地図や PDF で出していて、機械で読める形（CSV など）の公開データが見つかっていないため入っていません。",
+  "犯罪の情報: 警察の公開データは、利用規約のページを読めなかったか、過去の集計だけか、自由に使える規約でないため入れていません。",
+  "林野火災注意報: 市町村ごとに出され、全国をまとめて読める公式の配信が見つかっていないため入れていません（乾燥注意報は警報・注意報の欄に出ます）。",
+  "雪による通行止め: 冬にならないと中身の形を確かめられないため、まだ入れていません（大雪・なだれ・着雪などの警報・注意報と、雪崩危険箇所は出ます）。",
+  "Claude による文の組み立て: PC で ANTHROPIC_API_KEY を設定したときだけ使います。Claude には公式の事実だけを渡し、返ってきた文はアプリが 1 文ずつ確かめ、外れたら事実を並べた文に戻します。"
+ ],
+ "kikikuru": [
+  {
+   "key": "land",
+   "label": "土砂キキクル（土砂災害の危険度分布）",
+   "level": 0,
+   "meaning": "今後の情報等に留意",
+   "time": "11/07 15:10",
+   "link": "https://www.jma.go.jp/bosai/risk/#zoom:13/lat:34.470000/lon:132.470000/colordepth:normal/elements:land"
+  },
+  {
+   "key": "inund",
+   "label": "浸水キキクル（大雨による浸水の危険度分布）",
+   "level": 0,
+   "meaning": "今後の情報等に留意",
+   "time": "11/07 15:10",
+   "link": "https://www.jma.go.jp/bosai/risk/#zoom:13/lat:34.470000/lon:132.470000/colordepth:normal/elements:inund"
+  }
+ ],
+ "nowcast": {
+  "now": {
+   "time": "11/07 15:25",
+   "rain": "降っていない"
+  },
+  "link": "https://www.jma.go.jp/bosai/nowc/#zoom:13/lat:34.470000/lon:132.470000/colordepth:normal/elements:hrpns",
+  "plus30": {
+   "time": "11/07 15:55",
+   "rain": "降っていない"
+  },
+  "plus60": {
+   "time": "11/07 16:25",
+   "rain": "降っていない"
+  }
+ },
+ "amedas": {
+  "station": "広島",
+  "kana": "ヒロシマ",
+  "id": "67437",
+  "km": 8.0,
+  "time": "11/07 15:20",
+  "precipitation10m": 0.0,
+  "precipitation1h": 0.0,
+  "precipitation3h": 0.0,
+  "precipitation24h": 0.0,
+  "link": "https://www.jma.go.jp/bosai/amedas/#amdno=67437"
+ },
+ "zones": {
+  "items": [
+   {
+    "key": "flood",
+    "label": "洪水浸水想定区域（想定最大規模）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kaoku_hanran",
+    "label": "家屋倒壊等氾濫想定区域（氾濫流）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kaoku_kagan",
+    "label": "家屋倒壊等氾濫想定区域（河岸侵食）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "naisui",
+    "label": "内水浸水想定区域",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "hightide",
+    "label": "高潮浸水想定区域",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "tsunami",
+    "label": "津波浸水想定",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "dosekiryu",
+    "label": "土砂災害警戒区域（土石流）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "kyukeisha",
+    "label": "土砂災害警戒区域（急傾斜地の崩壊）",
+    "in": true,
+    "value": "警戒区域"
+   },
+   {
+    "key": "jisuberi",
+    "label": "土砂災害警戒区域（地すべり）",
+    "in": false,
+    "value": null
+   },
+   {
+    "key": "nadare",
+    "label": "雪崩危険箇所",
+    "in": false,
+    "value": null
+   }
+  ],
+  "link": "https://disaportal.gsi.go.jp/maps/?ll=34.470000,132.470000&z=16&base=pale"
+ },
+ "lore": {
+  "radius_km": 10.0,
+  "count": 17,
+  "items": [
+   {
+    "km": 0.81,
+    "name": "土砂災害記念碑",
+    "disaster": "平成26年8月豪雨 (2014年8月20日)",
+    "kind": "土砂災害",
+    "year": "2015",
+    "address": "広島県広島市安佐南区緑井七丁目(緑井第八公園［八敷公園］内)",
+    "info": "平成26年(2014)8月20日に発生した土石流により犠牲になった方の名前や民家の破壊という被害を後世に伝えるため、公園内に建立された。 [関連外部サイトへのリンク集 ](https://www.gsi.go.jp/bousaichiri/denshouhi_links.html#hiroshima)",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/34100/34100-015.jpg",
+    "link": "https://maps.gsi.go.jp/#15/34.474019/132.477361/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 1.79,
+    "name": "水害之碑",
+    "disaster": "洪水、土石流 (1916年9月6日)",
+    "kind": "洪水・土砂災害",
+    "year": "1919",
+    "address": "広島県広島市安佐南区相田二丁目(相田集会所敷地内)",
+    "info": "大正5年(1916)9月6日に起きた安川の洪水災害について、多くの金銭的・人的支援、県知事や村長、県会議員の指揮で村民が奮起したことや石碑建立の経緯や意図も述べられている。 [関連外部サイトへのリンク集 ](https://www.gsi.go.jp/bousaichiri/denshouhi_links.html#hiroshima)",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/34100/34100-002.jpg",
+    "link": "https://maps.gsi.go.jp/#15/34.473169/132.450881/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 2.05,
+    "name": "慰霊碑",
+    "disaster": "平成26年8月豪雨 (2014年8月20日)",
+    "kind": "土砂災害",
+    "year": "2015",
+    "address": "広島県広島市安佐南区八木三丁目(県営緑丘住宅敷地内)",
+    "info": "平成26年(2014)8月20日に発生した土石流による県営緑丘住宅や小原山地区の犠牲者を弔うため建立。犠牲者の名前や豪雨の様子などが記されている。 [関連外部サイトへのリンク集 ](https://www.gsi.go.jp/bousaichiri/denshouhi_links.html#hiroshima)",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/34100/34100-017.jpg",
+    "link": "https://maps.gsi.go.jp/#15/34.480969/132.488019/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 2.31,
+    "name": "広島土砂災害 忘れまい8・20",
+    "disaster": "平成26年8月豪雨 (2014年8月20日)",
+    "kind": "土砂災害",
+    "year": "2015",
+    "address": "広島県広島市安佐南区八木三丁目(梅林小学校敷地内)",
+    "info": "平成26年(2014)8月20日に発生した土石流による犠牲者への哀悼の意と、この災害が後世に伝わることを目的に建立されたことが記されている。 [関連外部サイトへのリンク集 ](https://www.gsi.go.jp/bousaichiri/denshouhi_links.html#hiroshima)",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/34100/34100-018.jpg",
+    "link": "https://maps.gsi.go.jp/#15/34.480181/132.491969/&base=std&ls=std%7Cdisaster_lore_all"
+   },
+   {
+    "km": 2.56,
+    "name": "鎮魂の碑",
+    "disaster": "平成26年8月豪雨 (2014年8月20日)",
+    "kind": "土砂災害",
+    "year": "2015",
+    "address": "広島県広島市安佐南区八木三丁目(梅林集会所付近)",
+    "info": "平成26年(2014)8月20日に発生した土砂災害に関する石碑で、周辺で犠牲になった方の名前が刻まれている。 [関連外部サイトへのリンク集 ](https://www.gsi.go.jp/bousaichiri/denshouhi_links.html#hiroshima)",
+    "image": "https://maps.gsi.go.jp/legend/disaster_lore/34100/34100-016.jpg",
+    "link": "https://maps.gsi.go.jp/#15/34.481739/132.494039/&base=std&ls=std%7Cdisaster_lore_all"
+   }
+  ]
+ },
+ "road_flood": {
+  "radius_km": 3.0,
+  "count": 3,
+  "items": [
+   {
+    "name": "緑井JRアンダー",
+    "lat": 34.465555,
+    "lon": 132.474166,
+    "pdf": "http://www.cgr.mlit.go.jp/doro_bosaijoho_webmap/attachment/hiroshima-02-022.pdf",
+    "km": 0.62,
+    "bureau": "国土交通省 中国地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/34.465555/132.474166/&base=std"
+   },
+   {
+    "name": "大町駅アンダー",
+    "lat": 34.461666,
+    "lon": 132.470833,
+    "pdf": "http://www.cgr.mlit.go.jp/doro_bosaijoho_webmap/attachment/hiroshima-02-021.pdf",
+    "km": 0.93,
+    "bureau": "国土交通省 中国地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/34.461666/132.470833/&base=std"
+   },
+   {
+    "name": "緑井地内",
+    "lat": 34.462222,
+    "lon": 132.477777,
+    "pdf": "http://www.cgr.mlit.go.jp/doro_bosaijoho_webmap/attachment/hiroshima-02-004.pdf",
+    "km": 1.12,
+    "bureau": "国土交通省 中国地方整備局",
+    "link": "https://maps.gsi.go.jp/#17/34.462222/132.477777/&base=std"
+   }
+  ],
+  "sources": [
+   {
+    "bureau": "国土交通省 中国地方整備局",
+    "url": "https://www.cgr.mlit.go.jp/doro_bosaijoho_webmap/kml/34_hiroshima_kansui_point.kml"
+   }
+  ],
+  "missing_prefs": [],
+  "errors": [],
+  "link": "https://disaportal.gsi.go.jp/hazardmap/maps/index.html?ll=34.470000,132.470000&z=15&base=pale&ls=kansui_multi%2C0.8&disp=1&vs=c1j0l0u0t0h0z0"
+ },
+ "wildlife": {
+  "radius_km": 3.0,
+  "days": 365,
+  "covered": false,
+  "count": 0,
+  "by_animal": {},
+  "by_kind": {},
+  "items": [],
+  "sources": [],
+  "other_prefs": true,
+  "errors": [],
+  "notify": {
+   "animals": [
+    "ツキノワグマ"
+   ],
+   "radius_km": 1.0,
+   "days": 60,
+   "count": 0,
+   "newest": null
+  }
+ },
+ "demo": {
+  "hazard": "landslide",
+  "level": 4
+ },
+ "area": {
+  "method": "polygon",
+  "class20": {
+   "code": "3410500",
+   "name": "広島市安佐南区",
+   "kana": "ひろしましあさみなみく",
+   "enName": "Hiroshima City Asaminami Ward"
+  },
+  "class15": {
+   "code": "340011",
+   "name": "広島・呉"
+  },
+  "class10": {
+   "code": "340010",
+   "name": "南部"
+  },
+  "office": {
+   "code": "340000",
+   "name": "広島県",
+   "officeName": "広島地方気象台",
+   "enName": "Hiroshima"
+  }
+ },
+ "warning": {
+  "warnings": [
+   {
+    "code": "49",
+    "hazard": "landslide",
+    "level": 4,
+    "name": "レベル４土砂災害危険警報（試しの作りもの）",
+    "status": "試し",
+    "reportDatetime": "2026-11-07T15:29:45+09:00",
+    "time": "11/07 15:29",
+    "group1": true,
+    "demo": true
+   },
+   {
+    "code": "21",
+    "hazard": "dry",
+    "level": 2,
+    "name": "乾燥注意報",
+    "status": "発表",
+    "reportDatetime": "2026-11-06T04:16:00+09:00",
+    "time": "11/06 04:16",
+    "group1": false
+   }
+  ],
+  "flood": [],
+  "unknown_codes": [],
+  "link": "https://www.jma.go.jp/bosai/warning/#area_type=class20s&area_code=3410500&lang=ja",
+  "flood_link": "https://www.jma.go.jp/bosai/flood/"
+ },
+ "notice": {
+  "notify": true,
+  "title": "⛰️ レベル4 土砂災害（どしゃさいがい）に気をつけて（試し）",
+  "area": "広島市安佐南区",
+  "body": "広島市安佐南区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。\nいる場所は土砂災害警戒区域（急傾斜地の崩壊）の警戒区域に入っています（ハザードマップポータル）。\n土砂キキクルはこの地点で「今後の情報等に留意」です（気象庁 11/07 15:10）。\n降水ナウキャストでは、この地点はいまも60分後も降っていないとされています（気象庁）。\n0.81km先に土砂災害の伝承碑「土砂災害記念碑」があります（国土地理院）。\n警報は試しの作りもの。ほかは本物",
+  "notes": [
+   "警報は試しの作りもの。ほかは本物"
+  ],
+  "facts": [
+   {
+    "id": "demo",
+    "text": "広島市安佐南区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）",
+    "source": "試し",
+    "plain": false,
+    "line": null
+   },
+   {
+    "id": "zone",
+    "text": "いる場所は 土砂災害警戒区域（急傾斜地の崩壊）（警戒区域） に入っています",
+    "source": "ハザードマップポータル",
+    "plain": true,
+    "line": "ここ　急傾斜地の崩壊の警戒区域"
+   },
+   {
+    "id": "kiki-land",
+    "text": "土砂キキクルはこの地点で「今後の情報等に留意」です",
+    "source": "気象庁 11/07 15:10",
+    "plain": true,
+    "line": "ここ　土砂キキクル「今後の情報等に留意」"
+   },
+   {
+    "id": "rain",
+    "text": "降水ナウキャストではこの地点 いま 降っていない、60分後 降っていない",
+    "source": "気象庁",
+    "plain": true,
+    "line": "雨　いま なし、1時間後 なし"
+   },
+   {
+    "id": "lore",
+    "text": "0.81km 先に土砂災害の伝承碑「土砂災害記念碑」があります",
+    "source": "国土地理院",
+    "plain": true,
+    "line": "伝承碑　0.81km 先（土砂災害）"
+   }
+  ],
+  "summary": "ここ　急傾斜地の崩壊の警戒区域",
+  "level": 4,
+  "key": "3410500|49@2026-11-07T15:29:45+09:00",
+  "weather": true,
+  "wildlife": null,
+  "place_found": true,
+  "places": [
+   "kyukeisha"
+  ],
+  "plain_body": "ここ　急傾斜地の崩壊の警戒区域\nここ　土砂キキクル「今後の情報等に留意」\n雨　いま なし、1時間後 なし\n伝承碑　0.81km 先（土砂災害）\n警報は試しの作りもの。ほかは本物",
+  "composer": {
+   "ok": true,
+   "by": "claude-opus-5-5",
+   "request_id": "req_011Cgo9SwKRQEZpCWgRE9VYD"
+  }
+ }
+}

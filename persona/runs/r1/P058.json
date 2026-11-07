@@ -1,0 +1,219 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分では設定できない。家に PC が無く、python も Firebase も分からない。学校の支援の先生がいとこの PC を借りて設定してくれた。読めたのは「まだ…」「クマ」くらい。Android の位置の画面は先生が「常に許可」を押した。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 1,
+    "gist": "「サークル」から赤い字の知らせが来た。「…に…をつけて」までしか読めない。赤いので危ないのかなと思った。何の危険かも、どこのことかも分からない。ボタンも漢字で、押せなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 1,
+    "gist": "さっきと同じ形の題で、今度は紫。前と同じなのか、もっと危ないのか分からない。どう動けばいいかも分からず、そのまま待った。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 1,
+    "gist": "紫の知らせ。「キキクル」は読めたが意味が分からない。山ぞいにいるのに、崖くずれのことだとは分からなかった。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "「ハザードマップ」は英語の hazard だと思い、何か危ないことは分かった。でも高潮のことも、海から離れるべきことも分からない。押すと地図のページが開いたが、漢字ばかりで見方が分からない。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "「ツキノワグマ」「クマダス」は読めた。近くにクマが出たと分かり、こわくなった。でも、どのくらい近いのか、何件出たのかは携帯には出ない。外にいていいのかも分からない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "家に PC が無く、スマホにも慣れていない。14歳がひとりでは絶対に設定できない",
+    "severity": 3,
+    "fix_hint": "携帯だけで、ボタン一つで始められるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "漢字・読み",
+    "why": "「常に許可」が読めない。ほかを選ぶと、アプリを閉じたときに知らせが来なくなる",
+    "severity": 3,
+    "fix_hint": "ふりがなと絵で「これを押す」と示す"
+   },
+   {
+    "scene": 0,
+    "where": "アプリの画面",
+    "quote": "設定がまだです",
+    "kind": "漢字・読み",
+    "why": "設定が済んだのかどうか、自分では確かめられない",
+    "severity": 2,
+    "fix_hint": "ひらがなと、緑のしるしなどで状態を出す"
+   },
+   {
+    "scene": 1,
+    "where": "通知の題",
+    "quote": "氾濫に気をつけて",
+    "kind": "漢字・読み",
+    "why": "漢字が読めず、何の危険か分からない",
+    "severity": 3,
+    "fix_hint": "ひらがなかふりがなで「かわの みずが あふれる」と書く"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言葉",
+    "why": "1行目が出どころの名前だけで、どうすればいいか書いていない。しかも漢字で読めない",
+    "severity": 2,
+    "fix_hint": "1行目には、することを やさしいことばで書く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "",
+    "kind": "言語",
+    "why": "タガログ語も英語も無い。日本語の漢字だけでは中身が届かない",
+    "severity": 3,
+    "fix_hint": "タガログ語か英語でも出す"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "警報を開く",
+    "kind": "漢字・読み",
+    "why": "何が開くのか分からず押せない。開いても気象庁のページは漢字ばかり",
+    "severity": 2,
+    "fix_hint": "ボタン名をひらがなにして、開く先もやさしい版にする"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 紫）",
+    "kind": "色",
+    "why": "赤と紫のどちらが危ないのか分からない。危なさのレベルの数字は PC にしか出ない",
+    "severity": 2,
+    "fix_hint": "携帯にも「レベル4」と数字を出す"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "洪水浸水想定区域（想定最大規模）の0.5～3mの範囲",
+    "kind": "届かない",
+    "why": "水の深さは PC にだけ出て、出かけ先の携帯には来ない。車いすだと水の深さがいちばん大事",
+    "severity": 2,
+    "fix_hint": "携帯にも「ここは みずが 0.5〜3m」と出す"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "この場所の土砂キキクル（気象庁）",
+    "kind": "言葉",
+    "why": "「キキクル」は読めても意味が分からない。崖くずれのことだと伝わらない",
+    "severity": 2,
+    "fix_hint": "「がけくずれ」とやさしいことばを添える"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "高潮に気をつけて",
+    "kind": "漢字・読み",
+    "why": "高潮が読めず、海から離れればいいと分からない",
+    "severity": 3,
+    "fix_hint": "「うみの みずが きます」とひらがなで書く"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "ツキノワグマ　1km 以内に 10 件（60 日以内）",
+    "kind": "届かない",
+    "why": "どのくらい近いのかが PC にしか出ず、携帯では分からない",
+    "severity": 2,
+    "fix_hint": "携帯にも「1kmいないで 10かい」と出す"
+   },
+   {
+    "scene": 1,
+    "where": "届き方",
+    "quote": "音・振動・画面の上に出るかは、その携帯の設定のとおり。",
+    "kind": "音・振動",
+    "why": "スマホに慣れておらず、音を消したままのことがある。気づかないかもしれない",
+    "severity": 2,
+    "fix_hint": "大事な知らせは、マナーモードのときも鳴らす"
+   }
+  ],
+  "outside": [
+   "車いすで通れる道や、段差のない避難所への案内",
+   "エレベーターのある高い建物の案内",
+   "家族へ自動で知らせる",
+   "タガログ語の読み上げ",
+   "「にげて」「たかいところへ」など、することを示す絵"
+  ],
+  "overall": "赤や紫で危ないらしいことは分かりました。でも漢字が読めないので、何が起きているのか、どこへ行けばいいのかが分かりません。クマのときだけカタカナだったので分かりました。設定は自分ではできませんでした。"
+ },
+ "cost_usd": 0.1162334,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 5740,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 3492,
+  "output_tokens_details": {
+   "thinking_tokens": 1113
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 5740,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3492,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 5740,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 5740
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 36.9,
+ "person": {
+  "id": "P058",
+  "age": 14,
+  "lang": "タガログ語",
+  "body": "車いす",
+  "situation": "スマホに慣れていない",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "model": "opus",
+ "scenes_sha256": "1521b230b22a0b5499dc22773f968cf11fad0f650ebbd484c99fcfa0d0a2ec98",
+ "at": "2026-11-07 15:44:35"
+}

@@ -1,0 +1,228 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分ではPCもpythonも分からない。週末に来た息子がPCで設定の文を出して貼ってくれた。「常に許可」は息子が押した。何が送られるのか、よく分からないまま不安が残った。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "娘に会いに新宿へ出かけた先で鳴った。英語の行で「洪水の警報、レベル3」は分かった。でも雨は「なし」とあって、どうするのか迷って駅でじっと立っていた。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "スカイツリーを見に来た押上で届いた。英語でUrgentとあり、前より危ないのは分かった。「ここ 洪水浸水想定区域 0.5～3m」は漢字と数字だけ拾えて、3mと見てこわくなった。何をすればいいかは書いてなかった。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "広島の友だちの家で届いた。英語のLandslideで土砂くずれと分かった。自分の山の家と同じで、こわい。「ここ 急傾斜地の崩壊の警戒区域」「今後の情報等に留意」は読めなかった。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "名古屋港の近くへ旅行中に届いた。Storm Surgeでヨランダの台風を思い出し、体がこわばった。0.5～1mは分かったが、逃げる先も、逃げるべきかも書いていない。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "秋田の親せきの家で届いた。英語で「1km以内にクマの記録10件」は分かった。でも「60日」なので、いま近くにいるのか分からない。外に出てよいか決められなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCもpythonもFirebaseも知らない。山の家にひとりでは設定できず、息子が来るまで使えなかった。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、QRを読むなど一回の操作で設定が終わるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "操作",
+    "why": "「あとで」を押すと何が起きるか分からない。Androidの設定画面に移って、どこを押すか迷う。",
+    "severity": 2,
+    "fix_hint": "押す所を絵で見せ、「あとで」だと知らせが来ないことを英語でも書く"
+   },
+   {
+    "scene": 1,
+    "where": "届き方",
+    "quote": "音・振動・画面の上に出るかは、その携帯の設定のとおり",
+    "kind": "音・振動",
+    "why": "携帯の通知の設定を自分では変えられない。音が切れていれば気づかない。",
+    "severity": 2,
+    "fix_hint": "はじめの設定のときに、音と振動が出ることを確かめる試しの通知を送る"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "言語",
+    "why": "英語は警報の1行だけ。自分の場所がどうなのかを書いた「ここ」「道路」「雨」の行には英語がなく、漢字が読めない。",
+    "severity": 2,
+    "fix_hint": "ここ・道路・雨・伝承碑の行にも英語を付ける"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "タガログ語がない。英語は読めるけれど、あわてているとき英語の行は頭に入りにくい。",
+    "severity": 1,
+    "fix_hint": "母語のタガログ語を選べるようにする"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "レベル4 氾濫（はんらん）に気をつけて",
+    "kind": "言葉",
+    "why": "「気をつけて」とあると、言葉どおりに「注意すればよい」と受けとる。英語のUrgentと合わず、どちらを信じるか迷う。",
+    "severity": 2,
+    "fix_hint": "レベル4では「にげて」などはっきりした言葉にし、英語と同じ強さにそろえる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Level 4 Urgent Warning",
+    "kind": "数字・単位",
+    "why": "レベル3と4で何がちがうのか、自分が何をすればよいのかが書いていない。",
+    "severity": 2,
+    "fix_hint": "レベルごとに、することを一文で書く（例: Level 4 = evacuate now）"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "言葉",
+    "why": "洪水の警報と「雨なし」が並んでいて、矛盾に見える。安全なのか危ないのか決められず、固まってしまう。",
+    "severity": 2,
+    "fix_hint": "「ここで雨がなくても川があふれることがある」と一言そえる"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "土砂キキクル「今後の情報等に留意」",
+    "kind": "言葉",
+    "why": "何をすればよいかが決まっていない、あいまいな言葉。読めないうえに、意味もはっきりしない。",
+    "severity": 2,
+    "fix_hint": "「いまは低い。次の知らせを待つ」のように具体的に言いかえる"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（土砂災害）",
+    "kind": "漢字・読み",
+    "why": "「伝承碑」が読めない。なぜ碑のことが出てくるのか分からず、気が散る。",
+    "severity": 1,
+    "fix_hint": "ふりがなと英語を付け、「昔ここで災害があった印」と書く"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮",
+    "kind": "色",
+    "why": "洪水と高潮が同じ🌊で、見分けにくい。赤と紫の色が何を表すかも分からない。",
+    "severity": 1,
+    "fix_hint": "種類ごとに絵を変え、色の意味を文字でも書く"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "1km 以内に 10 件（60 日以内）",
+    "kind": "数字・単位",
+    "why": "60日のあいだの記録なのか、いまクマがいるのか分からない。いちばん新しい記録がいつかも書いていない。",
+    "severity": 2,
+    "fix_hint": "いちばん新しい記録の日にちと、どれくらい近いかを先に書く"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "開くページが日本語だけで、読めない。",
+    "severity": 2,
+    "fix_hint": "気象庁の多言語ページなど、英語のページへつなぐ"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "しんじゅくくに れべる3 はんらん けいほう",
+    "kind": "漢字・読み",
+    "why": "「しんじゅくくに」のように区切りがなく、言葉の切れ目が分かりにくい。",
+    "severity": 1,
+    "fix_hint": "「しんじゅく く に」のように区切って書く"
+   }
+  ],
+  "outside": [
+   "どこへ逃げるか（近くの避難所）の案内",
+   "知らせが来たとき、息子や娘にも自動で知らせる",
+   "レベルごとに『いまするべきこと』を短く書いたもの",
+   "タガログ語での表示",
+   "山あいの自宅にいるときの、土砂とクマの知らせ"
+  ],
+  "overall": "英語の1行のおかげで、何の危険かはだいたい分かりました。でも「気をつけて」と「Urgent」、警報と「雨なし」が食いちがって見えて、何をすればいいか決められません。設定も、息子がいないとできませんでした。"
+ },
+ "cost_usd": 0.14401740000000002,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7653,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4116,
+  "output_tokens_details": {
+   "thinking_tokens": 1298
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7653,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4116,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7653,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7653
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 42.5,
+ "person": {
+  "id": "P086",
+  "age": 75,
+  "lang": "タガログ語",
+  "body": "自閉スペクトラム",
+  "situation": "山あいに住んでいる",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:22:51"
+}

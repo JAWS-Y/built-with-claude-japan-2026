@@ -1,0 +1,229 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "日本人の夫に手伝ってもらった。夫が PC で python3 phone.py pair を動かし、設定の文を貼り、位置の許可で「常に許可」を選んだ。私は画面の日本語が読めず、何の設定か分からないまま見ていただけ。夫がいないと、ひとりでは始められなかった。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "義母の薬を受けとりに新宿へ出かけていた。ロック画面に赤い字と🌊と「レベル3」が出たが、日本語で読めない。ひろげると英語の「Level 3 Warning (Flood)」があり、洪水の警報だと分かった。道路の行や雨の行は日本語なので、読めたのは数字の 4 と 3km だけ。どこが危ないのか、雨が降っているのかは分からなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "押上へ買い物に来ていた。紫の字で「レベル4」。英語の「Urgent Warning (Flood)」で、さっきより悪いと思った。「ここ 洪水浸水想定区域 0.5～3m」は読めず、自分のいる所が水につかる場所だとは気づかなかった。0.5～3m の意味も分からない。逃げるべきか、家の義母はどうするのかも分からず、夫に電話した。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "インドネシア人の友だちの家へ行くため、広島に来ていた。⛰️と英語の「Landslide」で、土砂くずれの警報だと分かった。「ここ 急傾斜地の崩壊の警戒区域」や「キキクル」の行は読めず、この家が危ない区域だとは分からなかった。伝承碑の 0.81km も何のことか分からない。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "夫の仕事の用で名古屋の港の近くに来ていた。🌊が洪水のときと同じなので、はじめは洪水だと思った。英語の「Storm Surge」はなじみのない言葉で、海の波のことかなと思った程度。「高潮浸水想定区域 0.5～1m」の行は読めず、ここが水につかるとは分からなかった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "義母の親せきの家に付きそって秋田に来ていた。🐻と英語の「Asian black bear: 10 records within 1 km」で、近くにクマが出ていると分かった。色がないので、さっきの警報よりは急ぎではないと感じた。ボタンが日本語でどちらを押せばよいか分からず、1つ押すと日本語のページが開き、地図の点だけを見た。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "はじめに、PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "日本語が読めないうえ、PC でコマンドを動かす必要がある。夫がいなければ始められない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで始められるようにし、英語かインドネシア語の案内を出す"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "なぜ「常に許可」を選ぶのか読めない。「あとで」を押すと、知らせが来なくなるおそれがある。",
+    "severity": 2,
+    "fix_hint": "確かめの画面を英語でも出し、どのボタンを押すかを絵で示す"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面とたたんだ通知は日本語だけ。英語はひろげないと出ないので、気づくのが遅れる。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に英語を短く入れる（例: Level 3 Flood）"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "",
+    "kind": "言語",
+    "why": "インドネシア語を選ぶ所がない。英語の1行だけが頼りになる。",
+    "severity": 2,
+    "fix_hint": "はじめに言語を選べるようにし、インドネシア語の1行を出す"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "言語",
+    "why": "自分のいる場所が水につかる区域だという大事なことが、日本語だけで書いてある。数字しか見えず、深さだとも分からない。",
+    "severity": 3,
+    "fix_hint": "「ここ」の行も英語にする（例: You are in a flood zone, water 0.5–3 m）"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Sumida City: Level 4 Urgent Warning (Flood)",
+    "kind": "言葉",
+    "why": "「Level 4」が逃げる段階だと分からない。介護している義母を動かすべきか判断できない。",
+    "severity": 2,
+    "fix_hint": "英語の行に、何をすればよいかを一言そえる（例: Evacuate now）"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "ボタンの名前が日本語で、どれを押せばよいか分からない。開くページも日本語。",
+    "severity": 2,
+    "fix_hint": "ボタン名を英語でも出す（例: Warning / River）"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "題の文字の色: 紫",
+    "kind": "色",
+    "why": "赤より紫のほうが危ないとは分からない。紫は危ない色に見えない。",
+    "severity": 1,
+    "fix_hint": "色の意味を英語の言葉でもそえる"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "洪水と同じ🌊なので、高潮をまた洪水だと思ってしまった。",
+    "severity": 1,
+    "fix_hint": "高潮には別の絵を使う"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "Storm Surge",
+    "kind": "言葉",
+    "why": "英語の中でもむずかしい言葉で、意味がはっきり分からない。",
+    "severity": 1,
+    "fix_hint": "やさしい英語をそえる（例: sea water flooding）"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（土砂災害）",
+    "kind": "言葉",
+    "why": "読めないし、なぜ出ているのか分からない。大事な行が見つけにくくなる。",
+    "severity": 1,
+    "fix_hint": "英語をつけるか、外国語の人には後ろに回す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "言語",
+    "why": "雨が降るのかどうか読めない。",
+    "severity": 1,
+    "fix_hint": "英語をそえる（例: Rain: none now, none in 1 h）"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "しんじゅくくに れべる3 はんらん けいほう",
+    "kind": "長さ・量",
+    "why": "ひらがなの行は私には読めない。英語の行が下に押されて見つけにくい。",
+    "severity": 1,
+    "fix_hint": "選んだ言語の行を題のすぐ下に出す"
+   },
+   {
+    "scene": 1,
+    "where": "PCの画面",
+    "quote": "新宿区にレベル３氾濫警報が出ています。",
+    "kind": "言語",
+    "why": "PC の画面は全部日本語で、英語の行もない。夫がいないと読めない。",
+    "severity": 1,
+    "fix_hint": "PC の画面にも英語の要約を出す"
+   }
+  ],
+  "outside": [
+   "インドネシア語の翻訳",
+   "いますること（逃げる・高い所へ行く）を、やさしい言葉や絵で示す",
+   "近くの避難所への道案内",
+   "家族（夫）へ同じ知らせを送る",
+   "お年寄りや介護される人を連れて逃げるときの手引き",
+   "外国人が使える相談の電話の案内"
+  ],
+  "overall": "英語の1行と絵（🌊⛰️🐻）のおかげで、何の危険かはだいたい分かりました。でも、ロック画面は日本語だけで、「ここが水につかる区域」のような大事な所も日本語だけです。自分の場所が本当に危ないのか、介護している義母を連れて逃げるべきかは分かりませんでした。始めるのも、夫がいないとできません。"
+ },
+ "cost_usd": 0.1599774,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7653,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4914,
+  "output_tokens_details": {
+   "thinking_tokens": 1885
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7653,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4914,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7653,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7653
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 50.1,
+ "person": {
+  "id": "P088",
+  "age": 35,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "親の介護をしている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:23:12"
+}

@@ -10,3 +10,7 @@ phone/build/
 phone/app/build/
 phone/local.properties
 *.apk
+# 演じた人のテストの試し走りとログ（数えるのは runs/r1 と r2 から）
+persona/runs/r0/
+persona/runs/*.log
+persona/runs/*/*.err.json

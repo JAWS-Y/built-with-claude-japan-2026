@@ -1,0 +1,264 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "「python3 phone.py pair」も「Firebase」も分からず、ひとりでは設定できなかった。家にPCはあるけど親は使えないので、学校の日本語の先生に手伝ってもらった。古い携帯なので「常に許可」が画面のどこにあるか分からず、先生と探した。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "🌊と赤い字とレベル3、英語の「Flood」で、水の危ないことかなと思った。「はんらん」はひらがなで読めても意味が分からない。「雨 いま なし」は読めたので、雨が降ってないなら大丈夫だと思って、何もしなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "レベル4と「Urgent」で、さっきより危ないと分かった。「ここ 0.5～3m」は、ここが3mの水になるかもってこと？と思ったけど、自信はない。紫が赤より上なのか分からない。どこへ逃げればいいか分からず、ボタンを押したら日本語のページが出て閉じた。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "⛰️は古い携帯だと四角に見えた。「Landslide」は辞書アプリで調べて、山がくずれることだと分かった。「どしゃさいがい」は学校で聞いたことがある。ほかの漢字の行は読めない。カタカナの「キキクル」は読めても意味が分からない。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "「たかしお」も「Storm Surge」も分からない。前の🌊と同じなので、また川の水のことだと思った。海が来るとは分からなかった。「ここ 0.5～1m」の数字だけ見た。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 3,
+    "gist": "🐻と英語の「bear」で、クマが近くに出ると分かった。1kmの中に10件。地図のボタンを押したら、字は読めないけど点の場所は見えた。色がないので、急ぐことではないのかなと思った。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "14歳でPCのコマンドは使えないし、親も日本語とPCが苦手。手伝う人がいないと始められない",
+    "severity": 3,
+    "fix_hint": "携帯だけで始められるか、QRコードを読むだけでつながるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "アプリの画面",
+    "quote": "設定した Firebase に書き、あなたの PC だけが読みます",
+    "kind": "言葉",
+    "why": "Firebaseが何か分からず、位置がどこへ行くのか不安",
+    "severity": 1,
+    "fix_hint": "「あなたの家のPCだけが見ます」と短く言う"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に許可」にします",
+    "kind": "操作",
+    "why": "古いAndroidだと設定画面の形がちがい、「常に許可」の言葉が見つからない",
+    "severity": 2,
+    "fix_hint": "Androidの版ごとに、どこを押すかを絵で見せる"
+   },
+   {
+    "scene": 0,
+    "where": "届き方",
+    "quote": "家の PC で「python3 app.py」を動かし",
+    "kind": "届かない",
+    "why": "家のPCが消えていると知らせが来ない。家族はPCをよく消すけど、そのことに気づけない",
+    "severity": 2,
+    "fix_hint": "PCが止まっているとき、携帯に「いま見守っていません」と出す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "ベトナム語がない。英語は少し分かるけど、FloodやUrgentは調べないと分からない",
+    "severity": 2,
+    "fix_hint": "ベトナム語の1行を足す"
+   },
+   {
+    "scene": 1,
+    "where": "通知の題",
+    "quote": "氾濫（はんらん）",
+    "kind": "言葉",
+    "why": "ひらがなで読めても、「はんらん」という言葉を知らない",
+    "severity": 2,
+    "fix_hint": "「川の水があふれる」のようなやさしい言葉にする"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）",
+    "kind": "漢字・読み",
+    "why": "「冠水想定」が読めず、道が水につかるという意味が分からない",
+    "severity": 2,
+    "fix_hint": "ふりがなをつけるか、「みずにつかる みち」と書く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "言葉",
+    "why": "読める行がここだけなので、雨がないなら安全だと思ってしまう",
+    "severity": 2,
+    "fix_hint": "「雨がなくても 川の水は ふえます」と添える"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 氾濫（はんらん）に気をつけて",
+    "kind": "色",
+    "why": "ベトナムでは赤がいちばん危ない色。紫が赤より上だと分からない",
+    "severity": 2,
+    "fix_hint": "色にたよらず「いちばん上から2番目」のように数で強さを見せる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "数字・単位",
+    "why": "漢字が読めない。3mが水の深さかどうか分からない",
+    "severity": 2,
+    "fix_hint": "「ここは 水の深さ 3mまで に なるかも」と書く"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "気をつけて",
+    "kind": "言葉",
+    "why": "レベル4でも「気をつけて」だけ。逃げたほうがいいのか分からない",
+    "severity": 2,
+    "fix_hint": "レベル4は「にげて」と、することを書く"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "押すと日本語だけのむずかしいページが開いて、読めない",
+    "severity": 2,
+    "fix_hint": "開く前に、そのページで何を見ればいいかを一言書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "土砂キキクル「今後の情報等に留意」",
+    "kind": "言葉",
+    "why": "キキクルの意味が分からない。調べると「気をつけて見ていて」のような弱い言葉で、レベル4と合わずに迷う",
+    "severity": 2,
+    "fix_hint": "キキクルの意味をやさしく書き、警報との関係を書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（土砂災害）",
+    "kind": "漢字・読み",
+    "why": "「伝承碑」が読めず、何なのか分からない",
+    "severity": 1,
+    "fix_hint": "「むかし災害があった しるし」と書く"
+   },
+   {
+    "scene": 3,
+    "where": "通知の題",
+    "quote": "⛰️",
+    "kind": "その他",
+    "why": "古い携帯だと絵文字が四角に見えて、手がかりがなくなる",
+    "severity": 1,
+    "fix_hint": "古い携帯でも出る絵文字か、アイコンにする"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "言葉",
+    "why": "「たかしお」も「Storm Surge」も分からない。洪水と同じ🌊なので、海の水が来ると分からない",
+    "severity": 2,
+    "fix_hint": "「海の水が上がってくる」と書き、川の水とちがう絵文字にする"
+   },
+   {
+    "scene": 5,
+    "where": "通知の題",
+    "quote": "🐻 ツキノワグマ（つきのわぐま）に気をつけて",
+    "kind": "色",
+    "why": "色がないので、急がなくていい知らせに見える",
+    "severity": 1,
+    "fix_hint": "気をつけることだと分かる色か、しるしをつける"
+   },
+   {
+    "scene": 2,
+    "where": "届き方",
+    "quote": "",
+    "kind": "長さ・量",
+    "why": "古い携帯では、ひろげた本文が長すぎて途中で切れ、下の行やボタンが見えないことがある",
+    "severity": 1,
+    "fix_hint": "大事なことを上の3行に入れる"
+   }
+  ],
+  "outside": [
+   "ベトナム語で読めるようにする",
+   "どこへ逃げるかの案内（近くの避難所）",
+   "親に同じ知らせを送る",
+   "PCがなくても携帯だけで動く",
+   "レベルごとに、何をすればいいかの短い説明"
+  ],
+  "overall": "絵文字と数字と英語で、危ないことはなんとなく分かった。でも、何をすればいいか、どこへ逃げればいいかは分からなかった。設定もひとりではできなかった。"
+ },
+ "cost_usd": 0.1697414,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7651,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 5403,
+  "output_tokens_details": {
+   "thinking_tokens": 2302
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7651,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 5403,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7651,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7651
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 55.3,
+ "person": {
+  "id": "P030",
+  "age": 14,
+  "lang": "ベトナム語",
+  "body": "なし",
+  "situation": "古い携帯を使っている",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:13:44"
+}

@@ -1,0 +1,182 @@
+{
+ "answer": {
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "はじめに、PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCでコマンドを動かし、出た文を写して携帯に貼る作業は、TalkBackだけでは一人でできない。結局、目の見える家族に頼むことになる。",
+    "severity": 2,
+    "fix_hint": "携帯だけで終わる設定にするか、読み上げで進める手順にする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言葉",
+    "why": "「Firebase」と読み上げられても何のことか分からず、位置がどこへ行くのか不安なまま押すことになる。",
+    "severity": 1,
+    "fix_hint": "「あなたのPCにだけ位置を送ります」くらいの言葉にする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "次の画面で位置の許可を「常に許可」にします。",
+    "kind": "操作",
+    "why": "Androidの設定画面でTalkBackを使って目的の項目を探すのは手間がかかり、まちがえて「使用中のみ」にしやすい。",
+    "severity": 1,
+    "fix_hint": "次の画面で何番目の項目を選べばよいか、読み上げで案内する"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "墨田区の警報・注意報（気象庁）\nこの場所の指定河川洪水予報（気象庁）\nこの場所の重ねるハザードマップ",
+    "kind": "言葉",
+    "why": "本文はリンクの名前を読み上げるだけ。「レベル4」や「いる場所が0.5〜3m浸水する区域」はPCにしか出ず、外で子どもを連れている私には届かない。",
+    "severity": 2,
+    "fix_hint": "本文の1行目に「レベル4、ここは浸水する区域」と中身を入れる"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "氾濫に気をつけて",
+    "kind": "色",
+    "why": "新宿（レベル3）と墨田（レベル4）で題が同じ。違いは赤と紫の色だけで、色は読み上げられないので、危なさの差が分からない。",
+    "severity": 2,
+    "fix_hint": "題に「レベル4」や「危険」と、言葉で強さを入れる"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "この場所の重ねるハザードマップ",
+    "kind": "読み上げ",
+    "why": "ハザードマップや地理院地図は、地図を目で見るページ。TalkBackでは自分の場所が塗られているかどうか分からない。",
+    "severity": 2,
+    "fix_hint": "地図の中身（ここは何m浸水するか）を文字で通知に書く"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "警報を開く",
+    "kind": "操作",
+    "why": "気象庁のページは項目が多く、子どもの手を引きながらTalkBackで目的の行を探すのは無理に近い。",
+    "severity": 1,
+    "fix_hint": "開かなくても分かるように、要点を通知の本文に入れる"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "この場所の土砂キキクル（気象庁）",
+    "kind": "言葉",
+    "why": "「どしゃききくる」と読み上げられても何のことか分からない。開くと色分けされた地図で、読み上げでは中身が取れない。",
+    "severity": 1,
+    "fix_hint": "「土砂災害の危険度：留意」のように、段階を言葉で書く"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "記録の地点（地理院地図）",
+    "kind": "言葉",
+    "why": "PCには「1km以内に10件（60日以内）」と出ているのに、通知には件数も距離もない。私はクマを目で見つけられないので、近いかどうかが一番知りたい。",
+    "severity": 2,
+    "fix_hint": "「1km以内に10件、60日以内」を通知の本文に入れる"
+   }
+  ],
+  "outside": [
+   "近くの避難所への道を音声で案内する",
+   "家族に知らせを同時に送る",
+   "目の見えない人・子ども連れが今すぐ取るべき行動を短く読み上げる",
+   "PCの画面の要約を、携帯で読み上げ用に聞ける機能"
+  ],
+  "overall": "通知は短くて、TalkBackで何の危険かはすぐ分かるので助かります。でも中身（レベル、ここが浸水するか、クマがどれくらい近いか）は全部、家のPCと地図の中です。外で子どもを連れている私には「気をつけて」しか届かず、どれくらい急いで動けばいいのか分かりません。",
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 2,
+    "gist": "PCの設定と、設定の文を貼る所は家族にやってもらった。位置の許可はTalkBackで時間をかけて「常に許可」にした。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "「氾濫に気をつけて、新宿区の警報・注意報」と読み上げで聞いた。川があふれるかもしれないとは分かったが、どれくらい危ないのかは分からなかった。気象庁のページは開いても読み切れなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "新宿のときと同じ題に聞こえた。もっと危ない（レベル4、ここが浸水する区域）とは知らないまま、子どもを連れて歩き続けた。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "土砂災害の知らせだとは分かった。「土砂キキクル」は何か分からず、開くと地図だったのであきらめた。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "高潮の知らせだと分かり、海から離れようと思った。ハザードマップは地図なので、ここが浸水するかどうかは分からなかった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "クマが出たと分かり、とても怖くなった。どれくらい近いか、何件かは通知に無く、「記録の地点」も地図で分からなかった。"
+   }
+  ]
+ },
+ "cost_usd": 0.1384454,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 5749,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4599,
+  "output_tokens_details": {
+   "thinking_tokens": 2401
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 5749,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4599,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 5749,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 5749
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 49.8,
+ "person": {
+  "id": "P036",
+  "age": 22,
+  "lang": "日本語（母語）",
+  "body": "全盲（TalkBack で読み上げ）",
+  "situation": "小さい子を連れている",
+  "reading": "日本語はふつうに読める"
+ },
+ "model": "opus",
+ "scenes_sha256": "1521b230b22a0b5499dc22773f968cf11fad0f650ebbd484c99fcfa0d0a2ec98",
+ "at": "2026-11-07 15:41:40"
+}

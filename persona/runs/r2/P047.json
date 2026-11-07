@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分では設定できない。家にPCはあるが「python3 phone.py pair」や Firebase は分からず、高校生の娘に全部やってもらった。「常に許可」の確かめは漢字で読めず、娘がいなければ「あとで」を押していたと思う。何のアプリかは「地震や台風の知らせ」と娘に聞いただけ。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "配達中、トラックの音で通知に気づいたのは少しあと。ロック画面では「🌊 3 はんらん」くらいしか分からない。ひろげて英語の「Level 3 Warning (Flood)」で洪水の警報と分かった。「4」「3km」は見えたが、何が4なのかは分からない。雨は「いま なし」なので、急がなくていいのか迷った。ボタンは漢字で、押さなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "英語の「Level 4 Urgent Warning (Flood)」で前より強いと分かった。「ここ … 0.5～3m」は、ここに何か3mと読めたが、水の深さかどうか分からない。逃げるべきか、どこへ行けばいいかは書いてないので、仕事を続けながら同僚の日本人に聞いた。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "現場の仕事で来ていた。英語の「Landslide」で土砂くずれと分かり怖かった。「ここ　急傾斜地の崩壊の警戒区域」は漢字で読めず、自分のいる所が危ないとは分からなかった。「キキクル」「伝承碑 0.81km」は何のことか分からない。ひらがなの行は区切りがなくて読みにくい。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "港の倉庫へ配達中。英語の「Storm Surge」でフィリピンの台風ヨランダを思い出してすぐ怖くなった。「ここ … 0.5～1m」は読めたが、自分の場所が水につかると分かったかはあいまい。海から離れるべきか、どこへ行くかは書いてない。題の🌊が洪水のときと同じで、ロック画面ではちがいが分からない。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "🐻と英語「10 records within 1 km」で近くにクマが出ていると分かった。ひらがなの行もだいたい読めた。でも題の色がなく、ほかの知らせより弱く見えた。ボタン「出没の地図」は読めず、どこに出たかは見られなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCのコマンドや Firebase は自分では全くできない。家族がいなければ使い始められない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、QRを読むなど一回押せば終わる設定にする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "漢字・読み",
+    "why": "漢字で読めず、なぜ「常に許可」が要るか分からない。「あとで」を押せば外で知らせが来ない。",
+    "severity": 2,
+    "fix_hint": "英語かやさしいひらがなで「いつも ON にしないと 外で とどかない」と書く"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "",
+    "kind": "言語",
+    "why": "アプリの画面の言葉を選ぶ所がない。画面も設定も全部日本語。",
+    "severity": 2,
+    "fix_hint": "はじめに言葉（English / Tagalog）を選べるようにする"
+   },
+   {
+    "scene": 1,
+    "where": "届き方",
+    "quote": "音・振動・画面の上に出るかは、その携帯の設定のとおり。",
+    "kind": "音・振動",
+    "why": "工事やトラックの音で、ふつうの通知音では気づかない。ポケットの中だと振動も分からない。",
+    "severity": 2,
+    "fix_hint": "レベル4などは強い長い振動とくり返しの音にする"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "順番",
+    "why": "ロック画面には漢字とカタカナだけで、読める英語はひろげないと出ない。仕事中はひろげないこともある。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行目に英語を出す（例: Level 3 Flood Warning）"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言葉",
+    "why": "英語でも「何をすればいいか」が書いていない。レベル3・4が日本でどういう意味（逃げる準備・逃げる）か知らない。",
+    "severity": 2,
+    "fix_hint": "英語の行に「Prepare to evacuate」「Evacuate now」などの行動を足す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）",
+    "kind": "漢字・読み",
+    "why": "数字だけ見えて、何が4か所なのか分からない。配達の道を変えるべきか判断できない。",
+    "severity": 2,
+    "fix_hint": "この行にも英語かひらがなを付ける（Flooded roads: 4 within 3 km）"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "雨　いま なし、1時間後 なし",
+    "kind": "言葉",
+    "why": "「雨」が読めず「いま なし」だけ見えて、危険がもうないのかと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "「Rain: none now」と書き、雨がなくても川はあふれると添える"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "漢字・読み",
+    "why": "ボタンが漢字だけで何が開くか分からない。開いた先も日本語だけ。",
+    "severity": 1,
+    "fix_hint": "ボタン名に英語を付ける（Warning / River flood）"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "ここ　洪水浸水想定区域 0.5～3m",
+    "kind": "漢字・読み",
+    "why": "「いる場所が3mまで水につかる」といういちばん大事なことが漢字で読めない。",
+    "severity": 3,
+    "fix_hint": "英語で「You are in a flood zone: water 0.5–3 m」と書く"
+   },
+   {
+    "scene": 1,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 赤）",
+    "kind": "色",
+    "why": "赤と紫のどちらが危ないか知らない。日本の色の決まりは外国人に通じない。",
+    "severity": 1,
+    "fix_hint": "色だけでなく英語で「Level 4 = very dangerous」と書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "ひろしましあさみなみくに れべる4 どしゃさいがい きけんけいほう",
+    "kind": "言葉",
+    "why": "ひらがなでも区切りがなく、地名とことばの境が分からない。「どしゃさいがい」の意味も知らない。",
+    "severity": 1,
+    "fix_hint": "地名を短くし、言葉の間に空白を入れて、やさしい言葉（つちが くずれる）にする"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "ここ　急傾斜地の崩壊の警戒区域",
+    "kind": "漢字・読み",
+    "why": "自分のいる所ががけくずれの危ない所だと分からない。",
+    "severity": 3,
+    "fix_hint": "英語で「You are in a landslide danger zone」と書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "ここ　土砂キキクル「今後の情報等に留意」",
+    "kind": "言葉",
+    "why": "カタカナの名前と漢字の言葉で、何を言っているか全く分からない。",
+    "severity": 1,
+    "fix_hint": "英語かやさしいひらがなで言いかえるか、外す"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（土砂災害）",
+    "kind": "言葉",
+    "why": "0.81km先に何があるのか分からず、そこへ行けば安全なのかとまちがえそう。",
+    "severity": 1,
+    "fix_hint": "英語で「memorial of past disaster」と書くか、下の方に移す"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "洪水と高潮が同じ🌊で、ロック画面ではちがいが分からない。高潮なら海からすぐ離れたい。",
+    "severity": 1,
+    "fix_hint": "高潮は別の絵文字にするか、題に英語で Storm Surge と書く"
+   },
+   {
+    "scene": 5,
+    "where": "通知の題",
+    "quote": "（題の文字の色: なし）",
+    "kind": "色",
+    "why": "色がないので、ほかの知らせより軽く見える。外で歩いている自分にはクマは身近な危険。",
+    "severity": 1,
+    "fix_hint": "クマにも注意の色を付ける"
+   }
+  ],
+  "outside": [
+   "タガログ語での知らせ",
+   "どこへ逃げればいいかの案内（英語の地図で）",
+   "日本語が読める家族や会社の人にも同じ知らせを送る",
+   "レベルごとに「何をするか」を英語で説明する画面",
+   "公式のページの英語版へのリンク"
+  ],
+  "overall": "英語の1行があるので、何の危険かはだいたい分かりました。でも、自分のいる所が危ないのか、何をすればいいのかは漢字で読めませんでした。ロック画面にも英語を出して、「逃げて」と書いてほしいです。設定は娘がいないとできません。"
+ },
+ "cost_usd": 0.1676934,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 7655,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 5299,
+  "output_tokens_details": {
+   "thinking_tokens": 1847
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 7655,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 5299,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 7655,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7655
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 54.1,
+ "person": {
+  "id": "P047",
+  "age": 51,
+  "lang": "タガログ語",
+  "body": "なし",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "scenes_sha256": "102bf9d7afc43e2c620dc631e5f419de4386dd170b3e12e869c84fb71c774ec8",
+ "at": "2026-11-07 16:16:30"
+}
