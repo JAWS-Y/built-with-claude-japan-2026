@@ -1,0 +1,185 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "帰り道で鳴った。「新宿区にレベル3氾濫警報」で、川があふれそうな知らせだとは分かった。ただ頭に「試し」とあって、本当なのか練習なのか迷った。どの川か、何をすればいいかは書いていない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと、同じことがひらがなと英語でもう一度出てきた。「冠水想定4か所、近いのは初台アンダー0.84km」は、道が水につかるらしいことは何となく分かる。でも初台アンダーがどこの道で、自分からどっちの方向なのかは分からない。「ほかは本物」の「ほか」がどこを指すのかも分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリをひらいても、中身は知らせと同じ文だった。気象庁のページへのリンクがあるけど、帰り道でわざわざ読まない。「PCが調べた時刻」や「見守り中・位置を送っています」が出てきて、自分の位置を誰に送っているのか気になった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると「Firebase」「あなたのPC」といった言葉が出てきた。自分はPCを持っていないので、親のことなのかなと思った。何をすればいいかは、最後まで書いていなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言葉",
+    "why": "最初に「試し」が来るので練習だと思って閉じそう。本物の部分（道の水）まで読まずに終わる。",
+    "severity": 2,
+    "fix_hint": "題では危険を先に書き、試しかどうかは後ろに小さく書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言葉",
+    "why": "「ほか」がどれなのか分からない。道が水につかるのは本当なのか迷う。",
+    "severity": 2,
+    "fix_hint": "「道の水の情報は本物」と、本物の項目の名前をはっきり書く"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "言葉",
+    "why": "レベル3で自分（中学生）が何をすればいいのか分からない。帰っていいのか、どこかに逃げるのか書いていない。",
+    "severity": 2,
+    "fix_hint": "「低い道を通らず、早めに家へ」のように、すぐする事を一言入れる"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "氾濫警報",
+    "kind": "言葉",
+    "why": "どの川があふれそうなのか書いていない。近くの川なのか判断できない。",
+    "severity": 1,
+    "fix_hint": "川の名前を書く（例：神田川）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "近いのは初台アンダー 0.84km",
+    "kind": "言葉",
+    "why": "「アンダー」が地下を通る道のことだと分からないし、どっちの方向かも分からない。帰り道に入っているか判断できない。",
+    "severity": 2,
+    "fix_hint": "「初台の地下の道（線路の下）、北へ840m」のように、どんな所かと向きを書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "冠水想定",
+    "kind": "漢字・読み",
+    "why": "中学生には読みも意味もあいまい。予想なのか、もうつかっているのかも分からない。",
+    "severity": 1,
+    "fix_hint": "「水につかりそうな道」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの\nみずが あふれる）",
+    "kind": "行の変わり目",
+    "why": "かっこの途中で行が変わり、読みにくい。",
+    "severity": 1,
+    "fix_hint": "言葉のまとまりで行を変える"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "同じものが何度も",
+    "why": "同じ内容を日本語・ひらがな・英語で3回読むことになり、大事な道の情報が下に押しやられる。",
+    "severity": 1,
+    "fix_hint": "大事な道の情報を上に出す。読み方は選べるようにする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "言葉",
+    "why": "どのPCなのか分からない。",
+    "severity": 1,
+    "fix_hint": "「情報を調べた時刻」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言葉",
+    "why": "自分の位置が誰に送られているのか書いておらず、不安になる。",
+    "severity": 1,
+    "fix_hint": "「お母さんのPCに送っています」のように、送り先の人を書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebaseが何なのか分からない。",
+    "severity": 1,
+    "fix_hint": "専門の言葉を使わず「設定済み」とだけ書く"
+   }
+  ],
+  "outside": [
+   "水につかりそうな道を避けた、家までの帰り道を教える",
+   "初台アンダーなどの場所を地図で見せる",
+   "「無事」とボタン一つで家族に送る",
+   "近くの避難場所を教える"
+  ],
+  "overall": "川があふれそうなのは分かりました。でも「試し」が先に目に入って練習だと思いそうですし、帰り道でどの道を避ければいいのかが分かりませんでした。"
+ },
+ "cost_usd": 0.1458314,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10718,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 2979,
+  "output_tokens_details": {
+   "thinking_tokens": 945
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10718,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 2979,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10718,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10718
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 31.9,
+ "person": {
+  "id": "P051",
+  "age": 14,
+  "lang": "日本語（母語）",
+  "body": "なし",
+  "situation": "学校の帰り",
+  "reading": "日本語はふつうに読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:00:05"
+}

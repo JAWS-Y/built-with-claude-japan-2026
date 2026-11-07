@@ -1,0 +1,177 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "学校の帰りに歩いていて、携帯が鳴った。赤いピンと🌊の絵、ベルの印、「３」が見えて、水の危ない知らせかもと思った。でも字は全部日本語で読めない。ひらけば英語があるとは分からず、そのまましまいそうになった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "下の方の英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」で、新宿で洪水の警報だと分かった。でも Level 3 がどのくらい危ないのか、何をすればいいのかは分からない。0.84km や 3km の数字は見えるけど、何の距離かは分からない。TEST とあるので「全部うそなんだ」と思った。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたら、画面 2 と同じ文が出ただけだった。青い字のリンクも、見出しも、緑の丸の「見守り中」も、日本語で読めない。どの道が水につかるのかは、この画面でも分からなかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると同じ文がもう一度出て、そのあとは Firebase や PC など、よく分からない英語と日本語だけ。大きいボタン「見守りを止める」は何のボタンか分からないので、こわくて押さなかった。分かったのは最後まで「新宿・洪水・Level 3・TEST」だけ。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言語",
+    "why": "たたんだ形には日本語しかなく、英語の行はひらかないと出てこない。ひらけば読めると気づかず、読めない知らせとしてしまってしまう。",
+    "severity": 3,
+    "fix_hint": "題か、たたんだ1行に「Flood warning」のように短い英語を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "英語の行は、新宿で洪水というだけ。Level 3 がどのくらい危ないのか、逃げるのか帰るのか、何をすればいいのかが書いていない。",
+    "severity": 2,
+    "fix_hint": "英語でも「何をすればいいか」を一言入れる（例: Avoid rivers and underpasses）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な、近くの水につかる道の知らせが日本語だけ。数字の 0.84km は見えても、何まで、どこまでの距離か分からない。帰り道で通ってしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "道路の行にも英語をつける（例: Flooded road 0.84km: Hatsudai underpass）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は TEST としか言わないので、全部うそだと思ってしまう。道路の知らせは本物だということが、日本語でしか書いていない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Warning is TEST. Road info is real.」と分けて書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "並び・順番",
+    "why": "英語の行は、日本語とひらがなの 3 行の下の 4 行目にある。上に読めない行が続くので、読める行に行きつくのが遅れる。",
+    "severity": 1,
+    "fix_hint": "英語の行を上の方へ上げるか、太字にして目立たせる"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへのリンクが日本語だけで、押した先も何のページか分からない。押す気になれない。",
+    "severity": 2,
+    "fix_hint": "リンクの名前に英語をつけ、英語のページがあればそちらへつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "いちばん大きいボタンなのに、何をするボタンか読めない。まちがえて押すと、見守りが止まってしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語をつけ、押したら止まる前に確かめる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "最後に届いた知らせ",
+    "kind": "言語",
+    "why": "見出しや「見守り中」など、アプリの画面の言葉が全部日本語。自分がいま何を見ているのか分からない。",
+    "severity": 1,
+    "fix_hint": "見出しにも短い英語をそえる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "",
+    "kind": "言語",
+    "why": "ベトナム語がどこにもない。英語も少しなら読めるけど、警報のような大事なことは母語でないと自信が持てない。",
+    "severity": 2,
+    "fix_hint": "ベトナム語など、ほかの言葉でも出せるようにする"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase や PC など、知らない言葉が出てきて、何か設定をまちがえたのかと不安になる。",
+    "severity": 1,
+    "fix_hint": "ふつうの人に見せない所へ移すか、やさしい言葉にする"
+   }
+  ],
+  "outside": [
+   "知らせを全部ベトナム語にする",
+   "水につかる道を地図で見せる",
+   "どの道を通って帰ればいいかの案内",
+   "親に知らせを送る",
+   "近くの避難所への案内"
+  ],
+  "overall": "英語の1行のおかげで、新宿で洪水らしいことは分かりました。でも、どの道が危ないのか、何をすればいいのかは読めませんでした。それに TEST とあったので、全部うそだと思って、そのまま家へ歩いて帰ったと思います。"
+ },
+ "cost_usd": 0.1500554,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10711,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3193,
+  "output_tokens_details": {
+   "thinking_tokens": 956
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10711,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3193,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10711,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10711
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 34.9,
+ "person": {
+  "id": "P083",
+  "age": 14,
+  "lang": "ベトナム語",
+  "body": "なし",
+  "situation": "学校の帰り",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:05:11"
+}

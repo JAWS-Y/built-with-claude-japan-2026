@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "新宿の日本語学校に通っている。携帯が鳴ったので引き下ろした。赤いピンと波の絵、「3」と「now」だけ分かる。英語の行が無いので、水の何かが起きているらしい、としか分からない。海・津波かと思って不安になった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "小さい矢印を何度か押し直して、やっとひらけた。英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」で新宿に洪水の警報だと分かった。ただ TEST とあるので「全部うそかな」とも思った。下の 0.84km や 4 は読めても、何の距離か、どこなのかは分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "知らせを押してアプリを開いた。中身は同じで、英語は 1 行だけ。青い字は押せそうだが日本語なので、何のページか分からない。Level 3 で何をすればいいのかも分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると、大きなボタンと Firebase、PC の文字が出た。何のボタンか分からず、押すのが怖い。結局「洪水、新宿」以外は分からないまま、外を見るか友だちに聞くことにした。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言語",
+    "why": "たたんだ形には日本語しか無い。ひらかないと、何の知らせか分からない。",
+    "severity": 3,
+    "fix_hint": "題か1行目に、英語で短く「Flood warning – Shinjuku」と入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言語",
+    "why": "分かる言葉は英語の1行だけで、母語のスペイン語が無い。英語が弱い人には届かない。",
+    "severity": 2,
+    "fix_hint": "携帯の言葉（スペイン語）に合わせた行を足す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん役に立つ道路の水の情報が、日本語だけ。0.84km は読めても、何の距離か、どこなのか分からない。地名もローマ字が無い。",
+    "severity": 2,
+    "fix_hint": "英語で「Flooded road 0.84 km away: Hatsudai underpass」のように書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語では TEST しか見えないので、全部うそだと思って無視してしまう。「道路の情報は本物」は日本語でしか書かれていない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Only the warning is a test; road info is real」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3",
+    "kind": "言葉",
+    "why": "レベル3がどれくらい危ないのか、何をすればいいのかが書いていない。",
+    "severity": 2,
+    "fix_hint": "英語で「Level 3 of 5: get ready to evacuate」のように、することを一言そえる"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "",
+    "kind": "操作",
+    "why": "ひらく矢印が小さく、手がふるえて何度も押し直した。スマホに慣れていないので、ひらけることにも気づきにくい。",
+    "severity": 2,
+    "fix_hint": "たたんだ形だけで要点が分かるようにするか、押せる所を大きくする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへのつなぎが日本語で、何のページか分からない。開いても日本語のページらしい。",
+    "severity": 2,
+    "fix_hint": "英語の名前をそえ、英語で読めるページがあればそちらへつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きなボタンで、手のふるえで下へ送るときに押してしまいそう。何のボタンか読めず、押したら何が起きるか分からない。",
+    "severity": 2,
+    "fix_hint": "英語の名前をつけ、押す前に確かめる画面を出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "並び・順番",
+    "why": "同じことが日本語で2回続き、読める英語の行はその下に埋もれていて見つけにくい。",
+    "severity": 1,
+    "fix_hint": "携帯の言葉の行をいちばん上に出す"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "波の絵は海や津波に見える。川・道路の水だとは分からない。",
+    "severity": 1,
+    "fix_hint": "川や水につかった道路の絵か、英語の一言をそえる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言葉",
+    "why": "Firebase、PC の文字だけ見えて、だれに位置を送っているのか分からず不安になる。",
+    "severity": 1,
+    "fix_hint": "英語で、だれに何を送るのかを短く書く"
+   }
+  ],
+  "outside": [
+   "スペイン語での表示",
+   "水につかる道路の場所が分かる地図",
+   "いまするべきこと（高い所へ、など）の短い案内",
+   "近くの避難所への道案内",
+   "大きな押しやすいボタンだけの簡単な画面"
+  ],
+  "overall": "「新宿で洪水」までは英語の1行で分かった。でも、どこが危ないのか、何をすればいいのか、本当なのか TEST なのかが分からない。小さい矢印を押すのも大変だった。"
+ },
+ "cost_usd": 0.15201939999999997,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10724,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3286,
+  "output_tokens_details": {
+   "thinking_tokens": 1104
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10724,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3286,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10724,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10724
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 35.5,
+ "person": {
+  "id": "P077",
+  "age": 22,
+  "lang": "スペイン語",
+  "body": "手のふるえ",
+  "situation": "スマホに慣れていない",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:04:21"
+}

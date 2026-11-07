@@ -136,6 +136,9 @@ def run(a):
 LEVEL_CUT = re.compile(r'レベ…|レベルの数字|レベルいくつ|数字が見えない|「3」が切れ|3」が切れ|数字の3が')
 MID_WORD = re.compile(r'初\s*[\n／/ ]\s*台|「初」と「台」|みず\s*[\n／/]\s*が|「みず」と「が」')
 PAGE_NAME = re.compile(r'ボタン|ページの名|リンク|（気象庁）|洪水予報')
+# The stop button: "止める" alone was read as "stop the sound" and it ends the notices too. Now "見守りを止める" with
+# a confirm; any corner that quotes the button (old or new label, or the privacy line naming it) counts here.
+STOP = re.compile(r'止める')
 
 
 def _text(c):
@@ -154,7 +157,45 @@ FIXED = [('題が切れて「気をつけて」が見えない',
          ('ページの名前が本文とボタンで二度出る',
           lambda c: c['kind'] == '同じものが何度も' and bool(PAGE_NAME.search(_text(c)))),
          ('（別のもの）同じ文が漢字・ひらがな・英語で並ぶ',
-          lambda c: c['kind'] == '同じものが何度も' and not PAGE_NAME.search(_text(c)))]
+          lambda c: c['kind'] == '同じものが何度も' and not PAGE_NAME.search(_text(c))),
+         ('「止める」ボタン（何を止めるか分からない、音を止めると取りちがえる）',
+          lambda c: bool(STOP.search(c['quote'])))]
+
+
+# The simulated people try to take away every complaint: each lists about 12 corners whatever the screens show. A
+# person then reads the corners and chooses what to fix, what to keep on purpose and what not to do, by the app's
+# rules. CHOICES is that review: (decision, what the corners ask, why, who decided, matcher). A corner is counted in
+# the first row that matches, so the rows add up to the corner count; the matchers are keyword rules (a rough guide).
+ACT = re.compile(r'逃げ|避難|すぐ.{0,6}(動|離れ|行)|何をすれば|どうすれば|どう動|行動|高い所|上の階')
+ROAD = re.compile(r'冠水想定|アンダー')
+
+CHOICES = [
+    ('直した', '見た目の 4 つ（題が切れる、語が行の途中で割れる、位置が古い、ページの名前が二度出る）',
+     '写しを見て Joe が「見た目も直して」', 'Joe', lambda c: any(FIXED[i][1](c) for i in (0, 2, 4, 5))),
+    ('直した', 'レベルの数字が切れる、「止める」ボタン（残りは新しい「見守りを止める」への角）',
+     'Joe が「2 つを直して」', 'Joe', lambda c: any(FIXED[i][1](c) for i in (1, 7))),
+    ('残す', '「警報は試しの作りもの。ほかは本物」の行がまぎらわしい',
+     '作りものの警報を本物と取りちがえないための行。消さない', 'Joe（試しの警報と、その印を「直して」）',
+     lambda c: '作りもの' in c['quote']),
+    ('残す', '同じ文が漢字・ひらがな・英語で並ぶ',
+     'ひらがなだけ、英語だけ読む人に届くための行。消さずに、並びを見直す候補', 'agent（Joe のテーマ「誰にでも届く」から）',
+     lambda c: FIXED[6][1](c)),
+    ('まだ', 'ほかの言葉（中国語・ベトナム語・ミャンマー語など）で読みたい',
+     '画面には公式の事実だけを出すので、英語も気象庁の公式の英語だけ。公式の多言語辞書を入れるかは Joe が決める', 'Joe（まだ）',
+     lambda c: c['kind'] == '言語'),
+    ('まだ', '道の行（冠水想定・アンダー）が分からない', 'どう出すか、まだ決めていない', 'Joe（まだ）',
+     lambda c: bool(ROAD.search(c['quote']))),
+    ('直さない', 'どう動くか（「お年寄りは逃げて」など）を書いてほしい',
+     'サークルは公式の事実と出典だけを出し、どう動くかは書かない。判断と責任は人が持つ', 'Joe の決まり（当てはめは agent）',
+     lambda c: bool(ACT.search(c['fix_hint'] + ' ' + c['why']))),
+]
+
+
+def choose(c):
+    for i, ch in enumerate(CHOICES):
+        if ch[4](c):
+            return i
+    return len(CHOICES)
 
 
 def load(rnd):
@@ -183,6 +224,7 @@ def stats(rows):
                                                                for c in r['answer']['corners'] if f(c)}))
                   for name, f in FIXED],
         'quotes': collections.Counter(c['quote'].strip() for c in corners if c['quote'].strip() and c['severity'] >= 2),
+        'chosen': collections.Counter(choose(c) for c in corners),
     }
 
 
@@ -205,10 +247,19 @@ def tally(a):
     row('小さい角（1）', lambda s: s['sev'][1])
     for k in range(1, 5):
         row(f'分かった度合い 画面 {k}（0–3）', lambda s, k=k: f"{s['understood'].get(k, 0):.2f}")
-    lines += ['', '## 直した 4 つの角と、その残り（角の数 / 挙げた人）', '', '| | ' + ' | '.join(r for r, _ in st) + ' |',
+    lines += ['', '## 直した角と、その残り（角の数 / 挙げた人）', '', '| | ' + ' | '.join(r for r, _ in st) + ' |',
               '|---|' + '---|' * len(st)]
     for i, (name, _) in enumerate(FIXED):
         row(name, lambda s, i=i: f"{s['fixed'][i][1]} / {s['fixed'][i][2]} 人")
+    lines += ['', '## 人が見直して選んだこと（取捨選択）', '',
+              '作りものの人は、見えた不満を全部、角として挙げる（AI はすべての角を取ろうとする）。'
+              'どれを直し、どれをわざと残し、どれをしないかは、人が角を読んで決めた。どっちも要る。', '',
+              '一つの角は、上の行から順に、最初に当たった一つの行にだけ数える（言葉で当てた目安）。', '',
+              '| 決め | 角の中身 | ' + ' | '.join(r for r, _ in st) + ' |', '|---|---|' + '---|' * len(st)]
+    for i, ch in enumerate(CHOICES + [('振り分けていない', '残り（人ごとにちがう角、小さい角）', '', '', None)]):
+        lines.append(f'| {ch[0]} | {ch[1]} | ' + ' | '.join(str(s['chosen'][i]) for _, s in st) + ' |')
+    lines += ['', '決めた理由と、決めた人:', '']
+    lines += [f'- {ch[0]} — {ch[1]}: {ch[2]}。決めた人: {ch[3]}' for ch in CHOICES]
     kinds = sorted({k for _, s in st for k in s['kind']}, key=lambda k: -sum(s['kind'][k] for _, s in st))
     lines += ['', '## 種類', '', '| | ' + ' | '.join(r for r, _ in st) + ' |', '|---|' + '---|' * len(st)]
     for k in kinds:

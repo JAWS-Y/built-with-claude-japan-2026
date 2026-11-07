@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "赤いピンの印と波の絵、「レベル３」は読めた。「に気をつけて」の「につけて」くらいは拾えるが、「試し」「氾濫」「新宿区」「警報」は漢字で読めない。水の何かが危ないらしい、とだけ思う。英語の行がないので、何の危険かはここでは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらいたら英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」があって、新宿で洪水の警報だと分かった。ひらがなの行も、ゆっくり読めば「かわの みずが あふれる」と分かる。ただ、行が途中で切れていて読みにくい。「TEST」を見て練習だと思い、そこで読むのをやめそうになる。道路の行は「アンダー」「0.84km」しか読めず、どこの何の話か分からない。最後の行「ほかは本物」も漢字なので、道の水が本当の話だとは気づけない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "「サークル」は読めた。中身は知らせと同じで、分かるのは英語の行とひらがなの行だけ。青い字のリンクも漢字だらけで、押すと何が出るのか分からない。下の大きいボタン「見守りを止める」は「り」「を」「める」しか読めない。何かを止めるボタンらしいが、何が止まるのか分からず、こわくて触れない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても、増えた中身は「Firebase」「PC」「circle-demo」という分からない英語と漢字の説明だけ。自分の位置がどこかに送られていることには気づけない。何をすればいいか（逃げるのか、家にいるのか）は最後まで分からなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "漢字・読み",
+    "why": "たたんだ形には漢字の行しかない。英語もひらがなもないので、何の危険か分からない。ひらく▽にも気づきにくい。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行に「Flood / こうずい」のような短い英語かひらがなを入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "漢字・読み",
+    "why": "英語にもひらがなにも「TEST」としか書いていない。だから全部が練習だと思ってしまう。道の水が本当だという大事なことは、漢字の行にしかない。",
+    "severity": 3,
+    "fix_hint": "「Warning is TEST. Road flooding is REAL」をひらがなと英語でも書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん身近な危険（近くの道が水につかる）が、漢字だけで書いてある。英語とひらがなの行には、この話がない。",
+    "severity": 2,
+    "fix_hint": "道の話も英語とひらがなで「Road may flood 0.84km away」のように書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "「Level 3」が何を意味するのか、何をすればいいのかが、どこにも書いていない。逃げるのか、家にいるのか決められない。",
+    "severity": 2,
+    "fix_hint": "Level 3 で何をするかを英語とひらがなで一言そえる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの\nみずが あふれる）",
+    "kind": "行の変わり目",
+    "why": "「かわの／みずが」と言葉の途中で行が変わる。ディスレクシアがあると、つながりが分からなくなる。",
+    "severity": 1,
+    "fix_hint": "意味のまとまりで行を変える。短い文に分ける"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "長さ・量",
+    "why": "漢字、ひらがな、英語が同じ大きさで一つの塊に並んでいて、自分が読める行を探すのが大変。ディスレクシアだと、どこから読めばいいか分からない。",
+    "severity": 2,
+    "fix_hint": "言葉ごとに行を分け、すき間や印で区切る"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "漢字・読み",
+    "why": "リンクの名前が漢字だけで、押すと何が出るのか分からない。開いても日本語のページだと思う。",
+    "severity": 1,
+    "fix_hint": "「Official page (Japanese)」のように英語かひらがなをそえる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "画面でいちばん大きいボタンなのに漢字で読めない。間違って押すと、位置を送るのが止まる。こわくて触れないかもしれない。",
+    "severity": 2,
+    "fix_hint": "ひらがなか英語をそえ、押すと何が起きるか分かるようにする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "数字・単位",
+    "why": "携帯の時計は「5:47」なのに、アプリは「17:47」。同じ時刻だとすぐに分からない。",
+    "severity": 1,
+    "fix_hint": "携帯と同じ時刻の書き方にそろえる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "漢字・読み",
+    "why": "自分の位置が送られているという大事な説明が、漢字と専門の言葉で書いてあり、読めない。",
+    "severity": 2,
+    "fix_hint": "「あなたの いばしょを おくっています」のように、ひらがなと英語で書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "英語は読めても「Firebase」「circle-demo」の意味が分からない。使う人にはいらない情報。",
+    "severity": 1,
+    "fix_hint": "「せってい OK」のような分かる言葉にする"
+   }
+  ],
+  "outside": [
+   "タガログ語の知らせ",
+   "文を声で読み上げる働き",
+   "何をすればいいか（にげる・いえにいる）を絵で見せる",
+   "「初台アンダー」の場所を地図で見せる",
+   "近くのひなんじょへの案内"
+  ],
+  "overall": "英語の行のおかげで、新宿で洪水の警報が出ていることは分かった。でも「TEST」と書いてあるので、ぜんぶ練習だと思った。近くの道が本当に水につかることや、何をすればいいかは、漢字ばかりで分からなかった。"
+ },
+ "cost_usd": 0.16127539999999999,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10726,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3748,
+  "output_tokens_details": {
+   "thinking_tokens": 1244
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10726,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3748,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10726,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10726
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 40.5,
+ "person": {
+  "id": "P022",
+  "age": 28,
+  "lang": "タガログ語",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "スマホに慣れていない",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 17:55:14"
+}

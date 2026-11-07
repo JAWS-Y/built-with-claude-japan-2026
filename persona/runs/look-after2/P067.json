@@ -1,0 +1,159 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "子どもと新宿の友だちの家に来ていた。赤い印と波の絵で、何か危ないことだとは分かった。でも文は全部日本語で読めない。読めたのは「3」だけ。波の絵は津波かもしれないと思って、こわくなった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと英語の行があった。「Shinjuku City: Level 3 Warning (Flood) (TEST)」から、新宿の洪水の警報だと分かった。でも Level 3 でどうすればいいのか、子連れで今逃げるべきかは分からない。「0.84km」の数字は見えたが、何の場所かは読めない。TEST とあるので、全部が練習なのか迷った。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても、分かったのは同じ英語の1行だけ。青い字は押せそうだが日本語なので、開いても読めないと思う。緑の点の「見守り中」と大きいボタンが何なのか分からず、押すのがこわい。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると、Firebase という英語と日本語の説明が出てきた。読めないし、知らせとの関係も分からない。何をすればいいか、どこへ行けばいいかは最後まで分からなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言語",
+    "why": "たたんだ形には英語が一つもない。日本語が読めない私には、何の知らせか分からない。波の絵は津波にも見えた。",
+    "severity": 3,
+    "fix_hint": "題か1行目に「Flood warning」のような英語の短い言葉を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "Level 3 が日本でどのくらい危ないのか、何をすればいいのかが分からない。小さい子連れなら逃げはじめた方がいいのかも分からない。",
+    "severity": 2,
+    "fix_hint": "英語で「すること」を一言そえる（例: Prepare to evacuate, start now if with small children）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "0.84km の数字は見えるが、何がどこにあるのか読めない。水につかりそうな道を避けられない。",
+    "severity": 2,
+    "fix_hint": "道の水の情報も英語で書く（例: Flooded road risk: Hatsudai underpass, 0.84 km）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は TEST だけなので、道の情報まで全部うそだと思って無視してしまいそう。",
+    "severity": 2,
+    "fix_hint": "英語でも「警報だけ試し、道の情報は本物」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへの入口が日本語だけ。開いた先もたぶん日本語なので、自分で確かめられない。",
+    "severity": 2,
+    "fix_hint": "英語の名前をそえて、英語か多言語のページへつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きいボタンが何をするのか読めない。あわてて押すと、位置を送るのが止まってしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語をそえて、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "見守り中",
+    "kind": "言語",
+    "why": "緑の点は「よい」の意味に見えるが、何が見守られているのか分からない。",
+    "severity": 1,
+    "fix_hint": "英語の言葉をそえる（例: Sharing location）"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "開発の言葉で、意味が分からない。知らせを読むときに目に入るとまよう。",
+    "severity": 1,
+    "fix_hint": "使う人向けの言葉にする。知らせを見る画面からは外す"
+   }
+  ],
+  "outside": [
+   "インドネシア語で知らせを読めるようにする",
+   "近い避難所への道を地図で出す",
+   "小さい子連れの人が今することの案内（持ち物、早めに逃げる）",
+   "水につかりそうな道を地図で見せる",
+   "家族に今いる場所と無事を知らせる"
+  ],
+  "overall": "英語の1行がなかったら、何の知らせか全く分かりませんでした。洪水らしいとは分かりましたが、子どもを連れて今逃げるのか、どこへ行くのか、どの道が危ないのかは読めず、こわいまま立ちつくしてしまいます。"
+ },
+ "cost_usd": 0.1454394,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10714,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 2961,
+  "output_tokens_details": {
+   "thinking_tokens": 1122
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10714,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 2961,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10714,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10714
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 32.8,
+ "person": {
+  "id": "P067",
+  "age": 43,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "小さい子を連れている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:02:28"
+}

@@ -50,7 +50,7 @@ class MainActivity : Activity(), ScreenView.Actions {
         }
         findViewById<Button>(R.id.save_setup).setOnClickListener { saveSetup() }
         findViewById<Button>(R.id.start).setOnClickListener { askNotify() }
-        findViewById<Button>(R.id.stop).setOnClickListener { stop() }
+        findViewById<Button>(R.id.stop).setOnClickListener { askStop() }
     }
 
     // Writes from PushService and LocationReceiver show up while the screen is open
@@ -78,7 +78,7 @@ class MainActivity : Activity(), ScreenView.Actions {
         var said = ""
         when {
             s == null -> said = "設定の文が読めません（${read.problem}）。PC の「python3 phone.py pair」が出した文を貼ります。"
-            Prefs.tracking(this) -> said = "位置を送っている間は設定を変えられません。先に「止める」を押します。"
+            Prefs.tracking(this) -> said = "位置を送っている間は設定を変えられません。先に「見守りを止める」を押します。"
             !App.start(this, s) -> {
                 Prefs.saveSetup(this, s)
                 message = "保存しました。別の Firebase に切り替えたので、アプリを一度閉じて開き直します。"
@@ -183,6 +183,17 @@ class MainActivity : Activity(), ScreenView.Actions {
     }
 
     // ------------------------------------------------------------ stop
+
+    // "止める" alone was read as "stop the sound" (94 of 100 simulated people named it in the look round), and
+    // stopping also ends the notices, so the button says what it stops and asks once before it does
+    private fun askStop() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.stop_title)
+            .setMessage(R.string.stop_text)
+            .setPositiveButton(R.string.stop_yes) { _, _ -> stop() }
+            .setNegativeButton(R.string.stop_no, null)
+            .show()
+    }
 
     private fun stop() {
         Tracking.stop(this)

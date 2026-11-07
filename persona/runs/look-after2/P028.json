@@ -1,0 +1,213 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "新宿のホテルに泊まっている旅行中。たたんだ形は漢字とカタカナばかりで、読めるのは「し」「に」「をつけて」「３」くらい。波の絵を見て、海か津波のことかと思ってどきっとした。赤い丸は自分の目には暗い色に見え、急ぎの知らせかどうかも分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」があり、新宿で洪水の警報で、試しだと分かった。ひらがなの「かわの みずが あふれる」で、川の水があふれることだと分かった。でも「レベル3」がどのくらい危ないのか、自分は何をすればいいのか、4・3km・0.84km が何の数字なのかは分からない。下の青い文字は読めないので押さなかった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリの画面も同じ文がまた出るだけで、新しく分かることはなかった。見出しもボタンも漢字なので読めない。「11/7」は7月11日に見えて、前の知らせかと迷った。真ん中の大きな白いボタンは何か分からず、閉じるボタンかと思って押しそうになった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても、同じ文と読めない文が続くだけ。「Firebase」「PC」は見えたが、何に使っているのか分からない。自分の場所がどこかに送られていることにも気づかなかった。結局「新宿で洪水の警報、試し」ということしか分からず、どうすればいいか分からないまま閉じた。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言語",
+    "why": "たたんだ形には英語もひらがなの文もない。ひらかないと、何の知らせなのか全く分からない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行目に「Flood warning / こうずい」のような英語かひらがなを入れる"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "日本で波の絵を見ると、海外から来た人は津波だと思う。川の洪水だとは思わず、海から離れればいいと考えてしまう。",
+    "severity": 2,
+    "fix_hint": "川の水があふれる絵にするか、題に「River flood」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "「Level 3」がいくつまでの段階の3なのか、自分は何をすればいいのかが英語にもひらがなにも書いていない。",
+    "severity": 2,
+    "fix_hint": "英語の行に「3 of 5」と、どうすればいいかを一言たす（例: Avoid rivers and underpasses）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な「どこが危ないか」の行が漢字とカタカナだけ。数字は見えても、何の4なのか、0.84km 先に何があるのかが分からない。",
+    "severity": 2,
+    "fix_hint": "英語かひらがなで「水につかりそうな道 4つ、いちばん近いのは 0.84km」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語には「(TEST)」としか書いていない。だから全部が試しだと思い、道の情報は本物だということが伝わらない。",
+    "severity": 2,
+    "fix_hint": "英語で「Only the warning is a test. Road info is real.」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "二つのボタンの名前が漢字だけで、何のページなのか、押していいのかが分からない。",
+    "severity": 2,
+    "fix_hint": "ボタンの名前に英語をそえる（例: Official warning / River flood）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "（かわの\nみずが あふれる）",
+    "kind": "行の変わり目",
+    "why": "ひらがなの説明が「かわの」と「みずが」の間で次の行に分かれていて、ひとまとまりで読みにくい。",
+    "severity": 1,
+    "fix_hint": "かっこの中は一行におさめる"
+   },
+   {
+    "screen": 2,
+    "where": "通知の題",
+    "quote": "サークル",
+    "kind": "漢字・読み",
+    "why": "アプリの名前がカタカナだけで読めず、どのアプリからの知らせなのか分からない。",
+    "severity": 1,
+    "fix_hint": "ローマ字の名前（Circle）もそえる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "数字・単位",
+    "why": "スペイン語では日・月の順に読むので、7月11日に見える。古い知らせだと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "「Nov 7」のように月を言葉で書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "最後に届いた知らせ",
+    "kind": "言語",
+    "why": "アプリの見出し・説明・ボタンが全部日本語で、通知と同じ文がまた出るだけ。アプリを開いても新しく分かることがない。",
+    "severity": 2,
+    "fix_hint": "見出しやボタンにも英語を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "",
+    "kind": "色",
+    "why": "カードの左の赤い線や赤い丸は、P型の目には暗い茶色や黒っぽく見え、危ないという合図にならない。",
+    "severity": 1,
+    "fix_hint": "色だけに頼らず「!」や「WARNING」の文字もつける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "画面でいちばん大きいボタンなのに読めない。閉じるかOKのボタンだと思って押し、見守りを止めてしまいそう。",
+    "severity": 2,
+    "fix_hint": "英語をそえ、知らせを閉じるボタンと見た目を分ける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守り中",
+    "kind": "色",
+    "why": "緑の点がP型の目には黄土色か灰色に見えて、動いているのか止まっているのか分からない。文字も読めない。",
+    "severity": 1,
+    "fix_hint": "点の色ではなく文字や形で示し、英語（ON）もそえる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言語",
+    "why": "自分の場所を送っているという大事な説明が漢字だけなので、送られていることに気づかない。",
+    "severity": 2,
+    "fix_hint": "位置を送っていることを英語で短く書く"
+   }
+  ],
+  "outside": [
+   "スペイン語で読める表示",
+   "危ない道や場所を地図で見せる",
+   "今どうすればいいか（近づかない場所・逃げる先）を短く教える",
+   "旅行者向けに、日本の警報レベルを英語で説明する",
+   "近くの避難所への道案内"
+  ],
+  "overall": "英語の一行のおかげで「新宿で洪水の警報、試し」だとは分かりました。でも、どこが危ないのか、何をすればいいのかは漢字ばかりで分かりませんでした。たたんだままだと何の知らせかも分からないし、波の絵を見て最初は津波かと思いました。"
+ },
+ "cost_usd": 0.1874074,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10730,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 5053,
+  "output_tokens_details": {
+   "thinking_tokens": 2301
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10730,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 5053,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10730,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10730
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 54.0,
+ "person": {
+  "id": "P028",
+  "age": 17,
+  "lang": "スペイン語",
+  "body": "色の見分けがつきにくい（P 型）",
+  "situation": "旅行で来ている",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 17:56:42"
+}

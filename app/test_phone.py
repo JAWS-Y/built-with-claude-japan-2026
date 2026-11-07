@@ -186,7 +186,7 @@ class PushTest(unittest.TestCase):
         m = phone.message_for(o, age=3 * 3600 + 5 * 60)
         self.assertTrue(all(isinstance(v, str) for v in m.values()))
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
-        self.assertEqual(m['title'], '⛰️ 土砂災害に気をつけて レベル4')
+        self.assertEqual(m['title'], '⛰️ 土砂災害に気をつけて')
         # the body says the facts first: the warning by its official name (the level in words, not only the
         # color), then what is at this spot; then it names the official pages that have no button (the
         # emulator showed the button pages twice, as lines and as buttons)
@@ -213,7 +213,7 @@ class PushTest(unittest.TestCase):
         o = out_for(app.add_demo(warn(), ('landslide', 4), datetime(2026, 11, 3, 23, 50)),
                     demo={'hazard': 'landslide', 'level': 4})
         m = phone.message_for(o, age=3 * 3600)
-        self.assertEqual(m['title'], '試し ⛰️ 土砂災害に気をつけて レベル4')
+        self.assertEqual(m['title'], '試し ⛰️ 土砂災害に気をつけて')
         lines = m['body'].split('\n')
         self.assertEqual(lines[0], '千代田区にレベル４土砂災害危険警報（試し）')
         # the readings carry the mark too, so no one takes the made-up warning for a real one

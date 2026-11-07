@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">サークル</string>
-    <string name="privacy">この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。「止める」で Firebase の位置と通知の宛先を消します。</string>
+    <string name="privacy">この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。「見守りを止める」で Firebase の位置と通知の宛先を消します。</string>
     <string name="section_notice">最後に届いた知らせ</string>
     <string name="section_watch">見守り</string>
     <string name="section_setup">設定</string>
@@ -15,7 +15,11 @@
     <string name="close">閉じる</string>
     <string name="fix">直す</string>
     <string name="start">位置を送り始める</string>
-    <string name="stop">止める</string>
+    <string name="stop">見守りを止める</string>
+    <string name="stop_title">見守りを止めますか</string>
+    <string name="stop_text">止めると、この携帯の位置を送らなくなり、ここに知らせも届かなくなります。</string>
+    <string name="stop_yes">止める</string>
+    <string name="stop_no">続ける</string>
     <string name="channel">公式情報</string>
     <string name="channel_about">いまいる場所に出ている警報などと、その場所の公式のページ</string>
     <string name="background_title">位置の許可を「常に」に</string>

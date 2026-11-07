@@ -1,0 +1,194 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "赤いマークと波の絵、「レベル３」だけ読めた。海の波の絵なので津波かと思った。漢字は読めず、水の危険があるらしいとだけ分かった。配達中で音は聞こえないので、画面を引き下ろしたときに初めて気づいた。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらがなの行と英語の行で「新宿区でレベル3、川の水があふれる、ためし」と分かった。津波ではなく川だと分かって少し安心。でも道路の行は「4か所」「アンダー」「0.84km」しか読めず、どの道が危ないのか分からない。最後の行も読めない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたが、上の知らせと同じ文がまた出ているだけ。下の青い字（リンク）と「見守り」の所は漢字で読めない。大きいボタンが何をするのか分からず、押すのがこわい。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下に送っても、読めない漢字の説明と「Firebase」「PC」という言葉だけ。何をすればいいのか、どの道を避ければいいのかは最後まで分からなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "漢字・読み",
+    "why": "たたんだ形には漢字の行しか出ないので、「レベル３」しか読めない。ひらがなと英語の行はひらかないと見えない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行にも、ひらがなか英語で「川の水があふれる」と出す"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "その他",
+    "why": "波の絵は海の波に見えて、津波とまちがえた。「試し」も漢字で読めないので、試しだと分からない。",
+    "severity": 2,
+    "fix_hint": "川があふれる絵にして、題に「ためし／TEST」と入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "漢字・読み",
+    "why": "配達の仕事でいちばん大事な道路の情報なのに漢字だけ。英語の行もこの内容をのせていない。どの道が水につかるのか分からない。",
+    "severity": 2,
+    "fix_hint": "道路の行にもひらがなと英語（Road flooding / Hatsudai underpass 0.84km）を付ける"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "漢字・読み",
+    "why": "「警報は試しだけど道路の情報は本物」という大事な区別が読めない。英語の(TEST)だけ見て、全部うそだと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語で「Warning is TEST, road info is REAL」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "レベル3と分かっても、自分が何をすればいいのか（逃げるのか、仕事を続けていいのか）が書いていない。",
+    "severity": 2,
+    "fix_hint": "「低い道・地下道に入らない」など、することを短く書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの\nみずが あふれる）",
+    "kind": "行の変わり目",
+    "why": "かっこの中の途中で行が変わり、「かわの」と「みずが」が離れて読みにくい。",
+    "severity": 1,
+    "fix_hint": "かっこの前か、言葉のまとまりで行を変える"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "漢字・読み",
+    "why": "リンクの名前が漢字ばかりで、どれを押せば何が見られるのか分からない。",
+    "severity": 1,
+    "fix_hint": "リンク名にひらがなか英語を付ける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "いちばん大きいボタンなのに読めない。知らせを消すボタンと思って押すと、見守りが止まってしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "ボタンにひらがなと英語（Stop sharing location）を付ける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "漢字・読み",
+    "why": "自分の場所が送られていることが読めず、知らないまま。",
+    "severity": 1,
+    "fix_hint": "「いばしょを おくっています / Sharing location」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "言葉",
+    "why": "「PC」がだれのPCなのか分からない。上の時計は5:47で、17:47と書き方もちがって一瞬まよう。",
+    "severity": 1,
+    "fix_hint": "「11/7 5:47 PM にしらべた」のように分かる形にする"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "「Firebase」「circle-demo」は作る人の言葉で、何のことか全く分からない。",
+    "severity": 1,
+    "fix_hint": "使う人には「せってい できています」とだけ見せる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "漢字・読み",
+    "why": "自分の場所をだれが見るのかの説明が漢字と専門の言葉で、読めない。",
+    "severity": 1,
+    "fix_hint": "ひらがなと英語で短く書く"
+   }
+  ],
+  "outside": [
+   "耳が聞こえにくいので、音ではなく強いふるえやライトの点滅で知らせてほしい",
+   "水につかる道を地図で見せてほしい（配達のルートを変えたい）",
+   "全部の文をタガログ語か英語で読める切りかえ",
+   "「いま何をすればいいか」を絵で見せる"
+  ],
+  "overall": "ひらがなと英語の行で「新宿で川の水があふれる、ためし」までは分かった。でも、配達でいちばん知りたい「どの道が危ないか」と「どこまで本物か」は漢字だけで読めなかった。音も聞こえないので、気づくのが遅れた。"
+ },
+ "cost_usd": 0.1638674,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10735,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3874,
+  "output_tokens_details": {
+   "thinking_tokens": 1486
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10735,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3874,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10735,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10735
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 41.9,
+ "person": {
+  "id": "P097",
+  "age": 28,
+  "lang": "タガログ語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:07:37"
+}

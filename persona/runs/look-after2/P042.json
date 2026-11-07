@@ -1,0 +1,204 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "配達で新宿に来ていて、携帯が鳴ったので下ろして見た。赤い印と波の絵、「3」の数字だけが目に入る。字は小さくて日本語は読めない。水の何かで、危ないかもしれないとだけ思った。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと英語の行が一つあった。目を近づけて「Shinjuku」「Level 3」「Flood」「TEST」をやっと拾う。新宿で洪水らしいが、TESTとあるので「試しか」とも思う。ほかの行の「0.84km」は数字だけ見えるが、何のことか分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いた。赤い線と大きめの題は見えるが、日本語ばかり。読めるのは英語の1行だけで、画面2と同じ。青い字は押せそうだが、何のページか分からないので押さない。何をすればいいか分からないまま。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても、増えたのは日本語の囲みと大きなボタンと「Firebase」だけ。ボタンは何のためか分からず、押すのが怖い。結局、洪水の試しらしいということしか分からず、仕事に戻る。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "レベル3は年寄りが逃げ始める段階なのに、何をすればいいかが英語でも書いていない。68歳の自分が逃げる側だと分からない。",
+    "severity": 3,
+    "fix_hint": "「65歳以上は今すぐ逃げる」など、すべきことを英語（できれば韓国語）で1行入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "言語",
+    "why": "韓国語の行が無い。英語も単語を拾うのがやっと。",
+    "severity": 2,
+    "fix_hint": "携帯の言葉に合わせて韓国語の行を出す"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "言語",
+    "why": "たたんだ形では日本語しか無く、英語の行はひらかないと出ない。外で仕事中だとひらかずに閉じてしまう。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に英語か母語の短い言葉を出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "配達で走る自分にいちばん要る道の情報が日本語だけ。数字の0.84kmしか読めず、何が近いのか分からない。",
+    "severity": 2,
+    "fix_hint": "道路が水につかる場所と距離を英語・母語でも書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言葉",
+    "why": "英語はTESTとしか書いていないので全部うそだと思い、本物の道の情報まで無視してしまう。",
+    "severity": 2,
+    "fix_hint": "英語の行にも「警報だけ試し、道の情報は本物」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "文字の大きさ",
+    "why": "弱視で字を大きくしているのに、知らせの本文は小さく、目を近づけても英語の行を拾うのがやっと。",
+    "severity": 2,
+    "fix_hint": "携帯の字の大きさに合わせ、大事な1行を大きく出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "並び・順番",
+    "why": "読める英語の行が4行目に埋もれていて、読めない日本語とひらがなの行を先に探さないといけない。",
+    "severity": 1,
+    "fix_hint": "その人が読める言葉の行をいちばん上に置く"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "大波の絵は津波に見える。川があふれる知らせだと分からず、逃げ方をまちがえそう。",
+    "severity": 1,
+    "fix_hint": "川や大雨と分かる絵にする"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きなボタンだが何をするか読めない。うっかり押して見守りを止めてしまいそうで怖い。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語・母語の説明を添え、押したら確かめる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "リンク先も日本語のページらしく、押しても読めないと思うので押さない。",
+    "severity": 1,
+    "fix_hint": "英語・多言語のページへのリンクも置く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "17:47 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は5:47なのにアプリは17:47で、別の時刻の知らせかと一瞬まよう。",
+    "severity": 1,
+    "fix_hint": "携帯の時刻の書き方に合わせる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "色",
+    "why": "うすい灰色の小さな字で、弱視の自分にはほとんど見えない。",
+    "severity": 1,
+    "fix_hint": "字を濃く大きくする"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebaseやcircle-demoは何のことか分からず、おかしな物が入ったかと不安になる。",
+    "severity": 1,
+    "fix_hint": "中の仕組みの名前を出さない"
+   }
+  ],
+  "outside": [
+   "韓国語での読み上げ（外でも耳で聞ける）",
+   "水につかる道を地図で見せる",
+   "外の音に負けない強いふるえ・音",
+   "年齢に合わせて「今逃げる」と知らせる",
+   "近くの逃げる場所への案内"
+  ],
+  "overall": "新宿で洪水の「試し」らしいことは英語の1行で何とか分かった。でも字が小さく、ほとんどが日本語で、私は何をすればいいのか、どの道が危ないのかは分からなかった。TESTとあるので、たぶん気にせず配達を続けてしまう。"
+ },
+ "cost_usd": 0.15905139999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10728,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3636,
+  "output_tokens_details": {
+   "thinking_tokens": 1298
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10728,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3636,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10728,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10728
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 39.2,
+ "person": {
+  "id": "P042",
+  "age": 68,
+  "lang": "韓国語",
+  "body": "弱視（文字を大きくしている）",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 17:58:35"
+}

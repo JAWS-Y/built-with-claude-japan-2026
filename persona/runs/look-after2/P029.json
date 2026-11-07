@@ -1,0 +1,222 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "音はほぼ聞こえないので、たまたま上から引き下ろして気づいた。題も2行目も漢字が多く、読めたのは「レベル３」と波の絵だけ。水の何か危ない知らせらしいが、海か川か、どこの話かも分からない。子どもの手を引いたまま、とりあえずひらいた。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」で、新宿区に洪水の警報、それも試しだと分かった。ひらがなの行も読めて、「かわの みずが あふれる」と合っていた。でも道路の行は「アンダー」「0.84km」「4 か所」しか拾えず、近くの道が水につかるという意味は分からなかった。英語に TEST とあるので、全部が試しだと思った。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリでも同じ文が出るが、見出し、リンク、ボタンは漢字ばかり。青いリンクは押していいのか分からず、押しても日本語のページだろうと思った。「見守りを止める」が何のボタンか分からないので、さわらないでおいた。どこへ行けばいいのか、何をすればいいのかは分からないまま。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ってみたが、英語は「Firebase circle-demo」しか読めなかった。下の小さい字の説明も読めない。位置が誰かに送られていることにも気づかなかった。新しく分かったことはない。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "言語",
+    "why": "たたんだ形には英語もひらがなも無い。読めたのは「レベル３」だけで、ひらかないと何の警報か分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行にも短い英語（Flood Warning Lv3 Shinjuku）を入れる"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "漢字・読み",
+    "why": "題の「試」「氾濫」「気」が読めない。波の絵だけでは何に気をつければいいのか分からない。",
+    "severity": 2,
+    "fix_hint": "題を英語にするか、ひらがなで「はんらん」と書く"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "波の絵を見ると、川があふれるより先に、海や津波を思ってしまう。",
+    "severity": 1,
+    "fix_hint": "川の洪水と分かる絵か言葉にする"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "",
+    "kind": "その他",
+    "why": "耳が遠いので音に気づかない。画面に出るのはふつうの通知と同じ形だけで、子どもを見ていると引き下ろすまで気づかない。",
+    "severity": 2,
+    "fix_hint": "音にたよらず、強いふるえや画面いっぱいの表示で知らせる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "子連れでいちばん要る、近くの道が水につかるという話に英語もひらがなも無い。「アンダー」が道の下をくぐる所だとも分からない。",
+    "severity": 2,
+    "fix_hint": "道路の行にも英語を付ける（Flood-prone underpass 0.84km: Hatsudai）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "この行が読めない。英語の行に (TEST) とあるので、道路の話も含めて全部が試しだと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "英語でも「Only the warning is a test; road info is real」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "レベル３がどのくらい危ないのか、子どもを連れて何をすればいいのかが英語では分からない。",
+    "severity": 2,
+    "fix_hint": "英語で、することを一言書く（例: avoid rivers and underpasses）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの\nみずが あふれる）",
+    "kind": "行の変わり目",
+    "why": "かっこの中が「かわの」と「みずが」で切れていて、ひらがなを追いにくい。",
+    "severity": 1,
+    "fix_hint": "言葉のまとまりの所で行を変える"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "リンクが漢字だけで、どれを押せばいいか分からない。押しても日本語のページだろうと思って押さなかった。",
+    "severity": 2,
+    "fix_hint": "リンクの名前に英語を添え、英語のページがあればそちらへ"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "何のボタンか読めない。大きいので、子どもをあやしながら、うっかり押して知らせが止まってしまいそう。",
+    "severity": 2,
+    "fix_hint": "英語を添え、押す前に確かめる画面を出す"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言語",
+    "why": "自分の位置が送られていることが分からない。",
+    "severity": 1,
+    "fix_hint": "英語で「Sharing your location」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "17:47 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 5:47 なのに、アプリは 17:47。一瞬、別の時刻の知らせかと思った。",
+    "severity": 1,
+    "fix_hint": "携帯と同じ時刻の書き方にそろえる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "言葉",
+    "why": "どの PC のことなのか分からない。",
+    "severity": 1,
+    "fix_hint": "「情報の時刻」とだけ書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "開発の言葉で、使う人には意味がない。横の「変える」を押していいのかも分からない。",
+    "severity": 1,
+    "fix_hint": "使う人向けの言葉にするか、隠す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "文字の大きさ",
+    "why": "小さい灰色の字で、漢字ばかり。位置のだいじな説明なのに読めない。",
+    "severity": 1,
+    "fix_hint": "字を大きくして、英語を添える"
+   }
+  ],
+  "outside": [
+   "アプリ全体を英語で見られる切りかえ",
+   "耳が遠い人向けに、強いふるえや光、画面いっぱいの警報で知らせる",
+   "水につかりやすい道の地図や、ベビーカーで避けたい道の案内",
+   "子連れで近くの避難所へ行く案内",
+   "家族に「無事」を送る働き"
+  ],
+  "overall": "英語の一行のおかげで、新宿で洪水の警報（試し）だということは分かった。でも、どの道が危ないのか、子どもを連れて何をすればいいのかは、漢字の所にしか書いていない。それに、音が聞こえない私は、引き下ろさなければ気づかなかったと思う。"
+ },
+ "cost_usd": 0.1798074,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10725,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 4675,
+  "output_tokens_details": {
+   "thinking_tokens": 1904
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10725,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4675,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10725,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10725
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 47.5,
+ "person": {
+  "id": "P029",
+  "age": 68,
+  "lang": "英語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "小さい子を連れている",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 17:56:37"
+}

@@ -191,7 +191,7 @@ class NoticeTest(unittest.TestCase):
         lines = n['body'].split('\n')
         self.assertEqual(lines[0], 'ここ　土石流の警戒区域')
         self.assertEqual(lines[-1], '警報　レベル４土砂災害危険警報')  # the place first, the warning after
-        self.assertEqual(n['title'], '⛰️ 土砂災害に気をつけて レベル4')  # words first: the folded title cuts at about 15 characters
+        self.assertEqual(n['title'], '⛰️ 土砂災害に気をつけて')  # no level: the folded title cuts at about 15 characters
         self.assertEqual(n['level'], 4)
         self.assertEqual(n['summary'], lines[0])
         self.assertNotIn('内水', n['body'])
@@ -204,9 +204,10 @@ class NoticeTest(unittest.TestCase):
         self.assertLessEqual(max(map(len, lines)), 32)  # one phone line, two at most
         self.assertTrue(n['place_found'])
 
-    def test_folded_title_keeps_the_words(self):
-        # the emulator's folded notice cut the title after about 15 full-width characters ('…に…'), so for one
-        # hazard, 「…に気をつけて」 (and 試し in front) must fit; the level number may be cut, the color shows it
+    def test_folded_title_fits_whole(self):
+        # the emulator's folded notice cut the title after about 15 full-width characters ('…に…', then 'レベ…':
+        # 74 of the 100 people in the look round lost the level number), so for one hazard the whole title, 試し in
+        # front, must fit; the level is said in the folded notice's second line (test_phone) and by the color
         def width(text):
             return sum(0 if c in '\u200d\ufe0f' else 2 if ord(c) >= 0x2600 and not '\u3000' <= c <= '\u9fff'
                        else 1 if ord(c) >= 0x3000 else 0.5 for c in text)
@@ -214,8 +215,8 @@ class NoticeTest(unittest.TestCase):
             w = app.add_demo(warn(), (hazard, level), app.datetime(2026, 11, 3, 23, 50, tzinfo=app.JST))
             title = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)['title']
             self.assertTrue(title.startswith('試し '), title)
-            words = title[:title.index('に気をつけて') + len('に気をつけて')]
-            self.assertLessEqual(width(words), 15, title)
+            self.assertTrue(title.endswith('に気をつけて'), title)
+            self.assertLessEqual(width(title), 15, title)
         for animal in app.ANIMALS:
             self.assertLessEqual(width(f'{app.ANIMALS[animal][0]} {animal}に気をつけて'), 15, animal)
 
@@ -486,7 +487,7 @@ class WildlifeTest(unittest.TestCase):
 
     def test_bear_with_warning(self):
         n = self.bear_notice(warn(('03', 'rain', 3)))
-        self.assertEqual(n['title'], '🌧️ 大雨・🐻 ツキノワグマに気をつけて レベル3')
+        self.assertEqual(n['title'], '🌧️ 大雨・🐻 ツキノワグマに気をつけて')
         self.assertTrue(n['weather'])
         self.assertEqual([f['id'] for f in n['facts']], ['warning', 'rain', 'road', 'wildlife'])
 
@@ -529,7 +530,7 @@ class DemoTest(unittest.TestCase):
         w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), self.NOW)
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
         self.assertTrue(n['notify'])
-        self.assertEqual(n['title'], '試し ⛰️ 土砂災害に気をつけて レベル4')  # 試し first, where the folded title still shows it
+        self.assertEqual(n['title'], '試し ⛰️ 土砂災害に気をつけて')  # 試し first, where the folded title still shows it
         lines = n['body'].split('\n')
         self.assertTrue(lines[0].startswith('ここ　'))
         self.assertEqual(lines[-1], '警報は試しの作りもの。ほかは本物')
@@ -543,7 +544,7 @@ class DemoTest(unittest.TestCase):
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
         self.assertTrue(n['body'].endswith('警報　レベル３大雨警報\n警報は試しの作りもの。ほかは本物'))
         self.assertNotIn('高潮特別警報', n['body'])  # the fake one is only in the title
-        self.assertEqual(n['title'], '🌊 高潮（試し）・🌧️ 大雨に気をつけて レベル3')
+        self.assertEqual(n['title'], '🌊 高潮（試し）・🌧️ 大雨に気をつけて')
         self.assertEqual(w['warnings'][0]['hazard'], 'tide')
 
     def test_flood_goes_with_rivers_and_key_changes(self):

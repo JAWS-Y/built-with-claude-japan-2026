@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "夫と暮らす新宿区（初台の近く）の家で、たたんだ知らせを見た。日本語だけで読めない。赤い丸の印、🌊の絵、「3」の数字は見える。「警報」「氾濫」の漢字は中国語の「警报」「泛滥」に似ているので、水の危ないことかなと思った。でも確かではなく、海の波（津波？）かとも考えた。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」があり、新宿区の洪水の警報、レベル3だと分かった。でも、最後の「TEST」を見て「試しなら気にしなくていい」と思い、閉じかけた。道路の行は「4」「3km」「0.84km」の数字しか分からず、何が0.84kmなのか分からない。レベル3で自分（妊婦）が何をすればいいのかも書いていない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いた。分かったのは英語の1行と、赤い線、「17:47」だけ。青い文字のリンクは押せそうだが、日本語なので何のページか分からない。右上の「見守り中」と大きなボタン「見守りを止める」も読めず、押したら何が起きるのか怖くて触れなかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると、同じ文がもう一度出た。下には「Firebase」「PC」という英語まじりの日本語の文があるが、意味は分からない。自分の位置がどこかへ送られていることには気づかなかった。避難したほうがいいのか分からないまま、夫に電話して聞こうと思った。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "言語",
+    "why": "たたんだ形は日本語だけ。漢字から当て推量はできるが、洪水の警報だと確かには分からない。ひらかないと英語が出てこない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行目に、短い英語（Flood Warning Lv3 Shinjuku）も入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "レベル3は、妊婦など時間のかかる人が逃げはじめる段階なのに、英語ではそれが分からない。自分が逃げる人に入ることも、何をすればいいかも書いていない。",
+    "severity": 3,
+    "fix_hint": "英語で「Pregnant/elderly: start evacuating now」のように、することを一言書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は「(TEST)」だけなので、全部が試しだと思って無視しそうになった。道路の冠水が本物だということは、日本語でしか書いていない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Warning is test; road flood info is real」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "数字しか読めない。「初台アンダー」が何か、0.84km先に何があるのか分からず、近くの道が水につかることが届かない。",
+    "severity": 2,
+    "fix_hint": "英語の行も付ける（4 roads may flood within 3km; nearest: Hatsudai underpass 0.84km）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "同じものが何度も",
+    "why": "読めないひらがなの行が2行分を使っていて、英語の行が下へ押されている。漢字の行と中身も同じ。",
+    "severity": 1,
+    "fix_hint": "英語の行を日本語のすぐ下、上のほうに置く"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "日本語が読めないので、手がかりは絵だけ。海の波の絵は、川の洪水より津波に見えた。",
+    "severity": 1,
+    "fix_hint": "川や雨の洪水と分かる絵にするか、英語の「Flood」を題に添える"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "公式のページ",
+    "kind": "言語",
+    "why": "リンクの名前が日本語だけなので、何のページか分からない。開いた先も日本語だと思うと押す気にならない。",
+    "severity": 1,
+    "fix_hint": "リンクの横に英語の名前（JMA official warning page）を付ける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "言語",
+    "why": "いちばん大きいボタンなのに読めない。押してはいけないものか、押すべきものか分からない。まちがえて押すと見守りが止まってしまう。",
+    "severity": 2,
+    "fix_hint": "英語を添える（Stop location sharing）"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言語",
+    "why": "自分の位置がどこかへ送られていることを説明する文が日本語だけ。知らないまま位置が送られている。",
+    "severity": 1,
+    "fix_hint": "位置を送っていることを英語でも一行で書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "何が済んだのか、何を変えられるのか分からない。作る人向けの言葉に見える。",
+    "severity": 1,
+    "fix_hint": "使う人に分かる言葉にする。いらなければ隠す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "言葉",
+    "why": "どのPCか分からない。携帯の時計は5:47なのに、ここは17:47で、同じ時刻かどうか一瞬迷う。",
+    "severity": 1,
+    "fix_hint": "携帯と同じ時刻の書き方にし、「PC」は使う人に分かる言い方にする"
+   }
+  ],
+  "outside": [
+   "中国語での表示（せめてレベル3ですることの説明）",
+   "妊婦・高齢者など、逃げはじめる人向けの一言の指示",
+   "近くの避難所や、水につかる道を見せる地図",
+   "家族（夫）に知らせるボタン",
+   "公式ページの英語版・中国語版への案内"
+  ],
+  "overall": "英語の1行で、新宿の洪水警報のレベル3だとは分かりました。でも「TEST」と書いてあって、無視していいのか迷いました。妊娠中の私が今逃げるべきかが、どこにも分かる言葉で書いていません。日本語の多い画面で、ボタンも怖くて押せませんでした。"
+ },
+ "cost_usd": 0.1685474,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10710,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 4118,
+  "output_tokens_details": {
+   "thinking_tokens": 1606
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10710,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4118,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10710,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10710
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 44.1,
+ "person": {
+  "id": "P048",
+  "age": 35,
+  "lang": "中国語",
+  "body": "なし",
+  "situation": "妊娠中",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 17:59:54"
+}

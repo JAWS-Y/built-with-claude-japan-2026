@@ -1,0 +1,178 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "夜勤明けで寝ていて、音で目がさめた。仕事場のある新宿で仮眠中。寝ぼけたまま見ると、赤いピンと波の絵、「新宿区」「レベル３」だけ読めた。水の何かが危ないらしい。でも英語が一つもないので、何の知らせか、本当なのか試しなのか分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと、4行目に英語「Level 3 Warning (Flood) (TEST)」があり、やっと洪水の警報で、しかも試しだと分かった。TEST と読んで、もう全部試しだと思い、また寝そうになった。下の道路の行は日本語だけで、読めたのは「4」「3km」「0.84km」の数字だけ。何が 0.84km 先なのか分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても、ほとんど同じ文がくり返し出るだけ。英語の行はまた一つだけ。青い字は気象庁のページらしいが、押しても日本語のページだろうと思って押さなかった。「位置」は読めたが、何を送っているのか気になった。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送っても、Firebase や PC といった機械の話ばかりで、自分が何をすればいいのかは書いていない。大きなボタンの意味も分からないので、さわらずに閉じた。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言語",
+    "why": "たたんだ形に英語が無い。氾濫も試しも読めず、何の知らせか分からないまま寝ぼけて消しそうになる。",
+    "severity": 2,
+    "fix_hint": "題に短い英語（Flood TEST）を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "並び・順番",
+    "why": "英語の行が4行目にうもれていて、日本語の行やひらがなの行のあとまで読まないと見つからない。集中が続かず、そこまで読まずに終わりやすい。",
+    "severity": 2,
+    "fix_hint": "英語の行を1行目近くに上げる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3",
+    "kind": "言葉",
+    "why": "レベル3が、自分のような高齢者はもう逃げはじめる時だということが書いていない。75歳の自分に何をしろという意味か分からない。",
+    "severity": 3,
+    "fix_hint": "Level 3 = older people evacuate now と一言そえる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は「(TEST)」だけなので、道路の話まで全部試しだと思ってしまう。本物の部分がある、ということが自分には届かない。",
+    "severity": 2,
+    "fix_hint": "英語でも Alert is test; road info is real と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "漢字・読み",
+    "why": "冠水想定も初台アンダーも読めない。0.84km は分かるが、何が近いのか分からない。",
+    "severity": 2,
+    "fix_hint": "英語で Flooded road / underpass 0.84km away とそえる"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "日本語だけのボタンで、行った先も日本語だろうと思って押せない。",
+    "severity": 1,
+    "fix_hint": "英語の名前か、英語のページへのつなぎを付ける"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "同じものが何度も",
+    "why": "題・通知・アプリで同じ文がくり返されるが、何をすればいいかは増えない。もう読んだと思って先を読まなくなる。",
+    "severity": 1,
+    "fix_hint": "アプリでは同じ文をくり返さず、すること（What to do）を書く"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言葉",
+    "why": "「位置」は読めたが、だれに送っているのか分からず、知らない人に見られているのかと不安になる。",
+    "severity": 1,
+    "fix_hint": "英語で、だれに何のために送るかを書く"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "いちばん大きいボタンなのに意味が分からない。寝ぼけて押すと、知らせが来なくなるかもしれない。",
+    "severity": 2,
+    "fix_hint": "英語の説明を付けて、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase や PC など作る人向けの言葉で、自分に関係あるのか分からない。",
+    "severity": 1,
+    "fix_hint": "使う人向けのやさしい言葉と英語にする"
+   }
+  ],
+  "outside": [
+   "アプリ全部を英語で見られる切りかえ",
+   "高齢者が逃げる場所（近くの避難所）への案内",
+   "レベル3のとき何をするかの英語の手順",
+   "初台アンダーの場所を地図で見せる",
+   "寝ているときは何度も鳴らして起こす",
+   "家族や職場に、無事を知らせるボタン"
+  ],
+  "overall": "夜勤明けで寝ていて、何か水の警報が来たことと、英語の TEST の文字だけは分かりました。でも、それで全部試しだと思って、また寝てしまいそうです。75歳の自分にとってレベル3が「もう逃げる時」だとは、どこにも英語で書いていません。道路の話が本物だということも、読めませんでした。"
+ },
+ "cost_usd": 0.14598740000000002,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10715,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 2988,
+  "output_tokens_details": {
+   "thinking_tokens": 846
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10715,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 2988,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10715,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10715
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 32.2,
+ "person": {
+  "id": "P059",
+  "age": 75,
+  "lang": "英語",
+  "body": "ADHD",
+  "situation": "夜勤明けで寝ている",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:01:21"
+}

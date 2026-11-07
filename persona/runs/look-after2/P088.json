@@ -1,0 +1,167 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "赤いピンと波の絵、鈴の印が見えて、何か急ぎの知らせが来たと思った。字は読めない。「3」だけ見えた。波の絵で、津波かと思ってドキッとした。中身を知るために下向きの印を押してひらいた。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」で、新宿で洪水の警報、レベル3だと分かった。でも (TEST) とあるので、ただの試しで本物ではないと思った。レベル3で何をすればいいか、親を連れて動くべきかは分からない。3km、0.84km の数字は見えるが、何の距離か分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたが、英語は同じ1行だけで、あとは全部日本語。青い字は押せそうだが、日本語のページに飛ぶと思って押さなかった。下の大きなボタンは何か分からないので触らなかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても日本語の説明と「Firebase」という英語が出るだけで、増えた情報はない。携帯の位置が送られていることには気づかなかった。結局、親を連れて逃げるかどうか決められなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて / 新宿区にレベル３氾濫警報（試し）",
+    "kind": "言語",
+    "why": "たたんだ形は日本語だけなので、何の知らせか分からない。ひらかないと英語が出てこない。",
+    "severity": 3,
+    "fix_hint": "題か1行目に、短い英語（Flood warning Lv3 Shinjuku）を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "英語の行は「Level 3」とあるだけで、何をすればいいかが書いていない。レベル3はお年寄りや介護のいる人が逃げはじめる時なのに、それが届かず、親を連れて動くのが遅れる。",
+    "severity": 2,
+    "fix_hint": "英語でも「Elderly & people needing care: evacuate now」のように、することを書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "(TEST)",
+    "kind": "言葉",
+    "why": "英語では TEST としか書いていない。「ほかは本物」は日本語だけなので、全部うそだと思って無視してしまう。",
+    "severity": 2,
+    "fix_hint": "英語で「Warning is a test; road info is real」と分けて書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "道が水につかるという本物の情報が日本語だけ。数字は見えても、何の距離か、どこの場所か分からない。",
+    "severity": 2,
+    "fix_hint": "英語で「4 roads may flood within 3km, nearest: Hatsudai underpass 0.84km」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "並び・順番",
+    "why": "ひらがなの行が長くて、自分に読める英語の行が4行目まで下がる。急いで見るとき見つけにくい。",
+    "severity": 1,
+    "fix_hint": "英語の行を上の方に出す"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "言語",
+    "why": "ボタンが日本語だけで、押すと何が出るか分からないので押せない。",
+    "severity": 1,
+    "fix_hint": "ボタンにも英語をそえる（Official warning / River flood）"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "波の絵は字が読めない私にはいちばんの手がかりだが、津波にも見えて、海から逃げるのか川なのか迷う。",
+    "severity": 1,
+    "fix_hint": "川の洪水と分かる絵や英語のことばをそえる"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "言語",
+    "why": "大きいボタンが日本語だけで、何のボタンか分からない。位置が送られていることも知らないまま。まちがって押すかもしれない。",
+    "severity": 1,
+    "fix_hint": "見守りの所に英語で「Sharing location / Stop sharing」と書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "英語なのに、作る人向けの言葉で意味が分からない。",
+    "severity": 1,
+    "fix_hint": "使う人に分かる言葉にするか、見えない所へ移す"
+   }
+  ],
+  "outside": [
+   "インドネシア語で知らせを読めること",
+   "介護がいる親を連れて逃げるときの、すること・行く先の案内",
+   "水につかる道と避難所が分かる地図",
+   "家族や介護の人に知らせを送ること"
+  ],
+  "overall": "新宿で洪水の警報、レベル3、ということは英語の1行で分かりました。でも「TEST」とあるので、全部うそだと思いました。親を連れて今すぐ逃げた方がいいのか、何も分かりません。自分が読める言葉で「何をするか」がほしいです。"
+ },
+ "cost_usd": 0.1507354,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10711,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3227,
+  "output_tokens_details": {
+   "thinking_tokens": 1229
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10711,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3227,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10711,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10711
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 35.7,
+ "person": {
+  "id": "P088",
+  "age": 35,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "親の介護をしている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:06:20"
+}

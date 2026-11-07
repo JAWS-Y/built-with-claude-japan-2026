@@ -1,0 +1,176 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "仕事の配達で新宿区を運転中。信号待ちでちらっと見た。赤いピンと波の絵、「レベル３」は読めたが、ほかは漢字で読めない。水の危ないことらしい、とだけ感じた。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "車を止めてひらいた。ひらがなの行で「しんじゅくく れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）」が分かり、英語の行でも Flood と TEST を確かめた。その下の道の話は漢字で読めず、「アンダー」「0.84km」が何か分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても同じ文だった。新しく分かったことはない。青い文字のリンクは漢字なので押さなかった。「見守り」のボタンが何か分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ったが、Firebase、PC などの言葉と漢字の説明だけだった。運転をどうすればいいかは分からないまま。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "漢字・読み",
+    "why": "運転している私にいちばん大事な「道が水につかる、近いのは 0.84km 先」が漢字だけで、ひらがなも英語も無い。「アンダー」が道の下をくぐる所だとも分からず、そこへ車で入ってしまうかもしれない。",
+    "severity": 3,
+    "fix_hint": "道の行もひらがなと英語で「みちが みずに つかる（Road flooding）: はつだい の したの みち 0.84km」と書く"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "漢字・読み",
+    "why": "たたんだ形は漢字だけで、ひらがなと英語の行はひらかないと出ない。運転中にちらっと見るのはこの形だけなので、「レベル３」しか分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行をひらがなか英語の短い文にする（例: Flood Level 3 しんじゅくく）"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "漢字・読み",
+    "why": "題が漢字で読めず、「試し」が先頭にあっても試しだと分からない。分かるのは波の絵だけ。",
+    "severity": 2,
+    "fix_hint": "題にひらがな・英語を入れる（例: ためし TEST 🌊 Flood）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "漢字・読み",
+    "why": "漢字なので読めない。「ためし」「TEST」があるので全部うそだと思い、本物の道の話まで無視してしまう。",
+    "severity": 2,
+    "fix_hint": "「けいほう は ためし。みち の はなし は ほんもの（Road info is real）」とひらがなと英語で書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの",
+    "kind": "行の変わり目",
+    "why": "「（かわの」と「みずが あふれる）」の間で行が変わり、言葉の区切りがおかしくて読みにくい。",
+    "severity": 1,
+    "fix_hint": "かっこの中の言葉が一行に収まるように区切る"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "長さ・量",
+    "why": "運転中には読めない長さ。私に関係ある道の話が5行目より下にあって、止まらないと見られない。",
+    "severity": 2,
+    "fix_hint": "運転する人に大事な道の話をいちばん上に短く出す"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "漢字・読み",
+    "why": "ボタンが漢字だけで、押すと何が出るのか分からない。",
+    "severity": 1,
+    "fix_hint": "ボタンにひらがなか英語をつける（例: けいほう Warning page）"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "漢字・読み",
+    "why": "大きいボタンだが読めない。押していいのか、押すと危ないのか分からず、まちがえて押すかもしれない。",
+    "severity": 1,
+    "fix_hint": "ひらがなと英語をそえる（みまもり を とめる / Stop sharing location）"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase、PC などの言葉は私に意味がない。誰に位置が送られているのか分からず、不安になる。",
+    "severity": 1,
+    "fix_hint": "「あなたの いち を かぞく に おくっています」のように、だれに送るかを分かる言葉で書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "17:47 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 5:47 なのにアプリは 17:47 で、同じ時刻か一瞬迷った。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ書き方にそろえる"
+   }
+  ],
+  "outside": [
+   "ミャンマー語での文",
+   "運転中でも聞ける読み上げ（ミャンマー語か、ゆっくりした日本語）",
+   "水につかる道を地図で見せ、よける道を案内する",
+   "運転中と分かったら、短い音声だけで知らせる"
+  ],
+  "overall": "ひらがなの行で「かわの みずが あふれる」は分かったけど、車を運転する私にいちばん大事な「近くの道の下が水につかる」は漢字だけで読めなかった。止まって読んでも、どの道を避ければいいか分からない。"
+ },
+ "cost_usd": 0.1524554,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10716,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3311,
+  "output_tokens_details": {
+   "thinking_tokens": 1172
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10716,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3311,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10716,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10716
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 36.6,
+ "person": {
+  "id": "P100",
+  "age": 35,
+  "lang": "ミャンマー語",
+  "body": "なし",
+  "situation": "車を運転している",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 18:08:13"
+}

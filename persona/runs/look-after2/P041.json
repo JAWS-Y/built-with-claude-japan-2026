@@ -1,0 +1,176 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "音はよく聞こえないので、気づいたのは引き下ろしたときだった。赤いピンと波の絵、「３」は見えた。漢字とカタカナは読めない。拾えたのはひらがなの「し」「に」「をつけて」だけ。水のことで何か危ないらしい、としか分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」で、新宿区に洪水の警報レベル3が出ていて、それが試しだと分かった。ひらがなの行でも「かわの みずが あふれる」と読めた。道路の行は数字（4、3km、0.84km）しか読めず、何の距離かは分からない。最後の行も読めない。「TEST」とあるので、全部が試しだと思った。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "知らせを押してアプリを開いた。上の英語の行は同じなので、分かったことは変わらない。青いリンク、緑の点、「見守り中」、下のボタンは、どれも漢字で何のものか分からない。どこへ逃げるか、何をするかは書かれていない。どれも押さずにおいた。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると、同じ文がもう一度出てきた。そのあとは Firebase や PC という言葉が見えるだけで、自分に関係のある画面には見えない。自分の位置が送られていることには気づかなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "レベル3は高齢者が逃げはじめる段階だが、そのことがどこにも書かれていない。75歳の自分には「Level 3」が逃げろという意味だと分からず、何もしないままになる。",
+    "severity": 3,
+    "fix_hint": "英語で「Level 3: Elderly people should evacuate now」のように、することを一行で書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "道路の情報は本物だと書いてあるのは、この日本語の行だけ。英語の行は「(TEST)」だけなので、全部が作りものだと思って無視してしまう。",
+    "severity": 2,
+    "fix_hint": "英語でも「Only the warning is a test. Road info is real」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "漢字とカタカナなので読めない。4 や 0.84km が何の数なのか、どこの場所なのか分からない。",
+    "severity": 2,
+    "fix_hint": "英語で「4 roads may flood within 3km. Nearest: Hatsudai underpass, 0.84km」と書く"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて",
+    "kind": "言語",
+    "why": "題もたたんだ行も漢字とカタカナで、英語が一つもない。ひらいて英語の行を見るまで、何の知らせか分からない。",
+    "severity": 2,
+    "fix_hint": "題かたたんだ行に英語の短い一言（Flood warning）を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "リンクの名前が漢字で、どこへ行くのか分からない。",
+    "severity": 1,
+    "fix_hint": "リンク名に英語を添える"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言語",
+    "why": "自分の位置が送られていると読めない。止めるボタンも読めず、知らないまま位置が送られている。",
+    "severity": 2,
+    "fix_hint": "見守りの説明とボタンに英語を添える"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "作る人向けの言葉で、旅行者の自分にはわけが分からず、不安になる。",
+    "severity": 1,
+    "fix_hint": "使う人の画面からは隠すか、平易な英語にする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 17:47",
+    "kind": "文字の大きさ",
+    "why": "灰色で小さく、年寄りの目には読みにくい。それに、どの PC のことか分からない。",
+    "severity": 1,
+    "fix_hint": "文字を大きく濃くし、「Checked at 17:47」とする"
+   },
+   {
+    "screen": 4,
+    "where": "アプリの画面",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "同じものが何度も",
+    "why": "同じ文が知らせにもアプリにも出ていて、新しく分かることがない。",
+    "severity": 1,
+    "fix_hint": "アプリでは、することや場所を足す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの",
+    "kind": "行の変わり目",
+    "why": "「かわの／みずが」が途中で切れていて、ひらがなが読みにくい。",
+    "severity": 1,
+    "fix_hint": "言葉の切れ目で行を変える"
+   }
+  ],
+  "outside": [
+   "耳が聞こえにくい人のための、強い震えや光（フラッシュ）での知らせ",
+   "英語で読める公式ページへの案内",
+   "近い避難所や浸水する場所の地図",
+   "レベルごとに何をするかを英語で示す"
+  ],
+  "overall": "英語の一行のおかげで、洪水のレベル3だとは分かった。でも、自分のような年寄りが今逃げるべきなのかは書いていないし、「TEST」とあるので全部が作りものだと思ってしまった。音にも気づけなかった。"
+ },
+ "cost_usd": 0.15185539999999997,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10721,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3279,
+  "output_tokens_details": {
+   "thinking_tokens": 1163
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10721,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3279,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10721,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10721
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 34.6,
+ "person": {
+  "id": "P041",
+  "age": 75,
+  "lang": "英語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "旅行で来ている",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "2cd47efd4a1711da783ea5e8452002a43f7c20a4b65a996d0c5fd70caad07b04",
+ "at": "2026-11-07 17:58:30"
+}
