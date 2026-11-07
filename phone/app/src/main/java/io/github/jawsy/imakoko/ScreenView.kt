@@ -40,13 +40,13 @@ object ScreenView {
         // the stripe in the level color keeps to the card's round corners
         card.clipToOutline = true
         root.findViewById<View>(R.id.notice_stripe).setBackgroundColor(Look.color(c.level) ?: ctx.getColor(R.color.accent))
-        root.findViewById<TextView>(R.id.notice_title).text = c.title
+        root.findViewById<TextView>(R.id.notice_title).text = Look.glue(c.title)
         root.findViewById<TextView>(R.id.notice_when).apply {
             text = c.head
             visibility = shown(c.head)
         }
         root.findViewById<TextView>(R.id.notice_notes).apply {
-            text = c.notes
+            text = Look.glue(c.notes)
             visibility = shown(c.notes)
         }
         root.findViewById<View>(R.id.pages_label).visibility = if (c.pages.isEmpty()) View.GONE else View.VISIBLE

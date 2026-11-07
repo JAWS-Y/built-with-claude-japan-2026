@@ -31,7 +31,25 @@ class ScreenTest {
         notifies: Boolean = true,
         lastWrite: Pair<Long, String>? = null,
         message: String = "",
-    ) = Screen.State(project, tracking, fine, coarse, always, notifies, lastWrite, message, null, now)
+        lastPlace: Long? = null,
+    ) = Screen.State(project, tracking, fine, coarse, always, notifies, lastWrite, lastPlace, message, null, now)
+
+    @Test
+    fun anOldPositionIsSaidNotHidden() {
+        // the emulator showed 見守り中 while the PC used a position from 4 hours before
+        val old = state(lastPlace = now - 4 * 3_600_000L - 22 * 60_000L)
+        assertEquals(Screen.Row("位置が古いままです", Screen.Kind.WARN), Screen.chip(old))
+        val row = Screen.rows(old).single { it.kind == Screen.Kind.WARN }
+        assertTrue(row.text, row.text.startsWith("最後に位置が届いたのは ") && row.text.contains("（4 時間前）"))
+        assertEquals(Screen.Fix.APP, row.fix)
+        // fresh, never sent yet, or not sending: nothing to say
+        assertEquals(Screen.Kind.OK, Screen.chip(state(lastPlace = now - 50 * 60_000L)).kind)
+        assertNull(Screen.stale(state(lastPlace = now - 50 * 60_000L)))
+        assertNull(Screen.stale(state(lastPlace = null)))
+        assertNull(Screen.stale(state(tracking = false, lastPlace = now - 5 * 3_600_000L)))
+        // a real failure still wins over an old position
+        assertEquals(Screen.Kind.BAD, Screen.chip(state(notifies = false, lastPlace = now - 5 * 3_600_000L)).kind)
+    }
 
     @Test
     fun chipSaysTheOneThingThatMatters() {

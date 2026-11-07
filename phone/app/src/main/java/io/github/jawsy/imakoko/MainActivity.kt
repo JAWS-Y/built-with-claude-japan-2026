@@ -59,6 +59,8 @@ class MainActivity : Activity(), ScreenView.Actions {
     override fun onResume() {
         super.onResume()
         Prefs.watch(this, changed)
+        val place = Prefs.lastPlace(this)
+        if (place == null || System.currentTimeMillis() - place > FRESH) Tracking.sendNow(applicationContext)
         refresh()
     }
 
@@ -225,6 +227,7 @@ class MainActivity : Activity(), ScreenView.Actions {
             always = granted(Manifest.permission.ACCESS_BACKGROUND_LOCATION),
             notifies = getSystemService(NotificationManager::class.java).areNotificationsEnabled(),
             lastWrite = Prefs.lastWrite(this),
+            lastPlace = Prefs.lastPlace(this),
             message = message,
             notice = Prefs.notice(this),
             now = System.currentTimeMillis(),
@@ -233,6 +236,7 @@ class MainActivity : Activity(), ScreenView.Actions {
     }
 
     companion object {
+        private const val FRESH = 15 * 60_000L // older than this, opening the app sends a position
         private const val ASK_NOTIFY = 1
         private const val ASK_LOCATION = 2
         private const val ASK_ALWAYS = 3

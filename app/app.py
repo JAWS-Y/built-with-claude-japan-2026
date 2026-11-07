@@ -847,12 +847,13 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
              f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）、近いのは {near['name']} {near['km']}km")
-    # 題は短く、何の知らせかだけ: 「⛰️ レベル4 土砂災害（どしゃさいがい）に気をつけて（試し）」。
-    # レベルは色のほかに数字でも出し（色が見分けにくい人、読み上げの人に）、読みと絵を添える
+    # 題は短く、何の知らせかだけ: 「試し ⛰️ 土砂災害に気をつけて レベル4」。たたんだ通知は 15 字ほどで切れるので
+    # （エミュレータで確かめた）、言葉を先に、試しはいちばん前に、レベルの数字は後ろに置く（色と 1 行目にもある）。
+    # 読みがなは本文の 2 行目にある
     top = {}  # (hazard, demo) -> its highest level, highest first
     for w in sorted(trig, key=lambda w: -w['level']):
         top.setdefault((w['hazard'], bool(w.get('demo'))), w['level'])
-    heads = [(f'{PICTO[h]} レベル{lv} {LEVELED[h]}（{READING[h]}）', demo) for (h, demo), lv in top.items()]
+    heads = [(f'{PICTO[h]} {LEVELED[h]}', demo) for (h, demo), lv in top.items()]
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
     if bear.get('count'):
         b = bear['newest']
@@ -862,15 +863,18 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
                          f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
              f"{animals}の記録　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）、"
              f"新しいのは {short_day(b['time'])}")
-        heads.append(('・'.join(f'{ANIMALS[a][0]} {a}（{ANIMALS[a][1]}）' if a in ANIMALS else a
-                                for a in bear['animals']), False))
+        heads.append(('・'.join(f'{ANIMALS[a][0]} {a}' if a in ANIMALS else a for a in bear['animals']), False))
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
     shown = [f for f in facts if f['plain']]
     lines = [f['line'] for f in shown if f['id'] != 'warning'] + [f['line'] for f in shown if f['id'] == 'warning']
+    real = [lv for (_, demo), lv in top.items() if not demo]
     if all(demo for _, demo in heads):
-        title = '・'.join(name for name, _ in heads) + 'に気をつけて（試し）'
+        title = '試し ' + '・'.join(name for name, _ in heads) + 'に気をつけて'
+        real = list(top.values())
     else:
         title = '・'.join(name + ('（試し）' if demo else '') for name, demo in heads) + 'に気をつけて'
+    if real:
+        title += f' レベル{max(real)}'
     return {'notify': True, 'title': title, 'area': area_name, 'body': '\n'.join(lines + notes), 'notes': notes, 'facts': facts,
             'summary': (lines + notes)[0],  # the folded line stays a place fact even when Claude writes the body
             'level': max((w['level'] for w in trig), default=0),

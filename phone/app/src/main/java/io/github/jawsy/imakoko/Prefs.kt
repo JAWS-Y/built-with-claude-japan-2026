@@ -26,6 +26,10 @@ object Prefs {
     }
     fun saveWrite(ctx: Context, at: Long, result: String) =
         p(ctx).edit().putLong("write_at", at).putString("write_result", result).apply()
+    fun savePlace(ctx: Context, at: Long) = p(ctx).edit().putLong("place_at", at).apply()
+
+    /** When a position last reached Firestore (other writes do not count). */
+    fun lastPlace(ctx: Context): Long? = p(ctx).getLong("place_at", 0L).takeIf { it > 0L }
 
     fun notice(ctx: Context): String? = p(ctx).getString("notice", null)
     fun saveNotice(ctx: Context, json: String) = p(ctx).edit().putString("notice", json).apply()

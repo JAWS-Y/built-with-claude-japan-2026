@@ -42,6 +42,27 @@ object Tracking {
         LocationServices.getFusedLocationProviderClient(ctx).removeLocationUpdates(intent(ctx))
     }
 
+    /**
+     * One position right away, then done() on the write thread. Used after a restart, when a push arrives and when
+     * the app opens with an old position: the emulator still showed 見守り中 while its position was 4 hours old.
+     */
+    fun sendNow(ctx: Context, done: () -> Unit = {}) {
+        if (!Prefs.tracking(ctx) || Prefs.setup(ctx) == null) return done()
+        once(ctx) { loc ->
+            if (loc == null) {
+                done()
+            } else {
+                Background.run {
+                    try {
+                        Store.writeLocation(ctx, loc)
+                    } finally {
+                        done()
+                    }
+                }
+            }
+        }
+    }
+
     /** One position right away (when the user presses start). */
     @SuppressLint("MissingPermission")
     fun once(ctx: Context, done: (Location?) -> Unit) {

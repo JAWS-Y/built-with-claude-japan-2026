@@ -58,6 +58,7 @@ object Store {
         val ok = code in 200..299
         val result = if (ok) "$what: 送れました" else if (code < 0) "$what: つながりません" else "$what: 失敗（HTTP $code）"
         Prefs.saveWrite(ctx, System.currentTimeMillis(), result)
+        if (ok && what == "位置") Prefs.savePlace(ctx, System.currentTimeMillis())
         return ok
     }
 

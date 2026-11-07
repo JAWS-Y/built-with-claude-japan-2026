@@ -24,6 +24,7 @@ object Screen {
         val always: Boolean,
         val notifies: Boolean,
         val lastWrite: Pair<Long, String>?,
+        val lastPlace: Long?, // when a position last reached Firestore
         val message: String,
         val notice: String?, // the last notice as saved by Notices.show
         val now: Long,
@@ -43,6 +44,7 @@ object Screen {
         s.project == null -> Row("設定がまだです", Kind.WARN)
         !s.tracking -> Row("止まっています", Kind.IDLE)
         rows(s).any { it.kind == Kind.BAD } -> Row("うまく動いていません", Kind.BAD)
+        stale(s) != null -> Row("位置が古いままです", Kind.WARN)
         else -> Row("見守り中", Kind.OK)
     }
 
@@ -64,9 +66,18 @@ object Screen {
         val out = mutableListOf<Row>()
         if (s.project != null) out += if (s.tracking) Row("位置を送っています", Kind.OK) else Row("位置は送っていません", Kind.IDLE)
         s.lastWrite?.let { (at, result) -> out += written(at, result, s.now) }
+        stale(s)?.let { out += it }
         out += problems(s)
         if (s.message.isNotEmpty()) out += Row(s.message, Kind.INFO)
         return out
+    }
+
+    /** While sending is on, a position older than an hour is said, so 見守り中 never hides it. */
+    fun stale(s: State): Row? {
+        val at = s.lastPlace ?: return null
+        val hours = (s.now - at) / 3_600_000L
+        if (!s.tracking || hours < 1) return null
+        return Row("最後に位置が届いたのは ${clock(at, s.now)}（$hours 時間前）。PC はその位置で調べます", Kind.WARN, Fix.APP)
     }
 
     /** Store's "位置: 送れました" / "位置: つながりません" / "位置: 失敗（HTTP 403）" in plain words with the time. */
