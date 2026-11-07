@@ -184,11 +184,13 @@ def find_area(lat, lon):
     office = area['class10s'][c10]['parent']
     return {
         'method': method,
-        'class20': {'code': code, 'name': area['class20s'][code]['name']},
+        'class20': {'code': code, 'name': area['class20s'][code]['name'],
+                    'kana': area['class20s'][code].get('kana', ''), 'enName': area['class20s'][code].get('enName', '')},
         'class15': {'code': c15, 'name': area['class15s'][c15]['name']},
         'class10': {'code': c10, 'name': area['class10s'][c10]['name']},
         'office': {'code': office, 'name': area['offices'][office]['name'],
-                   'officeName': area['offices'][office].get('officeName', '')},
+                   'officeName': area['offices'][office].get('officeName', ''),
+                   'enName': area['offices'][office].get('enName', '')},
     }
 
 
@@ -216,6 +218,25 @@ ADVISORY_ONLY = {'thunder': '雷', 'snow_melting': '融雪', 'fog': '濃霧', 'd
 RANK = {2: '注意報', 3: '警報', 4: '危険警報', 5: '特別警報'}
 ZEN = {2: '２', 3: '３', 4: '４', 5: '５'}
 GROUP1 = ('rain', 'landslide', 'tide', 'flood')
+# 漢字やカタカナが読めない人に: 公式の名前の読み（ひらがな）と、文字によらない絵
+READING = {'rain': 'おおあめ', 'landslide': 'どしゃさいがい', 'flood': 'はんらん', 'tide': 'たかしお'}
+RANK_READING = {2: 'ちゅういほう', 3: 'けいほう', 4: 'きけんけいほう', 5: 'とくべつけいほう'}
+PICTO = {'rain': '🌧️', 'landslide': '⛰️', 'flood': '🌊', 'tide': '🌊'}
+# 気象庁の英語ページと同じ名前（例 Level 4 Urgent Warning (Landslide)）
+EN_HAZARD = {'rain': 'Heavy Rain', 'landslide': 'Landslide', 'flood': 'Flood', 'tide': 'Storm Surge'}
+EN_RANK = {2: 'Advisory', 3: 'Warning', 4: 'Urgent Warning', 5: 'Emergency Warning'}
+ANIMALS = {'ツキノワグマ': ('🐻', 'つきのわぐま', 'Asian black bear'), 'イノシシ': ('🐗', 'いのしし', 'wild boar'),
+           'ニホンジカ': ('🦌', 'にほんじか', 'sika deer')}
+
+
+def warning_reading(hazard, level):
+    """The official name in hiragana: れべる4 どしゃさいがい きけんけいほう."""
+    return f'れべる{level} {READING[hazard]} {RANK_READING[level]}'
+
+
+def warning_en(hazard, level):
+    """The official name as the JMA's English pages write it."""
+    return f'Level {level} {EN_RANK[level]} ({EN_HAZARD[hazard]})'
 
 
 def warning_name(hazard, level):
@@ -770,9 +791,12 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
              f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）")
-    # 題は短く、何の知らせかだけ: 「土砂災害に気をつけて（試し）」。レベルは色で出す
-    heads = list(dict.fromkeys((LEVELED[w['hazard']], bool(w.get('demo')))
-                               for w in sorted(trig, key=lambda w: -w['level'])))
+    # 題は短く、何の知らせかだけ: 「⛰️ レベル4 土砂災害（どしゃさいがい）に気をつけて（試し）」。
+    # レベルは色のほかに数字でも出し（色が見分けにくい人、読み上げの人に）、読みと絵を添える
+    top = {}  # (hazard, demo) -> its highest level, highest first
+    for w in sorted(trig, key=lambda w: -w['level']):
+        top.setdefault((w['hazard'], bool(w.get('demo'))), w['level'])
+    heads = [(f'{PICTO[h]} レベル{lv} {LEVELED[h]}（{READING[h]}）', demo) for (h, demo), lv in top.items()]
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
     if bear.get('count'):
         b = bear['newest']
@@ -781,7 +805,8 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
                          f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
                          f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
              f"{animals}　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）")
-        heads.append((animals, False))
+        heads.append(('・'.join(f'{ANIMALS[a][0]} {a}（{ANIMALS[a][1]}）' if a in ANIMALS else a
+                                for a in bear['animals']), False))
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
     shown = [f for f in facts if f['plain']]
     lines = [f['line'] for f in shown if f['id'] != 'warning'] + [f['line'] for f in shown if f['id'] == 'warning']

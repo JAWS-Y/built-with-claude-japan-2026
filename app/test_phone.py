@@ -186,28 +186,36 @@ class PushTest(unittest.TestCase):
         m = phone.message_for(o, age=3 * 3600 + 5 * 60)
         self.assertTrue(all(isinstance(v, str) for v in m.values()))
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
-        self.assertEqual(m['title'], '土砂災害に気をつけて')
+        self.assertEqual(m['title'], '⛰️ レベル4 土砂災害（どしゃさいがい）に気をつけて')
         # the body says the facts first: the warning by its official name (the level in words, not only the
         # color), then what is at this spot; then it names the official pages, in the buttons' order
-        facts = ['千代田区にレベル４土砂災害危険警報', 'ここ　土石流の警戒区域', 'ここ　土砂キキクル「危険（紫）警戒レベル４相当」',
-                 '雨　いま 30～50 mm/h、1時間後 50～80 mm/h', '伝承碑　2.5km 先（土砂災害）']
-        pages = ['千代田区の警報・注意報（気象庁）', 'この場所の土砂キキクル（気象庁）', 'この場所の重ねるハザードマップ']
+        # the official name again in hiragana and in the JMA's own English (no new fact)
+        facts = ['千代田区にレベル４土砂災害危険警報', 'ちよだくに れべる4 どしゃさいがい きけんけいほう',
+                 'Chiyoda City: Level 4 Urgent Warning (Landslide)', 'ここ　土石流の警戒区域',
+                 'ここ　土砂キキクル「危険（紫）警戒レベル４相当」', '雨　いま 30～50 mm/h、1時間後 50～80 mm/h',
+                 '伝承碑　2.5km 先（土砂災害）']
+        # the pages say what they show, then their official names
+        pages = ['千代田区の警報・注意報（気象庁）', 'この場所の土砂災害の危険度分布の地図（土砂キキクル・気象庁）',
+                 'この場所のハザードマップ（重ねるハザードマップ・国土交通省）']
         self.assertEqual(m['body'].split('\n'), facts + pages + ['位置は 3 時間 5 分前のもの'])
         self.assertEqual(m['summary'], '千代田区にレベル４土砂災害危険警報')  # the folded line says the level in words
         # the app lists every page under the body's names, and shows the facts and the notes above them
         self.assertEqual([n for n, _ in json.loads(m['links'])], pages)
         self.assertEqual(m['notes'].split('\n'), facts + ['位置は 3 時間 5 分前のもの'])
         self.assertEqual(m['area'], '千代田区')
-        self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['警報を開く', '土砂キキクル'])
+        self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['警報（気象庁）', '土砂災害の地図'])
         self.assertEqual(m['level'], '4')
 
     def test_demo_note_stays_last(self):
         o = out_for(app.add_demo(warn(), ('landslide', 4), datetime(2026, 11, 3, 23, 50)),
                     demo={'hazard': 'landslide', 'level': 4})
         m = phone.message_for(o, age=3 * 3600)
-        self.assertEqual(m['title'], '土砂災害に気をつけて（試し）')
+        self.assertEqual(m['title'], '⛰️ レベル4 土砂災害（どしゃさいがい）に気をつけて（試し）')
         lines = m['body'].split('\n')
         self.assertEqual(lines[0], '千代田区にレベル４土砂災害危険警報（試し）')
+        # the readings carry the mark too, so no one takes the made-up warning for a real one
+        self.assertEqual(lines[1], 'ちよだくに れべる4 どしゃさいがい きけんけいほう（ためし）')
+        self.assertEqual(lines[2], 'Chiyoda City: Level 4 Urgent Warning (Landslide) (TEST)')
         self.assertEqual(m['summary'], lines[0])
         self.assertIn('千代田区の警報・注意報（気象庁）', lines)
         self.assertEqual(lines[-2], '警報は試しの作りもの。ほかは本物')
@@ -218,10 +226,13 @@ class PushTest(unittest.TestCase):
         o = out_for(warn(), bear=BEAR)
         self.assertEqual([n for n, _ in phone.links_for(o)], ['クマダス（秋田県）', '記録の地点（地理院地図）'])
         m = phone.message_for(o)
-        self.assertEqual(m['title'], 'ツキノワグマに気をつけて')
-        self.assertEqual(m['body'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）\nクマダス（秋田県）\n記録の地点（地理院地図）')
+        self.assertEqual(m['title'], '🐻 ツキノワグマ（つきのわぐま）に気をつけて')
+        self.assertEqual(m['body'].split('\n'), ['ツキノワグマ　1km 以内に 1 件（60 日以内）',
+                                                  'つきのわぐまの きろく 1けん（1km より ちかく、60にち の あいだ）',
+                                                  'Asian black bear: 1 record within 1 km (last 60 days)',
+                                                  '出没の記録の地図（クマダス・秋田県）', '記録の地点の地図（地理院地図）'])
         self.assertEqual(m['summary'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
-        self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['クマダス', '記録の地点'])
+        self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['出没の地図', '記録の地点'])
         self.assertEqual(m['level'], '0')
         self.assertEqual(json.loads(m['links'])[1][1], BEAR['link'])
         o['warning'] = None  # the warning part failed; the bear notice still goes out
@@ -248,14 +259,17 @@ class PushTest(unittest.TestCase):
 
     def test_too_long_drops_pages_then_facts(self):
         o = out_for(warn(('49', 'landslide', 4)))
-        long_tail = ['あ' * 450]  # the tail always stays; the pages go first (all but one), then the last facts
+        long_tail = ['あ' * 400]  # the tail always stays; the pages go first (all but one), then the last facts
         o['notice'] = {**o['notice'], 'notes': long_tail}
         m = phone.message_for(o)
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
-        self.assertEqual(m['body'].split('\n'), ['千代田区にレベル４土砂災害危険警報', 'ここ　土石流の警戒区域',
-                                                  'ここ　土砂キキクル「危険（紫）警戒レベル４相当」',
+        # the warning's name and its readings stay before the facts at the spot
+        self.assertEqual(m['body'].split('\n'), ['千代田区にレベル４土砂災害危険警報',
+                                                  'ちよだくに れべる4 どしゃさいがい きけんけいほう',
+                                                  'Chiyoda City: Level 4 Urgent Warning (Landslide)',
+                                                  'ここ　土石流の警戒区域',
                                                   '千代田区の警報・注意報（気象庁）'] + long_tail)
-        self.assertEqual(m['notes'].split('\n'), m['body'].split('\n')[:3] + long_tail)
+        self.assertEqual(m['notes'].split('\n'), m['body'].split('\n')[:4] + long_tail)
 
 
 class FakeGoogle:

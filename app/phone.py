@@ -225,9 +225,12 @@ def links_for(out):
     return links
 
 
-# 通知の下のボタン（2 つまで）。短い名前で、公式のページをそのまま開く
-BUTTON_NAMES = {'気象庁の警報・注意報': '警報を開く', '指定河川洪水予報': '洪水予報', '重ねるハザードマップ': 'ハザードマップ',
-                '記録の地点（地理院地図）': '記録の地点'}
+# 通知の下のボタン（2 つまで）。短く、何のページかが分かる名前で、公式のページをそのまま開く
+# （r1 の作りものの 100 人: 「警報を開く」「土砂キキクル」は、押すと何が出るか分からない）
+BUTTON_NAMES = {'気象庁の警報・注意報': '警報（気象庁）', '指定河川洪水予報': '川の洪水予報', '重ねるハザードマップ': 'ハザードマップ',
+                '記録の地点（地理院地図）': '記録の地点', '土砂キキクル': '土砂災害の地図', '浸水キキクル': '浸水の地図'}
+KIKI_NAMES = {label.split('（')[0]: label.split('（')[1].rstrip('）') for _, label in app.KIKIKURU}  # 土砂キキクル -> 土砂災害の危険度分布
+WILD_MAPS = {s['map_name'] for s in app.WILDLIFE_SETS.values()}
 
 
 def page_order(link):
@@ -236,17 +239,26 @@ def page_order(link):
 
 def buttons_for(links):
     """The notice's first two pages as short buttons: the warning page first, then the キキクル map."""
-    return [[BUTTON_NAMES.get(name, name.split('（')[0]), url] for name, url in sorted(links, key=page_order)[:2]]
+    return [[BUTTON_NAMES.get(name, '出没の地図' if name in WILD_MAPS else name.split('（')[0]), url]
+            for name, url in sorted(links, key=page_order)[:2]]
 
 
 def site_line(name, area):
-    """A page's name for the notice's body, with the place it is about (the links themselves are the buttons)."""
+    """A page's name for the notice's body: what the page shows and for which place, then its official name
+    and who runs it (the links themselves are the buttons)."""
     if name == '気象庁の警報・注意報':
         return f'{area}の警報・注意報（気象庁）'
-    if 'キキクル' in name or name == '指定河川洪水予報':
-        return f'この場所の{name}（気象庁）'
+    if name in KIKI_NAMES:
+        return f'この場所の{KIKI_NAMES[name]}の地図（{name}・気象庁）'
+    if name == '指定河川洪水予報':
+        return '川の洪水予報（指定河川洪水予報・気象庁）'
     if name == '重ねるハザードマップ':
-        return 'この場所の重ねるハザードマップ'
+        return 'この場所のハザードマップ（重ねるハザードマップ・国土交通省）'
+    if name in WILD_MAPS:
+        nick, _, who = name.partition('（')
+        return f"出没の記録の地図（{nick}・{who.rstrip('）')}）" if who else f'出没の記録の地図（{nick}）'
+    if name == '記録の地点（地理院地図）':
+        return '記録の地点の地図（地理院地図）'
     return name
 
 
@@ -255,17 +267,37 @@ FACT_ORDER = ('zone', 'kiki', 'wildlife', 'road', 'rain', 'lore')  # what is at 
 
 def fact_lines(out):
     """The facts for the phone, most important first: the warnings by their official names, so the level is
-    said in words and does not rest on the color (TalkBack does not read colors), then what is at this spot.
-    Official facts only, the same ones the PC shows."""
+    said in words and does not rest on the color (TalkBack does not read colors), the same in hiragana (for
+    people who do not read kanji or katakana) and in the JMA's own English, then what is at this spot.
+    Official facts only, the same ones the PC shows; the readings and the English add no new fact."""
     n, warn = out['notice'], out.get('warning') or {}
+    c20 = (out.get('area') or {}).get('class20') or {}
     trig = sorted((w for w in warn.get('warnings', []) + warn.get('flood', []) if w['group1'] and w['level'] >= 3),
                   key=lambda w: -w['level'])
-    names = dict.fromkeys(app.warning_name(w['hazard'], w['level']) + ('（試し）' if w.get('demo') else '')
-                          for w in trig)
-    lines = [f"{n.get('area', '')}に{'、'.join(names)}"] if names else []
+    trig = list({(w['hazard'], w['level'], bool(w.get('demo'))): w for w in trig}.values())
+    names = [app.warning_name(w['hazard'], w['level']) + ('（試し）' if w.get('demo') else '') for w in trig]
     facts = [f for f in n.get('facts', []) if f.get('line') and f['id'] != 'warning']
     facts.sort(key=lambda f: next((i for i, k in enumerate(FACT_ORDER) if f['id'].startswith(k)), len(FACT_ORDER)))
-    return lines + [f['line'] for f in facts]
+    head = [f"{n.get('area', '')}に{'、'.join(names)}"] if names else []
+    if not head:  # the bear alone: its fact comes first, the folded line stays in kanji as the record says it
+        head = [f['line'] for f in facts if f['id'] == 'wildlife'][:1]
+        facts = [f for f in facts if f['id'] != 'wildlife']
+    kana, en = [], []
+    if trig:
+        kana.append((c20.get('kana') + 'に ' if c20.get('kana') else '')
+                    + '、'.join(app.warning_reading(w['hazard'], w['level']) + ('（ためし）' if w.get('demo') else '')
+                               for w in trig))
+        en.append((c20['enName'] + ': ' if c20.get('enName') else '')
+                  + ', '.join(app.warning_en(w['hazard'], w['level']) + (' (TEST)' if w.get('demo') else '')
+                              for w in trig))
+    bear = ((out.get('wildlife') or {}).get('notify') or {})
+    if bear.get('count'):
+        r, d, k = f"{bear['radius_km']:g}", bear['days'], bear['count']
+        for a in bear['animals']:
+            _, yomi, eng = app.ANIMALS.get(a, ('', a, a))
+            kana.append(f'{yomi}の きろく {k}けん（{r}km より ちかく、{d}にち の あいだ）')
+            en.append(f"{eng}: {k} record{'s' if k != 1 else ''} within {r} km (last {d} days)")
+    return head + kana + en + [f['line'] for f in facts]
 
 
 def message_for(out, age=None):
