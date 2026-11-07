@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">いまいる場所の公式情報</string>
+    <string name="app_name">サークル</string>
     <string name="privacy">この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。「止める」で Firebase の位置と通知の宛先を消します。</string>
     <string name="section_notice">最後に届いた知らせ</string>
     <string name="section_watch">見守り</string>
