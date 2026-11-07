@@ -5,6 +5,7 @@ Claude は事実をつないで読みやすい文にし、どの文にどの事�
 アプリはその返事を 1 文ずつ確かめる（全部の事実が使われているか、事実にない数字・名前・言い回しが無いか、
 どう動くか・安全・予想を書いていないか）。1 つでも外れたら Claude の文は使わず、事実を並べただけの文に戻す。
 出典は、文ごとに使った事実の出典をアプリが付け直す。
+試しの作りものの警報（出典「試し」）は、本物の事実と同じ文に入れさせない。混ざると本物の数まで「試し」の印が付くため。
 
 ANTHROPIC_API_KEY が無いとき・IMAKOKO_CLAUDE=off のとき・anthropic パッケージが無いときは何もしない。
 """
@@ -28,6 +29,7 @@ SYSTEM = """あなたは、いまいる場所の公式の防災情報を、携�
 - 使ってよいのは渡した事実だけです。事実にない数字・名前・地名・時刻・理由を足さないでください。
 - 渡した事実はどれも、どこかの文で必ず使ってください。数字と名前は事実に書いてあるとおりに書き、数字は算用数字のままにします。
 - 事実をつないだり、順を変えたりしてかまいません。警報の事実があるときは、最初の文で、出ている警報とこの場所の性質を結びつけてください。
+- ただし id が demo の事実（試しの作りものの警報）は、ほかの事実と同じ文に入れず、それだけで最初の 1 文にしてください。この場所の性質は次の文に書きます。ほかの文には「試し」「作りもの」と書かないでください。
 - どう動けばよいか（逃げる・控える・備えるなど）は書かないでください。
 - 「安全」「大丈夫」「起きない」のように、無いこと・心配いらないことは書かないでください。
 - 事実にない見込みや予想は書かないでください。
@@ -62,6 +64,8 @@ BANNED = {
     'safe': ['安全', '大丈夫', '心配', '問題', 'ない', 'ません', 'なし'],
     'guess': ['予想', '予測', '見込', 'おそれ', '恐れ', 'かもしれ', '可能性', 'でしょう', 'だろう', '危な', '危険'],
 }
+DEMO_SOURCE = '試し'               # app.build_notice が作りものの警報に付ける出典
+DEMO_WORDS = ['試し', '作りもの']  # 試しの文のほかには出てはいけない
 KANJI_NUM = re.compile(r'[〇一二三四五六七八九十百千万]+\s*(?:か所|ヶ所|箇所|カ所|km|キロ|分|時|m|mm|ミリ|メートル|件|基|段階|倍)')
 NUMBER = re.compile(r'\d+(?:\.\d+)?')
 RANGE = re.compile(r'\d+(?:\.\d+)?\s*[～〜~\-－]\s*\d+(?:\.\d+)?')
@@ -119,6 +123,13 @@ def validate(facts, result):
             raise ComposeError(f'{i} 文目に知らない id: {unknown}')
         cited = [by_id[x] for x in dict.fromkeys(ids)]
         used.update(f['id'] for f in cited)
+        demo = [f for f in cited if f['source'] == DEMO_SOURCE]
+        if demo and len(demo) < len(cited):
+            raise ComposeError(f'{i} 文目に試しの事実と本物の事実が混ざっている')
+        if not demo:
+            said = [w for w in DEMO_WORDS if w in text]
+            if said:
+                raise ComposeError(f'{i} 文目は本物の事実なのに {said} と書いている')
         src_text = _norm(''.join(f['text'] for f in cited))
         extra = _numbers(text) - _numbers(src_text)
         if extra:

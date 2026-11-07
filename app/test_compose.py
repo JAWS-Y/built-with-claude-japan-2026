@@ -180,6 +180,54 @@ class ComposeTest(unittest.TestCase):
         self.assertEqual(out['body'].split('\n'), [
             '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。'] + n['notes'])
 
+    def demo_flood(self):
+        w = app.add_demo({'warnings': [], 'flood': []}, ('flood', 3), app.datetime(2026, 11, 3, tzinfo=app.JST))
+        n = app.build_notice(AREA, w, [], [], None, [], ROAD)
+        self.assertEqual([(f['id'], f['source']) for f in n['facts']],
+                         [('demo', '試し'), ('road', '国土交通省 関東地方整備局')])
+        return n
+
+    DEMO_TEXT = '千代田区にレベル３氾濫警報が出ています（これは試しの作りもので、気象庁は出していません）。'
+    ROAD_TEXT = '3km 以内に、国が道路冠水想定箇所として挙げている所が 7 か所あります。'
+
+    def test_demo_and_real_facts_never_share_a_sentence(self):
+        # seen 11-07 with the real API: the real road count got the 試し tag
+        n = self.demo_flood()
+        _, out, _ = self.compose({'lines': [
+            {'text': '千代田区にレベル３氾濫警報が出ており（これは試しの作りもので、気象庁は出していません）、'
+                     '3km 以内には国が道路冠水想定箇所として挙げている所が 7 か所あります。', 'facts': ['demo', 'road']},
+            {'text': 'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です。', 'facts': ['road']}]}, n)
+        self.assertFalse(out['composer']['ok'])
+        self.assertIn('混ざっている', out['composer']['reason'])
+        self.assertEqual(out['body'], n['body'])
+        self.assertNotIn('（試し・', out['body'])
+
+    def test_real_sentence_does_not_say_demo(self):
+        n = self.demo_flood()
+        for word in ('試し', '作りもの'):
+            _, out, _ = self.compose({'lines': [
+                {'text': self.DEMO_TEXT, 'facts': ['demo']},
+                {'text': f'{word}の警報とは別に、' + self.ROAD_TEXT + 'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です。',
+                 'facts': ['road']}]}, n)
+            self.assertFalse(out['composer']['ok'], word)
+            self.assertIn('本物の事実なのに', out['composer']['reason'])
+            compose._cache.clear()
+
+    def test_demo_alone_then_real_sentences(self):
+        n = self.demo_flood()
+        _, out, _ = self.compose({'lines': [
+            {'text': self.DEMO_TEXT, 'facts': ['demo']},
+            {'text': self.ROAD_TEXT + 'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です。', 'facts': ['road']}]}, n)
+        self.assertTrue(out['composer']['ok'], out['composer'])
+        self.assertEqual(out['body'].split('\n'), [
+            '千代田区にレベル３氾濫警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。',
+            '3km 以内に、国が道路冠水想定箇所として挙げている所が 7 か所あります。'
+            'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です（国土交通省 関東地方整備局）。'] + n['notes'])
+
+    def test_prompt_keeps_the_demo_fact_alone(self):
+        self.assertIn('id が demo の事実', compose.SYSTEM)
+        self.assertIn('ほかの事実と同じ文に入れず', compose.SYSTEM)
+
     def test_client_from_env(self):
         with mock.patch.dict(os.environ, {}, clear=True):
             self.assertIsNone(compose.client_from_env())
