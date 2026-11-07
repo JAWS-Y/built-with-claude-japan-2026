@@ -1,0 +1,229 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分ではPCの「python3 phone.py pair」も設定の文も分からず、夫に頼んで設定してもらった。携帯はAndroidの中国語表示なので位置の許可「始终允许」は選べた。アプリが何をするかは、夫の説明でぼんやり分かっただけ。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "ロック画面に赤い字と🌊が出た。たたんだままでは日本語だけで分からず、ひろげて英語の「Shinjuku City: Level 3 Warning (Flood)」を見て、新宿で洪水の警報だと分かった。道路の行は日本語だけで、どこが危ないのかは分からない。雨も降っていないので、何をすればいいか迷って様子を見た。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 3,
+    "gist": "紫の字と🌊、英語の「Level 4 Urgent Warning (Flood)」と「Here: flood zone 0.5–3 m」から、自分がいる所が水につかるかもしれないと分かった。でも、レベル4で何をすればいいか（逃げるのか、どこへ行くのか）が書いていない。妊娠中で速く歩けないので不安になり、夫に電話した。紫は赤より軽いのか重いのかも分からなかった。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 3,
+    "gist": "⛰️と英語の「Landslide」「Here: cliff failure warning zone」で、ここは崖崩れが危ない所だと分かった。漢字の「土砂災害」「危険」は中国語に似ていて、それも手がかりになった。伝承碑の行と、ボタンの先の日本語のページは読めなかった。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "🌊だけでは、洪水と同じ知らせに見えた。英語の「Storm Surge」は知らない言葉だったが、漢字の「高潮」と「0.5–1 m」で海の水がここまで来ると分かった。何をすればいいかは書いていなかった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "🐻と英語の「bear」「10 records within 1 km」で、近くにクマが出ていると分かった。ただ、どのくらい近いのか（PCでは0.0km先）や、外に出ていいのかは分からない。地図のボタンは名前が日本語なので押さなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCでコマンドを動かす設定で、説明も日本語だけ。自分ひとりでは全く始められず、夫がいなければ使えない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、QRを読むなど一回の操作で設定できるようにし、説明を中国語でも出す"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "公式情報",
+    "kind": "言葉",
+    "why": "中国語で「公式」は数学の公式のこと。通知の種類の名前を「公式の情報」とは読めず、何の通知か分からない。",
+    "severity": 1,
+    "fix_hint": "種類の名前を「防災警報」のような言葉にするか、英語を添える"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面のたたんだ表示は日本語だけ。英語の行はひろげないと見えず、ひと目で何の知らせかが分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に英語（できれば中国語）の短い一言を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "知らせに中国語がない。英語は少ししか読めないので、意味をとるのに時間がかかる。",
+    "severity": 2,
+    "fix_hint": "中国語の一行を足す（携帯の言語に合わせて出す）"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "道路の行だけ英語がなく、どこを避ければいいか分からない。",
+    "severity": 2,
+    "fix_hint": "道路の行にも英語の一行をつける（例: Flood-prone road 0.84 km）"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Sumida City: Level 4 Urgent Warning (Flood)",
+    "kind": "言葉",
+    "why": "レベル4が「避難する」段階だとどこにも書いていない。妊娠中で動くのに時間がかかるのに、逃げるべきかどうか決められない。",
+    "severity": 2,
+    "fix_hint": "レベルごとにすることを一言（例: Level 4 = Evacuate now）書く"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 紫）",
+    "kind": "色",
+    "why": "中国では赤がいちばん危ない色なので、紫のレベル4が赤のレベル3より軽く見えてしまう。",
+    "severity": 2,
+    "fix_hint": "色だけに頼らず、数字の横に「最も危険/very dangerous」などを添える"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "ボタンの名前が日本語だけで、何が開くか分からない。開いたページも日本語だけで読めない。",
+    "severity": 2,
+    "fix_hint": "ボタン名に英語を添え、英語や中国語のページがあればそちらを開く"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "すみだく に れべる4 はんらん（かわの みずが あふれる） きけんけいほう",
+    "kind": "長さ・量",
+    "why": "ひらがなの行は自分には読めず、本文が長くなって英語の行が探しにくくなる。",
+    "severity": 1,
+    "fix_hint": "携帯の言語が日本語でないときは、母語か英語の行を上に出す"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（昔の土砂災害を伝える碑）",
+    "kind": "言語",
+    "why": "伝承碑の行に英語がなく、0.81kmの所に何があるのか分からない。",
+    "severity": 1,
+    "fix_hint": "英語の一行を添える（例: Past disaster monument 0.81 km）"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "洪水と高潮が同じ🌊なので、絵だけでは川か海かの区別がつかない。",
+    "severity": 1,
+    "fix_hint": "高潮には別の絵を使うか、英語の題に Storm surge (sea) と書く"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "Storm Surge",
+    "kind": "言葉",
+    "why": "英語の Storm Surge はむずかしく、意味が分からなかった。",
+    "severity": 1,
+    "fix_hint": "やさしい英語（sea water rises）か中国語の「风暴潮」を添える"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days), newest 10/28",
+    "kind": "数字・単位",
+    "why": "PCの画面ではいちばん新しい記録が0.0km先なのに、携帯にはその距離が出ていない。どれだけ近いのか分からない。",
+    "severity": 2,
+    "fix_hint": "いちばん新しい記録の距離と時刻を携帯の本文にも出す"
+   },
+   {
+    "scene": 1,
+    "where": "PCの画面",
+    "quote": "新宿区にレベル３氾濫警報が出ています。",
+    "kind": "言語",
+    "why": "PCの詳しい説明は日本語の長い文だけで、自分では読めない。",
+    "severity": 2,
+    "fix_hint": "PCの画面にも英語か中国語に切りかえる働きをつける"
+   }
+  ],
+  "outside": [
+   "中国語での表示と読み上げ",
+   "どの避難所へ行けばいいかの案内と地図",
+   "妊婦や体の弱い人は早めに逃げるよう伝える一言",
+   "知らせが来たとき、夫や家族にも同じ知らせを送る働き",
+   "近くの産婦人科・病院の連絡先",
+   "110/119などに電話するボタン"
+  ],
+  "overall": "絵文字と英語の一行のおかげで、何の危険かはだいたい分かりました。でも中国語がなく、何をすればいいか（逃げるのか）も書いていないので、妊娠中の私はいつも夫に電話して聞くことになります。設定も自分ひとりではできませんでした。"
+ },
+ "cost_usd": 0.1631414,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8216,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4847,
+  "output_tokens_details": {
+   "thinking_tokens": 1738
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8216,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4847,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8216,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8216
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 48.8,
+ "person": {
+  "id": "P048",
+  "age": 35,
+  "lang": "中国語",
+  "body": "なし",
+  "situation": "妊娠中",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:43:50"
+}

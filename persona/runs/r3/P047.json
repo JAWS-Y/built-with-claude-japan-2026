@@ -1,0 +1,219 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分では設定できない。PCもpythonも分からない。高校生の子どもに家のPCでやってもらい、「常に許可」も子どもが選んだ。自分では何をしたのかよく分からない。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "新宿で配達中。ポケットで震えたが、トラックの音で少し遅れて気づく。題のうち読めるのは🌊と「3」と「はんらん」だけ。ひろげると英語の「Level 3 Warning (Flood)」があって、洪水だと分かる。道路の行（初台アンダー 0.84km）は漢字とカタカナで読めず、通ってはいけない道は分からない。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 3,
+    "gist": "英語の「Urgent Warning」と「Here: flood zone 0.5–3 m」で、ここは水につかると分かる。でも、逃げるのか、どこへ行くのかは書いていない。アンダーパスの名前は読めず、トラックで通るかもしれない。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 3,
+    "gist": "英語の「Landslide」と「Here: cliff failure warning zone」で、がけが危ないと分かる。伝承碑の行は読めない。ボタンも漢字で、押しても日本語のページが開くだけ。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 3,
+    "gist": "「Storm Surge」はフィリピンの台風で知っている言葉なので、すぐ怖くなった。「0.5–1 m」も分かる。ただ、海からはなれるのか高い所へ行くのか、指示はない。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "🐻と英語の「Asian black bear」でクマだと分かる。色がなくレベルもないので、どれくらい急ぐ話か分からない。いちばん新しい記録がすぐそこ（0.0km）だったことは、通知には出ていない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCとpythonが要る。自分ひとりではできず、子どもがいなければ使い始められない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、QRを読むなど一回で設定できるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "漢字・読み",
+    "why": "漢字で読めないので「あとで」を押してしまいそう。そうなると外での位置が送られない。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語で「つねに」を選ぶ理由を書き、絵で見せる"
+   },
+   {
+    "scene": 1,
+    "where": "届き方",
+    "quote": "音・振動・画面の上に出るかは、その携帯の設定のとおり",
+    "kind": "音・振動",
+    "why": "工事や配達の音の中、ポケットの中だと、ふつうの通知の振動では気づかない。",
+    "severity": 2,
+    "fix_hint": "レベル4などでは長く強い振動と大きな音にする設定を、はじめに勧める"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面で見える所は漢字とカタカナだけで、英語はひろげた3行目にしかない。運転中や手袋をしているとひろげられない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行目に、ひらがなか英語の短い一言を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "ドライバーにいちばん大事な道の情報なのに、ひらがなも英語もない。アンダーパスに入ってしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語の行をつける（Flooded road: underpass 0.84 km）"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "漢字・読み",
+    "why": "ボタンの名前が漢字だけで、何が開くか分からない。",
+    "severity": 1,
+    "fix_hint": "ボタンに英語かひらがなを添える"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "開く公式のページはどれも日本語だけで、開いても読めない。",
+    "severity": 2,
+    "fix_hint": "英語のページがあればそちらへつなぐ。なければ、日本語だけと先に書いておく"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "タガログ語がない。英語はある程度読めるが、こわいときは母語のほうが速く分かる。",
+    "severity": 1,
+    "fix_hint": "タガログ語の行を選べるようにする"
+   },
+   {
+    "scene": 1,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 赤）",
+    "kind": "色",
+    "why": "赤と紫のどちらが危ないのか知らない。フィリピンの警報の色とも違う。",
+    "severity": 1,
+    "fix_hint": "色といっしょに「1から5の中の4」のように段を書く"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Sumida City: Level 4 Urgent Warning (Flood)",
+    "kind": "言葉",
+    "why": "レベル4は逃げる段階なのに、何をすればいいかが書いていない。題も「気をつけて」で、弱く感じる。",
+    "severity": 2,
+    "fix_hint": "レベル4では「Evacuate / にげて」とすることを一言書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（昔の土砂災害を伝える碑）",
+    "kind": "漢字・読み",
+    "why": "漢字だけで読めない。",
+    "severity": 1,
+    "fix_hint": "ひらがなと英語の行をつける"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "ツキノワグマの記録　1km 以内に 10 件（60 日以内）、新しいのは 10/28",
+    "kind": "その他",
+    "why": "いちばん新しい記録の場所（PCでは0.0km先）が通知に出ていない。色もないので、急がなくていいと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "いちばん新しい記録の近さを1行目に書く（newest: 0.0 km）"
+   },
+   {
+    "scene": 5,
+    "where": "通知の題",
+    "quote": "🐻 ツキノワグマ（つきのわぐま）に気をつけて",
+    "kind": "言葉",
+    "why": "カタカナは読めない。ひらがなの「つきのわぐま」も読めるが、知らない言葉。分かったのは🐻のおかげ。",
+    "severity": 1,
+    "fix_hint": "ひらがなは「くま」だけにする。英語のBearも題に入れる"
+   }
+  ],
+  "outside": [
+   "タガログ語での表示と読み上げ",
+   "いちばん近い避難所や高い所への道案内",
+   "レベルごとに、すること（逃げる・車で行かない など）を絵で見せる",
+   "会社や家族へ、いる場所と無事を知らせる",
+   "運転中に声で知らせる"
+  ],
+  "overall": "英語の行があるので、何の危険かはだいたい分かりました。でも、ロック画面に見えるのは漢字ばかりで、ひろげないと分かりません。運転しているドライバーに大事な道の情報も、漢字だけでした。何をすればいいかも書いていません。それに、子どもがいなかったら設定もできませんでした。"
+ },
+ "cost_usd": 0.15855339999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8230,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4612,
+  "output_tokens_details": {
+   "thinking_tokens": 1865
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8230,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4612,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8230,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8230
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 47.8,
+ "person": {
+  "id": "P047",
+  "age": 51,
+  "lang": "タガログ語",
+  "body": "なし",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:43:47"
+}

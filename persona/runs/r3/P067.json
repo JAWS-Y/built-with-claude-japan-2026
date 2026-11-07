@@ -1,0 +1,228 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 1,
+    "gist": "自分では何も読めない。夫が職場の日本人の同僚に頼み、PCで設定の文を作って貼り、「常に許可」にしてもらった。自分では「あとで」と「次へ」の区別がつかず、何のアプリかも『災害の知らせらしい』としか分かっていない。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "子どもと新宿に買い物に来ていた。赤い字と🌊を見てびっくりした。英語の行の『Level 3 Warning (Flood)』で、洪水の警報だと分かった。でも、どれくらい危ないのか、何をすればいいのかは分からない。道路の行は日本語なので読めず、『0.84km』の数字だけ目に入った。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "子どもとスカイツリーに来ていた。『Urgent Warning (Flood)』と『Here: flood zone 0.5–3 m』で、ここは水につかる場所だと分かり、とてもこわくなった。ただ、逃げるべきか、どこへ行けばいいかは書いていない。ボタンは日本語で、押しても開くのは日本語のページで読めない。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "広島の友だちの家に子どもと泊まっていた。⛰️と『Landslide』で土砂くずれだと分かった（インドネシアでもある『longsor』のこと）。『cliff failure warning zone』は意味がはっきりせず、家の中にいていいのか、出たほうがいいのか迷った。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "子どもと名古屋港の水族館の近くにいた。『Storm Surge』の意味は知らない。🌊と『flood zone 0.5–1 m』で、水が来るらしいとは分かった。空は晴れているので、川なのか海なのかも分からず迷った。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "秋田のインドネシア人の友だちの家にいた。🐻と『bear』で、近くでクマが出ていると分かった。10件で最後は10/28なので、少し前のことだと思った。すぐそば（0.0km）で見られたことは携帯には出ていない。子どもを外で遊ばせていいのかは分からない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "日本語が読めず、PCも使えない。日本語とPCが分かる人がいないと、始めることもできない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、絵と英語（できればインドネシア語）を見ながら設定できるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "ボタン",
+    "quote": "「あとで」「次へ」",
+    "kind": "言語",
+    "why": "日本語のボタンなので区別がつかず、「あとで」を押してしまうと位置が送られない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語を添え、押すほうを目立たせる"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "「公式情報」",
+    "kind": "言語",
+    "why": "通知の種類の名前が日本語だけなので、携帯の設定で切っていいものかどうか分からない。切ってしまうと知らせが届かない。",
+    "severity": 2,
+    "fix_hint": "名前に英語を添える（Official alerts など）"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面に出る題と1行目は日本語だけ。手がかりは🌊と赤い色と数字しかなく、ひろげないと英語が見えない。子どもを抱いているとひろげにくい。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に短い英語を入れる（Flood warning Lv3 など）"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "この行には英語がない。数字は見えるが、何の距離なのか分からない。",
+    "severity": 2,
+    "fix_hint": "英語の行を添える（Flooded roads expected: 4 within 3 km）"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Sumida City: Level 4 Urgent Warning (Flood)",
+    "kind": "言葉",
+    "why": "レベル4が『逃げる時』という意味だと知らない。子ども連れで、逃げるのか、とどまるのか決められない。",
+    "severity": 2,
+    "fix_hint": "レベルの意味を短い英語で添える（Level 4 = evacuate now）"
+   },
+   {
+    "scene": 2,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "ボタンの名前は日本語だけで、開くページも日本語。どちらを押しても読めない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語を添え、英語のページがあればそちらを開く"
+   },
+   {
+    "scene": 2,
+    "where": "PCの画面",
+    "quote": "これは試しの作りもので気象庁は出していませんが",
+    "kind": "その他",
+    "why": "PCでは試しだと書いてあるのに、携帯には書いていない。本物と思ってあわてる。",
+    "severity": 2,
+    "fix_hint": "試しの知らせは、携帯の題にも英語で『TEST』と出す"
+   },
+   {
+    "scene": 2,
+    "where": "アプリの画面",
+    "quote": "色の帯（紫）",
+    "kind": "色",
+    "why": "赤より紫のほうが危ないという日本の決まりを知らない。かえって赤のほうが危なく見える。",
+    "severity": 2,
+    "fix_hint": "色と一緒に、英語で危なさの段階を書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "Here: cliff failure warning zone",
+    "kind": "言葉",
+    "why": "cliff failure という英語は難しくて、意味がとれない。",
+    "severity": 1,
+    "fix_hint": "やさしい英語にする（Landslide danger area: rocks may fall）"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "Nagoya City: Level 4 Urgent Warning (Storm Surge)",
+    "kind": "言葉",
+    "why": "Storm Surge を知らない。🌊も洪水と同じなので、海の水が上がるのだと分からない。",
+    "severity": 2,
+    "fix_hint": "やさしい英語を添える（sea water rising）。絵も洪水と分ける"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "伝承碑　0.53km 先（昔の高潮を伝える碑）",
+    "kind": "言語",
+    "why": "日本語だけで、何がそこにあるのか分からない。",
+    "severity": 1,
+    "fix_hint": "英語の行を添えるか、外国語の人には出さない"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days), newest 10/28",
+    "kind": "長さ・量",
+    "why": "PCには『0.0km先で目撃』とあるのに、携帯には出ていない。色もないので、それほど危なくないように見える。",
+    "severity": 2,
+    "fix_hint": "いちばん近い記録の距離を英語で出す（newest: right here）"
+   },
+   {
+    "scene": 1,
+    "where": "届き方",
+    "quote": "",
+    "kind": "言語",
+    "why": "インドネシア語がどこにもない。英語は少し読めるだけなので、細かいことは分からない。",
+    "severity": 2,
+    "fix_hint": "インドネシア語の行を選んで出せるようにする"
+   }
+  ],
+  "outside": [
+   "どうすればいいかを、インドネシア語かやさしい英語で一言（すぐ逃げる、高い階へ、など）",
+   "近くの避難所への道案内の地図（子ども連れで歩ける道）",
+   "夫や家族にも同じ知らせを送る",
+   "外国人向けの多言語の相談窓口の電話番号を出す",
+   "PCなしで携帯だけで使える設定"
+  ],
+  "overall": "🌊や🐻の絵と、英語の一行があったので、危ないことだけは分かりました。でも、子どもを連れてどこへ逃げればいいのかは、どの知らせにも書いていませんでした。ボタンも開くページも日本語で、設定も自分ひとりでは何もできませんでした。"
+ },
+ "cost_usd": 0.16390939999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8227,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4881,
+  "output_tokens_details": {
+   "thinking_tokens": 1908
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8227,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4881,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8227,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8227
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 51.1,
+ "person": {
+  "id": "P067",
+  "age": 43,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "小さい子を連れている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:47:10"
+}

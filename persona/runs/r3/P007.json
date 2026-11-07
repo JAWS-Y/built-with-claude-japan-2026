@@ -1,0 +1,237 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 0,
+    "gist": "自分では何もできない。会社（受け入れ先）の日本人の担当者が、会社のPCでpython3やpairを動かして設定してくれた。わたしは担当者に言われたとおり「次へ」と「常に許可」を押しただけ。アプリが何をするのかは分からず、『地震のアプリ？』と思っている。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "仕事の帰りに新宿駅の近くにいた。赤い字と🌊、『Level 3』『Warning (Flood)』『Shinjuku』で、新宿で水があふれるらしいと分かった。でも雨は降っていないので本当か分からない。何をすればいいか、どこへ行けばいいかは分からない。日本語のボタンを押したら日本語のページが出たので、すぐ閉じた。友だちにLINEで聞いた。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "休みの日にスカイツリーに来ていた。『Level 4』『Flood』『Here: flood zone』『3 m』で、ここが水に入る所らしいと分かって怖くなった。でも『overflows』は分からない。紫は赤より弱い色に見えて、新宿のときより大丈夫かと思った。どこへ逃げるかは分からず、駅の中に入った。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 1,
+    "gist": "広島で働く同じ国の友だちの家に遊びに来ていた。⛰️と『Level 4』『Urgent Warning』で、山の何かが危ないとだけ分かった。『Landslide』はたぶん『tanah longsor』だと思ったが自信がない。『cliff failure』は分からない。家の中にいればいいのか、外に出るのか分からないまま、友だちを待った。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "会社の研修で名古屋の港の近くに来ていた。🌊と『Here: … flood zone 0.5–1 m』で、ここが水に入るらしいと分かった。『Storm Surge』は分からず、海の近くなので津波だと思ってあわてた。新宿や押上と同じ🌊なので、どう違うかも分からない。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "秋田で働く先輩をたずねて来ていた。🐻を見てクマだとすぐ分かった。『10』『1 km』で近くに何回も出たらしいと思った。でも『records』『newest 10/28』の意味が分からず、いま近くにいるのか分からない。色がないので、前の知らせより弱いと思った。地図のボタンを押したら地図は見えたが、字は読めなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCを持っていないし、pythonもFirebaseも分からない。会社の人がいなかったら、ずっと設定できないままで知らせが一つも届かなかった。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、ボタン一つかQRコードで始められるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "「あとで」「次へ」",
+    "kind": "言語",
+    "why": "日本語のボタンなので、どちらが正しいのか分からない。『あとで』を押したら、アプリを閉じているときに位置が送られず知らせが来ない。でもそうなったことにも気づけない。",
+    "severity": 2,
+    "fix_hint": "インドネシア語か絵で『こちらを押す』と示し、許可がないときは赤い印で知らせる"
+   },
+   {
+    "scene": 0,
+    "where": "アプリの画面",
+    "quote": "見守り: 状態の札「設定がまだです」",
+    "kind": "言語",
+    "why": "アプリの画面が全部日本語。設定が終わったのか、いま見守ってくれているのか、自分では分からない。",
+    "severity": 2,
+    "fix_hint": "✓や色、短い英語・インドネシア語で『動いています』と見せる"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "順番",
+    "why": "ロック画面には日本語の行しか出ない。読める英語は、ひろげたときの3行目にある。ひろげ方を知らないと『Level 3』と🌊しか分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に、英語など読める言語の短い文を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "レベル3 氾濫（はんらん）に気をつけて",
+    "kind": "言葉",
+    "why": "『気をつけて』だけでは、逃げるのか、待つのか、どこへ行くのか分からない。英語の行にも、何をするかが書いていない。",
+    "severity": 2,
+    "fix_hint": "『川から離れて高い所へ』のように、することを一つ、やさしい言葉と絵で書く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "英語がない行なので、0.84km が何の距離か分からない。そこに行けばいいのかと思ってしまうかもしれない。",
+    "severity": 1,
+    "fix_hint": "この行にも英語をつけ、『ここを通らない』と分かるようにする"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "「警報（気象庁）」 / 「川の洪水予報」",
+    "kind": "言語",
+    "why": "ボタンの名前も、開いたページも日本語だけなので、押しても何も分からない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語の名前をつけ、英語のページがあればそちらを開く"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "（題の文字の色: 紫）",
+    "kind": "色",
+    "why": "レベル4の紫は、レベル3の赤より弱い色に見えた。もっと危ないのに、安心してしまった。",
+    "severity": 2,
+    "fix_hint": "いちばん危ないときは『!』の数や英語の『DANGER』など、色でなくても分かる印をつける"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Here: flood zone (if the river overflows), 0.5–3 m",
+    "kind": "言葉",
+    "why": "『overflows』が分からない。『0.5–3 m』が水の深さだとも、すぐには分からなかった。",
+    "severity": 1,
+    "fix_hint": "『Water may come here, up to 3 m deep』のように、もっとやさしい英語にする"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "Here: cliff failure warning zone",
+    "kind": "言葉",
+    "why": "『cliff failure』は難しくて分からない。山がくずれて家がつぶれるかもしれない、ということが伝わらない。",
+    "severity": 2,
+    "fix_hint": "『The hill may fall here』のようにやさしい英語にし、絵もつける"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（昔の土砂災害を伝える碑）",
+    "kind": "言語",
+    "why": "日本語だけなので、0.81km 先に何があるのか分からない。逃げる所かと思ってしまうかもしれない。",
+    "severity": 1,
+    "fix_hint": "大事でない行は下に回すか、英語をつける"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "言葉",
+    "why": "『Storm Surge』を知らない。洪水と同じ🌊なので区別がつかず、海の近くだから津波だと思ってあわてた。",
+    "severity": 2,
+    "fix_hint": "高潮は洪水と違う絵にし、『sea water comes up (not tsunami)』のように説明する"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days), newest 10/28",
+    "kind": "言葉",
+    "why": "『records』『newest』が分からない。いまクマが近くにいるのか、前にいたのかが分からない。",
+    "severity": 1,
+    "fix_hint": "『Bears were seen near here 10 times. Last: Oct 28』のように書く"
+   },
+   {
+    "scene": 5,
+    "where": "通知の題",
+    "quote": "（題の文字の色: なし）",
+    "kind": "色",
+    "why": "色がないので、ほかの知らせより大事でないと思った。クマはすぐ近くで見られているのに。",
+    "severity": 1,
+    "fix_hint": "クマにも『気をつける』と分かる色か印をつける"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう",
+    "kind": "長さ・量",
+    "why": "本文の行が多く、ひらがなの行もわたしには読めない。読める英語の行を探すのが大変で、あわてているときは見つけられない。",
+    "severity": 2,
+    "fix_hint": "最初の行に、いちばん大事なことを読める言語で一つだけ書く"
+   }
+  ],
+  "outside": [
+   "インドネシア語でアプリと知らせを出す",
+   "『逃げる／家にいる』など、することを絵で見せる",
+   "近くの避難所や高い建物への道を地図で示す",
+   "会社の担当者や友だちに、知らせが届いたことを伝える",
+   "知らせを母語で読み上げる"
+  ],
+  "overall": "🌊や🐻の絵、数字、短い英語で『危ないらしい』とは分かりました。でも、何をすればいいのか、どこへ行けばいいのかが分かりません。設定も一人ではできず、会社の人がいなかったら知らせは届いていませんでした。"
+ },
+ "cost_usd": 0.1746494,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8227,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 5418,
+  "output_tokens_details": {
+   "thinking_tokens": 2007
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8227,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 5418,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8227,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8227
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 58.2,
+ "person": {
+  "id": "P007",
+  "age": 22,
+  "lang": "インドネシア語",
+  "body": "軽い知的障害",
+  "situation": "都心の駅の近くにいる",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:37:20"
+}

@@ -1,0 +1,228 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 0,
+    "gist": "アプリの画面は全部日本語で読めない。python や Firebase も分からない。日本人の夫が家の PC で設定の文を出して貼り、「常に許可」も夫が押した。私は何を設定したのか分からないまま。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "母の通院の付き添いで新宿にいた。🌊と赤い字、英語の『Level 3 Warning (Flood)』で洪水の警報だと分かった。でもレベル3がどれくらい危ないのか、母を連れて逃げるべきかは分からない。道路の行は読めない。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "親戚の家に母と行った先。英語の『Here: flood zone, 0.5–3 m』で、ここが水につかる場所だと分かって怖くなった。でも逃げろとは書いていないし、どこへ行けばいいかも分からない。ボタンを押すと日本語のページが開いて読めなかった。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "知り合いの家に用があって来た。⛰️と『Landslide』で土砂くずれ（longsor）だと分かった。『cliff failure warning zone』はなんとなく分かる。ここにいてよいのか、どこへ行くのかが分からない。伝承碑の行は読めない。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 2,
+    "gist": "仕事の手伝いで港の近くにいた。🌊の絵なので津波かと思ってあわてた。『Storm Surge』の意味が分からない。『flood zone 0.5–1 m』で水が来ることだけ分かった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "母の実家の親戚を訪ねていた。🐻と『Asian black bear』『10 records within 1 km』でクマが近くに出ると分かった。いちばん新しいのがどれだけ近いかは書いていない。外に出るときの気をつけ方も分からない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "はじめに、PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PC と python と Firebase が要るうえに、説明が日本語だけ。ひとりでは設定できず、夫がいなければ使えない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで設定でき、説明をインドネシア語や英語に切りかえられる"
+   },
+   {
+    "scene": 0,
+    "where": "アプリの画面",
+    "quote": "最後に届いた知らせ",
+    "kind": "言語",
+    "why": "見出し、ボタン、札がすべて日本語。どのボタンを押せばいいか分からない。",
+    "severity": 2,
+    "fix_hint": "画面の言葉を携帯の言語（インドネシア語）に合わせる"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "なぜ「常に」にしなければいけないのか読めない。「あとで」を押してしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "許可の説明を母語にして、絵も入れる"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "公式情報",
+    "kind": "言語",
+    "why": "携帯の設定に出る通知の種類の名前が日本語で、何の通知か分からない。間違えて切ってしまうかもしれない。",
+    "severity": 1,
+    "fix_hint": "通知の種類の名前にも英語かインドネシア語を添える"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言葉",
+    "why": "レベル3は「お年寄りは逃げ始める」という意味なのに、それが書いていない。母の介護をしている私には、いちばん要る情報。",
+    "severity": 3,
+    "fix_hint": "『Level 3: elderly people should evacuate now』のように、することを書く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "日本語と漢字の地名しかなく、数字が何の距離なのか分からない。",
+    "severity": 2,
+    "fix_hint": "英語の行も付けて、『flooded underpass road』のように書く"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 氾濫（はんらん）に気をつけて",
+    "kind": "言葉",
+    "why": "レベル4は「全員逃げる」なのに、英語でも『Urgent Warning』としか書いていない。逃げるべきだと分からず遅れる。",
+    "severity": 3,
+    "fix_hint": "題に『Evacuate』と、母語の言葉を入れる"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "墨田区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへのつながりもボタンも、開いた先も日本語だけ。押しても何も分からない。",
+    "severity": 2,
+    "fix_hint": "ボタンの名前を英語にして、英語のページがあればそちらを開く"
+   },
+   {
+    "scene": 2,
+    "where": "アプリの画面",
+    "quote": "色の帯（紫）",
+    "kind": "色",
+    "why": "赤より紫のほうが危ないとは知らないので、色からは危なさの差が分からない。",
+    "severity": 1,
+    "fix_hint": "色の横に『Level 4 = very dangerous』のように言葉を添える"
+   },
+   {
+    "scene": 0,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう",
+    "kind": "言語",
+    "why": "ひらがなの行も英語の行もあるが、インドネシア語がない。英語は少ししか分からず、母や家族にも伝えにくい。",
+    "severity": 2,
+    "fix_hint": "インドネシア語の行を選べるようにする"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "Nagoya City: Level 4 Urgent Warning (Storm Surge)",
+    "kind": "言葉",
+    "why": "『Storm Surge』が分からず、🌊の絵から津波だと思った。どう逃げるかを間違える。",
+    "severity": 2,
+    "fix_hint": "『sea water rises because of typhoon (not tsunami)』のようにやさしい英語にする"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（昔の土砂災害を伝える碑）",
+    "kind": "言語",
+    "why": "日本語だけで読めない。危ないことなのか関係ないことなのか判断できない。",
+    "severity": 1,
+    "fix_hint": "英語の行を付けるか、要らなければ下に回す"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days), newest 10/28",
+    "kind": "長さ・量",
+    "why": "いちばん新しい目撃がすぐそば（0.0km）だということは PC にしか出ず、携帯では分からない。",
+    "severity": 2,
+    "fix_hint": "通知にもいちばん近い記録の距離を書く"
+   },
+   {
+    "scene": 1,
+    "where": "PCの画面",
+    "quote": "新宿区にレベル３氾濫警報が出ています。",
+    "kind": "言語",
+    "why": "PC のくわしい説明も日本語だけ。私は読めない。",
+    "severity": 1,
+    "fix_hint": "PC の画面にも英語かインドネシア語を出す"
+   }
+  ],
+  "outside": [
+   "インドネシア語の表示と読み上げ",
+   "近くの避難所までの案内（地図と道順）",
+   "お年寄りや介護の人向けの『いま逃げ始める』の合図",
+   "家族（夫）に同じ知らせを送る働き",
+   "クマに会ったときの気をつけ方を短く知らせる"
+  ],
+  "overall": "絵文字と英語の行のおかげで、何の危険かはだいたい分かりました。でも、母を連れていつ逃げればいいのか、どこへ行けばいいのかは分かりません。設定も日本語と PC ばかりで、夫がいないと使えませんでした。"
+ },
+ "cost_usd": 0.1507134,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8220,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4224,
+  "output_tokens_details": {
+   "thinking_tokens": 1359
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8220,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4224,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8220,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8220
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 43.5,
+ "person": {
+  "id": "P088",
+  "age": 35,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "親の介護をしている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:50:28"
+}

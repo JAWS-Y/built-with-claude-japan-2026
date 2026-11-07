@@ -1,0 +1,219 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": true,
+    "understood": 0,
+    "gist": "自分では何も設定できない。字はアプリ名の「サークル」くらいしか分からない。お父さんが職場の日本人に頼み、PCで「python3 phone.py pair」を動かしてもらって設定の文を貼った。「位置の許可を「常に」に」の画面も読めないので、大人が「次へ」を押した。何のアプリなのか、ぼくにはよく分からないまま。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "🌊と赤い字、「Level 3 Warning (Flood)」を見て、洪水が危ないことは分かった。「Shinjuku」も読めた。でも雨は降っていないので、どこの水があふれるのか分からない。「初台アンダー 0.84km」は読めない。ボタンを押すと日本語のページが開いたので、すぐ閉じた。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "「Level 4 Urgent Warning (Flood)」と「Here: flood zone … 0.5–3 m」から、ここは水が3mまで来るかもしれないと分かって怖くなった（overflowは分からなかった）。でも紫なので、赤のときより弱いのかと思った。何をすればいいか書いていないので、お母さんに見せただけ。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "⛰️と「Landslide」で、ネパールの「पहिरो（山くずれ）」のことだと分かった。山くずれが怖いのは知っている。「cliff failure warning zone」は分からず、ここが危ない場所だとまでははっきり分からなかった。逃げる先も分からない。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "🌊なので、また洪水だと思った。「Storm Surge」の意味は知らない（ネパールには海がない）。「0.5–1 m」で水が来るらしいことだけ分かった。海の水だとは気づかず、川から離れればいいと思ったかもしれない。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "🐻と「bear」「10 … within 1 km」で、近くにクマがいるらしいと分かった。でも「records」が何か分からないし、色もないので、そんなに危なくないと思った。すぐそば（0.0km）で見られたことはPCにしか書いていないので知らない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "はじめに、PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "9歳の子どもにも、日本語が読めない家族にも、PCでコマンドを動かす設定はできない。手伝う日本人がいなければ、ここで止まってしまい何も届かない。",
+    "severity": 3,
+    "fix_hint": "PCなしで、携帯だけで絵や数字の手順にそって始められるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "日本語しかないので、「あとで」と「次へ」のどちらを押せばよいか分からない。「あとで」を押すと、知らせが届かなくなってしまう。",
+    "severity": 2,
+    "fix_hint": "押すべきボタンを絵や矢印で示し、英語やネパール語も並べる"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "言語",
+    "why": "ロック画面で最初に見えるのは日本語だけ。英語の行はひろげないと出ないので、たたんだままでは🌊と3しか分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行にも、短い英語（例: Flood Level 3）を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "ネパール語の行がない。英語は学校で少し習っただけで、難しい単語になると読めない。家族も日本語は読めない。",
+    "severity": 2,
+    "fix_hint": "携帯の言語にあわせて、ネパール語の1行を加える"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "この行だけ英語がないので、0.84kmが何までの距離なのか分からない。",
+    "severity": 1,
+    "fix_hint": "この行にも英語をつける（例: Road flooding spot 0.84 km away）"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "ボタンの名前も、開いたページも日本語だけなので、押しても何も分からない。",
+    "severity": 2,
+    "fix_hint": "ボタンの名前に英語を並べ、英語のページがあればそちらを開く"
+   },
+   {
+    "scene": 2,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 氾濫（はんらん）に気をつけて",
+    "kind": "色",
+    "why": "レベル4は紫、レベル3は赤。ぼくには赤のほうが危なく見えるので、レベル4のほうが軽いと思ってしまった。",
+    "severity": 2,
+    "fix_hint": "色だけに頼らず、レベルの数字を大きく出し「4 = 3より危ない」と分かるようにする"
+   },
+   {
+    "scene": 2,
+    "where": "本文",
+    "quote": "Level 4 Urgent Warning (Flood)",
+    "kind": "言葉",
+    "why": "レベル4のときに何をすればいいのか（逃げる、高い所へ行く）が英語でも書いていない。怖いだけで、動けなかった。",
+    "severity": 2,
+    "fix_hint": "レベルごとにやることを短く書く（例: Level 4 = go to a safe high place now）"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "Here: cliff failure warning zone",
+    "kind": "言葉",
+    "why": "「cliff failure」は子どもには難しい英語。山くずれの危ない場所にいることが伝わらない。",
+    "severity": 2,
+    "fix_hint": "やさしい英語にする（例: Landslide danger zone）"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "Nagoya City: Level 4 Urgent Warning (Storm Surge)",
+    "kind": "言葉",
+    "why": "「Storm Surge」を知らない。海のないネパールから来たので、高潮という考えもない。洪水と同じだと思ってしまった。",
+    "severity": 2,
+    "fix_hint": "やさしい言いかえをそえる（例: sea water comes onto land）"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "洪水と高潮が同じ🌊なので、絵では見分けられない。",
+    "severity": 1,
+    "fix_hint": "高潮には海とわかる別の絵文字や印を使う"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days), newest 10/28",
+    "kind": "言葉",
+    "why": "「records」が「見られた回数」のことだと分からない。題に色もないので、危なさが弱く感じた。",
+    "severity": 1,
+    "fix_hint": "「bear seen 10 times near here」のような、やさしい英語にする"
+   },
+   {
+    "scene": 5,
+    "where": "届き方",
+    "quote": "いちばん新しいのは2026/10/28 20:40の目撃で、0.0km先です",
+    "kind": "届かない",
+    "why": "クマがすぐそばで見られたこと（0.0km）はPCにしか出ない。ぼくは携帯しか見ないので知らないまま。",
+    "severity": 2,
+    "fix_hint": "いちばん近い記録の距離を、携帯の通知にも出す"
+   }
+  ],
+  "outside": [
+   "ネパール語で読める知らせ（読み上げも）",
+   "どこへ逃げればいいかの案内（近くの高い所や避難所）",
+   "子どもに知らせが来たとき、お父さんやお母さんの携帯にも同じ知らせを送る",
+   "言葉がなくても分かる、絵で示した「やること」",
+   "困ったときにかける電話番号（119など）と、外国語で話せる相談先"
+  ],
+  "overall": "🌊や🐻、英語の「Flood」「bear」で、危ないことは少し分かった。でも、どこがどう危ないのか、何をすればいいのかが分からない。紫が赤より危ないのも知らなかった。日本語ばかりで、設定も自分ではできない。"
+ },
+ "cost_usd": 0.1604854,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8224,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 4711,
+  "output_tokens_details": {
+   "thinking_tokens": 1692
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8224,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4711,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8224,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8224
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 47.7,
+ "person": {
+  "id": "P031",
+  "age": 9,
+  "lang": "ネパール語",
+  "body": "なし",
+  "situation": "引っ越してきたばかり",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:40:52"
+}

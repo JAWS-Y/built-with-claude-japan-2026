@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "scenes": [
+   {
+    "scene": 0,
+    "reached": false,
+    "understood": 0,
+    "gist": "アプリの画面は日本語だけで、何をすればいいか分からない。「python3」「Firebase」は見えるが、PCでプログラムを動かすのは自分にはできない。一人暮らしで手伝う人もいなくて、設定はできなかった（場面1から5は、あとでIT関係のベトナム人の友だちが電話をつなぎながら設定してくれた、として答える）。「位置を送り始める」を押したあとの確かめも読めず、「あとで」を押したかもしれない。"
+   },
+   {
+    "scene": 1,
+    "reached": true,
+    "understood": 2,
+    "gist": "ロック画面に出たのは赤い字と🌊と日本語だけで、波の絵から水のことだと思っただけ。ひろげて英語の「Shinjuku City: Level 3 Warning (Flood)」を見つけ、新宿で洪水の警報だと分かった。でもLevel 3でどうすればいいかは分からない。道路の行は漢字で読めず、ボタンを押すと日本語のページが開いて読めなかった。"
+   },
+   {
+    "scene": 2,
+    "reached": true,
+    "understood": 2,
+    "gist": "紫の字。英語の「Level 4 Urgent Warning (Flood)」と「Here: flood zone, 0.5–3 m」で、いまいる所が水につかるかもしれないと分かり、こわくなった。でも逃げるべきか、どこへ行けばいいかは分からない。公式のページは日本語で読めない。"
+   },
+   {
+    "scene": 3,
+    "reached": true,
+    "understood": 2,
+    "gist": "⛰️と「Landslide」で、土砂くずれだと分かった。「cliff failure warning zone」はよく分からないが、ここは危ないらしいと思った。「Asaminami Ward」は読めた。漢字の行やボタンは読めず、どこへ動けばいいかは分からない。"
+   },
+   {
+    "scene": 4,
+    "reached": true,
+    "understood": 1,
+    "gist": "🌊は前と同じ絵なので、また川の洪水かと思った。「Storm Surge」という英語を知らず、海から水が来ることだと分からなかった。「flood zone 0.5–1 m」で、水につかるらしいことだけ分かった。"
+   },
+   {
+    "scene": 5,
+    "reached": true,
+    "understood": 2,
+    "gist": "🐻と「Asian black bear: 10 records within 1 km」で、近くにクマが出ていると分かった。でも「records」がクマを見た話なのか、よく分からない。いちばん新しいのが自分のすぐそばだったことは、携帯には出ていない。地図のボタンの名前は日本語で、どちらを押せばいいか分からない。"
+   }
+  ],
+  "corners": [
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "PC の「python3 phone.py pair」が出した設定の文を貼って保存します。",
+    "kind": "操作",
+    "why": "PCでpythonを動かし、Firebaseを用意するのは、私には無理。一人では設定できず、知らせが一つも届かない。",
+    "severity": 3,
+    "fix_hint": "携帯だけで、ボタン一つで始められるようにする"
+   },
+   {
+    "scene": 0,
+    "where": "アプリの画面",
+    "quote": "最後に届いた知らせ",
+    "kind": "言語",
+    "why": "アプリの画面が日本語だけで、言葉を切りかえる所もない。何のアプリで、何を押せばいいかも分からない。",
+    "severity": 3,
+    "fix_hint": "携帯の言葉（ベトナム語）に合わせて画面を出す"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "位置の許可を「常に」に",
+    "kind": "言語",
+    "why": "確かめの文が読めず「あとで」を押してしまいそう。そうすると、アプリを閉じているときに位置が送られず、知らせが来ない。",
+    "severity": 2,
+    "fix_hint": "ベトナム語か絵で「常に許可を選んで」と見せる"
+   },
+   {
+    "scene": 0,
+    "where": "はじめの設定",
+    "quote": "公式情報",
+    "kind": "言語",
+    "why": "携帯の設定に出る通知の種類の名前が日本語だけで、切ってはいけない通知だと分からない。",
+    "severity": 1,
+    "fix_hint": "名前に英語かベトナム語をつける"
+   },
+   {
+    "scene": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報",
+    "kind": "順番",
+    "why": "ロック画面では日本語の題と1行目しか見えず、私が読める英語はひろげないと出てこない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行目にも英語（できればベトナム語）を入れる"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood)",
+    "kind": "言語",
+    "why": "ベトナム語がなく、頼れるのは英語だけ。英語も得意ではないので、ゆっくり読んでやっと分かる。",
+    "severity": 2,
+    "fix_hint": "ベトナム語の行を足す"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "Level 3",
+    "kind": "言葉",
+    "why": "日本のレベルの決まりを知らない。3や4で何をすればいいのか（逃げるのかどうか）が、どこにも書いていない。",
+    "severity": 2,
+    "fix_hint": "英語で「Level 4: evacuate now」のように、することを書く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "道路の行だけ英語がない。場所の名前も漢字とカタカナで、どこを避ければいいか分からない。",
+    "severity": 2,
+    "fix_hint": "英語の行とローマ字の地名を足す"
+   },
+   {
+    "scene": 1,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "ボタンの名前も、開くページも日本語だけ。押しても読めない。",
+    "severity": 2,
+    "fix_hint": "ボタンの名前に英語をつけ、英語・多言語のページがあればそちらを開く"
+   },
+   {
+    "scene": 1,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう",
+    "kind": "長さ・量",
+    "why": "ひらがなの行も私には読めない。通知が長くなり、英語の行を探しにくい。",
+    "severity": 1,
+    "fix_hint": "携帯の言葉に合わせて、出す行を選べるようにする"
+   },
+   {
+    "scene": 2,
+    "where": "たたんだ1行",
+    "quote": "🌊 レベル4 氾濫（はんらん）に気をつけて",
+    "kind": "色",
+    "why": "赤と紫のちがいが何なのか、どこにも説明がない。紫の方が危ないとは分からない。",
+    "severity": 1,
+    "fix_hint": "色だけにせず、英語で「more dangerous」などと書く"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "Here: cliff failure warning zone",
+    "kind": "言葉",
+    "why": "「cliff failure」はむずかしい英語で、ぴんとこない。",
+    "severity": 1,
+    "fix_hint": "「landslide danger zone」のように、やさしい英語にする"
+   },
+   {
+    "scene": 3,
+    "where": "本文",
+    "quote": "伝承碑　0.81km 先（昔の土砂災害を伝える碑）",
+    "kind": "言語",
+    "why": "伝承碑の行に英語がなく、何の行か分からない。",
+    "severity": 1,
+    "fix_hint": "英語の行を足す"
+   },
+   {
+    "scene": 4,
+    "where": "本文",
+    "quote": "Nagoya City: Level 4 Urgent Warning (Storm Surge)",
+    "kind": "言葉",
+    "why": "「Storm Surge」という英語を知らない。海から水が来る危険だと分からない。",
+    "severity": 2,
+    "fix_hint": "「sea water rising (storm surge)」と言いかえを添える"
+   },
+   {
+    "scene": 4,
+    "where": "通知の題",
+    "quote": "🌊 レベル4 高潮（たかしお）に気をつけて",
+    "kind": "その他",
+    "why": "川の洪水と同じ🌊なので、川のことだと思ってしまう。",
+    "severity": 1,
+    "fix_hint": "高潮は別の絵文字にする"
+   },
+   {
+    "scene": 5,
+    "where": "本文",
+    "quote": "Asian black bear: 10 records within 1 km (last 60 days), newest 10/28",
+    "kind": "言葉",
+    "why": "「records」ではクマを見た話だと分かりにくい。PCの画面にある「いちばん新しいのは0.0km先」が携帯にはなく、すぐそばだと分からない。",
+    "severity": 2,
+    "fix_hint": "「seen」と書き、いちばん新しい目撃の距離も出す"
+   }
+  ],
+  "outside": [
+   "ベトナム語で知らせる",
+   "Level 4 なら「すぐ逃げる」など、何をすればいいかをはっきり書く",
+   "近くの避難所への道案内（地図）",
+   "PC なしで携帯だけで使えるようにする",
+   "外国人の相談窓口（多言語の電話）を案内する",
+   "クマに会ったときにすることを、絵で見せる"
+  ],
+  "overall": "英語の行のおかげで、何の危険かはなんとか分かりました。ただ、ベトナム語がないので、英語が苦手な私には読むのがきついです。いちばん困ったのは、はじめの設定にPCとpythonが要ることです。一人ではできず、手伝ってくれる人がいなければ、知らせは一つも届きません。届いても、どこへ逃げればいいか、何をすればいいかは分からないままでした。"
+ },
+ "cost_usd": 0.1732494,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 8222,
+  "cache_read_input_tokens": 2327,
+  "output_tokens": 5350,
+  "output_tokens_details": {
+   "thinking_tokens": 2045
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 8222,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 5350,
+    "cache_read_input_tokens": 2327,
+    "cache_creation_input_tokens": 8222,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 8222
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 53.9,
+ "person": {
+  "id": "P062",
+  "age": 28,
+  "lang": "ベトナム語",
+  "body": "なし",
+  "situation": "一人暮らし",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "scenes_sha256": "ef50b61536764f48dfc4f95bf254bd389379076761e5622772ea10c09d6715ca",
+ "at": "2026-11-07 16:46:19"
+}
