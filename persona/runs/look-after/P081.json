@@ -1,0 +1,195 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "新宿の娘の家に泊まりに来ていた。古い携帯が鳴った。赤い印と波の絵があるので、水のことで何かあるらしいとだけ思った。字は日本語ばかりで、『新宿区』の漢字がなんとなく分かるくらい。英語が一つも無いので、ひらいてみた。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "日本語の行を三つ読みかけてくたびれたところで、4行目に英語の『Shinjuku City: Level 3 Warning (Flood) (TEST)』を見つけた。新宿の洪水警報だと分かった。でも TEST とあるので、練習だと思って安心してしまった。道路の行は 4、3km、0.84km という数字しか読めず、どこの話か分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリをひらいても、同じ文がもう一度出るだけ。青い字の行は押せそうだが、日本語なので何のページか分からない。『止める』の大きなボタンがあり、警報が止まるのか何が止まるのか分からず、こわくて押せなかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると Firebase や PC という言葉が見えた。機械の設定の話らしく、自分には関係なさそうだと思った。結局、何をすればいいか分からず、娘に聞くことにした。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "言語",
+    "why": "たたんだ形には日本語しかない。英語の人には、波の絵と赤い色のほかに何も分からない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行にも短い英語（Flood Warning Lv3, Shinjuku）を入れる"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて レベ…",
+    "kind": "文字が切れる",
+    "why": "題の終わりが切れていて、大事な『レベル3』の数字が見えない。",
+    "severity": 2,
+    "fix_hint": "レベルの数字を題の前のほうに置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "並び・順番",
+    "why": "読める英語の行が4行目に埋もれている。ディスレクシアがあるので、日本語の行を読もうとして疲れてからやっと見つけた。",
+    "severity": 2,
+    "fix_hint": "その人の言葉の行をいちばん上に置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は『TEST』だけなので、全部が練習だと思ってしまう。道路の話は本物だということが英語では届かない。",
+    "severity": 2,
+    "fix_hint": "英語でも『Warning is a test; road info is real』と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "道路が水につかる話が日本語だけなので、数字しか読めない。『初台アンダー』がどこなのかも分からない。",
+    "severity": 2,
+    "fix_hint": "英語でも書く（4 roads may flood; nearest: Hatsudai underpass 0.84km）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3 Warning",
+    "kind": "言葉",
+    "why": "レベル3がどれほど危ないのか、何をすればいいのかが英語で書かれていない。外国の人には日本のレベルの意味が分からない。",
+    "severity": 2,
+    "fix_hint": "『Prepare to evacuate / elderly evacuate now』のように、することを一言そえる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "長さ・量",
+    "why": "ひらがなの行は自分には役に立たない。ディスレクシアがあると、読む量が増えるだけで英語の行がさらに下へ押される。",
+    "severity": 1,
+    "fix_hint": "その人に合う言葉の行だけを見せられるようにする"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "押せそうな青い字が日本語だけで、何のページへ行くのか分からない。",
+    "severity": 1,
+    "fix_hint": "ボタンに英語の名前をそえる（JMA warnings）"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "",
+    "kind": "文字の大きさ",
+    "why": "小さな字の行がつまっていて、91歳の目とディスレクシアではどこを読めばよいか見分けにくい。",
+    "severity": 1,
+    "fix_hint": "大事な一行を大きくし、行の間をあける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きなボタンだが日本語なので、何が止まるのか分からない。警報が止まるのかとこわくなる。押してしまって見守りが切れるおそれもある。",
+    "severity": 2,
+    "fix_hint": "英語をそえ、押す前に何が止まるのかを確かめる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区・17:06 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 5:06 なのに画面は 17:06 なので、一瞬ちがう時刻の知らせかと迷った。",
+    "severity": 1,
+    "fix_hint": "携帯と同じ時刻の書き方にそろえる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase や PC は機械の言葉で、年寄りには何のことか分からない。位置がだれに送られているのかも分からず不安になる。",
+    "severity": 1,
+    "fix_hint": "『Your location is shared with ○○』のように、相手をふつうの言葉で書く"
+   }
+  ],
+  "outside": [
+   "全部を英語で見られるようにする切りかえ",
+   "警報を英語で読み上げる働き",
+   "レベル3で何をすればよいかの英語の案内（避難所など）",
+   "初台アンダーなど、危ない道を地図で見せる",
+   "娘など家族へ知らせる働き"
+  ],
+  "overall": "新宿の洪水警報だということは、英語の一行でやっと分かった。でも『TEST』とあるので練習だと思って安心してしまった。道路が本当に危ないことや、何をすればいいかは日本語だけで、私には届かなかった。"
+ },
+ "cost_usd": 0.1527634,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10722,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3324,
+  "output_tokens_details": {
+   "thinking_tokens": 933
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10722,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3324,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10722,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10722
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 35.0,
+ "person": {
+  "id": "P081",
+  "age": 91,
+  "lang": "英語",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "古い携帯を使っている",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "a3b0d7b403a87c3027deb6ce633af631095fb010f3056788be8584f33c72275f",
+ "at": "2026-11-07 17:27:38"
+}

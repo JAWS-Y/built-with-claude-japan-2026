@@ -1,0 +1,203 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "新宿の日本語学校に通う留学生で、近くの部屋に一人で住んでいる。赤い地図のピンと波の絵、「3」の数字、ベルの印だけが目に入った。たたんだ形には英語が一つもない。「新宿区」「洪水」は中国語と同じ字なので、水の何かかなと思ったが、自信はない。開くか、払って消すか迷った。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "開くと、下の方に英語の行がやっと見つかった。「Shinjuku City: Level 3 Warning (Flood) (TEST)」で、新宿で洪水の警報、テストだと分かった。その上の日本語2行とひらがな1行は読めない。「4」「3km」「0.84km」の数字はあるが、何の数字か分からない。何をすればいいかは書いていない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても、見出しは日本語で読めない。英語の行はまた同じ1行だけ。TEST なので全部うそだと思って、少し安心した。道の情報は本物で、位置が4時間前のものだということは読めなかった。青い文字のリンクは日本語なので、押していない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると、日本語の文とFirebaseという英語があった。大きい「止める」ボタンが音を止めるボタンに見えて、押しそうになった。結局、何をすればいいか分からないまま閉じた。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "レベル3 氾濫（はんらん）に…",
+    "kind": "言語",
+    "why": "たたんだ形には日本語しかなく、題も途中で切れている。最初に見る所で、何の知らせか分からない。ここで払って消してしまう。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行の頭に「Flood warning」など、短い英語を出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "並び・順番",
+    "why": "読めるのはこの英語の1行だけなのに、4行目にうもれている。ひらいて探さないと見つからない。",
+    "severity": 2,
+    "fix_hint": "英語の行を本文の一番上に出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3",
+    "kind": "言葉",
+    "why": "日本の「レベル3」が、どれくらい危ないのか、何をすればいいのか分からない。英語の行にもすることが書いていない。",
+    "severity": 2,
+    "fix_hint": "英語で「Prepare to evacuate」など、することを一言そえる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "数字は見えるが、道が水につかることだとは分からない。近くの危ない所の情報が届かない。",
+    "severity": 2,
+    "fix_hint": "「4 flooded roads within 3km, nearest 0.84km」と英語でも出す"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "TEST の字を見て全部うそだと思った。道の情報は本物だということが届かない。",
+    "severity": 2,
+    "fix_hint": "英語で「Only the warning is a test. Road info is real」と出す"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "位置は 4 時間 22 分前のもの",
+    "kind": "古い情報",
+    "why": "位置が古いことが読めない。いまの自分の場所の知らせだと思いこむ。",
+    "severity": 2,
+    "fix_hint": "英語でも位置が古いと出し、目立たせる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "リンクの名前が日本語だけで、開く先も日本語のページに見える。押す気にならない。",
+    "severity": 2,
+    "fix_hint": "リンクに英語の名前をつけ、英語のページがあればそこへつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きいボタンが真ん中にあるので、警報の音を止めるボタンだと思って押しそうになる。押すと見守りが止まり、次の知らせが来なくなる。",
+    "severity": 2,
+    "fix_hint": "英語で「Stop monitoring」と書き、押す前に確かめる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みず が あふれる） けいほう（ためし）",
+    "kind": "同じものが何度も",
+    "why": "同じことが日本語、ひらがな、英語と3回ならぶ。読めない行が多く、ADHDだと途中で読むのをやめてしまう。",
+    "severity": 1,
+    "fix_hint": "英語の行を先にして、読めない行で埋もれないようにする"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "いまいる場所の公式情報",
+    "kind": "言語",
+    "why": "アプリの名前が日本語だけで、どのアプリからの知らせか分からない。",
+    "severity": 1,
+    "fix_hint": "アプリの名前を英語でも出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "16:40 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の上では4:40なのに、ここは16:40で、同じ時刻か少し迷う。",
+    "severity": 1,
+    "fix_hint": "携帯の時刻の出し方に合わせる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "見守り中",
+    "kind": "色",
+    "why": "いちばん上の緑の点が「大丈夫」の印に見えて、危なくないと思ってしまう。",
+    "severity": 1,
+    "fix_hint": "知らせがある間は、上に危険の色と英語を出す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "開発の言葉で、自分に関係あるのか分からない。",
+    "severity": 1,
+    "fix_hint": "ふつうの言葉にするか、隠す"
+   }
+  ],
+  "outside": [
+   "中国語で知らせる働き",
+   "何をすればいいか（どこへ逃げるか）の英語・中国語の案内",
+   "初台アンダーなど、危ない道を地図で見る働き",
+   "日本の警戒レベルの意味を英語・中国語で説明するページ"
+  ],
+  "overall": "英語の1行で、新宿で洪水のテストだとは分かった。でも、たたんだ形では何も読めなかった。どこが危ないのか、何をすればいいのか、何が本物なのかも分からなかった。止めるボタンは押してしまいそうで怖い。"
+ },
+ "cost_usd": 0.16607539999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10716,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3992,
+  "output_tokens_details": {
+   "thinking_tokens": 1547
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10716,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3992,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10716,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10716
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 41.0,
+ "person": {
+  "id": "P026",
+  "age": 17,
+  "lang": "中国語",
+  "body": "ADHD",
+  "situation": "一人暮らし",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "before",
+ "shots_sha256": "4dd9a47b89d1a34d87af1edc6686731df814d18d7d032fa095ddeb22fc54fc09",
+ "at": "2026-11-07 17:18:13"
+}

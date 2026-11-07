@@ -1,0 +1,195 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "赤い地図ピンと🌊の絵、数字の3が見える。水か海の何か危ないことらしい、とだけ思う。日本語の行は読めない。英語の行が無いので、洪水なのか津波なのか、試しなのかも分からない。とりあえずひらいてみる。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "英語の行「Shinjuku City: Level 3 Warning (Flood) (TEST)」で、新宿区に洪水のレベル3の警報が出たこと、TESTであることが分かった。0.84km・3kmの数字は見えるが、どこまでの距離で何があるのかは読めない。自分がいま何をすればいいかも分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリをひらいても、分かるのは英語の1行と赤い線だけで、ほかは日本語ばかり。青い文字の行は押せそうだが、日本語のページに行きそうで押すのをためらう。「止める」の大きなボタンは、警報の音を止めるものかと思って押しそうになる。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送っても新しく分かったことは無い。「Firebase circle-demo」「PC」という英語が見えて、何かの試作品なのか、自分の位置がどこかへ送られているのかと不安になる。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて レベ…",
+    "kind": "言語",
+    "why": "たたんだ形には日本語しか無い。英語の行は、ひらかないと出てこない。ちらっと見ただけでは、何の知らせか、試しなのかが全く分からない。",
+    "severity": 3,
+    "fix_hint": "題か1行目に、短い英語（Flood Level 3 TEST）を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "日本のレベル3は「時間のかかる人（妊婦も入る）は逃げ始める」という意味なのに、それがどこにも書いていない。妊娠中の私は、まだ大丈夫だと思って家にいてしまう。",
+    "severity": 3,
+    "fix_hint": "「Level 3: pregnant, elderly, disabled should evacuate now」のように、することを英語で書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは",
+    "kind": "言語",
+    "why": "道路が水につかりそうな所の知らせなのに、英語が無い。数字の4・3km・0.84kmが何を表すのか分からない。",
+    "severity": 2,
+    "fix_hint": "道路の冠水の行も英語で書く（4 flooded roads within 3km, nearest 0.84km）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "初台アンダー 0.84km",
+    "kind": "漢字・読み",
+    "why": "いちばん近い危ない場所の名前が、カタカナと漢字だけなので読めない。どこへ行ってはいけないのかが分からない。",
+    "severity": 2,
+    "fix_hint": "地名にローマ字をつける（Hatsudai underpass）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語ではTESTとしか書いていないので、道路の冠水の情報もぜんぶうそだと思ってしまう。どこが本物なのか分からない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Only the warning is a test; road info is real」と書く"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "波の絵は津波や海に見える。川があふれるのか、海から来るのかで逃げ方がちがうのに、まちがえそうになる。",
+    "severity": 2,
+    "fix_hint": "川の洪水と分かる言葉（River flood）を絵のそばに置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "並び・順番",
+    "why": "英語の行は4行目で、その前の3行は読めない。ひらがなの2行は私には役に立たず、英語を下へ押しやっているだけ。",
+    "severity": 1,
+    "fix_hint": "英語の行をもっと上に出す"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへの入口が日本語だけ。押しても日本語のページが出るだけだと思うので、確かめることができない。",
+    "severity": 2,
+    "fix_hint": "英語の名前をつけ、英語・中国語のある公式ページへつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きなボタンなので、警報の音か知らせを止めるものだと思って押してしまう。本当は位置を送るのが止まり、知らせも届かなくなるのに、それが読めない。",
+    "severity": 2,
+    "fix_hint": "英語でStop sharing location と書き、押す前に確かめる画面を出す"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言語",
+    "why": "自分の位置が送られていることが読めず、緑の点が「大丈夫」の印にしか見えない。",
+    "severity": 1,
+    "fix_hint": "英語でも「Sharing your location」と書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "英語の部分だけ読めるが、Firebase や demo は何のことか分からない。この知らせが本物の防災アプリなのか不安になる。",
+    "severity": 1,
+    "fix_hint": "中の仕組みの名前はふだんの画面に出さない"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "レベ…",
+    "kind": "文字が切れる",
+    "why": "題が途中で切れて、レベルの数字が題から消える。",
+    "severity": 1,
+    "fix_hint": "レベルの数字を題の前のほうに置く"
+   }
+  ],
+  "outside": [
+   "中国語で知らせを受けとる設定",
+   "危ない道路（初台アンダーなど）と自分の場所を示す地図",
+   "妊婦が行ける近くの避難所への案内",
+   "夫や家族に、自分の場所と警報を知らせる働き",
+   "中国語・英語で話せる相談窓口や病院の電話番号"
+  ],
+  "overall": "英語の1行で、洪水の警報だとやっと分かりました。でもレベル3で妊娠中の私が何をすればいいのか、どの道が危ないのかは読めません。いちばん大事な「逃げ始めて」が、私には届いていません。"
+ },
+ "cost_usd": 0.17334739999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10715,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 4356,
+  "output_tokens_details": {
+   "thinking_tokens": 1910
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10715,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4356,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10715,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10715
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 47.4,
+ "person": {
+  "id": "P048",
+  "age": 35,
+  "lang": "中国語",
+  "body": "なし",
+  "situation": "妊娠中",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "a3b0d7b403a87c3027deb6ce633af631095fb010f3056788be8584f33c72275f",
+ "at": "2026-11-07 17:22:35"
+}

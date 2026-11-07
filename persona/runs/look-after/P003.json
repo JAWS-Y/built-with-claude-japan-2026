@@ -1,0 +1,195 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "新宿区で働く息子の家に泊まりに来ている。夕方に携帯が鳴って、上から引き下ろした。赤い丸の印と波の絵、「3」の数字は見えたが、文は全部日本語で読めない。海か水のことで何かあるらしいとは思ったが、何の知らせなのか分からない。英語の Virtual SD card の知らせのほうが読める字なので、つい目がそっちへ行った。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと、日本語の行の中に英語が一行あった。『Shinjuku City: Level 3 Warning (Flood) (TEST)』。少しずつ読んで、新宿で洪水の警報だと分かった。でも TEST とあるので、試しなら本気にしなくていいと思いかけた。Level 3 がどのくらい危ないのか、何をすればいいのかは書いてない。0.84km という数字は見えたが、何までの距離なのか分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "押すとアプリが開いて、同じ文がもう一度出た。また英語の一行だけを頼りに読んだ。青い字の行は押せそうだが日本語なので、押したら何が出るのか分からなくて押さなかった。17:06 という時刻が、携帯の時計の 5:06 と違って見えて戸惑った。下の大きい白いボタンは何のボタンか分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送ると、日本語と Firebase、PC という言葉ばかりで、自分に関係あるのか分からない。大きい「止める」ボタンを、音を止めるボタンかと思って押しそうになった。結局どこへ行けばいいか分からず、帰ってきた息子に携帯を見せようと思った。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて レベ…",
+    "kind": "言語",
+    "why": "たたんだ形には英語がなく、題も「レベ…」で切れている。日本語が読めない私には、何の知らせか全く分からない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行目に、Flood / Level 3 のような短い英語を先に入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "並び・順番",
+    "why": "読める行は英語のこれだけなのに、日本語3行の下にうもれている。落ち着いて読むのが苦手なので、見つけるまでに時間がかかった。",
+    "severity": 2,
+    "fix_hint": "英語の行をいちばん上に出し、ほかの行と見分けやすくする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "英語の行は何が起きたかだけで、何をすればいいかが書いていない。Level 3 がどのくらい危ないのかも分からない。",
+    "severity": 2,
+    "fix_hint": "英語でも「何をするか」を一言そえる（例: Get ready to move to high ground）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "近くの道が水につかるという大事なことが日本語だけ。0.84km の数字は見えても、何までの距離か分からない。",
+    "severity": 2,
+    "fix_hint": "道路の情報も英語で書く（Flooded road 0.84km away: Hatsudai underpass）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語には TEST としか書いていないので、全部うそだと思って放っておきそうになる。道路の情報は本物だということが伝わらない。",
+    "severity": 2,
+    "fix_hint": "英語でも「警報だけ TEST、道路の情報は本物」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "言語",
+    "why": "ミャンマー語がどこにもない。英語も少ししか読めないので、読むのにとても時間がかかる。",
+    "severity": 2,
+    "fix_hint": "ミャンマー語の行も出せるようにする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "同じものが何度も",
+    "why": "同じことが日本語で3回出てくるので、私には読めない行が長く続く。途中で読むのをやめてしまう。",
+    "severity": 1,
+    "fix_hint": "読めない人のために、くり返しを短くまとめる"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "押せそうな青い字が日本語だけで、押すと何が開くのか分からない。開いた先も日本語だと思うと押せない。",
+    "severity": 1,
+    "fix_hint": "英語で何のページかを書きそえる（Official weather warnings）"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "17:06 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 5:06 なのに、アプリは 17:06。同じ時刻だと気づかず、古い知らせかと迷った。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ書き方で時刻を出す"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "文字の大きさ",
+    "why": "古い携帯で文字が小さく、83歳の目では英語の細い字が読みにくい。",
+    "severity": 1,
+    "fix_hint": "大事な行だけでも字を大きく太くする"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きくて押しやすいボタンだが、何を止めるのか読めない。音を止めるつもりで押して、見守りを切ってしまいそうになる。",
+    "severity": 2,
+    "fix_hint": "英語をそえるか、押す前に確かめる画面を出す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言葉",
+    "why": "Firebase や PC など機械の言葉ばかりで、自分に何の関係があるのか分からない。",
+    "severity": 1,
+    "fix_hint": "使う人向けに、ふつうの言葉で短く書く"
+   }
+  ],
+  "outside": [
+   "ミャンマー語で知らせる",
+   "知らせをミャンマー語で読み上げる",
+   "どこへ逃げればいいかを地図や絵で見せる",
+   "息子など家族へ、ボタン一つで知らせる・電話する",
+   "すること（高い所へ行く、など）を絵で見せる"
+  ],
+  "overall": "息子の家に来ていて、夕方に鳴った知らせです。英語の一行でやっと洪水だと分かりました。でも TEST と書いてあるので、試しならいいかと思ってしまいました。何をすればいいか、どこが危ないかは日本語なので読めませんでした。結局、息子が帰るのを待つしかありませんでした。"
+ },
+ "cost_usd": 0.1595834,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10717,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3667,
+  "output_tokens_details": {
+   "thinking_tokens": 1047
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10717,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3667,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10717,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10717
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 52.2,
+ "person": {
+  "id": "P003",
+  "age": 83,
+  "lang": "ミャンマー語",
+  "body": "ADHD",
+  "situation": "古い携帯を使っている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "a3b0d7b403a87c3027deb6ce633af631095fb010f3056788be8584f33c72275f",
+ "at": "2026-11-07 17:14:09"
+}

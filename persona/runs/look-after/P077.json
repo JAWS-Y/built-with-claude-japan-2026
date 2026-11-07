@@ -1,0 +1,176 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "交換留学で新宿区の寮に住んでいる。赤いピンと波の絵、「3」が見えたので、水の何か危ないことらしいとだけ思った。字は全部日本語で読めない。英語の行は出ていない。右の小さい矢印を押せばひらくとは知らず、手もふるえるので、しばらく何もできなかった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "たまたまひらけて、4行目の英語「Shinjuku City: Level 3 Warning (Flood) (TEST)」を見つけた。新宿区で洪水の警報、試しだと分かった。でもレベル3がどのくらい危ないのか、何をすればいいのかは分からない。「0.84km」の数字はあるが、何までの距離なのか分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリをひらいたが、ほとんど日本語。同じ英語の行がまたあるだけ。赤い線から大事な知らせだとは感じた。青い文字はリンクらしいが、どこへ行くのか分からない。大きな「止める」ボタンが何なのか分からず、押してしまわないか不安。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても日本語の説明と「Firebase」「PC」という分からない言葉だけ。アプリがちゃんと動いているのか、自分が何かするべきなのかも分からないまま。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて レベ…",
+    "kind": "言語",
+    "why": "たたんだ形は日本語だけで、英語の行が見えない。ひらき方を知らないと、何の危険か届かない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行に「Flood Warning Lv3」など短い英語も入れる"
+   },
+   {
+    "screen": 1,
+    "where": "ボタン",
+    "quote": "",
+    "kind": "操作",
+    "why": "ひらく矢印が小さくて、手がふるえると押せない。スマホに慣れていないので、押せばひらくことも知らない。",
+    "severity": 2,
+    "fix_hint": "知らせはひらいた形で出す。押す所を大きくする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "英語にあるのは危険の名前だけ。レベル3の重さも、何をすればいいかも分からない。",
+    "severity": 2,
+    "fix_hint": "英語で「川や低い道に近づかない」などすることを一言入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん身近な、近くの道が水につかる話が日本語だけ。0.84km が何までの距離か分からない。",
+    "severity": 2,
+    "fix_hint": "道の冠水の行も英語にし、地名はローマ字も添える"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は「(TEST)」だけなので、道の情報まで全部うそだと思ってしまう。本物の部分があると伝わらない。",
+    "severity": 2,
+    "fix_hint": "英語でも「警報は試し、道の情報は本物」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "並び・順番",
+    "why": "読める英語が漢字・ひらがなの行の下、4行目に埋もれていて、見つけにくい。",
+    "severity": 1,
+    "fix_hint": "英語の行を上のほうに置くか、目立たせる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "リンクの名前が日本語だけで、どこへ行くのか、押す意味があるのか分からない。",
+    "severity": 1,
+    "fix_hint": "リンクに英語の名前（JMA Warnings など）を添える"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きなボタンなのに、何を止めるのか読めない。手がふるえて押してしまうと、見守りが切れても気づけない。",
+    "severity": 2,
+    "fix_hint": "英語の説明を付け、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "17:06 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 5:06 なのに、アプリは 17:06。同じ時刻なのか一瞬迷う。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ書き方にそろえる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "日本語と見知らぬ英語の言葉だけで、アプリがちゃんと動いているのか分からない。",
+    "severity": 1,
+    "fix_hint": "「Working / Alerts ON」のような分かりやすい言葉にする"
+   }
+  ],
+  "outside": [
+   "スペイン語で表示する",
+   "水につかる道を地図で見せる",
+   "何をすればいいか（どこへ逃げるか）の案内",
+   "家族や友だちに知らせる"
+  ],
+  "overall": "英語の1行があったので「新宿で洪水、試し」だけは分かりました。でも、それもひらかないと出てきません。近くの道の話や、何をすればいいかは日本語だけで、結局どうすればいいのか分かりませんでした。"
+ },
+ "cost_usd": 0.1465914,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10713,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3019,
+  "output_tokens_details": {
+   "thinking_tokens": 1001
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10713,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3019,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10713,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10713
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 32.1,
+ "person": {
+  "id": "P077",
+  "age": 22,
+  "lang": "スペイン語",
+  "body": "手のふるえ",
+  "situation": "スマホに慣れていない",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "a3b0d7b403a87c3027deb6ce633af631095fb010f3056788be8584f33c72275f",
+ "at": "2026-11-07 17:27:03"
+}

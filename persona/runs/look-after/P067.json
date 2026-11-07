@@ -1,0 +1,195 @@
+{
+ "answer": {
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて レベ… / 新宿区にレベル３氾濫警報（試し）",
+    "kind": "言語",
+    "why": "たたんだ形は日本語だけ。分かるのは波の絵と赤い印だけで、水のことか、ただの宣伝かも分からない。英語の行は、ひらかないと出てこない。",
+    "severity": 2,
+    "fix_hint": "たたんだ形の1行目か2行目に、短い英語（Flood warning Shinjuku）を入れる"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "レベ…",
+    "kind": "文字が切れる",
+    "why": "題の終わりが切れていて、ただ一つ読める手がかりの数字「3」が題から消えている。",
+    "severity": 1,
+    "fix_hint": "大事な数字と危険の種類を題の前のほうに置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言葉",
+    "why": "洪水でレベル3なのは分かるが、3がどれくらい危ないのか（いくつまであるのか）、小さい子がいる私がいま何をすればいいのかが書いていない。逃げるべきか、家にいてよいか決められない。",
+    "severity": 2,
+    "fix_hint": "英語の行に「Level 3 of 5. Elderly and people with small children: prepare to evacuate」のような、すること一言を足す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "0.84km と 4 と 3km の数字しか読めない。何が 0.84km 先にあるのか分からない。ベビーカーで歩くのに、水につかる道が近いことがいちばん知りたいのに届かない。",
+    "severity": 2,
+    "fix_hint": "この行も英語にする（4 roads may flood within 3km. Nearest: Hatsudai underpass 0.84km）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語の行に TEST とあるので全部うそだと思ってしまう。道の情報は本物だということが日本語でしか書いていない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Warning is a test. Road info is real」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう（ためし）",
+    "kind": "同じものが何度も",
+    "why": "私には読めない文字が3行も続き、英語の行が下に押されて見つけにくい。日本語の同じ中身が二度ある。",
+    "severity": 1,
+    "fix_hint": "英語の行をもっと上に、目立つ形で置く"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "言語",
+    "why": "ボタンが日本語だけで、押すと何が開くか分からない。開いた先も日本語だと思うので押さない。",
+    "severity": 1,
+    "fix_hint": "ボタン名に英語を添え、英語のページがあればそちらへつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "公式のページ",
+    "kind": "言語",
+    "why": "アプリを開いても、知らせと同じ日本語ばかりで、新しく分かることがない。ひらいた甲斐がない。",
+    "severity": 1,
+    "fix_hint": "アプリの画面の見出しやボタンにも英語を添える"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きなボタンだが何を止めるのか読めない。警報の音を止めるボタンだと思って押すと、見守りが止まってしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "「Stop sharing location」など英語を添え、押す前に確かめる"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守り中",
+    "kind": "言語",
+    "why": "緑の点が付いていて安心の印に見えるが、意味が読めない。誰かが私の場所を見ているのかも分からない。",
+    "severity": 1,
+    "fix_hint": "英語で「Sharing location」と添える"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区・17:06 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 5:06 なのに、アプリは 17:06。一瞬、ちがう時刻の古い知らせかと思う。",
+    "severity": 1,
+    "fix_hint": "携帯と同じ時刻の書き方にそろえる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言語",
+    "why": "自分の位置がどこへ行くのか、日本語なので分からず不安。Firebase も知らない言葉。",
+    "severity": 1,
+    "fix_hint": "英語でやさしく一文、位置が誰に届くか書く"
+   }
+  ],
+  "outside": [
+   "知らせ全体をインドネシア語で出す",
+   "水につかる道（初台アンダー）と自分の場所を見せる地図",
+   "近くの避難所と、子どもを連れて行ける道の案内",
+   "小さい子がいる人向けに「いま何をするか」をまとめて示す",
+   "家族に自分の居場所と無事を知らせる"
+  ],
+  "overall": "新宿の友だちの家に子どもと遊びに来ていて届いた。英語の一行で「新宿で洪水、レベル3、TEST」なのは分かった。でもレベル3がどれくらい危ないのか、この子を連れて帰ってよいのか、近くに何があるのかは日本語だけで、何も分からなかった。TEST とあるので全部うそだと思って閉じてしまいそう。",
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "赤い印と波の絵で、水の何かかもと思う。字は全部日本語で読めない。新しい知らせなので気になるが、何の知らせかは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "英語の行を見つけて、新宿で洪水の警報、レベル3、TEST だと分かる。0.84km は読めるが何の距離か分からない。何をすればいいかは分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "開いても同じ日本語ばかり。英語の行をもう一度読むだけ。青い字のボタンと大きな「止める」が何か分からず、押すのが怖い。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても日本語と Firebase という字だけ。新しく分かることはない。結局、友だちに聞くか窓の外を見る。"
+   }
+  ]
+ },
+ "cost_usd": 0.15247539999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10716,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3312,
+  "output_tokens_details": {
+   "thinking_tokens": 881
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10716,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3312,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10716,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10716
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 35.4,
+ "person": {
+  "id": "P067",
+  "age": 43,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "小さい子を連れている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "a3b0d7b403a87c3027deb6ce633af631095fb010f3056788be8584f33c72275f",
+ "at": "2026-11-07 17:25:34"
+}

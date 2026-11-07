@@ -1,0 +1,167 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "赤いピンと波の絵、『レベル3』の数字で、水の危ない知らせらしいと思った。漢字の『新宿区』『氾濫』『警報』は中国語に似ているので、新宿で洪水の警報かもと推測した。でも自信はない。たたんだ形には英語の行がなく、『試し』が練習の意味かどうかも分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと4行目に英語の『Shinjuku City: Level 3 Warning (Flood) (TEST)』があり、新宿の洪水の警報で、テストだと初めて分かった。『0.84km』の数字は見えたが、『初台アンダー』（カタカナ）と『冠水想定』が読めず、どこが危ないのか、何をすればいいのかは分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "画面2と同じ英語の行でまた洪水テストだと確認した。下の2行（『警報は試しの作りもの。ほかは本物』『位置は4時間22分前のもの』）は読めない。道路の情報は本物だということも、位置が古いことも伝わらない。公式のページのリンクは日本語なので押さなかった。『見守り中』『止める』の意味も分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると『Firebase』『PC』という英語だけが目に入り、技術の設定らしいと思った。新しく分かったことはない。妊娠中の自分が逃げたほうがいいのか、どこへ行けばいいのか、最後まで分からなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言語",
+    "why": "何の知らせか分かる行は英語のこの1行だけなのに、4行目にあり、たたんだ形では見えない。題もたたんだ1行も日本語だけ。",
+    "severity": 2,
+    "fix_hint": "題か、たたんだ1行目に英語（または携帯の言葉）を入れる。"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "どこが危ないのかを書いた行なのに日本語だけ。『初台アンダー』のカタカナも『冠水』も読めず、0.84kmが何までの距離か分からない。",
+    "severity": 2,
+    "fix_hint": "道路の行にも英語をつける（例: Flooded underpass road, Hatsudai, 0.84 km）。"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語では警報全体が『TEST』に見えるので、道路の情報まで練習だと思ってしまう。本物の部分があることが伝わらない。",
+    "severity": 2,
+    "fix_hint": "英語でも『Warning is TEST, road info is REAL』と書く。"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "位置は 4 時間 22 分前のもの",
+    "kind": "古い情報",
+    "why": "4時間以上前の位置で出した知らせなのに、日本語だけなので読めない。いま自分がいる所の知らせだと思いこむ。",
+    "severity": 2,
+    "fix_hint": "古い位置であることを英語と時計の絵で、上のほうに出す。"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "レベル3 氾濫（はんらん）に気をつけて（試し）",
+    "kind": "言葉",
+    "why": "レベル3は妊婦など逃げるのに時間がかかる人が逃げはじめる段階なのに、どこにもそう書いていない。妊娠中の私が動くべきだと分からない。",
+    "severity": 3,
+    "fix_hint": "『Level 3: pregnant women, elderly etc. should evacuate now』のように、何をするかを書く。"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへのリンクの名前が日本語だけ。開いた先も日本語だと思って押さない。",
+    "severity": 1,
+    "fix_hint": "リンク名に英語をつけ、英語か多言語のページがあればそちらへつなぐ。"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "何を止めるボタンか読めない。警報の音を止めるボタンだと思って押し、見守りを切ってしまうおそれがある。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語で『Stop location sharing』と書く。"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "12:19 に位置を送りました",
+    "kind": "数字・単位",
+    "why": "知らせの時刻は16:40、携帯の時計は4:40なのに、位置を送ったのは12:19。数字しか読めないので、どれがいまの時刻なのか混乱する。",
+    "severity": 1,
+    "fix_hint": "時刻を『◯分前』の形にして英語もつけ、時刻の書き方をそろえる。"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "読める英語は『Firebase』『PC』だけで、開発者向けの言葉。何の設定か分からず不安になる。",
+    "severity": 1,
+    "fix_hint": "ふつうの人には設定の中身を隠すか、英語で『Setup complete』と書く。"
+   }
+  ],
+  "outside": [
+   "携帯の言葉（中国語）に合わせて、知らせ全体を表示する",
+   "いまいる所から近い避難所への道案内（地図）",
+   "妊婦や体の弱い人に向けた、早めに逃げる呼びかけ",
+   "家族や夫に、自分の場所と状況を知らせる"
+  ],
+  "overall": "波の絵、漢字、英語の1行から『新宿で洪水の警報、テスト』とまでは分かりました。でも、妊娠中の私がいま逃げるべきなのか、どこが危ないのか、どこへ行けばいいのかは、日本語が読めないので最後まで分かりませんでした。英語の行が下のほうにしかないのも困ります。"
+ },
+ "cost_usd": 0.1546434,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10707,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3424,
+  "output_tokens_details": {
+   "thinking_tokens": 1167
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10707,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3424,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10707,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10707
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 37.5,
+ "person": {
+  "id": "P048",
+  "age": 35,
+  "lang": "中国語",
+  "body": "なし",
+  "situation": "妊娠中",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "before",
+ "shots_sha256": "4dd9a47b89d1a34d87af1edc6686731df814d18d7d032fa095ddeb22fc54fc09",
+ "at": "2026-11-07 17:22:01"
+}

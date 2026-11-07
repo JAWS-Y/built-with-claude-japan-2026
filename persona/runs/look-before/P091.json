@@ -1,0 +1,213 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "新宿区の娘の家に来ていた。赤い印と波の絵が目に入り、顔を近づけて「レベル3 氾濫」までは読めた。2行目の灰色の小さい字は、目を細めてやっと「新宿区」と分かった。下の青い字が押すものだとは気づかない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと字がたくさん並び、小さい灰色の字を一行ずつ追うのに疲れた。同じことが漢字・ひらがな・英語で3回書いてあり、どこが大事か分からない。「冠水想定」「初台アンダー」は何のことか、どこにあるのか分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "題は大きくて読めた。新宿区で川があふれるおそれ、と分かった。ただ「位置は4時間22分前のもの」「ほかは本物」で、自分の今いる所のことなのか、本当なのか試しなのか分からなくなった。何をすればいいのかは書いていない。大きい「止める」を押せば音が止まるのかと思った。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "Firebase、PC、宛先を消す、など分からない言葉ばかりで不安になった。下の小さい字は読めない。位置をどこかへ送っていると知って、少しこわくなった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "レベル3 氾濫（はんらん）に…",
+    "kind": "文字が切れる",
+    "why": "題が途中で切れて、何に気をつけるのか分からない。ひらき方も知らない",
+    "severity": 2,
+    "fix_hint": "たたんだ形でも「新宿区 川があふれるおそれ」と短く言い切る"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "文字の大きさ",
+    "why": "本文が小さい灰色の字で、弱視だと顔を近づけても読みにくい",
+    "severity": 2,
+    "fix_hint": "本文の字を大きく、黒くはっきりさせる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "同じものが何度も",
+    "why": "同じ内容が漢字・ひらがな・英語で3回並び、読む量が増えて大事な行を見失う",
+    "severity": 2,
+    "fix_hint": "その人の読める一つの書き方だけを出す"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "レベル3 氾濫（はんらん）に気をつけて（試し）",
+    "kind": "言葉",
+    "why": "「気をつけて」だけで、何をすればいいか分からない。レベル3は年寄りは逃げ始める段階なのに、それが書いていない",
+    "severity": 2,
+    "fix_hint": "「高齢の方は避難を始めて」とすることを一言書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言葉",
+    "why": "「冠水想定」「アンダー」が分からず、初台アンダーがどこで、どっちにあるのかも分からない",
+    "severity": 2,
+    "fix_hint": "「水につかりそうな道 初台の下をくぐる道（ここから約800m）」のように言う"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "初\n台アンダー",
+    "kind": "行の変わり目",
+    "why": "「初台」が二つに分かれて、場所の名前として読めない",
+    "severity": 1,
+    "fix_hint": "地名の途中で行を変えない"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "位置は 4 時間 22 分前のもの",
+    "kind": "古い情報",
+    "why": "4時間前の場所の知らせなら、今いる所は大丈夫なのか分からず迷う。12:19に送ったとも書いてある",
+    "severity": 2,
+    "fix_hint": "今の場所で調べ直すか、「今いる所とちがうかも」とはっきり書く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言葉",
+    "why": "どれが本物でどれが試しなのか分からない。知らせの方にはこの一文が無い",
+    "severity": 2,
+    "fix_hint": "道路の情報は本物、と行ごとに分かるように書き、知らせにも入れる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 16:40",
+    "kind": "言葉",
+    "why": "どのPCのことか分からない",
+    "severity": 1,
+    "fix_hint": "「調べた時刻 16:40」だけにする"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "知らせのすぐ下に大きくあり、鳴っている音を止めるボタンだと思って押しそう。押すと次から知らせが来なくなる",
+    "severity": 3,
+    "fix_hint": "「見守りをやめる（知らせが来なくなります）」と書き、押したら確かめる"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebaseが何か分からず、自分で何かしなければならないのかと不安になる",
+    "severity": 1,
+    "fix_hint": "「準備できています」とだけ書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "文字の大きさ",
+    "why": "大事な説明が小さい灰色の字で読めない",
+    "severity": 1,
+    "fix_hint": "字を大きく濃くし、やさしい言葉で書く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "",
+    "kind": "色",
+    "why": "うすい水色の上の灰色の字で、弱視にはにじんで見える",
+    "severity": 1,
+    "fix_hint": "白地に黒の濃い字にする"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "now",
+    "kind": "言語",
+    "why": "英語で、いつ来たのか分からない",
+    "severity": 1,
+    "fix_hint": "「いま」と日本語で出す"
+   }
+  ],
+  "outside": [
+   "知らせを声で読み上げるボタン",
+   "初台アンダーなど危ない道の場所を地図で見せる",
+   "近くの避難所への道案内",
+   "家族に「知らせが来た」と伝える",
+   "アプリの中だけ文字をもっと大きくする設定"
+  ],
+  "overall": "赤い印と「レベル3 氾濫」は分かったが、字が小さくて長く、今いる所のことなのか、何をすればいいのかが分からなかった。「止める」を押してしまいそうでこわい。"
+ },
+ "cost_usd": 0.1698874,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10730,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 4177,
+  "output_tokens_details": {
+   "thinking_tokens": 1770
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10730,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4177,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10730,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10730
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 44.7,
+ "person": {
+  "id": "P091",
+  "age": 60,
+  "lang": "日本語（母語）",
+  "body": "弱視（文字を大きくしている）",
+  "situation": "スマホに慣れていない",
+  "reading": "日本語はふつうに読める"
+ },
+ "model": "opus",
+ "set": "before",
+ "shots_sha256": "4dd9a47b89d1a34d87af1edc6686731df814d18d7d032fa095ddeb22fc54fc09",
+ "at": "2026-11-07 17:29:12"
+}

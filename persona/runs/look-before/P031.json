@@ -1,0 +1,204 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "引っ越したばかりの新宿区の家で、お母さんの携帯を見ていた。赤いピンと波の絵が見えて、海か水のことで何か大事そうだと思った。でも字は全部日本語で読めない。英語は一つも無い。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと英語の行が一つ出た。「Level 3」と「TEST」は分かる。「Shinjuku」は今住んでいる所の名前だと思う。「Warning」「Flood」は学校で習ったかどうか分からず、波の絵とあわせて『水があぶない？でもテスト？』くらい。何をすればいいか、どこが危ないかは分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "押したら日本語の大きい画面が出た。英語は同じ一行だけ。青い字のボタンは押してもいいのか分からない。緑の点と「止める」の大きいボタンが気になる。16:40 は時計の 4:40 と違うので、いつの知らせか少し迷った。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると「Firebase」「PC」の英語があるが、意味が分からない。危ないことの続きは無く、何をすればいいかは最後まで分からない。お母さんに見せに行くしかない。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "🌊 レベル3 氾濫（はんらん）に…",
+    "kind": "言語",
+    "why": "たたんだ形は日本語だけで、英語の行が無い。ひらかないと、何の知らせか全く分からない。",
+    "severity": 3,
+    "fix_hint": "たたんだ1行目にも短い英語（Flood warning）を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "言語",
+    "why": "日本語でない言葉は英語一行だけ。9歳には「Flood」「Warning」がむずかしく、ネパール語は無い。",
+    "severity": 2,
+    "fix_hint": "やさしい英語（Water may come. Danger.）か、ネパール語を足す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "レベル3 氾濫（はんらん）に気をつけて",
+    "kind": "言語",
+    "why": "「気をつけて」も、何をすればいいかも英語の行には無い。危ないと分かっても、どう動くか分からない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Stay away from rivers and low roads」など、することを書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3",
+    "kind": "言葉",
+    "why": "レベル3が高いのか低いのか、9歳には分からない。どれくらい危ないかが届かない。",
+    "severity": 2,
+    "fix_hint": "「Level 3 of 5」のように、全体の数を書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "近くの危ない道のことは日本語だけ。0.84km の数字は見えるが、何の距離か分からない。",
+    "severity": 2,
+    "fix_hint": "道の水の危険も英語で書く（Flooded road 0.84km away）"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語は「TEST」だけなので、全部うそだと思ってしまう。道の情報は本物だと伝わらない。",
+    "severity": 2,
+    "fix_hint": "英語でも「Only the warning is a test. Road info is real.」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "位置は 4 時間 22 分前のもの",
+    "kind": "古い情報",
+    "why": "場所が古いことが日本語だけで書かれ、気づけない。",
+    "severity": 2,
+    "fix_hint": "古い場所だと英語や時計の絵でも示す"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページのボタンは日本語だけで、押すと何が出るか分からない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語の名前をそえる"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きくて押しやすいが、日本語で意味が分からない。子どもがさわって見守りを止めてしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "英語をそえ、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区・16:40 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 4:40 なのに 16:40 と出て、いつの知らせか迷う。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ書き方にする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みず が あふれる） けいほう（ためし）",
+    "kind": "同じものが何度も",
+    "why": "同じ知らせが日本語で3回出て長い。読めない子には字のかたまりで、英語の行が埋もれる。",
+    "severity": 1,
+    "fix_hint": "英語の行を上の方に出す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "英語なのに意味が分からない言葉（Firebase、PC）で、危ないことと関係あるのか迷う。",
+    "severity": 1,
+    "fix_hint": "仕組みの言葉は見せないか、下の方にまとめる"
+   },
+   {
+    "screen": 2,
+    "where": "通知の題",
+    "quote": "いまいる場所の公式情報",
+    "kind": "言語",
+    "why": "アプリの名前も日本語だけで、どのアプリからの知らせか分からない。",
+    "severity": 1,
+    "fix_hint": "英語の名前もそえる"
+   }
+  ],
+  "outside": [
+   "ネパール語で読める・聞ける",
+   "字が読めなくても分かる、絵で「川に近づかない」「高い所へ」を見せる",
+   "近くの家族（お母さん・お父さん）に同じ知らせを送る",
+   "危ない道や川が分かる地図",
+   "子ども向けのやさしい説明"
+  ],
+  "overall": "波の絵と「TEST」で、水のことでテストの知らせだとは思った。でもほかは日本語ばかりで、何が危ないのか、何をすればいいのか分からない。お母さんに見せに行くしかなかった。"
+ },
+ "cost_usd": 0.15231139999999999,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10718,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3303,
+  "output_tokens_details": {
+   "thinking_tokens": 930
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10718,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3303,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10718,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10718
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 35.3,
+ "person": {
+  "id": "P031",
+  "age": 9,
+  "lang": "ネパール語",
+  "body": "なし",
+  "situation": "引っ越してきたばかり",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "before",
+ "shots_sha256": "4dd9a47b89d1a34d87af1edc6686731df814d18d7d032fa095ddeb22fc54fc09",
+ "at": "2026-11-07 17:18:55"
+}

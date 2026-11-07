@@ -1,0 +1,203 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "配達の途中、新宿で携帯が鳴った。赤い印と波の絵、「新宿区」「レベル」は読めたので、水の何かで危ないらしいとは思った。「氾濫」は読めない。「試し」が先頭なので、練習かな？と迷った。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらいて、ひらがなの行「かわの みずが あふれる」で、川の水があふれる知らせだと分かった。英語の行は「Flood」が分からない。「冠水想定」「初台アンダー」は読めず、どこの道か、何をすればいいかは分からない。最後の行で、本物か試しか、よけいに分からなくなった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "同じ文がもう一度出たので、さっきと同じ知らせだと思った。時計は5:06なのに17:06と書いてあって、いつの知らせか迷った。下の大きい「止める」を、鳴るのを止めるボタンだと思って押しそうになった。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送っても、また同じ文。「Firebase」「PC」の説明は全く分からない。結局、何をすればいいか分からないまま仕事に戻りそう。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "言語",
+    "why": "日本語、ひらがな、英語の行はあるのに、ポルトガル語の行がない。英語もあまり読めない。",
+    "severity": 3,
+    "fix_hint": "ポルトガル語のみじかい一行（Enchente / Perigo）を足す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "新宿区にレベル３氾濫警報（試し）",
+    "kind": "言葉",
+    "why": "レベル3は年寄りは逃げはじめる段階なのに、そうとは書いていない。68歳の自分が今逃げるべきか分からない。",
+    "severity": 3,
+    "fix_hint": "「お年寄りは にげはじめて」と、することを書く"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "試し 🌊 氾濫に気をつけて レベ…",
+    "kind": "漢字・読み",
+    "why": "いちばん目につく題に、むずかしい漢字の「氾濫」がある。ふりがながない。",
+    "severity": 2,
+    "fix_hint": "題を「かわの みず あふれる」のように やさしく"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "試し 🌊 氾濫に気をつけて レベ…",
+    "kind": "文字が切れる",
+    "why": "「レベ…」で切れて、レベルいくつか分からない。",
+    "severity": 1,
+    "fix_hint": "数字（3）を題の前の方に置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言葉",
+    "why": "「試し」と「本物」が両方あって、本当に危ないのか分からない。もの忘れがあると、なおさら混ざる。",
+    "severity": 2,
+    "fix_hint": "本物か試しかを一か所に一回だけ、はっきり書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言葉",
+    "why": "「冠水想定」「アンダー」が読めない。初台がどっちかも、近づくなという意味かも分からない。",
+    "severity": 2,
+    "fix_hint": "「この みちは みずが たまる。とおらないで」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "0.84km",
+    "kind": "数字・単位",
+    "why": "距離だけで向きがない。配達中なので、どっちへ行けばいいか分からない。",
+    "severity": 1,
+    "fix_hint": "向きや目じるしをそえる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの\nみずが あふれる）",
+    "kind": "行の変わり目",
+    "why": "「かわの」と「みずが」が別々の行に分かれて、読みにくい。",
+    "severity": 1,
+    "fix_hint": "言葉の切れ目で行を変える"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "",
+    "kind": "長さ・量",
+    "why": "同じ知らせを3つの言葉で、通知と画面で何回も見る。多すぎて、大事な所を忘れる。",
+    "severity": 2,
+    "fix_hint": "一番上に「何がおきた・何をする」を2行だけ"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区・17:06 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は5:06で、画面は17:06。古い知らせか今のか迷う。",
+    "severity": 1,
+    "fix_hint": "時計と同じ書き方、または「いま」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "画面でいちばん大きいボタンなので、鳴る音や警報を止めるものと思って押してしまう。押すと見守りが切れる。",
+    "severity": 2,
+    "fix_hint": "「みまもりを やめる」と書いて、小さく下へ"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase、PCが何か分からず、こわくなる。",
+    "severity": 1,
+    "fix_hint": "「家族に いばしょを おくっています」のような言葉に"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "川の洪水予報（指定河川洪水予報・気象庁）",
+    "kind": "言語",
+    "why": "押した先も漢字の多い日本語のページで、読めない。",
+    "severity": 1,
+    "fix_hint": "やさしい日本語か、ほかの言葉のページへ"
+   }
+  ],
+  "outside": [
+   "ポルトガル語の読み上げ",
+   "近い避難場所への地図・道案内",
+   "家族や仕事先へ、自分が無事か知らせる",
+   "水がたまる道を地図に出す"
+  ],
+  "overall": "川の水があふれるらしいことは、ひらがなで分かった。でも、本物か試しか、どこが危ないのか、年寄りの自分は今にげるべきかが分からない。ポルトガル語がひとこと欲しかった。"
+ },
+ "cost_usd": 0.15463139999999997,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10733,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3413,
+  "output_tokens_details": {
+   "thinking_tokens": 1163
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10733,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3413,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10733,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10733
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 38.1,
+ "person": {
+  "id": "P006",
+  "age": 68,
+  "lang": "ポルトガル語（ブラジル）",
+  "body": "認知症のはじめ",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "after",
+ "shots_sha256": "a3b0d7b403a87c3027deb6ce633af631095fb010f3056788be8584f33c72275f",
+ "at": "2026-11-07 17:14:48"
+}

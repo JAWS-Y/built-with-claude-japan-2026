@@ -1,0 +1,205 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "波の絵と赤いピンが見え、「3」と「新宿」らしい漢字は拾えた。水のことで何かあったらしいとは思ったが、英語が無いので何の知らせかは分からない。津波かと一瞬こわくなった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと、日本語の行のあいだに英語が一行あった。何度か読み直して「Shinjuku City: Level 3 Warning (Flood) (TEST)」と分かった。洪水の試しの警報らしい。下の道路の行は読めず、どこが危ないかは分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても、英語は同じ一行だけ。TESTとあるので全部試しだと思い、ほっとしかけた。道路の冠水が本物だということも、位置が4時間前のものだということも読めなかった。大きな「止める」ボタンは、鳴っているのを止めるものかと思った。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると「Firebase」「PC」が見えたが、何のことか分からない。自分が何をすればいいのか、どこへ行けばいいのかは最後まで分からなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "レベル3 氾濫（はんらん）に…",
+    "kind": "言語",
+    "why": "たたんだ形には英語がひとつも無く、題も途中で切れている。古い携帯なので、ひらかずにそのまま流してしまうかもしれない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に、短い英語「Flood warning – Shinjuku」を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Shinjuku City: Level 3 Warning (Flood) (TEST)",
+    "kind": "並び・順番",
+    "why": "英語が4行目で日本語にはさまれている。ディスレクシアがあると、文字の多い中からこの一行を見つけるのに時間がかかる。",
+    "severity": 2,
+    "fix_hint": "英語の行をいちばん上に、ほかと離して置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3 Warning",
+    "kind": "言葉",
+    "why": "レベル3が、お年寄りは逃げはじめる段階だということが書かれていない。題は「気をつけて」だけ。91歳の自分が今すぐ動くべきだと分からない。",
+    "severity": 3,
+    "fix_hint": "「Level 3: older people should evacuate now」と、するべきことを英語で書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "近くの道が水につかるという大事な情報が、日本語だけ。初台アンダーはカタカナの地名で読めず、0.84kmが何の距離かも分からない。",
+    "severity": 2,
+    "fix_hint": "「Road flooding possible: Hatsudai underpass, 0.84 km away」と英語でも書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "警報は試しの作りもの。ほかは本物",
+    "kind": "言語",
+    "why": "英語にはTESTしか無いので、全部試しだと思ってしまう。道路の冠水が本物だということが届かない。",
+    "severity": 2,
+    "fix_hint": "「Warning is a test. Road info is real.」を英語で書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "位置は 4 時間 22 分前のもの",
+    "kind": "古い情報",
+    "why": "4時間以上前の位置だということが、日本語で、しかも下のほうにしか無い。もう別の所にいるかもしれないのに、気づけない。",
+    "severity": 2,
+    "fix_hint": "位置が古いことを上に、英語で目立たせる"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "止める",
+    "kind": "操作",
+    "why": "大きなボタンなので、知らせの音を止めるものかと思って押しそう。実際には見守りが止まって、宛先が消えてしまう。",
+    "severity": 2,
+    "fix_hint": "英語で「Stop location sharing」と書き、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "🌊",
+    "kind": "その他",
+    "why": "英語を話す人には、波の絵は津波や海に見える。川の洪水だとは思わない。",
+    "severity": 1,
+    "fix_hint": "川や雨が分かる絵にするか、そばに「Flood」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "しんじゅくく に れべる3 はんらん（かわの みず が あふれる） けいほう（ためし）",
+    "kind": "同じものが何度も",
+    "why": "同じことが漢字・ひらがな・英語と3回出るので、文字の量が多い。ディスレクシアがあると、どこを読めばいいのか迷う。",
+    "severity": 1,
+    "fix_hint": "言葉を選べるようにして、選んだ言葉だけ見せる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区・16:40 に届きました",
+    "kind": "数字・単位",
+    "why": "通知には4:40、アプリには16:40と12:19があり、書き方がそろっていない。数字を読むのが苦手なので、どれがいつなのか混乱する。",
+    "severity": 1,
+    "fix_hint": "時刻の書き方をそろえ、「4 hours ago」のようにも書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 16:40",
+    "kind": "文字の大きさ",
+    "why": "灰色の小さい字なので、古い携帯でも年をとった目でも読みにくい。",
+    "severity": 1,
+    "fix_hint": "字を大きく、色を濃くする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "つながる先は日本語の気象庁のページで、名前も日本語。押しても読めない。",
+    "severity": 1,
+    "fix_hint": "英語のページがあればそちらへつなぎ、英語の名前をつける"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase、PCは何のことか分からない。自分の位置がどこへ行くのか不安になる。",
+    "severity": 1,
+    "fix_hint": "「Your location is sent only to your own computer」とやさしい英語で書く"
+   }
+  ],
+  "outside": [
+   "知らせを英語で読み上げる",
+   "アプリ全体を英語に切りかえる",
+   "初台アンダーなどの危ない場所を地図で見せる",
+   "お年寄りが行ける近くの避難所へ案内する",
+   "家族（娘）へ自動で知らせる",
+   "字をとても大きくする表示"
+  ],
+  "overall": "新宿の娘の家に泊まっていて受けとりました。英語の一行で、洪水の試しの警報だとはやっと分かりました。けれど、レベル3が私のような年寄りは逃げる段階だということも、近くの道が本当に水につかるかもしれないことも、私には届きませんでした。文字が多くて、どこを読めばいいのか分かりません。"
+ },
+ "cost_usd": 0.1736954,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10721,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 4371,
+  "output_tokens_details": {
+   "thinking_tokens": 1795
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10721,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4371,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10721,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10721
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 46.4,
+ "person": {
+  "id": "P081",
+  "age": 91,
+  "lang": "英語",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "古い携帯を使っている",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "before",
+ "shots_sha256": "4dd9a47b89d1a34d87af1edc6686731df814d18d7d032fa095ddeb22fc54fc09",
+ "at": "2026-11-07 17:27:41"
+}
