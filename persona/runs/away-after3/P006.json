@@ -1,0 +1,252 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 3,
+    "how": "信号で止まったとき、ホルダーの画面に赤い印が出ているのを見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "「新宿区」「3」「Flood」は読めたが、「はんらん けいほう」の意味が分からなかった。自分の通る川の道やアンダーのことだとは、結びつかなかった。手袋がぬれていて、押して開かなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "何の知らせか分からないままなので、ここまで来ていない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "分かっていないので、自分の道のことと思えなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "道を変えようとは思わなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもの神田川ぞいの低い道とアンダーを通った。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 3,
+    "action": "信号で赤い印を見た。「Flood」「3」は分かったが、押さずに走りだした"
+   },
+   {
+    "minutes": 5,
+    "action": "知らせのことは頭から消え、配達アプリの道案内どおり走った"
+   },
+   {
+    "minutes": 8,
+    "action": "神田川ぞいの低い道を走った"
+   },
+   {
+    "minutes": 11,
+    "action": "JRの下のアンダーパスをくぐった（水はまだ少なかった）"
+   },
+   {
+    "minutes": 16,
+    "action": "お客さんに届けた"
+   },
+   {
+    "minutes": 20,
+    "action": "配達アプリの次の注文を受けて、また走りだした"
+   },
+   {
+    "minutes": 45,
+    "action": "雨が強くなり、道に水たまりが増えたが、配達をつづけた"
+   }
+  ],
+  "fit": {
+   "言葉": "ポルトガル語がいちばん届く。気象庁の多言語辞書のポルトガル語の警報名（例: Alerta de inundação）と、決まったポルトガル語の 1 文。",
+   "文字": "大きく、短く。漢字は「川」「水」くらいまで。ひらがなにわかち書き。",
+   "読み上げ": "ハンドルの上で読めないので、音声でポルトガル語の決まった文を 1 回読む。",
+   "音・ふるえ": "配達アプリと違う、長く強いふるえと、雨の中でも分かる大きな音。止まるまでくり返す。",
+   "見た目・色": "赤の大きな帯と、川の水があふれる絵・アンダーが水につかる絵。",
+   "長さ": "題の行だけで分かるように 1 行、場所の名前まで入れる。",
+   "その他": "手袋でも押せる大きなボタン。忘れても、危ない所に近づくたびにもう一度知らせる。"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の 2 行目に、気象庁の多言語辞書のポルトガル語の警報名と、アプリの決まったポルトガル語訳の案内 1 文を出す。言葉の設定でポルトガル語を選べるようにする。",
+    "why": "この人は英語より母語で一目で分かり、開かずに意味がつかめる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "たたんだ通知の題に、携帯のいる所に近い物の名前（例: 高田馬場のアンダー・神田川ぞいの道の冠水に警戒してください）を出す。",
+    "why": "「新宿区」では広すぎるが、自分がこれから通る所の名前なら自分のことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報が出ているあいだ、PC が位置を見て、冠水しそうなアンダーや川ぞいに近づいたら、もう一度強いふるえと音で知らせる。",
+    "why": "認知症のはじめで、一度見ても忘れてしまう人に、通る前にもう一度とどく。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "通知に、川があふれる・アンダーが水につかる絵の印と大きな赤い帯を付け、決まった文をポルトガル語で読み上げる。",
+    "why": "自転車の上で、ぬれた手袋のままでも、見て・聞いて分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "危ないアンダーや川ぞいを通らない高い道を、地図で示す。",
+    "why": "どの道を行けばよいか、その場で迷わずに決められる。",
+    "clash": [
+     "1 公式の事実だけ（予報・判断・安全を作る、公式でないデータを出す）",
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "赤い印と「Flood」は見えたけれど、自分の通る川の道とアンダーのことだとは分からず、配達に追われるうちに忘れてしまった。"
+ },
+ "notice": {
+  "scene": "高田馬場の近くで、自転車でフードの配達をしている。次のお客さんの家へ行くのに、神田川ぞいの低い道を通って、JRの下のアンダーパスをくぐろうとしている。",
+  "place_fit": "そのまま",
+  "safe_move": "68歳で避難に時間がかかる人なので、神田川ぞいの道とアンダーパスは通らず、高い道へ回ります。配達はやめて、川から離れた高い所や、じょうぶな建物の上の階へ移ります。",
+  "phone": "配達アプリの音を聞くため、音とふるえはオン（マナーモードもおやすみモードも使っていない）にしていて、携帯はハンドルのホルダーにつけ、雨よけの袋に入れている。",
+  "noticed": true,
+  "minutes": 3,
+  "how": "雨の音で知らせの音はよく聞こえなかった。信号で止まったとき、ホルダーの画面に赤い印が出ているのを見て気づいた。",
+  "look": "見たが、そのまま",
+  "why": "「新宿区」「3」と英語の「Flood」は分かった。ひらがなは読めても「はんらん けいほう」の意味はよく分からなかった。手袋がぬれていて、配達の時間もせまっていたので、押さずに走りだした。少したつと、知らせのことは頭から消えていた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.051653199999999996,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3437,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1179,
+    "output_tokens_details": {
+     "thinking_tokens": 550
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3437,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1179,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3437,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3437
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.3
+  },
+  "away": {
+   "cost_usd": 0.149004,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11399,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2834,
+    "output_tokens_details": {
+     "thinking_tokens": 879
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11399,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2834,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11399,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11399
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 31.9
+  }
+ },
+ "cost_usd": 0.20065719999999998,
+ "took": 47.2,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P006",
+  "age": 68,
+  "lang": "ポルトガル語（ブラジル）",
+  "body": "認知症のはじめ",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "漢字も少し読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:28:13",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

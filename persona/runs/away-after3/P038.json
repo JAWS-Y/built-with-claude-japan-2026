@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 25,
+    "how": "散歩から帰って犬の足をふいたあと、何気なく携帯を見て通知に気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 25,
+    "how": "「新宿区 レベル3 氾濫警報」は読めた。新宿区で川があふれそうだ、ということは分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 25,
+    "how": "外は雨だし、警報だというのだから本当だろうと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "「新宿区」は広い。うちは高台だから関係ないと思った。これから川ぞいの低い道を通ることとは結びつかず、犬がじゃれてきて気もそれた。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思っていないので、買い物をやめようとは考えなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもどおり牛乳を買いに出た。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 25,
+    "action": "犬の足をふいたあと通知の題を読んだ。「高台だから大丈夫」と思い、ひらかずに携帯を置いた。"
+   },
+   {
+    "minutes": 27,
+    "action": "犬にごはんをやり、雨がっぱを干した。テレビはつけなかった。"
+   },
+   {
+    "minutes": 35,
+    "action": "冷蔵庫に牛乳が無いのを思い出し、傘をさして家を出た。携帯はポケットに入れた。"
+   },
+   {
+    "minutes": 40,
+    "action": "妙正寺川ぞいの低い道を歩いた。川の水が多いと思ったが、道にはまだ水が出ていなかったので、そのまま下のスーパーへ行った。"
+   },
+   {
+    "minutes": 55,
+    "action": "牛乳を買い、同じ川ぞいの道を通って帰った。"
+   },
+   {
+    "minutes": 65,
+    "action": "家に着いた。通知のことはもう忘れていた。"
+   }
+  ],
+  "fit": {
+   "言葉": "「新宿区」だけでなく、この人が知っている川の名前（妙正寺川）と道を名指しする。",
+   "文字": "題の一行に、警報の名前と「妙正寺川」をいっしょに出す。漢字はふつうに読める。",
+   "読み上げ": "使っていない。読み上げは無くてよい。",
+   "音・ふるえ": "散歩中の雨音の中では一回のふるえは分からない。ひらくまで数分おきに鳴らし直すか、長く強いふるえにする。",
+   "見た目・色": "赤い印のほかに、たたんだ形でも川の名前と「道路」の行が見えるようにする。",
+   "長さ": "たたんだ形の 2 行で用が足りるように。ADHD で、ひらく前に気がそれる。",
+   "その他": "出かける前に、玄関などでもう一度目に入るとよい（例: 1 時間たっても残る通知、鳴らし直し）。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "題とたたんだ形の行に、携帯の近くの公式の冠水想定の所や川の名前（妙正寺川など）を名指しする。今の「初台アンダー」は、中落合の人にはなじみがない。",
+    "why": "「新宿区」では高台のわが家しか思いうかばないが、「妙正寺川」と出れば、いつもの買い物の道だとすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "公式の川の水位（東京都の水防災総合情報システムなど）で、近くの妙正寺川の水位と、それが氾濫危険・警戒のどこまで来ているかを数字で出す。",
+    "why": "「川の水が多いと思ったが、道はまだ大丈夫」と見た目で決めてしまう人に、公式の数字なら「もう近い」と分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "ひらかれるまで、数分おきに音とふるえで知らせ直す。警報が続く間は、通知を消せないようにして残す。",
+    "why": "雨と犬で最初は気づかず、見ても犬に気がそれて忘れた。出かける前にもう一度鳴れば、そこで止まれる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ形でも、案内の 1 文（「妙正寺川ぞいの道の冠水に警戒してください」）が見えるようにする。",
+    "why": "ひらかないので、今は案内の文が一度も目に入っていない。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "本人が先に決めておいた家族に、警報と「低い道に近づいている」ことを知らせ、家族が電話をかけられるようにする。",
+    "why": "75 歳で気がそれやすい人には、家族のひとことの電話がいちばん効く。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "高台の家は大丈夫だった。でも、牛乳を買いに妙正寺川ぞいの道を行き帰りしてしまった。「新宿区」と言われても、自分の通る道のこととは思えなかった。"
+ },
+ "notice": {
+  "scene": "中落合の高台の家の近くで、傘をさして犬と夜の散歩をしている。帰ったら、妙正寺川ぞいの低い道を通って下のスーパーへ牛乳を買いに行くつもりでいる。",
+  "place_fit": "そのまま",
+  "safe_move": "高齢なので、今夜は川ぞいの低い道やアンダーを通る買い物はやめて、高台の家にとどまる。家が危ない所なら、明るいうちから家族や避難所など安全な所へ移る。",
+  "phone": "音とふるえはふだんのまま（マナーモードもおやすみモードも使っていない）で、携帯は雨がっぱの下の上着のポケットに入れている。",
+  "noticed": true,
+  "minutes": 25,
+  "how": "散歩中は雨音と傘・リードで手がふさがり、ポケットのふるえに気づかなかった。家に帰って犬の足をふいたあと、何気なく携帯を見て通知に気づいた。",
+  "look": "見たが、そのまま",
+  "why": "「新宿区 レベル3 氾濫警報」は読めたが、「うちは高台だから大丈夫だろう」と思った。犬がじゃれてきて気がそれ、ひらかずにそのまま置いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0501132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3452,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1096,
+    "output_tokens_details": {
+     "thinking_tokens": 500
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3452,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1096,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3452,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3452
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.6
+  },
+  "away": {
+   "cost_usd": 0.146564,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11379,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2720,
+    "output_tokens_details": {
+     "thinking_tokens": 640
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11379,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2720,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11379,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11379
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 30.5
+  }
+ },
+ "cost_usd": 0.1966772,
+ "took": 45.1,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P038",
+  "age": 75,
+  "lang": "日本語（母語）",
+  "body": "ADHD",
+  "situation": "犬と散歩している",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:35:30",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

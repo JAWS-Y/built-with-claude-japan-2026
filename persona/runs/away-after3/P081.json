@@ -1,0 +1,252 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 40,
+    "how": "台所へお茶を入れに行き、充電中の携帯の画面に赤い印があるのを見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 46,
+    "how": "漢字の行はとばした。英語の行を指でなぞってゆっくり読み、「Level 3」「Flood」「road flooding nearby」で、大雨で道に水が出るかもしれないと分かった。どこが危ないかは、はっきりしなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 50,
+    "how": "テレビを NHK にかえると、画面のはしに大雨の情報が出ていて、外の雨の音も強いので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 53,
+    "how": "「road」とあるので道の話だと思ったが、すぐ裏が神田川なので少し気になった。窓から見ると道はまだぬれているだけだった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "『alert』は気をつけていろという意味だと思った。夜で雨、91 歳の足では外へ出るほうがこわい。上の階に知り合いもいないので、家にいると決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "離れることは決めていないので、動かなかった。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 40,
+    "action": "台所で携帯の赤い印に気づく"
+   },
+   {
+    "minutes": 41,
+    "action": "知らせを押してアプリを開く"
+   },
+   {
+    "minutes": 46,
+    "action": "英語の行を指でなぞってゆっくり読む"
+   },
+   {
+    "minutes": 48,
+    "action": "テレビを NHK にかえて大雨の情報を見る"
+   },
+   {
+    "minutes": 52,
+    "action": "窓から裏の道と川のほうを見る"
+   },
+   {
+    "minutes": 56,
+    "action": "大事な書類と薬を袋に入れて玄関のそばに置く"
+   },
+   {
+    "minutes": 60,
+    "action": "携帯を枕もとに置いて、1 階で寝る"
+   }
+  ],
+  "fit": {
+   "言葉": "英語。'Level 3' の公式の意味（お年寄りは早めに）と、川の名前 'Kanda River' があると伝わる",
+   "文字": "短い英語の文を一番上に、大きく太く。漢字の行は下へ。読む量を少なく",
+   "読み上げ": "英語の決まった文を読み上げるボタン。ディスレクシアなので、読むより聞くほうが早い",
+   "音・ふるえ": "耳が遠く、テレビの音もある。アラームの音量で、押すまで鳴りつづける音と長いふるえ",
+   "見た目・色": "赤い帯と大きな「3」はよく目に入った。家のあたりが浸水の想定区域なら、それを地図や色で示す",
+   "長さ": "英語で 1〜2 文。距離や「4 か所」は下へ",
+   "その他": "古い携帯なので軽い画面にする。家族や民生委員にも同じ知らせが行くとよい（きまり 4 とぶつかる）"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "レベル3以上は、アラームの音量で鳴らし、押すまで鳴りつづけ、全画面に出す。",
+    "why": "耳が遠くテレビもついていて 40 分気づかなかったが、これなら届いてすぐ気づける。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "携帯の位置が区の洪水ハザードマップの浸水想定区域の中なら、公式の想定の深さと、神田川の公式の洪水予報（水位）を英語の決まった文で一番上に出す。",
+    "why": "「road」の話だと思って家は関係ないと考えたが、自分の家そのものが想定区域だと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "警戒レベル3の公式の意味「高齢者等避難」を英語で出す。",
+    "why": "91 歳の自分が、いま動く人に入ると分かり、『alert＝見ているだけ』と思わなくなる。",
+    "clash": [
+     "2 どう動くかを指図する",
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "英語の決まった文を、上に大きく出し、読み上げボタンを付ける。",
+    "why": "ディスレクシアで読むのに時間がかかるが、聞けばすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "本人が見たかどうかを、登録した家族や民生委員にも知らせ、電話してもらえるようにする。",
+    "why": "夜に一人で外へ出るのはこわいが、だれかが迎えに来たり電話で背中を押せば移れる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "英語の行で大雨だとは分かりました。でも「道」の話だと思いましたし、夜の雨の中、91 歳で外へ出るほうがこわかったので、そのまま 1 階で寝ました。"
+ },
+ "notice": {
+  "scene": "神田川沿いの低い土地（下落合）にある古いアパートの1階で、一人でテレビを見ながら夜をすごしている。",
+  "place_fit": "そのまま",
+  "safe_move": "91歳で避難に時間がかかるので、レベル3のいま、川の近くの低い1階から離れる。親類の家や区の避難所へ早めに移るか、無理ならアパートの上の階など建物の中の高い所へ移る。",
+  "phone": "マナーモードやおやすみモードは使わず、音とふるえはそのままだが音量は小さめで、古い携帯は台所で充電したまま置いている。",
+  "noticed": true,
+  "minutes": 40,
+  "how": "テレビの音と耳の遠さで通知音は聞こえなかった。寝る前にお茶を入れに台所へ行き、携帯の画面を見て気づいた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読むのに時間がかかって分からなかったが、赤い印と「3」と英語の「Flood」は目に入った。川のそばに住んでいるので心配になり、くわしく知りたくて指で押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0480332,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3437,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 998,
+    "output_tokens_details": {
+     "thinking_tokens": 438
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3437,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 998,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3437,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3437
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 13.1
+  },
+  "away": {
+   "cost_usd": 0.158368,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11527,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3251,
+    "output_tokens_details": {
+     "thinking_tokens": 1245
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11527,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3251,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11527,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11527
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 37.5
+  }
+ },
+ "cost_usd": 0.2064012,
+ "took": 50.6,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P081",
+  "age": 91,
+  "lang": "英語",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "古い携帯を使っている",
+  "reading": "漢字も少し読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:45:20",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

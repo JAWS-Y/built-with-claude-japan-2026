@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 3,
+    "how": "子どもにごはんを食べさせているとき、テーブルの携帯の音とふるえで気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 9,
+    "how": "赤いマーク、「Level 3 Warning (Flood)」「Shinjuku City」「road flooding nearby」は読めた。漢字の「初台アンダー」は読めず、Google レンズで画面を写してどこの話かを確かめた。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 11,
+    "how": "外は雨が強くなっていた。英語に Level 3 とあり、Japan Meteorological のページへの入口もあったので本当だと思った。道にまだ水は出ていないが、念のため気をつけることにした。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 12,
+    "how": "「nearby」とあった。家は神田川のすぐそばで、これから子どもと川ぞいの道を通るつもりだったので、自分のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 15,
+    "how": "夜で雨、子どもも連れているので、迎えと牛乳はやめると決めた。WhatsApp で夫に『ada peringatan banjir, aku nggak jemput』と送った。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 18,
+    "how": "夫から『OK、ひとりで帰る、牛乳も買う』と返ってきた。出かけずに 2 階の家にいた。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "した",
+  "minutes": 18,
+  "did": [
+   {
+    "minutes": 3,
+    "action": "音で気づき、子どものごはんが一段落するまで待った"
+   },
+   {
+    "minutes": 5,
+    "action": "通知を見て、赤いマーク・3・Flood が分かった"
+   },
+   {
+    "minutes": 6,
+    "action": "通知を押してアプリを開き、英語の行を読んで、下へ送った"
+   },
+   {
+    "minutes": 8,
+    "action": "漢字が読めないので Google レンズで画面を写し、インドネシア語でおおよその意味を見た"
+   },
+   {
+    "minutes": 10,
+    "action": "窓から外の雨と、神田川のほうの道を見た（まだ水は出ていない）"
+   },
+   {
+    "minutes": 15,
+    "action": "WhatsApp で夫に、迎えに行かないと送った"
+   },
+   {
+    "minutes": 18,
+    "action": "夫から OK の返事が来た。出かけるのをやめ、子どもと 2 階の家にいた"
+   },
+   {
+    "minutes": 40,
+    "action": "ときどきアプリと外を見て、夫に『川ぞいを通らないで』と送った"
+   }
+  ],
+  "fit": {
+   "言葉": "インドネシア語がいちばん届く。英語のやさしい短い文なら分かる。日本語は読めない。",
+   "文字": "漢字・ひらがなは読めない。ローマ字の地名（Kanda River など）と数字は読める。",
+   "読み上げ": "使わない。インドネシア語の読み上げがあれば、子どもを見ながら聞ける（機械の読み上げなら、きまり 3 とぶつかるおそれ）。",
+   "音・ふるえ": "いまの音とふるえで足りる。ふつうの連絡と同じ音なので、警報だけの音があるともっと早く見る。",
+   "見た目・色": "赤とレベルの数字はすぐ分かった。川と冠水の場所に印をつけた絵か地図があると、どこかがすぐ分かる。",
+   "長さ": "いちばん上に英語かインドネシア語の 1〜2 行。漢字の行はそのあとでよい。",
+   "その他": "夫にそのまま送れる、英語の行だけを写せるボタンがあるとよい。"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の 1 文を、気象庁の多言語辞書にあるインドネシア語の決まった文でも出す（例: Peringatan Level 3 (Banjir)）。言語はこの人が選べるようにする。",
+    "why": "Google レンズで確かめる手間がなくなり、子どもを見ながらでもすぐ意味が取れる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "「初台アンダー」だけでなく、近くの川（神田川）の公式の洪水予報・水位の情報を名指しし、ローマ字の Kanda River も添えて出す。",
+    "why": "この人は家のすぐそばの川の道を通る予定で、読めない遠い地名より「Kanda River」のほうが自分のことと分かる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "冠水想定の場所と川を、携帯の地図に印で出す。いまいる所も重ねる。",
+    "why": "文字が読めなくても、通る道が印に近いかが一目で分かる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "公式のページの入口に、気象庁の多言語ページや Safety tips など、インドネシア語に対応した公式の情報への入口も加える。",
+    "why": "自分の言葉で公式の情報を読めるので、迷わずに信じられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "知らせの文（英語の行）を家族に一押しで送れるボタンをつける。位置は付けない。",
+    "why": "夫と迎えの段取りをすぐ決められ、夫も川ぞいを避けやすくなる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "漢字は読めませんでしたが、赤と Level 3 と英語の行で大事な知らせだと分かりました。あとはレンズで確かめて、夜の迎えをやめました。インドネシア語と「神田川」の名前があれば、もっと早く決められたと思います。"
+ },
+ "notice": {
+  "scene": "高田馬場の神田川に近いアパートの 2 階の家にいる。4 歳の子と一緒で、21 時半ごろ、川ぞいの道を通ってバイト先へ夫を迎えに行き、ついでにスーパーで牛乳を買うつもりだった。",
+  "place_fit": "そのまま",
+  "safe_move": "小さい子を連れた人は避難に時間がかかるので、今夜の外出（迎え・買い物）を見合わせ、神田川ぞいの道や低い道・アンダーパスには近づかない。家にいるなら建物の上の階など安全な所にいて、どうしても出るなら川や低い所を通らない道を選び、早めに動く。",
+  "phone": "音とふるえはオン（夫や子どもの保育園からの連絡を逃さないため）で、マナーモードもおやすみモードも使っておらず、携帯は台所のテーブルに置いている。",
+  "noticed": true,
+  "minutes": 3,
+  "how": "子どもに夜ごはんを食べさせていて、テーブルの携帯の通知の音とふるえで気づき、手が空いてから画面を見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読めないが、赤いマークと「3」と英語の「Flood（banjir）」は分かった。雨の中これから子どもと川ぞいを通って出かけるつもりだったので心配になり、くわしく知りたくて押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0511252,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3451,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1147,
+    "output_tokens_details": {
+     "thinking_tokens": 485
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3451,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1147,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3451,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3451
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.4
+  },
+  "away": {
+   "cost_usd": 0.1707,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11641,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3822,
+    "output_tokens_details": {
+     "thinking_tokens": 1578
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11641,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3822,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11641,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11641
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 44.1
+  }
+ },
+ "cost_usd": 0.2218252,
+ "took": 59.5,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P067",
+  "age": 43,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "小さい子を連れている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:42:19",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

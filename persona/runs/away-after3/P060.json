@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 12,
+    "how": "運転中に音は聞いたが見なかった。高田馬場で車を止めてから画面を見て気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "赤いマークと「3」と「Flood」は分かった。でも漢字の「新宿区」は読めず、どこの話か、道が水につかる話だとは分からなかった。ひらがなは読むのに疲れて、ひらかなかった。「雨の知らせだろう」と思っただけ。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "分かるで止まった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "分かるで止まった。帰りの神田川沿いの道やアンダーと結びつかなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "分かるで止まった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "分かるで止まった。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "運転中に通知の音を聞いたが、運転中なので見なかった。"
+   },
+   {
+    "minutes": 12,
+    "action": "高田馬場で車を止めて画面を見た。赤、「3」、「Flood」だけ分かった。"
+   },
+   {
+    "minutes": 13,
+    "action": "妻が車に乗ってきた。携帯はカップホルダーに戻し、知らせのことは話さなかった。"
+   },
+   {
+    "minutes": 15,
+    "action": "いつもどおり神田川沿いの低い道へ走り出した。"
+   },
+   {
+    "minutes": 25,
+    "action": "線路下のアンダーを通った。道に水たまりはあったが、そのまま進んだ。"
+   },
+   {
+    "minutes": 35,
+    "action": "家に着いた。知らせはそのままにした。"
+   }
+  ],
+  "fit": {
+   "言葉": "英語のやさしい文（Flood, road, underpass, Kanda River）。ネパール語ならいちばん早く分かる。",
+   "文字": "漢字を出さない。題の頭に英語とひらがなで、場所の名前と「道・アンダー」を入れる。大きく、短く。",
+   "読み上げ": "運転中は文字を読めないので、車につないでいるときは英語の決まった文を自動で読み上げる。",
+   "音・ふるえ": "ふつうの通知と違う、くり返す音。止まったときに分かるよう、もう一度鳴らす。",
+   "見た目・色": "赤とレベルの数字に加え、車が水につかる絵・アンダーの絵。",
+   "長さ": "一目で読める 1 行。くわしくは開いてから。",
+   "その他": "同乗の妻にも同じ知らせが届くとよい。"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の題の 1 行目に、英語の決まった文「Level 3 Flood Warning – road flooding / underpass」を漢字より先に出す。",
+    "why": "たたんだ形で読めたのは「3」と「Flood」だけで、道やアンダーの話だと分かれば帰り道と結びついた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が位置を見て、この人が神田川沿いや線路下のアンダーなど冠水しそうな所に近づいたら、その場所の名前を入れた知らせ（「神田川沿いの道の冠水に警戒してください」と英語）をもう一度送る。",
+    "why": "止まって見た高田馬場ではなく、低い道へ入る前に、自分の通る道の名前で知らせが来ると気づける。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前を気象庁の多言語辞書のネパール語で、案内の 1 文を前もって人が決めたネパール語訳で出す。",
+    "why": "母語なら、ディスレクシアがあっても英語やひらがなより速く、疲れずに分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "車（Bluetooth・Android Auto）につながっているときは、英語の決まった文を自動で読み上げる。",
+    "why": "運転中は画面を見ないが、音なら運転しながら聞けて、迎えに行く前に道を考えられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "文字の代わりに、近くの冠水しそうな所（アンダーなど）を地図の印と車が水につかる絵で示し、自分のいる所も地図に出す。",
+    "why": "文字を読まずに、通る道に危ない所があると一目で分かる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "この人が分かったのは「赤」と「3」と「Flood」だけでした。どこの話で、何が危ないのか（アンダーの冠水）は分からないまま、いつもどおり低い道とアンダーを通ってしまいました。運転中の人には、読まなくても届く英語やネパール語の短い一行と、読み上げが要ります。"
+ },
+ "notice": {
+  "scene": "大久保通りを車で走っていて、高田馬場で仕事を終える妻を迎えに行くところ。いまいる道は高い所で、帰りは神田川沿いの低い道と線路下のアンダーを通るつもり。",
+  "place_fit": "そのまま",
+  "safe_move": "アンダーパスや神田川沿いなどの低い道を通らず、高い所の道を選ぶか、出かけるのを見合わせる。道に水が出ていたら車で入らず引き返す。",
+  "phone": "マナーモードにはしておらず、音とふるえはオンで、運転中はカップホルダーに置いている。",
+  "noticed": true,
+  "minutes": 12,
+  "how": "運転中に通知の音が聞こえたが、見なかった。高田馬場に着いて車を止めてから画面を見て気づいた。",
+  "look": "見たが、そのまま",
+  "why": "赤いマークと「3」と英語の「Flood」は分かった。でも漢字は読めず、ひらがなも読むのに疲れる。雨はふつうで道に水もなく、すぐに妻が車に乗ってきたので、そのままにした。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0550532,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3462,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1339,
+    "output_tokens_details": {
+     "thinking_tokens": 789
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3462,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1339,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3462,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3462
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.9
+  },
+  "away": {
+   "cost_usd": 0.162548,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11337,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3536,
+    "output_tokens_details": {
+     "thinking_tokens": 1541
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11337,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3536,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11337,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11337
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 40.1
+  }
+ },
+ "cost_usd": 0.2176012,
+ "took": 57.0,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P060",
+  "age": 51,
+  "lang": "ネパール語",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "車を運転している",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:40:49",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

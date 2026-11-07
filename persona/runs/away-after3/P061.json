@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 3,
+    "how": "音もふるえも分からなかった。信号で地図を見たとき、上に赤いマークが出ていた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 3,
+    "how": "「レベル3」「はんらん けいほう」「Flood」は読めた。川の水のことで、新宿の知らせだと分かった。くわしくは読んでいない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 3,
+    "how": "アプリから来た知らせなので、本当だと思った。うそだとは思わなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "道に水は出ていない。新宿は広いし、レベル3はまだ低いと思った。料理が冷めるので、自分のこととは思わなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "前の段階で止まった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "前の段階で止まった。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 3,
+    "action": "信号で通知を見たが、押さずにまた走った"
+   },
+   {
+    "minutes": 8,
+    "action": "神田川のすぐそばの家に料理を届けた"
+   },
+   {
+    "minutes": 12,
+    "action": "配達アプリで次の注文を受けた"
+   },
+   {
+    "minutes": 25,
+    "action": "また川ぞいの低い道を通って配達した"
+   },
+   {
+    "minutes": 45,
+    "action": "雨が強くなり、道のはしに水たまりが増えたが、走りつづけた"
+   },
+   {
+    "minutes": 60,
+    "action": "まだ下落合のあたりで配達をつづけていた"
+   }
+  ],
+  "fit": {
+   "言葉": "やさしい日本語（ひらがな）に、ミャンマー語を添える（気象庁の多言語辞書の言葉。案内の 1 文はアプリの決まった訳。人が訳したもの）。かんたんな英語も残す",
+   "文字": "ひらがな・カタカナ・数字だけ。題の 1 行目に「かんだがわ」と近さ（例: 0.2km）を出す。漢字の「新宿区」「氾濫警報」は 2 行目にまわす",
+   "読み上げ": "使わない（耳が聞こえにくい）",
+   "音・ふるえ": "音はたよれない。長く強い、くり返すふるえ。画面を光らせる・ライトを点滅させる。手袋でも分かるよう、腕時計にも出す",
+   "見た目・色": "画面いっぱいの赤。川の水が道にあふれる絵と自転車の絵。ぬれた画面でも見える大きさ",
+   "長さ": "たたんだ通知の 2 行で分かるように。押さなくても読めること",
+   "その他": "配達アプリの地図の上にも重なって消えにくく出す。川のそばにいるあいだは、何度か知らせなおす"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "たたんだ通知の 1 行目に、いちばん近い危ない所の名前と近さを、ひらがなと数字で出す（例: 「かんだがわ 0.2km」）。近さはハザードマップなど公的なデータを使い、PC で数える。",
+    "why": "「新宿区」だけでは広すぎるが、走っている川の名と数字が見えれば、押さなくても自分のことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "耳の不自由な人向けの設定を作る。長く強いふるえをくり返し、画面とライトを点滅させ、腕時計にも出し、配達アプリの上に全画面で出す。",
+    "why": "音は聞こえず、手袋でふるえも分からないので、目で見える強い合図しか届かない。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が読んだ位置が川ぞいや低い土地にあるあいだは、10〜15 分ごとに同じ知らせを出しなおす。レベルが上がったときもすぐに出す。",
+    "why": "一回目は急いで流したので、まだ川のそばにいるうちにもう一度届けば、止まって見直す機会が増える。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の 1 文に、ミャンマー語を添える（気象庁の多言語辞書の言葉と、人が前もって訳した決まった文）。",
+    "why": "漢字は読めず英語もかんたんなものだけなので、母語なら一目で、どれだけ危ないかが分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "案内の 1 文で、この場所の物を名指しする（例: 「かんだがわ ぞいの ひくい みちの かんすいに けいかい して ください」）。水が道にあふれる絵も付ける。",
+    "why": "遠くの初台アンダーではなく、いま走っている川ぞいの道の話だと分かり、そこを通るのをやめると決めやすい。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "知らせは見えたし、水のことだとも分かりました。でも、どこが危ないのかが分からず、道に水も出ていなかったので、仕事を止めずに川ぞいを走りつづけました。いま走っている川の名前と近さが、押さなくても見えればよかったです。"
+ },
+ "notice": {
+  "scene": "雨の中、自転車で料理を届けています。高田馬場の近く、神田川ぞいの低い道（下落合のあたり）を走っていて、川のすぐそばの家に届けにいくところです。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな川の近くで、まわりより低い土地なので、自分から川ぞいの道や低い所を離れ、高い所かじょうぶな建物の上の階へ移ります。川のそばや、アンダーパス・地下には近づかず、仕事も見合わせて、避難の備えをします。",
+  "phone": "音とふるえはオンですが、耳が聞こえにくいので音は聞こえません。携帯はハンドルのホルダーにつけていて、配達アプリの地図を出したままです。",
+  "noticed": true,
+  "minutes": 3,
+  "how": "音は聞こえず、手袋をしているのでふるえも分かりませんでした。信号で止まって地図を見たとき、画面の上に赤いマークの知らせが出ているのに気づきました。",
+  "look": "見たが、そのまま",
+  "why": "漢字は読めませんが、「レベル3」「はんらん けいほう」「Flood」は読めて、水のことだとなんとなく分かりました。でも道に水は出ていないし、料理が冷めるので急いでいて、雨で画面もぬれていたので、押さずにそのまま走りました。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.050053200000000006,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3447,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1095,
+    "output_tokens_details": {
+     "thinking_tokens": 457
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3447,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1095,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3447,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3447
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.3
+  },
+  "away": {
+   "cost_usd": 0.173928,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11407,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4077,
+    "output_tokens_details": {
+     "thinking_tokens": 1979
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11407,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4077,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11407,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11407
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 45.2
+  }
+ },
+ "cost_usd": 0.2239812,
+ "took": 59.5,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P061",
+  "age": 22,
+  "lang": "ミャンマー語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:40:52",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

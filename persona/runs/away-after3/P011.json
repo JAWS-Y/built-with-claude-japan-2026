@@ -1,0 +1,260 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 2,
+    "how": "雨で音は聞こえなかったが、ポケットがふるえた。夫からかと思い、軒下で携帯を出した。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 6,
+    "how": "顔を近づけて、ひらがなの行を読んだ。「かわの みずが あふれる」「みちが みずに つかる」で、川があふれて道が水につかるかもしれないと分かった。漢字の場所の名前は読めなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 6,
+    "how": "赤いしるしと「けいほう」、それに強い雨。本当だと思った。半分は「まさか」と思ったが、念のためと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 7,
+    "how": "これから神田川ぞいの低い道と線路の下のくぐり道を通る。「0.84km」の数字も見えて、近いと思った。おなかの子もいるので、自分のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 10,
+    "how": "夫に電話した。「川ぞいはやめて、タクシーで帰って」と言われ、歩いて帰るのをやめると決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 11,
+    "how": "駅のほうへ戻り、タクシー乗り場にならんだ。川ぞいの道もくぐり道も通らずに帰った。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "した",
+  "minutes": 11,
+  "did": [
+   {
+    "minutes": 2,
+    "action": "ふるえに気づき、店の軒下に入って携帯を出した"
+   },
+   {
+    "minutes": 3,
+    "action": "通知を押してアプリを開いた"
+   },
+   {
+    "minutes": 4,
+    "action": "顔を近づけて、ひらがなの行と数字を読んだ（漢字は分からなかった）"
+   },
+   {
+    "minutes": 7,
+    "action": "店の外から川のほうを見た。暗くて水の様子は分からず、雨は強かった"
+   },
+   {
+    "minutes": 8,
+    "action": "夫に電話して、知らせのことを話した"
+   },
+   {
+    "minutes": 10,
+    "action": "夫に「タクシーで」と言われ、歩くのをやめると決めた"
+   },
+   {
+    "minutes": 11,
+    "action": "高田馬場駅のタクシー乗り場へ戻ってならんだ"
+   },
+   {
+    "minutes": 28,
+    "action": "タクシーに乗り、大通りを通って下落合の家へ"
+   },
+   {
+    "minutes": 40,
+    "action": "家に着き、夫に「着いた」と連絡した"
+   }
+  ],
+  "fit": {
+   "言葉": "やさしい日本語。「かわの みずが あふれる」のように、意味が分かる言いかえを先に出す。",
+   "文字": "ひらがなの行をいちばん上に、大きく出す。漢字にはふりがなを付ける。携帯の文字の大きさに合わせる。",
+   "読み上げ": "アプリの中に「よみあげる」の大きなボタンを置き、ひらがなの行から読む（TalkBack を使っていない弱視の人向け）。",
+   "音・ふるえ": "夫や病院の着信とちがう、長くくり返すふるえ。雨の中でもポケットで気づける強さにする。",
+   "見た目・色": "赤い太い帯と、大きな「3」。暗い夜道でも読める白黒の強い対比にする。",
+   "長さ": "はじめの画面は 3 行まで: レベル・何が危ないか・自分の近くの場所。",
+   "その他": "自分のいる所と、近くの危ない所（川・くぐり道）を大きな地図で見せる。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "いまの場所にいちばん近い、公式の危ない所（神田川ぞいの浸水想定区域や、近くの線路下のアンダーパスなど、都・区の公表データ）を名指しする。読めない漢字の名前には、登録してある読みがなを付ける。",
+    "why": "「初台アンダー」は読めず、これから通る道とは関係が無い。自分が通る川とくぐり道が出れば、すぐ自分のことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "通知とアプリのいちばん上に、ひらがなの行を大きな文字（携帯の文字の大きさに合わせる）で出す。漢字の題にはふりがなを付ける。",
+    "why": "漢字が苦手で弱視なので、いまは顔を近づけてやっとひらがなが読めた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "近くの神田川の水位を、東京都の公式の観測データのまま、数字と「レベル」の色で出す。",
+    "why": "夜の暗さで川の様子が見えず、確かめられなかった。公式の数字があれば早く信じられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "「レベル3 は おとしより や にんしん している ひと など が にげる めやす」（内閣府の決まり）を、ひらがなで添える。",
+    "why": "自分が妊娠していて、レベル3 で動く人に入ると分かれば、夫に聞く前に決められる。",
+    "clash": [
+     "2 どう動くかを指図する",
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "知らせの文を、ボタン一つで夫に送れるようにする（位置は送らない）。",
+    "why": "この人は夫に相談して決めた。文を送れば、電話で読み上げなくても早く話が通じる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "ふるえと赤いしるし、ひらがなの「かわの みずが あふれる」で、川ぞいの道はやめた。でも漢字も小さい文字も読みにくいし、出ていた場所も自分の道ではなかった。夫に聞いてから、やっとタクシーに決められた。"
+ },
+ "notice": {
+  "scene": "仕事の帰りに高田馬場駅を出て、傘をさして歩いて家（下落合）へ向かっているところ。これから神田川ぞいの低い道を通って、線路の下のくぐり道を抜ける。",
+  "place_fit": "そのまま",
+  "safe_move": "妊娠している人は、レベル3で危ない所から離れる人に入る。神田川ぞいの道や線路下のくぐり道は通らず、高い所を通る遠回りの道かタクシーで帰るか、駅や店など安全な建物で待つ。",
+  "phone": "音もふるえも入れていて（おなかの子のことで夫や病院から連絡が来るので、マナーモードにしない）、文字は大きくしてあり、携帯はコートの右のポケットに入れている。",
+  "noticed": true,
+  "minutes": 2,
+  "how": "雨の音で通知の音はよく聞こえなかったが、ポケットの中のふるえに気づいた。夫からかと思い、店の軒下に入ってから携帯を出して画面を見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "赤いしるしと「はんらん けいほう」のひらがなは読めた。漢字は分からなかったが、これから川ぞいを歩くのでこわくなり、くわしく知りたくて押した。文字が小さくて、顔を近づけてやっと読めた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0528212,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3438,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1237,
+    "output_tokens_details": {
+     "thinking_tokens": 598
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3438,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1237,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3438,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3438
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.2
+  },
+  "away": {
+   "cost_usd": 0.169272,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11605,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3765,
+    "output_tokens_details": {
+     "thinking_tokens": 1502
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11605,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3765,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11605,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11605
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 44.1
+  }
+ },
+ "cost_usd": 0.2220932,
+ "took": 61.3,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P011",
+  "age": 43,
+  "lang": "日本語（母語）",
+  "body": "弱視（文字を大きくしている）",
+  "situation": "妊娠中",
+  "reading": "漢字が苦手（ひらがなは読める）"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:29:23",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

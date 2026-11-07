@@ -1,0 +1,231 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": false,
+    "minutes": null,
+    "how": "深く眠っていた。携帯はマナーモードで、離れた台所の机で一度ふるえただけなので気づかなかった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "知らせに気づいていないので、何の知らせかも分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "知らせを見ていない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "知らせを見ていない。半地下で川のそばにいることを、いま危ないとは思っていない。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "眠っていて何も決めていない。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "夜中の目覚ましまで、半地下の部屋の布団で寝たまま。"
+   }
+  ],
+  "stop": "気づく",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "台所の机の携帯が一度ふるえたが、半地下の部屋の布団で眠ったまま"
+   },
+   {
+    "minutes": 60,
+    "action": "まだ眠っている（夜中の目覚ましまで起きない）"
+   }
+  ],
+  "fit": {
+   "言葉": "英語が先。日本語はやさしい言葉と、少しの漢字だけ。",
+   "文字": "英語の決まった文を一行目に。地名「神田川」「高田馬場」は漢字でもよい（知っている字）。",
+   "読み上げ": "眠っているので、起きたら英語で読み上げると早く分かる（決まった英文を読むだけ）。",
+   "音・ふるえ": "マナーモードでも鳴る目覚まし式の音。止めるまで、長く何度も鳴らす。",
+   "見た目・色": "画面いっぱいの赤い警報画面。大きく「LEVEL 3」と「Kanda River」。",
+   "長さ": "一行目は 1 文だけ。ADHD なので、くわしい事は下に分ける。",
+   "その他": "寝る前に「夜も鳴らす」設定を本人に選んでもらう。携帯を布団のそばに置くよう、設定のときに伝える（きまり 2 に近いので、はじめの案内だけ）。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "レベル3以上は、Android のアラームの通知と全画面通知で、マナーモード・おやすみモードでも音を鳴らし、押すまで数分ごとにくり返す（はじめに本人が許す設定）。",
+    "why": "マナーモードで離れた所に携帯を置いて深く寝ていても、目覚ましのような音なら起きられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "本人が前もって選んだ家族・近所の人にも、同じ警報が出たことだけを知らせ、電話や戸をたたいて起こしてもらえるようにする。",
+    "why": "一人暮らしの 75 歳で、携帯で起きられないときの頼りになる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の 1 文の名指しを、いちばん近い物に合わせ「神田川の氾濫に警戒してください」とし、決まった英訳「Be on alert for Kanda River flooding」を一行目に出す。",
+    "why": "0.84km 先の初台アンダーより、家の前の神田川のほうが自分のことと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "区の公式ハザードマップで、登録した家の場所が浸水想定の区域なら、その公式の深さを出す（例: 0.5〜3m）。",
+    "why": "半地下に住んでいることと結びつき、今いる所が危ないと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "区がレベル3「高齢者等避難」を出したら、その公式の名前と英語の公式名（Evacuation of Elderly）を出す。",
+    "why": "75 歳の自分が対象だと、公式の言葉で分かる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "私は寝ていて、携帯は台所で一度ふるえただけ。何も知らないまま、川のそばの半地下で朝まで寝ていたでしょう。起こしてくれなければ、届かないのと同じです。"
+ },
+ "notice": {
+  "scene": "高田馬場の神田川沿いにある古いアパートの半地下の部屋で、夜勤明けの疲れから布団で深く眠っている。",
+  "place_fit": "そのまま",
+  "safe_move": "75歳でお年寄りにあたり、川の近くで低い半地下にいるので、レベル3のこの時点で自分から離れるのがよい。暗くなって道に水が出る前に、高い所にある避難所や知り合いの家、または近くの建物の上の階へ移り、川ぞいの道や地下・アンダーパスには近づかない。",
+  "phone": "寝るときはいつもマナーモード（ふるえだけ）にして、携帯は布団から離れた台所の机で充電している。",
+  "noticed": false,
+  "minutes": null,
+  "how": "深く眠っていて、離れた机の上で一度ふるえただけなので分からなかった。",
+  "look": "気づかなかった",
+  "why": "夜勤のあとでくたくたで、邪魔されないように携帯を遠くに置いて寝ていた。目覚ましは夜中にかけてあり、それまで起きなかった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0474732,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3427,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 974,
+    "output_tokens_details": {
+     "thinking_tokens": 433
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3427,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 974,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3427,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3427
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 12.9
+  },
+  "away": {
+   "cost_usd": 0.137344,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11209,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2327,
+    "output_tokens_details": {
+     "thinking_tokens": 560
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11209,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2327,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11209,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11209
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 27.6
+  }
+ },
+ "cost_usd": 0.1848172,
+ "took": 40.5,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P059",
+  "age": 75,
+  "lang": "英語",
+  "body": "ADHD",
+  "situation": "夜勤明けで寝ている",
+  "reading": "漢字も少し読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:40:31",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

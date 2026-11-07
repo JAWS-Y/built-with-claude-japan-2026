@@ -1,0 +1,263 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 3,
+    "how": "音とふるえで気づいた。母の着替えが終わってから携帯を見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 8,
+    "how": "新宿区に氾濫の警報が出たのは分かった。でも出ているのは初台アンダー（うちから遠い）だけで、神田川・妙正寺川のことかは書いてない。「川の洪水予報」を押して、神田川の洪水予報を確かめてやっと分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 12,
+    "how": "気象庁のページとテレビのデータ放送で、神田川の水位が上がっているのを見た。外の雨の音も強い。本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 12,
+    "how": "家は川のすぐそばの低い所で、母は一人で歩けない。レベル3はお年寄りが逃げはじめる段階と、前にケアマネさんに聞いていた。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 20,
+    "how": "避難所や親せきの家へ、夜の雨の中を母を連れて行くのは無理と思った。兄に電話して相談し、せめて今のうちに二階へ上げると決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 22,
+    "how": "母を支えて階段を一段ずつ上がり、薬・水・懐中電灯・携帯の充電器を二階へ運んだ。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "一部した",
+  "minutes": 22,
+  "did": [
+   {
+    "minutes": 3,
+    "action": "母の着替えのあと通知を見て、押してアプリを開いた"
+   },
+   {
+    "minutes": 5,
+    "action": "初台アンダーしか書いてなくて戸惑い、「川の洪水予報」を押した"
+   },
+   {
+    "minutes": 8,
+    "action": "気象庁のページで神田川の洪水予報を探して確かめた"
+   },
+   {
+    "minutes": 10,
+    "action": "テレビをつけ、データ放送で川の水位と区の避難の情報を見た"
+   },
+   {
+    "minutes": 12,
+    "action": "窓から雨の様子を見た"
+   },
+   {
+    "minutes": 15,
+    "action": "兄に電話して、避難所か二階かを相談した"
+   },
+   {
+    "minutes": 20,
+    "action": "夜の雨で外へ出るのはやめ、二階へ上げると決めた"
+   },
+   {
+    "minutes": 22,
+    "action": "母を支えて階段を上がりはじめた"
+   },
+   {
+    "minutes": 35,
+    "action": "母を二階の部屋に寝かせ、薬・水・明かり・充電器を運び終えた"
+   },
+   {
+    "minutes": 50,
+    "action": "二階でテレビと携帯で水位を見つづけた。ケアマネさんに留守電を入れた"
+   }
+  ],
+  "fit": {
+   "言葉": "「神田川・妙正寺川」と、いる所の近くの川の名前を出す。レベル3がお年寄りに何を意味するかを公式の言葉で",
+   "文字": "ふつうの漢字でよい。川の名前と水位を大きく",
+   "読み上げ": "使わない（体は不自由でない）。母に聞かせるなら役に立つかも",
+   "音・ふるえ": "今のまま（音・ふるえ入り）でよい。介護中でも気づける",
+   "見た目・色": "赤い帯はよい。レベルの色（気象庁の5段階の色）があると早く分かる",
+   "長さ": "題と1行目で、どの川か・うちの近くかが分かる長さ",
+   "その他": "開いてすぐ、神田川の洪水予報と区の避難情報へ一押しで行けること"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "携帯の位置の近くの指定河川（神田川・妙正寺川）の洪水予報を、川の名前と水位の公式の数字で知らせの一番上に出す。",
+    "why": "この人は「どの川か」を確かめるのに5分かかった。初台アンダーは遠くて、自分の家のことと結びつかなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の1文を、いる所に近い物で選ぶ（例:「神田川の氾濫に警戒してください」）。アンダーより川べり・低い土地を先に名指しする。",
+    "why": "家が川のすぐそばの人には、道路の冠水より川の名前が自分ごとになる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "新宿区が出した高齢者等避難などの避難情報と、内閣府の「レベル3: 高齢者等は危険な場所から避難」の公式の文を、そのまま並べて出す。",
+    "why": "足の弱い母を連れる人には、レベル3が自分たちの動く時だとすぐ分かり、迷う時間が減る。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "携帯のいる所が、区の洪水ハザードマップの浸水想定区域か、想定の深さはどれくらいかを、公式のデータから出す。",
+    "why": "二階で足りるか、外へ出るべきかを決める手がかりになる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "知らせの文（位置は入れない）を、兄やケアマネさんへボタン一つで送れるようにする。",
+    "why": "介護中で一人で決めにくい人が、すぐ手を借りられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "知らせのおかげで早めに動けて、母を二階へ上げられた。ただ、知らせに出ていたのは遠い初台アンダーだけで、うちのそばの神田川のことかは自分で調べないと分からなかった。"
+ },
+ "notice": {
+  "scene": "新宿区下落合の神田川・妙正寺川の近くにある、まわりより低い土地の二階建ての家で、一階の部屋にいる母（足が弱い）を寝かせる支度をしている。",
+  "place_fit": "そのまま",
+  "safe_move": "足の弱い母はお年寄りで避難に時間がかかるので、支える私といっしょに、いまのうちに川と低い土地から離れて、高い所の避難所や親せきの家へ移る。夜の雨の中を移るのがかえって危ないなら、せめて家の二階へ上がる。",
+  "phone": "母に何かあったときや、病院・ケアマネからの電話をのがさないように、音とふるえはいつも入れていて、マナーモードにもおやすみモードにもせず、そばのテーブルに置いている。",
+  "noticed": true,
+  "minutes": 3,
+  "how": "通知の音とふるえで気づいたが、母の着替えを手伝っていたので、終わってから携帯を見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "「新宿区」「レベル3」「氾濫」が目に入った。家は川のすぐそばだし、母は急いで動けないので人ごとではない。どの川のことか、どこへ逃げればいいかをすぐ知りたくて、押してアプリを開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.026816200000000005,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 553,
+    "cache_read_input_tokens": 5721,
+    "output_tokens": 1062,
+    "output_tokens_details": {
+     "thinking_tokens": 441
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 553,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1062,
+      "cache_read_input_tokens": 5721,
+      "cache_creation_input_tokens": 553,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 553
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.3
+  },
+  "away": {
+   "cost_usd": 0.159132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11580,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3268,
+    "output_tokens_details": {
+     "thinking_tokens": 1081
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11580,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3268,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11580,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11580
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 36.4
+  }
+ },
+ "cost_usd": 0.1859482,
+ "took": 50.7,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P034",
+  "age": 35,
+  "lang": "日本語（母語）",
+  "body": "なし",
+  "situation": "親の介護をしている",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:34:45",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

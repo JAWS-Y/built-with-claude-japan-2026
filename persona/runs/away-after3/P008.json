@@ -1,0 +1,251 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 1,
+    "how": "テーブルの上でスマホが鳴ってふるえたので、手に取って上から引き下ろした。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 4,
+    "how": "ぼくに分かったのは「Flood」と赤いマークだけ。お母さんが矢印をひらいて英語の行を読み、「近くの道が水につかるかもしれないって」と教えてくれた。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 8,
+    "how": "お母さんが自分の天気アプリで雨の警報が出ているのを見て、「本当みたい」と言った。外も雨の音がする。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 10,
+    "how": "お母さんが窓から外を見て「川が近いからね」と言った。でも英語には「road」としか書いてないので、家じゃなくて道のことだと二人とも思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "お母さんは「今日はもう外に出ないで、家にいようね」と決めた。家は1階で、上の階へ行く場所はない。夜で雨なので、出かけるほうがこわいと思った。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "離れると決めていないので、離れる動きはしなかった。パジャマのまま家にいた。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "一部した",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 1,
+    "action": "鳴ったスマホを手に取り、通知を引き下ろして見た"
+   },
+   {
+    "minutes": 2,
+    "action": "スマホを持ってソファのお母さんに見せた"
+   },
+   {
+    "minutes": 4,
+    "action": "お母さんが矢印をひらいて英語の行を読み、ぼくに説明した"
+   },
+   {
+    "minutes": 7,
+    "action": "お母さんが自分のスマホの天気アプリで警報を確かめた"
+   },
+   {
+    "minutes": 10,
+    "action": "お母さんが窓から外の雨と道を見た。まだ水は出ていなかった"
+   },
+   {
+    "minutes": 12,
+    "action": "「外に出ない、川も見に行かない」と決めて、テレビにもどった"
+   },
+   {
+    "minutes": 40,
+    "action": "お母さんがもう一度窓から外を見た。そのあと寝る準備をした"
+   }
+  ],
+  "fit": {
+   "言葉": "英語がいちばん。日本語はひらがな・カタカナだけ。子どもでも分かるやさしい英語（気象庁の英語の名前のまま）",
+   "文字": "たたんだ通知の2行目に、英語の文をまるごと出す（\"Level 3 Warning (Flood)\" と「神田川」など川の名前）。漢字だけの行は読めない",
+   "読み上げ": "使わない。けれど親に聞かせるために英語で読み上げるボタンがあると、そのまま見せるより伝わる",
+   "音・ふるえ": "いまの音とふるえで気づけた。このままでよい",
+   "見た目・色": "赤いマークと「レベル3」は分かった。川と水の絵（アイコン）があると「川があふれる」がすぐ分かる",
+   "長さ": "たたんだ形の 2 行で分かるように。ひらくやり方を知らないので、大事なことを先に出す",
+   "その他": "子どものスマホなので、同じ知らせが親のスマホにも英語で届くと、子どもが見せに行かなくてもすむ"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が位置を公的な洪水浸水想定区域（神田川）と照らし、入っていればその事実を出す（例: \"This place is in the Kanda River flood area (official map)\"）。案内の1文も「神田川の氾濫に警戒してください」にする。",
+    "why": "いまは「道（初台アンダー）」の話だけなので、母子は家ではなく道のことだと思い、1階の家にとどまった。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "アプリの言葉の設定を英語にでき、たたんだ通知の題と2行目に気象庁の英語の名前と決まった英語の1文を先に出す。",
+    "why": "この子は漢字が読めず、ひらく矢印も知らないので、たたんだ形だけで英語が読めれば自分で分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "新宿区が出した公式の避難情報（高齢者等避難など）と、区が公開している近くの避難所の名前・距離を事実として並べる。",
+    "why": "夜・雨・1階で「家にいる」しか思いつかなかった母が、上の階のある場所がどこにあるかを知れば、離れることを考えられる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "全体",
+    "idea": "子どもの携帯に届いた知らせを、同じ形で親の携帯にも届ける（位置は送らず、知らせだけ）。",
+    "why": "9歳の子が見せに行くのを待たずに、決める人である母が自分で英語の全文を読める。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "川があふれる絵と水の色を、通知のアイコンや画面のはじめに出す。",
+    "why": "文字を読めなくても「川の水」と分かり、子どもが親に伝えやすくなる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "「Flood」は分かったが、知らせの中身が「道が水につかる」だけだったので、川のすぐそばの1階に住んでいるのに、家族は家にいることにした。"
+ },
+ "notice": {
+  "scene": "下落合の神田川のすぐそばの低い土地にあるアパートの1階の家で、パジャマ姿でリビングのソファにいて、お母さんとテレビを見ている。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな川の近くで低い土地にいるので、水が出る前に家族と一緒に自分から離れる。じょうぶな建物の上の階や、川から離れた避難所・知り合いの家へ移る。川を見に行かない。",
+  "phone": "親からもらった子ども用のAndroidで、音とふるえは最初の設定のまま（マナーモードもおやすみモードもなし）。リビングのテーブルで充電している。",
+  "noticed": true,
+  "minutes": 1,
+  "how": "テーブルの上で音が鳴ってふるえたので、手に取って上から引き下ろした。",
+  "look": "見たが、そのまま",
+  "why": "漢字は読めないけど、「Flood」と「レベル3」と赤いマークは分かった。「はんらん けいほう」は読めても意味は分からない。下の矢印をひらくやり方を知らないので、そのままスマホをお母さんに見せに行った。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.050541199999999994,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3428,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1127,
+    "output_tokens_details": {
+     "thinking_tokens": 565
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3428,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1127,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3428,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3428
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.4
+  },
+  "away": {
+   "cost_usd": 0.15824,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11311,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3331,
+    "output_tokens_details": {
+     "thinking_tokens": 1173
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11311,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3331,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11311,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11311
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 38.2
+  }
+ },
+ "cost_usd": 0.2087812,
+ "took": 52.6,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P008",
+  "age": 9,
+  "lang": "英語",
+  "body": "なし",
+  "situation": "スマホに慣れていない",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:28:32",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

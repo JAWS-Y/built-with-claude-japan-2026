@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scene", "place_fit", "safe_move", "phone", "noticed", "minutes", "how", "look", "why"],
+  "properties": {
+    "scene": {"type": "string",
+              "description": "この人がいる所と、していること（くじの型に合わせてあなたが決めた場面、1〜2 文）"},
+    "place_fit": {"type": "string", "enum": ["そのまま", "合わせた"],
+                  "description": "くじの型がこの人の暮らしにそのまま合ったか、近い場面に合わせたか"},
+    "safe_move": {"type": "string",
+                  "description": "この場面で、危ない所から離れる・近づかないには何をすればよいか（公式の考え方、1〜2 文）。この人は知らない"},
+    "phone": {"type": "string",
+              "description": "音・ふるえ・マナーモード・おやすみモードの設定と、携帯をどこに置いているか（この人の暮らしから、1 文）"},
+    "noticed": {"type": "boolean", "description": "知らせが届いてから 1 時間のうちに、この知らせに気づいたか"},
+    "minutes": {"type": ["number", "null"],
+                "description": "知らせが届いてから何分で気づいたか。気づかなかったなら null"},
+    "how": {"type": "string",
+            "description": "どうやって気づいたか（音・ふるえ・画面を見たとき など）。気づかなかったなら、なぜか（短く）"},
+    "look": {"type": "string",
+             "enum": ["気づかなかった", "見たが、そのまま", "ひらいた（画面 2）", "押してアプリを開いた（画面 3・4）"],
+             "description": "1 時間のうちに、この知らせでいちばん先まで見たところ"},
+    "why": {"type": "string", "description": "そこまで見た（見なかった）理由（この人の目から、短く）"}
+  }
+}

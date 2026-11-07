@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 25,
+    "how": "音もふるえも分からなかった。CMのときにカカオトークを見ようとして携帯を手に取ったら、赤いしるしの知らせが出ていた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 32,
+    "how": "ひらがなの「かわの みずが あふれる」「みちが みずに つかる」と英語の Flood で、川があふれるかもしれないと分かった。漢字のところはパパゴのカメラで韓国語にして読んだ（침수＝水につかる、경계＝警戒）。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 36,
+    "how": "窓の外を見ると雨が強い。まだ道に水は無いが、引っ越してすぐ入れた防災アプリの知らせで、「気象庁」の字もパパゴで分かったので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 38,
+    "how": "「しんじゅくく」は自分の住所。家のすぐ横に川があり、部屋は半地下。ソウルで半地下の人が水で亡くなったニュースを思い出して、こわくなった。「はつだい」は知らない所だが、自分の所も同じだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 48,
+    "how": "ソウルの娘にカカオトークで画面を送ると「半地下は危ない、すぐ出て」と返事が来た。近所に知り合いも避難所も分からないので、坂の上の目白の駅の近くの、夜も開いている店へ行くと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 53,
+    "how": "パスポート・薬・充電器をかばんに入れ、傘をさして部屋を出た。川の方ではなく、坂を上る道を歩いた。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "した",
+  "minutes": 53,
+  "did": [
+   {
+    "minutes": 25,
+    "action": "カカオトークを見ようとして携帯を手に取り、知らせに気づいてアプリを開いた"
+   },
+   {
+    "minutes": 28,
+    "action": "ひらがなの行と英語を読んだ。漢字はパパゴのカメラで訳した"
+   },
+   {
+    "minutes": 34,
+    "action": "ドラマを止めて窓の外の雨と道を見た"
+   },
+   {
+    "minutes": 40,
+    "action": "ソウルの娘にカカオトークで画面の写しを送った"
+   },
+   {
+    "minutes": 47,
+    "action": "娘から「半地下は危ない、出て」と返事が来た"
+   },
+   {
+    "minutes": 50,
+    "action": "パスポート・薬・充電器をかばんに入れ、大事な物を高い棚に上げた"
+   },
+   {
+    "minutes": 53,
+    "action": "部屋を出て、川と反対の坂を上り、目白の駅の近くへ向かった"
+   },
+   {
+    "minutes": 65,
+    "action": "駅の近くのファミレスに入り、娘に「着いた」と送った"
+   }
+  ],
+  "fit": {
+   "言葉": "韓国語（気象庁の多言語辞書の警報名「홍수경보」など）と、ひらがな",
+   "文字": "漢字・カタカナはやめて、ひらがなと韓国語で。地名もひらがなに（「かんだがわ」）",
+   "読み上げ": "要らない。字幕の方が分かる",
+   "音・ふるえ": "音はほぼ聞こえない。長く強いふるえをくり返し、カメラのライトも光らせる",
+   "見た目・色": "画面いっぱいの赤。レベル3の数字を大きく。家と川と水の絵",
+   "長さ": "ひらがな1行と韓国語1行。くわしいことは開いてから",
+   "その他": "半地下・地下の部屋に住んでいることを先に登録できるとよい"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "開くまで数分ごとにくり返して、長く強くふるわせ、カメラのライトを点滅させる。画面いっぱいに出す（全画面通知）。",
+    "why": "音が聞こえず、クッションの上ではふるえにも気づかないので、25分も遅れた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前は気象庁の多言語辞書の韓国語で出す。案内の1文も、アプリの決まった韓国語訳を出す。",
+    "why": "パパゴで訳す手間が無くなり、意味がすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "携帯の位置で、新宿区の公式の洪水ハザードマップの「この場所の浸水の深さ」と、近い川の名前（かんだがわ）を出す。",
+    "why": "知らない「初台」ではなく、自分の家の横の川と自分の所の深さが分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "案内の1文に「地下・半地下の部屋の浸水に警戒してください」を足す（気象庁の文の形）。",
+    "why": "半地下の自分のことだと、すぐに分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "新宿区の公式の避難所のうち、浸水しない近い所を地図とひらがなで出す。",
+    "why": "引っ越したばかりで、どこへ行けばいいか分からず、娘に聞くまで迷った。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "「かわの みずが あふれる」とソウルの半地下のニュースを思い出して、娘にも言われて坂の上へ出られた。でも気づくまで25分かかり、漢字が読めないのでパパゴと娘に頼った。"
+ },
+ "notice": {
+  "scene": "引っ越してきたばかりの、下落合の神田川近くにある低い土地の半地下アパートの部屋で、一人で韓国ドラマを見ている。",
+  "place_fit": "そのまま",
+  "safe_move": "川の近くの低い土地で半地下に住んでいて、60歳でもあるので、いまのうちに部屋を出て、高い土地にある避難所や知り合いの家などへ移る。それができないときは、少なくとも建物の2階より上の安全な所へ移り、川や地下の道には近づかない。",
+  "phone": "音は鳴る設定で、ふるえも入れているが、音はほとんど聞こえない。携帯はソファの横のクッションの上に伏せて置いている。",
+  "noticed": true,
+  "minutes": 25,
+  "how": "音は聞こえず、クッションの上なのでふるえにも気づかなかった。ドラマのCMのときにカカオトークを見ようと携帯を手に取ったら、画面の上に赤いしるしの知らせが出ていた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字とカタカナは読めない。「はんらん けいほう」は音では読めるけれど、意味が分からない。赤いしるしと「3」と「Flood」があったので、雨のことで何か危ないのかもしれないと思った。引っ越してすぐ入れたアプリなので、中を見ればもっと分かるかと思って押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.053457199999999996,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3450,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1264,
+    "output_tokens_details": {
+     "thinking_tokens": 608
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3450,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1264,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3450,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3450
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.5
+  },
+  "away": {
+   "cost_usd": 0.184232,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11630,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4503,
+    "output_tokens_details": {
+     "thinking_tokens": 2341
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11630,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4503,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11630,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11630
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 51.1
+  }
+ },
+ "cost_usd": 0.2376892,
+ "took": 67.6,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P010",
+  "age": 60,
+  "lang": "韓国語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "引っ越してきたばかり",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:29:21",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

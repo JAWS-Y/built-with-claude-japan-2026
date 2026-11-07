@@ -1,0 +1,267 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 1,
+    "how": "テーブルの上で音とふるえがあって、すぐ画面を見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 3,
+    "how": "アプリで「レベル3」「かわの みずが あふれる」を読んで、川があふれそうという知らせだと分かった。でも名前が出ているのは初台アンダーで、うちから遠いから少しとまどった。神田川の名前はなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 5,
+    "how": "「気象庁 発表」と書いてあって、テレビの上にも大雨の字幕が出ていた。「川の洪水予報」を押して、気象庁のページに神田川が出ているのを見た。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 6,
+    "how": "初台は遠いけど、うちは神田川のすぐ横で低い所の1階。車いすでおなかも大きいから、水が来てからでは逃げられないと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 15,
+    "how": "彼にLINEしたら「あと30分くらいで帰る。帰ったら一緒に目白の実家に行こう」と返事が来た。それまでに準備しておくと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 50,
+    "how": "母子手帳や薬をかばんに詰めて待った。彼が帰ってきて、タクシーで高い所にある彼の実家へ出た。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "した",
+  "minutes": 50,
+  "did": [
+   {
+    "minutes": 1,
+    "action": "通知を見て、押してアプリを開いた"
+   },
+   {
+    "minutes": 3,
+    "action": "アプリの文を読んだ。初台アンダーと出ていて、とまどった"
+   },
+   {
+    "minutes": 4,
+    "action": "「川の洪水予報」を押して、気象庁のページで神田川を確かめた"
+   },
+   {
+    "minutes": 6,
+    "action": "彼にLINEで「神田川あふれるかも、こわい」と送った"
+   },
+   {
+    "minutes": 10,
+    "action": "テレビのdボタンで、新宿区の雨と川の様子を見た"
+   },
+   {
+    "minutes": 15,
+    "action": "彼から返事が来て、帰ってきたら実家へ行くと決めた"
+   },
+   {
+    "minutes": 16,
+    "action": "母子手帳、保険証、薬、充電器、着替えをかばんに詰めた"
+   },
+   {
+    "minutes": 25,
+    "action": "窓の外を見た。雨は強いけど、道にまだ水はない"
+   },
+   {
+    "minutes": 35,
+    "action": "彼の実家に電話して、行くことを伝えた。車いすで乗れるタクシーをアプリで呼んだ"
+   },
+   {
+    "minutes": 45,
+    "action": "彼が帰ってきた"
+   },
+   {
+    "minutes": 50,
+    "action": "彼に押してもらってタクシーに乗り、目白の実家へ出た"
+   }
+  ],
+  "fit": {
+   "言葉": "「神田川」「この近く」など、私の家の近くの物の名前。レベル3がだれ向けか（妊娠中・体の不自由な人）は、公式の言い方で",
+   "文字": "漢字でいい。いちばん上に神田川と、家からの距離",
+   "読み上げ": "使わない",
+   "音・ふるえ": "いまのままでいい（マナーモードは切っている）",
+   "見た目・色": "レベル3の色（赤）と、神田川の水位の数字が目立つように",
+   "長さ": "最初の画面は2〜3行。初台アンダーや「道路」の行は、そのあとでいい",
+   "その他": "同じ知らせが彼にも届くと、相談がすぐ始められる。区の避難所でバリアフリーの所の案内（区の公式ページ）"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "名指しする物を、いる所にいちばん関わる物にする（初台アンダーでなく「神田川の氾濫」「この辺りの浸水想定区域」）。国や区の浸水想定（ハザードマップ）の公式データで、いる所が区域の中かを出す。",
+    "why": "遠い初台の名前を見て「道路の話かな」と迷ったから。家が区域の中と出れば、すぐ自分のことになる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "新宿区から高齢者等避難（レベル3）が出たら、区の公式の文をそのまま出す。対象に妊娠中の人や障害のある人が入ることも、公式の文のとおりに出す。",
+    "why": "レベル3が「いまのうちに動く人」に私が入ると分かれば、彼の帰りを待たずに準備を始められる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "前もって登録した家族や支援者（彼）に、同じ知らせを同じ時に届ける。位置は送らず、知らせの文だけにする。",
+    "why": "一人では外に出られないので、手を貸す人が同じ時に知れば、相談と出発が早くなる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "神田川の近くの水位観測所（国・都の公式の水位）の今の数字と、氾濫危険水位との差を出す。",
+    "why": "自分で気象庁のページを探さなくても、川がどれだけ危ないかが数字で分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "「公式のページ」に、新宿区の避難所・福祉避難所の一覧と、要配慮者向けの区のページへのリンクを足す。",
+    "why": "車いすで入れる所が分かれば、実家に行けないときの行き先も決めやすい。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "知らせのおかげで早めに動けたけど、出ていたのは遠い初台の名前だった。神田川の名前と「あなたはレベル3で動く人」が分かれば、もっと早く出られた。"
+ },
+ "notice": {
+  "scene": "神田川のすぐそば（新宿区下落合）の、まわりより低い土地にある古いアパートの1階の部屋にいる。夕ごはんのあと、車いすのままテレビを見ている。パートナーは仕事の帰りがまだ。",
+  "place_fit": "そのまま",
+  "safe_move": "妊娠中で車いすを使っていて避難に時間がかかるので、レベル3のいまのうちに、手を貸してくれる人と一緒に、神田川から離れた高い所（親せきや知り合いの家、区の避難所）へ移る。外に出るのが無理なら、同じ建物の上の階（上に住む人の部屋など）へ移る。",
+  "phone": "妊娠してから夜でも連絡がとれるようにマナーモードはふだん切っていて、音もふるえもオン。おやすみモードは寝るときだけで、携帯は車いすのひじかけ横のテーブルに置いている。",
+  "noticed": true,
+  "minutes": 1,
+  "how": "テーブルの上で通知の音とふるえがあって、すぐ画面を見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "「新宿区」「氾濫」と出て、すぐ近くの神田川のことだと思った。うちは1階で、おなかも大きいし車いすだから、自分が何をすればいいのかちゃんと知りたくて押して開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0476332,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3422,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 984,
+    "output_tokens_details": {
+     "thinking_tokens": 339
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3422,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 984,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3422,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3422
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 13.6
+  },
+  "away": {
+   "cost_usd": 0.170644,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11609,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3832,
+    "output_tokens_details": {
+     "thinking_tokens": 1576
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11609,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3832,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11609,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11609
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 43.4
+  }
+ },
+ "cost_usd": 0.2182772,
+ "took": 57.0,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P087",
+  "age": 22,
+  "lang": "日本語（母語）",
+  "body": "車いす",
+  "situation": "妊娠中",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:46:50",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

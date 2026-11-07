@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 4,
+    "how": "胸でふるえたのは分かった。店ののき下に入ってから出して見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 4,
+    "how": "「新宿区」「レベル3」と、ひらがなの「はんらん けいほう」は読めた。川があふれるかもしれない知らせだと分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 4,
+    "how": "雨も降っているし、警報なら本当だろうと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 5,
+    "how": "いま新宿にいて、すぐそばに神田川があるから、自分にも関わるとは思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "まだ道に水は出ていない。「急いで宿へ帰ればいい」と思い、いつもの川ぞいの低い道を早足で行くことにした。道を変えようとは思わなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "決めていないので、離れる動きはしていない。川ぞいの道をそのまま歩いた。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 4,
+    "action": "店ののき下で携帯を出し、通知の題を読んで、ひらかずにポケットへしまった"
+   },
+   {
+    "minutes": 5,
+    "action": "「急いで帰ろう」と、かさをさして神田川ぞいの低い道を早足で歩き出した"
+   },
+   {
+    "minutes": 12,
+    "action": "川をのぞくと水が多く流れが速いので、少しこわくなったが、道はぬれているだけなのでそのまま進んだ"
+   },
+   {
+    "minutes": 25,
+    "action": "線路下の低い所を通って宿に着いた"
+   },
+   {
+    "minutes": 40,
+    "action": "宿の部屋でテレビをつけ、ニュースで雨の様子を少し見た"
+   }
+  ],
+  "fit": {
+   "言葉": "ひらがなを先にする。「かんだがわ ぞいの ひくい みちの みずに けいかい して ください」のように、いまいる所の近くのものを名指しする",
+   "文字": "題に漢字をつかわない。「しんじゅくく れべる3 かわの はんらん けいほう」。大きめの字で",
+   "読み上げ": "とどいたとき、ひらがなの行を声で一度読む（イヤホンや電話の耳でも聞ける）",
+   "音・ふるえ": "いまのままでよい。川や低い所に近づいたら、もう一度ちがうふるえ方で知らせる",
+   "見た目・色": "赤い帯と、水の絵・数字の「3」を大きく。たたんだ形でも見える所に",
+   "長さ": "たたんだ形で 2 行まで。ひらかなくても大事な 1 文が見えるように",
+   "その他": "ぬれた手でさわらなくてよいよう、ひらかなくても全部が見える形にする"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "たたんだ通知の 2 行目に、いまいる所にいちばん近い公式の冠水想定の場所（例: 神田川ぞいの道・線路下）を名指しして、ひらがなの 1 文「〜の みずに けいかい して ください」で出す。",
+    "why": "この人はひらかずにしまったので、たたんだ形で「いま歩いている川ぞいの道」が名指しされれば、自分の道のことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "位置が公式の冠水想定の場所や川ぞいに近づいたら、PC が見て、もう一度知らせる（「かんだがわ ぞいの みち まで 100m」のように、公式の場所と距離だけ）。",
+    "why": "歩き出してから近づいたその時に知らせれば、道を変えるきっかけになる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "東京都が出している神田川の水位（いまの数字と、前より上がっているか）を、たたんだ形に数字で出す。",
+    "why": "「まだ水は出ていない」と思っている人には、川の水が上がっている公式の数字がいちばん効く。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "題と本文を漢字にしない形にする（ひらがなを先に、漢字の題はあとに）。届いたときに、ひらがなの行を声で一度読む。",
+    "why": "漢字が苦手で、かさで手がふさがっているので、読まなくても声で分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "「たかい おおどおりを とおる」「たくしーに のる」のような回り道の案を出す。",
+    "why": "どう動けばいいかが分かれば、急いで同じ道を行くより安全な方を選びやすい。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "「はんらん」は分かったが、自分の歩く川ぞいの道が危ないとは思えず、急いで同じ道を帰ってしまった。通知をひらかなくても「いま行く道のこと」と分かる形なら、道を変えられた。"
+ },
+ "notice": {
+  "scene": "法事の集まりで新宿に出てきていて、高田馬場の店で親せきと夕飯をすませたところ。雨の中、かさをさして神田川ぞいの低い道を歩き、宿のある方へ向かうところ。",
+  "place_fit": "合わせた",
+  "safe_move": "神田川ぞいの道や線路下のアンダーパスなど低い所は通らず、高い所の大通りへ回るか、タクシーで行く。危ないと感じたら、近くのじょうぶな建物の上の階に入る。",
+  "phone": "音もふるえも出る設定のまま（マナーモードは使わない）で、上着の胸ポケットに入れている。",
+  "noticed": true,
+  "minutes": 4,
+  "how": "胸でふるえたのは分かったが、雨とかさで手がふさがっていた。少し歩いて店ののき下に入ったときに出して見た。",
+  "look": "見たが、そのまま",
+  "why": "「新宿区」「レベル3」と、ひらがなの「はんらん けいほう」は読めた。川があふれるかもしれないのは分かったが、まだ道に水は出ていないので、急いで帰ればいいと思った。むずかしい漢字が多そうだし、ぬれた手でさわるのもいやで、ひらかずにしまった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.050209199999999996,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3434,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1108,
+    "output_tokens_details": {
+     "thinking_tokens": 503
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3434,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1108,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3434,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3434
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.9
+  },
+  "away": {
+   "cost_usd": 0.15345999999999999,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11366,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3070,
+    "output_tokens_details": {
+     "thinking_tokens": 1050
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11366,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3070,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11366,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11366
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 35.4
+  }
+ },
+ "cost_usd": 0.2036692,
+ "took": 51.3,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P023",
+  "age": 68,
+  "lang": "日本語（母語）",
+  "body": "なし",
+  "situation": "山あいに住んでいる",
+  "reading": "漢字が苦手（ひらがなは読める）"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:32:02",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

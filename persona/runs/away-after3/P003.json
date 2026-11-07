@@ -1,0 +1,239 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 30,
+    "how": "動画の音で通知の音は聞こえなかった。お茶をいれに台所へ行ったとき、棚の携帯の画面を見て気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "赤いしるし、「3」、英語の「Flood」だけ分かった。漢字が読めないので、どこのことか、どのくらい危ないかは分からない。押せばもっと出ることも知らない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "何の知らせか分からないので、ここまで来ていない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "外は雨だけで道に水は無い。うちのことだとは思わなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "離れようとは考えなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "1階の居間にいたまま。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 30,
+    "action": "台所で携帯の画面を見た。赤いしるしと「3」と「Flood」だけ分かった"
+   },
+   {
+    "minutes": 31,
+    "action": "押し方が分からず、携帯を棚に戻してお茶をいれた"
+   },
+   {
+    "minutes": 35,
+    "action": "居間に戻って、ミャンマーの歌の動画の続きを見た。娘には言わなかった"
+   },
+   {
+    "minutes": 60,
+    "action": "1階の部屋で寝る用意を始めた"
+   }
+  ],
+  "fit": {
+   "言葉": "ミャンマー語。決まった文だけ（気象庁の多言語辞書のミャンマー語など）。英語は「Flood」くらいの短い単語しか分からない。",
+   "文字": "ミャンマー文字を大きく。漢字は読めない。数字の「3」と赤い色は分かる。",
+   "読み上げ": "ミャンマー語で前に録っておいた決まった声を、届いたときに自動で鳴らす（いまの文にミャンマー語は無いので、きまり 3 の決まった訳を足す必要がある）。",
+   "音・ふるえ": "動画の音に負けない強い音と長いふるえ。開くまで数分ごとに鳴り直す。",
+   "見た目・色": "画面いっぱいに出す。赤い色、大きな「3」、川の水があふれる絵。",
+   "長さ": "一目で分かる 1 行。「この近くの川」「レベル3」だけ。",
+   "その他": "本人より、同じ家にいる娘の携帯に届くほうが確か（きまり 4 とぶつかる）。"
+  },
+  "ideas": [
+   {
+    "stage": "全体",
+    "idea": "本人が選んだ家族（娘）の携帯にも、同じ知らせを同時に届ける。",
+    "why": "本人は読めないし押し方も分からない。同じ家にいる娘なら日本語が読めて、連れて上の階や親せきの家へ移れる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "レベル3以上は画面いっぱいの通知にして、開くまで数分ごとに強い音とふるえを繰り返す。",
+    "why": "携帯は台所にあり、動画の音で一度の音は聞こえず、30分気づかなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書にあるミャンマー語の決まった訳で、警報の名前と案内の1文を出し、同じ文を録った声でも鳴らす。",
+    "why": "母語なら、川があふれる警報で、この近くのことだとすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "公式の神田川の水位（氾濫危険水位までの近さ）と「神田川」の名前を、数字と絵で出す。",
+    "why": "外の道に水が無くても、すぐそばの川が上がっていると数字で分かり、自分のことと思える。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "漢字が読めなくても分かる大きな絵（川があふれる絵、赤い「3」）を、たたんだ通知にも出す。",
+    "why": "ADHDで気がうつりやすいので、一目で分からないと棚に戻してしまう。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "この人は、日本語の知らせの中身が分からず、川のそばの1階に残ったままでした。赤いしるしと「3」と「Flood」は目に入りましたが、どこが危ないのかが分からず、お茶のことに気がうつって携帯を棚に戻しました。いちばん効くのは、ミャンマー語と強い音で知らせること、そして娘に知らせが届くことです。"
+ },
+ "notice": {
+  "scene": "高田馬場の近く、神田川沿いの低い土地にある古いアパートの1階。娘の家族と暮らしていて、夕ごはんのあと居間でミャンマーの歌の動画を見ている。",
+  "place_fit": "そのまま",
+  "safe_move": "お年寄りで川の近くの低い土地の1階にいるので、レベル3の今、家族に助けてもらって早めに離れる。高い土地の避難所や親せきの家へ移るか、それが難しければ、建物の2階より上の安全な所へ移る。",
+  "phone": "古いAndroidで、音とふるえはオンのまま（マナーモードもおやすみモードも使い方を知らない）。台所の棚で充電していて、居間からは少し離れている。",
+  "noticed": true,
+  "minutes": 30,
+  "how": "動画の音で通知の音は聞こえなかった。お茶をいれに台所へ行ったとき、ついでに携帯の画面を見て気づいた。",
+  "look": "見たが、そのまま",
+  "why": "日本語は読めない。赤いしるしと「3」と、昔習った英語で「Flood」だけ分かった。でも外は雨だけで水は出ていないし、小さい画面の押し方もよく分からない。お茶のことに気がうつって、そのまま棚に戻した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.027701,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 551,
+    "cache_read_input_tokens": 5725,
+    "output_tokens": 1107,
+    "output_tokens_details": {
+     "thinking_tokens": 497
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 551,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1107,
+      "cache_read_input_tokens": 5725,
+      "cache_creation_input_tokens": 551,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 551
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.5
+  },
+  "away": {
+   "cost_usd": 0.149624,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11364,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2879,
+    "output_tokens_details": {
+     "thinking_tokens": 976
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11364,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2879,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11364,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11364
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 32.0
+  }
+ },
+ "cost_usd": 0.177325,
+ "took": 47.5,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P003",
+  "age": 83,
+  "lang": "ミャンマー語",
+  "body": "ADHD",
+  "situation": "古い携帯を使っている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:27:17",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

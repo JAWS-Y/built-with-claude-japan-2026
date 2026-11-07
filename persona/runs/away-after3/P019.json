@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 20,
+    "how": "運転中はかばんの中で、ふるえに気づかなかった。家の近くの駐車場に止めて携帯を出し、画面で気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 21,
+    "how": "「レベル3 氾濫警報」「川の みずが あふれる」と読んで、川があふれそうだという知らせだと分かった。ただ「初台アンダー」は中井から遠いので、少しまよった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 22,
+    "how": "「気象庁 20:45 発表」とあり、雨も強いので本当だと思った。リンクの川の洪水予報も開いて、神田川の名前を見た。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 23,
+    "how": "初台は遠いけれど、家は妙正寺川のそばの低い所にある。音が聞こえないので、防災無線も近所の声もわからない。自分のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 35,
+    "how": "家に戻り、テレビの字幕で警報が出ていることを確かめた。サークル仲間からも LINE が来た。今夜は 2 階で過ごすと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 40,
+    "how": "大事な物と携帯・充電器を持って 2 階へ上がった。ほかの所へ避難はせず、低い土地の家にいる。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "一部した",
+  "minutes": 40,
+  "did": [
+   {
+    "minutes": 20,
+    "action": "駐車場で携帯を出し、通知に気づいた"
+   },
+   {
+    "minutes": 21,
+    "action": "押してアプリを開き、下まで読んだ"
+   },
+   {
+    "minutes": 22,
+    "action": "「川の洪水予報」のリンクを開いて、神田川の情報を見た"
+   },
+   {
+    "minutes": 25,
+    "action": "雨の中を歩いて家に戻った（車は駐車場に置いたまま）"
+   },
+   {
+    "minutes": 28,
+    "action": "テレビをつけて字幕を見た。サークル仲間と LINE で知らせ合った"
+   },
+   {
+    "minutes": 35,
+    "action": "今夜は 2 階で過ごすと決めた"
+   },
+   {
+    "minutes": 40,
+    "action": "大事な物・携帯・充電器・懐中電灯を持って 2 階へ移った"
+   },
+   {
+    "minutes": 50,
+    "action": "2 階からときどき携帯とテレビの字幕を見ている"
+   }
+  ],
+  "fit": {
+   "言葉": "やさしい日本語。いる所や家に近い川の名前（妙正寺川・神田川）を出す。",
+   "文字": "大きく太い字で、いちばん上に「どの川」「どこ」をはっきり書く。ふつうの漢字で読める。",
+   "読み上げ": "使わない（ろう）。",
+   "音・ふるえ": "音は役に立たない。長く強いふるえを、見るまでくり返す。カメラのライトを点滅させる。スマートウォッチもふるわせる。",
+   "見た目・色": "赤い枠に警報のレベルの数字を大きく出す。川と冠水の所を地図でしめす。",
+   "長さ": "いちばん上は 1〜2 行。くわしいことはその下に置く。",
+   "その他": "運転中は車の画面（Android Auto）に出す。手話の動画があると、すぐ分かる（アプリで作った手話は きまり 3 とぶつかる。区などの公式の手話動画へのリンクならぶつからない）。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "警報のときは、ふるえを強く長く、見るまでくり返す。カメラのライトの点滅とスマートウォッチにも出す。運転中は Android Auto で車の画面に文字を出す。",
+    "why": "音が聞こえず、かばんの中のふるえにも気づかないまま 20 分、川ぞいの道を走っていたから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の 1 文と道路の行で、いまいる所に近い順に物を名指しする（例: 妙正寺川・神田川の公式の水位、新目白通りぞいの冠水の所）。遠い初台を先に出さない。",
+    "why": "中井にいるのに初台が出ていて、自分の近くの川の話か、すぐには分からなかったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "家の住所を PC 側に登録しておく。いま家の外にいても、家のまわりの川の警報・水位（公式）を知らせる。",
+    "why": "気になるのは低い土地にある家で、帰る前に知れば寄り道や帰り方を決められるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "区や国の公式の手話動画・字幕の情報へのリンクを、知らせのいちばん上に置く。アプリで手話を作るなら、きまりとぶつかる。",
+    "why": "手話が第一の言葉なので、文字より早く確かに伝わるから。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "知らせを受けとりにくい人には、「早めに高い所や上の階へ」と、どう動くかを書く。",
+    "why": "2 階へ上がったのが 40 分後で、低い土地の家に戻ってしまったから。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "音が聞こえない私には、サークルの文字の知らせがいちばんのたよりだった。でも運転中は 20 分気づかず、川ぞいを走っていた。知らせに出たのも遠い初台で、近くの妙正寺川ではなかった。それでも家に戻ってから、2 階へ上がることはできた。"
+ },
+ "notice": {
+  "scene": "雨の夜、手話サークルの帰りに一人で車を運転し、神田川ぞいの新目白通りを高田馬場から下落合のほうへ走っている。家は妙正寺川に近い中井の低い土地にある。",
+  "place_fit": "そのまま",
+  "safe_move": "川ぞいの道やアンダーパス、まわりより低い道には車で入らず、高い所の道を通って、早めに安全な所へ移る。障害があって知らせを受けとりにくい人は、時間がかかる人として、低い土地の家に戻るより早めに離れる（高い所や、建物の上の階へ移る）のがよい。",
+  "phone": "音は聞こえないので気にせず、ふるえはオン、おやすみモードはオフ。運転中は助手席のかばんに入れている。",
+  "noticed": true,
+  "minutes": 20,
+  "how": "運転中はかばんの中のふるえに気づかなかった。家の近くの駐車場に車を止めて携帯を出し、画面を見たときに気づいた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "耳では防災無線もテレビの音も入らないので、文字の知らせがたよりになる。「レベル3 氾濫警報」で、家が川の近くだから気になって、くわしく知りたくて押して開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0501132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3437,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1102,
+    "output_tokens_details": {
+     "thinking_tokens": 485
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3437,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1102,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3437,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3437
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.2
+  },
+  "away": {
+   "cost_usd": 0.173732,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11590,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3994,
+    "output_tokens_details": {
+     "thinking_tokens": 1767
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11590,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3994,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11590,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11590
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 44.9
+  }
+ },
+ "cost_usd": 0.2238452,
+ "took": 60.1,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P019",
+  "age": 60,
+  "lang": "日本語（母語）",
+  "body": "ろう（手話が第一の言葉）",
+  "situation": "車を運転している",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:31:18",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

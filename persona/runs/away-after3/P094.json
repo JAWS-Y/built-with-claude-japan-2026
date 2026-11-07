@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 40,
+    "how": "雨の音と耳の遠さで、届いたときは分からなかった。家に戻って袋から携帯を出したとき、画面で見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 40,
+    "how": "「はんらん けいほう」と「新宿区」は読めて、川があふれる知らせらしいとは分かった。どの道のことかまでは分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 40,
+    "how": "雨も降っているし、本当なのだろうと思った。疑いはしなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "もう家に着いて、おむつも買えた。済んだことと思い、母を連れて動くことや、また外へ出るときのことまでは考えなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "前で止まった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "前で止まった。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "傘をさして家を出た。携帯は手さげ袋の底で、知らせに気づかない"
+   },
+   {
+    "minutes": 7,
+    "action": "神田川の橋と線路下の低い道を通った（まだ水は出ていない）"
+   },
+   {
+    "minutes": 15,
+    "action": "コンビニでおむつを買った"
+   },
+   {
+    "minutes": 25,
+    "action": "来た道を戻り、また線路下と橋を通った"
+   },
+   {
+    "minutes": 38,
+    "action": "家に着いた"
+   },
+   {
+    "minutes": 40,
+    "action": "袋から携帯を出し、「はんらん けいほう」を見たが、押さずにそのままにした"
+   },
+   {
+    "minutes": 42,
+    "action": "母のおむつを替え、世話を続けた"
+   },
+   {
+    "minutes": 60,
+    "action": "一階で母のそばにいる。上の階へは移っていない"
+   }
+  ],
+  "fit": {
+   "言葉": "「かわが あふれそう」「せんろしたの みち」のような、ふだんの言葉。",
+   "文字": "大きな字で、短いひらがな交じり。押すところは一つだけ。",
+   "読み上げ": "届いたらすぐ、ひらがなの行を大きな声で自動で読み上げる。",
+   "音・ふるえ": "鳴りやまない大きめの音と、強く長いふるえ。開くまでくり返す。",
+   "見た目・色": "画面いっぱいの赤。地図より、ふだん通る橋と線路下の名前を出す。",
+   "長さ": "題と案内の 1 文だけ。",
+   "その他": "離れて住む家族や、ケアマネジャーにも同じ知らせが届くとよい。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "重い警報は、開くまで数分おきに大きな音とふるえで鳴らし直す。届いたときにひらがなの行を自動で読み上げる。",
+    "why": "耳が遠く、携帯を袋の底に入れていても、出かける前か、橋の手前で気づける。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "全体",
+    "idea": "家族やケアマネジャーが前もって登録しておくと、同じ地区の知らせがその人の携帯にも届く（位置は送らず、登録した家の住所の区の知らせだけ）。",
+    "why": "本人が見落としたり、押さずにそのままにしても、家族が電話して「いま出ないで」「お母さんを上へ」と言える。",
+    "clash": [
+     "その他のきまり"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の 1 文で、この人が実際に通る所を名指しする（例: 神田川沿いと線路下の道の冠水に警戒してください）。今の画面の「初台アンダー」は、この人の道ではない。",
+    "why": "いつも通る道の名前が出れば、自分の道のことだとすぐ思える。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "寝たきりの家族がいる人には、新宿区の避難行動要支援者の窓口と、区の電話番号（公式のもの）を、押せばかけられる形で出す。",
+    "why": "母を一人で動かせないので、早めに助けを頼むことが、この人にとっていちばん確かな手だから。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の 2 行目に、ひらがなの案内の 1 文（ちかくの みちが みずに つかる ことに けいかい して ください）を出す。",
+    "why": "押し方が分からなくても、開かずに中身が読める。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "知らせは鳴っていたが、袋の底で聞こえなかった。橋と線路下を二度通り、帰ってから見たときには「もう済んだこと」と思って、母を上の階へ移すことまでは考えなかった。"
+ },
+ "notice": {
+  "scene": "家で寝たきりの母のおむつが切れそうなので、傘をさして下落合の家からコンビニへ歩いて出たところ。神田川の橋と線路下の低い道を通る、いつもの道を行くつもり。",
+  "place_fit": "そのまま",
+  "safe_move": "この人は高齢で、避難に時間のかかる母を支える人でもあるので、川べりや線路下の低い道へは行かずに家へ戻るのがよい。母と一緒に家の上の階など安全な所へ移るか、早めに家族や区に助けを頼んで、危ない所から離れる。",
+  "phone": "音とふるえは買ったときのまま入っているが、音量は小さめで、携帯は手さげ袋の底に入れている（マナーモードやおやすみモードの使い方は知らない）。",
+  "noticed": true,
+  "minutes": 40,
+  "how": "雨の音と耳の遠さで、届いたときは気づかなかった。家に戻って袋から出したとき、画面を見て気づいた。",
+  "look": "見たが、そのまま",
+  "why": "「はんらん けいほう」は読めたが、もう家に帰っていたし、母の世話のほうが先だった。どこを押せばいいのかも分からず、そのままにした。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0524092,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3429,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1220,
+    "output_tokens_details": {
+     "thinking_tokens": 630
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3429,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1220,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3429,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3429
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.3
+  },
+  "away": {
+   "cost_usd": 0.151152,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11345,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2963,
+    "output_tokens_details": {
+     "thinking_tokens": 1040
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11345,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2963,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11345,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11345
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 34.7
+  }
+ },
+ "cost_usd": 0.2035612,
+ "took": 51.0,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P094",
+  "age": 91,
+  "lang": "日本語（母語）",
+  "body": "認知症のはじめ",
+  "situation": "親の介護をしている",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:48:17",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

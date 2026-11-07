@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 4,
+    "how": "母にLINEしようと携帯を出して、通知が目に入った。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 4,
+    "how": "題で「新宿区で川があふれる警報、レベル3」とは分かった。どの道が危ないのかは分からなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 4,
+    "how": "雨が降っているし、本当の警報だろうとは思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "「レベル3ならまだ大丈夫」「新宿区は広いし」と思った。いつもの神田川沿いの道やくぐり道のことは思い出さなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思わなかったので、道を変えるとは決めなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもの道で帰った。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 4,
+    "action": "通知の題だけ見て、ひらかずに横にはらって消した"
+   },
+   {
+    "minutes": 5,
+    "action": "母に「終わった、いまから帰る」とLINE。友だちのLINEにも返した"
+   },
+   {
+    "minutes": 12,
+    "action": "友だちと話しながら塾を出た。傘をさして歩きはじめた"
+   },
+   {
+    "minutes": 20,
+    "action": "神田川沿いの道を歩いた。川の水が多いなと思ったが、そのまま歩いた"
+   },
+   {
+    "minutes": 27,
+    "action": "線路下の低いくぐり道を通った。まだ水はたまっていなかった"
+   },
+   {
+    "minutes": 40,
+    "action": "家（下落合）に着いた。警報のことは母に言わなかった"
+   }
+  ],
+  "fit": {
+   "言葉": "ふつうの日本語でよい。「レベル3」だけでは軽く見るので、いつも通る場所の名前（神田川沿い・くぐり道など）が要る。",
+   "文字": "たたんだ通知の2行目に、案内の1文（〜の冠水に警戒してください）を出す。題の「はんらん けいほう / Flood」はこの人には要らない。",
+   "読み上げ": "使わない。",
+   "音・ふるえ": "塾ではマナーモードなので、音では気づかない。塾を出るころ（携帯を出すころ）にもう一度出すほうが届く。",
+   "見た目・色": "赤い印だけではふだんの通知と変わらない。レベルの色（気象庁の色）を大きく出すと目に入る。",
+   "長さ": "題と1文だけ。ひらかなくても分かる長さにする。",
+   "その他": "ひらかずに消す人なので、たたんだ形だけで用が足りるようにする。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "携帯の位置が神田川沿いや線路下のくぐり道など、冠水が想定される所に近づいたら、PCがもう一度知らせ、その場所の名前を入れた「〇〇の冠水に警戒してください」の1文を出す。",
+    "why": "一回目の知らせは消していたが、歩き出してからいつもの道の名前が出れば、自分の帰り道のことだと気づける。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の2行目に、ひらがなの行ではなく案内の1文（いちばん近い所の名前を入れたもの）を出す。",
+    "why": "ひらかずに消す人でも、どの道が危ないかが題を見るだけで分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "「レベル3」の横に、気象庁が出している5段階の表で、レベル3がどこに当たるかとその公式の文をそのまま出す。",
+    "why": "「レベル3ならまだ大丈夫」という思いこみを、公式の物差しで直せる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報が続いているあいだは、通知を消しても一定の時間ごとにもう一度出す（または消せない通知にする）。マナーモードを解いたときにも出す。",
+    "why": "塾ではマナーモードで、授業のあと急いで消してしまうので、帰り道でもう一度目に入るようにする。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "家族（母）も同じ区の知らせを受けられるようにし、子どもがいる区の警報を母にも届ける。",
+    "why": "14歳は自分では道を変えにくいが、母から「大きい道で帰って」「迎えに行く」と言われれば動ける。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "「レベル3ならまだ大丈夫」と思い、ひらかずに消して、いつもの川沿いの道とくぐり道を通って帰った。いつも通る道の名前が出ていれば、自分のことと思えたかもしれない。"
+ },
+ "notice": {
+  "scene": "高田馬場の塾で授業が終わったところ。このあと神田川沿いの道と、線路下の低いくぐり道を通って、歩いて家（下落合）へ帰るつもり。",
+  "place_fit": "そのまま",
+  "safe_move": "神田川沿いの道や線路下のくぐり道など、川べり・低い道を通らず、高い所の大きな道を回って帰る。危ないと感じたら塾にとどまり、家族に迎えを頼むか相談する。",
+  "phone": "塾では決まりでマナーモード（音なし・ふるえなし）にして、リュックの前ポケットに入れている。",
+  "noticed": true,
+  "minutes": 4,
+  "how": "授業のあと、母に「終わった」とLINEしようと携帯を出し、画面を見たときに気づいた。",
+  "look": "見たが、そのまま",
+  "why": "題を見て「雨だしな、レベル3ならまだ大丈夫でしょ」と思った。友だちと母への返事を先にしたくて、ひらかずに消した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.026416400000000007,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 550,
+    "cache_read_input_tokens": 5742,
+    "output_tokens": 1043,
+    "output_tokens_details": {
+     "thinking_tokens": 524
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 550,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1043,
+      "cache_read_input_tokens": 5742,
+      "cache_creation_input_tokens": 550,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 550
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.3
+  },
+  "away": {
+   "cost_usd": 0.154472,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11295,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3149,
+    "output_tokens_details": {
+     "thinking_tokens": 1171
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11295,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3149,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11295,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11295
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 35.9
+  }
+ },
+ "cost_usd": 0.1808884,
+ "took": 50.2,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P051",
+  "age": 14,
+  "lang": "日本語（母語）",
+  "body": "なし",
+  "situation": "学校の帰り",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:38:54",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

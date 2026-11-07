@@ -1,0 +1,248 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 2,
+    "how": "むねのポシェットがブルッとした。お母さんからかと思って見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 4,
+    "how": "「かわの みずが あふれる」「みちが みずに つかる」は読めた。お母さんが「川があふれるかもって警報だね」と読んでくれた。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 4,
+    "how": "お母さんが「気象庁って書いてあるから本当だね」と言った。外も雨だったから、ほんとうだと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "お母さんは「初台のアンダーだって。ここから1kmくらいあるし、道路の話だよ。電車で帰るから大丈夫」と言った。地下のことはどこにも書いてないので、わたしもそうかと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分たちのことだと思わなかったので、地上に出ようとは決めなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "そのまま地下街を歩いて、地下鉄のホームへ下りた。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 2,
+    "action": "ポシェットのふるえに気づいて携帯を出し、通知の大きいところを押してアプリを開いた"
+   },
+   {
+    "minutes": 3,
+    "action": "お母さんに「これなに？」と画面を見せた"
+   },
+   {
+    "minutes": 4,
+    "action": "お母さんが読んで「初台のアンダーだって、遠いから大丈夫」と言った"
+   },
+   {
+    "minutes": 5,
+    "action": "携帯をポシェットにしまって、地下街を歩きつづけた"
+   },
+   {
+    "minutes": 8,
+    "action": "地下鉄のホームへ下りた"
+   },
+   {
+    "minutes": 12,
+    "action": "電車に乗って家のほうへ帰った"
+   }
+  ],
+  "fit": {
+   "言葉": "小学生でも分かるやさしい言葉。「ちか」「ちかがい」と、いまいる所の名前をはっきり書く",
+   "文字": "漢字にはふりがなをつける。ひらがなの行をいちばん上に出す",
+   "読み上げ": "地下街はうるさいので、読み上げより目で見る出し方が主。読み上げるなら、ひらがなの行を先に",
+   "音・ふるえ": "ふつうの通知とちがう、長く強いふるえをくり返す（ポシェットの中でも分かる）",
+   "見た目・色": "赤い色と大きなレベルの数字。地下にいるときは地下の絵（階段）を出す",
+   "長さ": "一番上は1行で、いまいる所に関わる事だけ。km の行はあとに",
+   "その他": "手がふるえるので、押す所は大きく。ちいさい矢印に大事な働きを置かない。「おとなに みせてね」の1行があると届く（きまり 2 とぶつかる）"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が位置を読んで地下街や地下駅の近くと分かったら、案内の1文で、浸水想定区域や水防法の地下街の名簿にある「新宿駅周辺の地下街への浸水」を名指しする（例: 「新宿駅周辺の地下街への浸水に警戒してください」）。",
+    "why": "お母さんは「初台は遠い、道路の話」と思って止まった。いまいる地下が名指しされていたら、自分たちのことだと思えた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "一番近い所の km だけを出さず、公式の浸水想定でいまいる所がどうなっているかを先に出す（例: 「いまの いちは 浸水想定区域の中」）。",
+    "why": "0.84km という数字で「遠い」と思わせてしまうのを防げる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "雨のときは、氾濫警報といっしょに、気象庁の大雨警報（浸水害）や記録的短時間大雨情報が出ていればならべて出す。",
+    "why": "地下に水が入るのは大雨の浸水害なので、川の話だけよりも地下にいる人に関わる知らせになる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "漢字の行にふりがなをつけ、ひらがなの行をいちばん上にする。押す所を大きくし、ちいさい矢印に大事な働きを置かない。",
+    "why": "9 さいで手がふるえる子が、自分で読めて自分で開ける。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "子どもの携帯なら、「おとなに みせてね」と出し、保護者の携帯にも同じ知らせを送る。",
+    "why": "決めて動くのは大人なので、大人にとどくのがいちばん早い。",
+    "clash": [
+     "2 どう動くかを指図する",
+     "その他のきまり"
+    ]
+   }
+  ],
+  "overall": "ふるえで気づいて、お母さんにも見せられたよ。でも書いてあったのは遠くの初台のアンダーの話で、地下街のことはどこにもなかった。だからお母さんは「わたしたちは大丈夫」と思って、そのまま地下鉄へ行っちゃった。"
+ },
+ "notice": {
+  "scene": "土曜の夜、お母さんと新宿で夕ごはんを食べた帰り。新宿駅の地下街（サブナード）を歩いて、地下鉄のホームのほうへ向かっている。",
+  "place_fit": "そのまま",
+  "safe_move": "大雨のときの地下は水が流れこみやすいので、早めに地上へ出て、近くのじょうぶな建物の上の階など高い所へ移る。地下街・地下への階段・アンダーパスには近づかず、大人と一緒に動く。",
+  "phone": "親が持たせたキッズ向けのAndroidで、電話に気づけるように音もふるえも入れたまま（マナーモード・おやすみモードはなし）、首から下げたポシェットに入れている。",
+  "noticed": true,
+  "minutes": 2,
+  "how": "地下街がうるさくて音は聞こえなかったけど、胸のポシェットがブルッとしたので、お母さんからかと思って出して見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "「新宿区」と「レベル3」は読めたけど、むずかしい漢字は読めない。赤いマークと「けいほう」で何かあぶないのかなと思った。手がふるえて右の小さい矢印はうまく押せないので、知らせの大きいところを押したらアプリが開いて、お母さんに「これなに？」と見せた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0587172,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3440,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1531,
+    "output_tokens_details": {
+     "thinking_tokens": 891
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3440,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1531,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3440,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3440
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 19.6
+  },
+  "away": {
+   "cost_usd": 0.16020800000000002,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11617,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3307,
+    "output_tokens_details": {
+     "thinking_tokens": 1211
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11617,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3307,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11617,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11617
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 38.8
+  }
+ },
+ "cost_usd": 0.21892520000000001,
+ "took": 58.4,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P043",
+  "age": 9,
+  "lang": "日本語（母語）",
+  "body": "手のふるえ",
+  "situation": "都心の駅の近くにいる",
+  "reading": "小学校で習った漢字まで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:36:55",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

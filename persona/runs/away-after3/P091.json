@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 30,
+    "how": "家に着いて携帯を出したら、上に赤い印が出ていた。歩いている間は雨と傘の音で何も分からなかった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 33,
+    "how": "老眼鏡をかけて顔に近づけ、「新宿区」「レベル3」「警報」は読めた。「氾濫」の字はつぶれてよく見えないが、ひらがなの「はんらん」で川があふれるかもということは分かった。どの道かまでは分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 40,
+    "how": "テレビをつけたら、画面のはしに東京の大雨の知らせが出ていた。本当なんだと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "川ぞいの道はもう通りすぎて家にいる。「帰り道のことならもう済んだ。家にいれば大丈夫」と思い、今の自分には関係ないと考えた。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "もう帰り道は終わっていたので、道を変えるかどうか決めることは無かった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "知らせに気づいたときには、低い道はもう歩いたあとだった。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "傘をさして神田川・妙正寺川ぞいの低い道を歩いていた。かばんの奥の携帯には気づかなかった"
+   },
+   {
+    "minutes": 30,
+    "action": "家に着いて携帯を出し、上に赤い印があるのを見た"
+   },
+   {
+    "minutes": 33,
+    "action": "老眼鏡をかけて通知を引き下ろし、顔に近づけて「レベル3」「警報」だけ読んだ"
+   },
+   {
+    "minutes": 35,
+    "action": "どこを押せばいいか分からず、変なところを押すのがこわくてそのままにした"
+   },
+   {
+    "minutes": 40,
+    "action": "テレビをつけて大雨の知らせを見た。家にいるから大丈夫と思い、夕飯のしたくをした"
+   }
+  ],
+  "fit": {
+   "言葉": "「氾濫」より「川があふれる」。道の名前（神田川ぞいの道・下落合の低い道）を、ふだん使う呼び方で",
+   "文字": "題はとても大きく太く、短く。「警報」「川」「レベル3」が一目で分かること",
+   "読み上げ": "通知を押さなくても、日本語の決まった文を携帯がゆっくり声で読む（TalkBackは使っていないので、アプリが読む）",
+   "音・ふるえ": "かばんの奥でも分かるように、大きな警報の音と長いふるえを、見るまで何回もくり返す",
+   "見た目・色": "赤い色を画面いっぱいに。押す所は一つだけ、大きなボタンで",
+   "長さ": "ひらいた形でも 2〜3 行。たたんだ形に、どの道かを入れる",
+   "その他": "「押しても大丈夫」と分かる一つの大きなボタン。押しまちがえても何も消えないこと"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "警報（レベル3以上）は、目覚ましのような大きな音と長いふるえを、見るまで数分おきにくり返し、画面いっぱいに出す。",
+    "why": "雨と傘の音の中、かばんの奥でも、帰り道の早いうちに気づけるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の 2 行目に、決まった案内の 1 文（例「神田川ぞいの道の冠水に警戒してください」）を、とても大きな字で入れる。",
+    "why": "ひらき方が分からなくても、どの道があぶないかが最初の画面で読めるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "届いたら、携帯がひらがなの決まった文を声でゆっくり読む（押さなくても、または大きなボタン一つで）。",
+    "why": "弱視で小さい字が読めず、押すのがこわくても、耳で分かるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が読んだ位置から、いまの帰り道に近い冠水想定の場所（下落合・神田川ぞいなど）を名指しして、1 文に入れる。",
+    "why": "「新宿区」では広すぎるが、自分が歩く道の名前が出れば自分のことだと思えるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "知らせを見ていなければ、決めておいた家族の携帯にも同じ知らせを送り、電話してもらえるようにする。",
+    "why": "スマホに慣れていないので、家族の電話のほうが気づきやすく、確かに伝わるから。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "知らせは歩いている間に届いていたのに、気づいたのは低い道を通りすぎて家に着いてから。見えたのは「レベル3」「警報」だけで、どの道か、どこを押せばいいかも分からなかった。"
+ },
+ "notice": {
+  "scene": "高田馬場駅で用事をすませ、傘をさして歩いて家へ帰るところ。下落合の神田川・妙正寺川ぞいの、まわりより低い道を通る。",
+  "place_fit": "そのまま",
+  "safe_move": "川ぞいの低い道やアンダーパスは通らず、高い所を通る遠回りの道を選ぶ。危ないと感じたら行くのをやめ、近くのじょうぶな建物の上の階などで待つ。",
+  "phone": "買ったときのまま音とふるえはオンで、マナーモードやおやすみモードの使い方は知らない。携帯は肩かけかばんの奥に入れている。",
+  "noticed": true,
+  "minutes": 30,
+  "how": "歩いているときは雨と傘の音で、かばんの中の音もふるえも分からなかった。家に着いて携帯を出したとき、上に赤い印が出ていて気づいた。",
+  "look": "見たが、そのまま",
+  "why": "老眼鏡をかけて顔に近づけ、「レベル3」「警報」だけはなんとか読めた。でももう川ぞいの道は通りすぎて家にいたし、どこを押せば続きが出るのか分からない。変なところを押すのがこわくて、そのままにした。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0474452,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3431,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 971,
+    "output_tokens_details": {
+     "thinking_tokens": 375
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3431,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 971,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3431,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3431
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 12.7
+  },
+  "away": {
+   "cost_usd": 0.1528,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11361,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3039,
+    "output_tokens_details": {
+     "thinking_tokens": 977
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11361,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3039,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11361,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11361
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 36.1
+  }
+ },
+ "cost_usd": 0.20024519999999998,
+ "took": 48.8,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P091",
+  "age": 60,
+  "lang": "日本語（母語）",
+  "body": "弱視（文字を大きくしている）",
+  "situation": "スマホに慣れていない",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:47:39",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

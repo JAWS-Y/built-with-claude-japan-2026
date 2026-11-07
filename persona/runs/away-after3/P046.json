@@ -1,0 +1,256 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 20,
+    "how": "子が寝てから居間に戻り、画面を見て気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 23,
+    "how": "漢字は飛ばして、ひらがなの行をゆっくり読んだ。「かわの みずが あふれる」「みちが みずに つかる」で、川と道の水の話だと分かった。「初台アンダー」は読めず、どこのことか分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 28,
+    "how": "窓から外を見ると雨が強く、川の音がいつもより大きい。テレビのdボタンでも新宿区に警報が出ていたので、本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 28,
+    "how": "うちは川のすぐ前で1階だし、寝ている子もいる。うちの話だと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "「みちが みずに つかる」と読んで、夜に子を抱いて外の道に出るほうがこわいと思った。まだ道に水は出ていないし、2階も無いので、家で様子を見ることにした。離れるとは決めなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "決めていないので、家を出ていない。荷物をまとめて待っただけ。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 20,
+    "action": "居間で画面を見て、知らせを開いた"
+   },
+   {
+    "minutes": 23,
+    "action": "ひらがなの行だけ、指でなぞってゆっくり読んだ"
+   },
+   {
+    "minutes": 25,
+    "action": "窓から川と道を見た。道に水はまだ無いが、川の音が大きかった"
+   },
+   {
+    "minutes": 28,
+    "action": "テレビのdボタンで新宿区の警報を確かめた"
+   },
+   {
+    "minutes": 32,
+    "action": "夜勤の夫にLINEで電話した。「様子見て、やばかったら連絡して」と言われた"
+   },
+   {
+    "minutes": 40,
+    "action": "おむつ・着がえ・水・充電器をリュックにまとめ、玄関に置いた"
+   },
+   {
+    "minutes": 50,
+    "action": "子の上着と靴を枕もとに出した"
+   },
+   {
+    "minutes": 60,
+    "action": "服のまま子のそばで横になり、ときどき携帯と窓の外を見ていた"
+   }
+  ],
+  "fit": {
+   "言葉": "いちばん上に、近くの川の名前をひらがなで出す（「みょうしょうじがわ」）。むずかしい言葉は使わない。",
+   "文字": "ひらがなの行をいちばん上に、大きく出す。漢字の行は下へ。行間を広くし、一行は短く。",
+   "読み上げ": "「よみあげ」ボタンを一つ大きく置き、押すとひらがなの文を声で読む。ディスレクシアの人は、聞くほうがずっと早く分かる。",
+   "音・ふるえ": "開くまで数分ごとに鳴りなおす。寝かしつけ中でも「いつもとちがう」と分かる長めの音。",
+   "見た目・色": "赤とレベルの数字を大きく。川と家の位置の小さな地図があると、読まなくても分かる。",
+   "長さ": "最初に見る所は、ひらがな2行まで。くわしいことは下に。",
+   "その他": "「初台アンダー」のように遠くて知らない所より、自分の家の近くの川や場所を先に出す。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "PCが位置から近くの川（妙正寺川）をえらび、東京都の公式の水位と、その場所の名前を出す。案内の1文も「妙正寺川の氾濫に警戒してください」にする。",
+    "why": "「初台アンダー」は読めず、遠い道の話に見えた。自分の前の川の名前が出れば、家の話だとすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "区が出した公式の「高齢者等避難（レベル3）」と、その公式の説明（避難に時間がかかる人を含む）を、ひらがなでそのまま出す。",
+    "why": "小さい子連れは「時間がかかる人」に入ると分かれば、道に水が出る前の今が出る時だと思える。",
+    "clash": [
+     "2 どう動くかを指図する",
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "東京都・区の公式ハザードマップで、この家の所の浸水想定の深さ（例: 0.5〜1m）を、数字と絵で出す。",
+    "why": "1階で2階が無い家だと、数字で見れば家にいるほうがこわいと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "ひらがなの行を一番上に大きく出し、「よみあげ」ボタンで声でも聞けるようにする。",
+    "why": "漢字とこまかい字を読むのに時間がかかり、分かるまでに手間どったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "開くまで数分ごとに鳴りなおす。",
+    "why": "寝かしつけ中で一回の音では行けず、20分おくれた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "この人の様子: 川があふれるかもしれないことも、自分の家に関わることも分かっていました。それでも、知らせが「みちが みずに つかる」を強く言っていたので、夜に子を抱いて外の道に出るほうがこわいと思いました。そのため、家を離れず、荷物をまとめて1階で待っていました。家のすぐ前の川の名前と、この家がどれくらい水につかるかが分かれば、早めに家を出られたかもしれません。"
+ },
+ "notice": {
+  "scene": "新宿区下落合の妙正寺川のそばにある低い土地のアパートの1階が自宅。土曜の夜で、寝室で3歳の子を寝かしつけている。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな子を連れていて避難に時間がかかるので、レベル3のこの時点で川のそばの低い土地を離れ、高い所にある親せきや知り合いの家、または避難所へ早めに移る。外へ出るのが危ないときは、建物の2階以上の安全な所へ移る。",
+  "phone": "マナーモードにはせず、音もふるえもオンのまま、居間のテーブルに置いて充電している。",
+  "noticed": true,
+  "minutes": 20,
+  "how": "居間で鳴った小さな音は寝室にも聞こえたが、子がもう少しで寝そうだったので行けなかった。子が寝てから居間に戻り、画面を見て気づいた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読めなくても、赤い印と「レベル3」と、ひらがなの「はんらん」で、川があふれる話だと分かった。うちはすぐ前が川だし子もいるので、心配になった。小さい字を読むのはしんどいので、地図や絵で分かるかと思って押して開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0492132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3457,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1049,
+    "output_tokens_details": {
+     "thinking_tokens": 430
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3457,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1049,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3457,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3457
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.2
+  },
+  "away": {
+   "cost_usd": 0.16826399999999997,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11599,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3717,
+    "output_tokens_details": {
+     "thinking_tokens": 1485
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11599,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3717,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11599,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11599
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 43.9
+  }
+ },
+ "cost_usd": 0.21747719999999998,
+ "took": 58.1,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P046",
+  "age": 43,
+  "lang": "日本語（母語）",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "小さい子を連れている",
+  "reading": "漢字が苦手（ひらがなは読める）"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:37:27",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

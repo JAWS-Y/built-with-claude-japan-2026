@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 3,
+    "how": "音は聞こえなかった。配達アプリを見ようと携帯を持ったら、赤い印の知らせがあった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 5,
+    "how": "「かわの みずが あふれる」「みちが みずに つかる」と英語の文で、川と道の水だと分かった。初台は読めないが「アンダー 0.84km」は読めた。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 9,
+    "how": "「気象庁」は読めないが、窓から雨を見て、Google の天気でも Shinjuku に警報が出ていたので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 10,
+    "how": "家は神田川のすぐ近く。これから川ぞいの道と線路の下の低い道を通るので、自分の道のことだと思った。アンダーは自分が通る所かもと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 14,
+    "how": "配達はやめられないが、川ぞいの道と線路の下はやめて、大きい通りの高い道で行くと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 22,
+    "how": "雨具を着て、地図で川から離れた道を選び、ちがう道で自転車を出した。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "した",
+  "minutes": 22,
+  "did": [
+   {
+    "minutes": 3,
+    "action": "携帯を持って赤い知らせを見て、押してアプリを開いた"
+   },
+   {
+    "minutes": 5,
+    "action": "ひらがなの行と英語の行を読んだ"
+   },
+   {
+    "minutes": 7,
+    "action": "窓から雨と神田川のほうを見た"
+   },
+   {
+    "minutes": 9,
+    "action": "Google の天気で Shinjuku の警報を確かめた"
+   },
+   {
+    "minutes": 12,
+    "action": "フィリピンの友だちのグループに「flood warning, ingat」と送った"
+   },
+   {
+    "minutes": 14,
+    "action": "川ぞいと線路の下を通らない道にすると決め、地図で道を選んだ"
+   },
+   {
+    "minutes": 22,
+    "action": "ちがう道で自転車の配達に出た"
+   },
+   {
+    "minutes": 50,
+    "action": "配達のとちゅうでもう一度アプリを見た。川ぞいには行かなかった"
+   }
+  ],
+  "fit": {
+   "言葉": "ひらがなのやさしい日本語と英語。地名は読み方をそえる（はつだい アンダー）",
+   "文字": "漢字には ふりがな。地名・川の名もひらがなで",
+   "読み上げ": "使わない（いらない）",
+   "音・ふるえ": "音は聞こえない。長く強いふるえを、開くまでくりかえす。画面とライトも光らせる",
+   "見た目・色": "赤い印のまま。水・橋の下の絵、場所の地図",
+   "長さ": "題と 1 文だけで分かる短さ",
+   "その他": "タガログ語の決まった 1 文（Mag-ingat sa baha sa kalsada）（きまり 3 とぶつかる）"
+  },
+  "ideas": [
+   {
+    "stage": "動く",
+    "idea": "配達で動いているあいだ、PC が位置を見て、冠水想定の場所に近づいたらその場所を名指しした 1 文の知らせをもう一度出す。",
+    "why": "自転車で走りながら道を決める人なので、近づいたその時に知らせが来ると、道を変えられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "冠水想定の 4 か所を、ひらがなの名前と距離、小さな地図で出す。神田川の洪水予報も公式の名前で出す。",
+    "why": "「初台」が読めず、どのアンダーか分からない。自分の道にあるかがすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報のときは、ふつうと違う長く強いふるえを開くまでくりかえし、画面とライトも光らせる。",
+    "why": "音が聞こえず、ふるえにたよっているので、3 分の遅れをちぢめられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "地名・警報の名前に ふりがなを付け、ひらがなの行にも場所の名前を入れる。",
+    "why": "ひらがなとカタカナは読めるので、漢字のところでつまずかない。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "案内の 1 文に、人が作ったタガログ語の決まった訳を付ける。",
+    "why": "母語なら、あわてていても一目で分かる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   }
+  ],
+  "overall": "ひらがなと英語で川と道の水だと分かり、川ぞいと線路の下を通らないで配達できた。でも「初台」が読めず、どのアンダーか、自分の道かは分からなかった。"
+ },
+ "notice": {
+  "scene": "高田馬場の神田川に近いアパートの2階で、配達の仕事のあいまに休んでいる。このあと自転車で配達に出るつもりで、その道は神田川ぞいの道と、線路の下をくぐる低い道を通る。",
+  "place_fit": "そのまま",
+  "safe_move": "雨のなかでは神田川ぞいの道やアンダーパスなどの低い道を通らない。外に出るのをやめるか、高い所を通る道にかえる。危ないと感じたら自分から離れる。",
+  "phone": "音とふるえはオンだが、音はほとんど聞こえないので、ふるえとまわりの人の合図にたよっている。携帯はテーブルの上、手の近くに置いている。",
+  "noticed": true,
+  "minutes": 3,
+  "how": "音は聞こえなかった。テーブルでふるえた気がしたし、配達アプリを見ようと携帯を手にとったとき、上に赤い印の知らせがあった。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読めないが、「はんらん けいほう」と「Flood」「レベル3」と赤い印はわかった。これから川ぞいの道を通るので、どこが危ないのか知りたくて押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.052605200000000005,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3471,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1213,
+    "output_tokens_details": {
+     "thinking_tokens": 617
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3471,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1213,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3471,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3471
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.5
+  },
+  "away": {
+   "cost_usd": 0.16616399999999998,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11594,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3614,
+    "output_tokens_details": {
+     "thinking_tokens": 1693
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11594,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3614,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11594,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11594
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 42.5
+  }
+ },
+ "cost_usd": 0.2187692,
+ "took": 58.0,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P097",
+  "age": 28,
+  "lang": "タガログ語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:49:15",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

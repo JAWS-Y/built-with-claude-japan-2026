@@ -1,0 +1,239 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 15,
+    "how": "歩いているときポケットがふるえたけど、傘を持っていたので見なかった。家に着いてから画面を見て気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "赤いマークと「3」は見えた。でも漢字は読めないし、「はんらん けいほう」は読めても意味が分からない。「Flood」も知らない言葉。ゲームの知らせだと思った。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "何の知らせか分からなかったので、ここまで来ていない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "自分に関わる知らせだと思わなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "知らせの中身が分からないので、何も決めていない。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもどおり神田川ぞいの道を歩いて家に帰った。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "ポケットがふるえたのは分かったけど、傘をさしていたので見なかった"
+   },
+   {
+    "minutes": 1,
+    "action": "そのまま神田川ぞいの低い道を歩きつづけた"
+   },
+   {
+    "minutes": 15,
+    "action": "家に着いて画面を見た。赤いマークと「3」を見たけど、ゲームの知らせだと思ってひらかなかった"
+   },
+   {
+    "minutes": 20,
+    "action": "ごはんを食べて、携帯でゲームをした。知らせのことはわすれた"
+   }
+  ],
+  "fit": {
+   "言葉": "韓国語、またはやさしいひらがな。「かわの みずが あふれる」のように、絵が思いうかぶことば",
+   "文字": "漢字なし。ひらがなだけで大きく、題のいちばん先に出す",
+   "読み上げ": "ひらがなの行をゆっくり日本語で読む。韓国語の読み上げがあればもっと分かる（気象庁の多言語辞書を使わないなら、きまり 3 とぶつかる）",
+   "音・ふるえ": "マナーモードでも、ゲームとちがう長くつづく特別なふるえを、見るまでくりかえす",
+   "見た目・色": "川から水があふれる絵と、レベルの色。ゲームとまちがえないよう「ぼうさい」の印をつける",
+   "長さ": "ひとことだけ。たたんだ形で全部見えるくらい",
+   "その他": "親など、おとなにも同じ知らせが届き、電話してもらえるとよい"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "警報レベル3以上のときは、マナーモードでもゲームとちがう長いふるえを、ひらくまでくりかえす。",
+    "why": "傘を持って歩いていると、一回のふるえでは見ないから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の題を、漢字ではなく公式のひらがなの行「かわの みずが あふれる けいほう れべる3」にし、川があふれる絵をつける。",
+    "why": "漢字が読めず、「はんらん」の意味も分からないこの人でも、絵とやさしいことばで何が危ないか分かるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書（公式）の韓国語の警報名を、題の下に出す。",
+    "why": "母語の韓国語なら、「洪水警報」がすぐ分かるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "保護者の携帯にも同じ知らせを送り、おとなから子どもに電話してもらえるようにする（位置は送らない）。",
+    "why": "知的障害のある 14 歳の子は一人で判断しにくく、おとなの声なら信じて動けるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "たたんだ形でも「サークル ぼうさい」と名前と印が見えるようにし、ゲームの知らせと見分けやすくする。",
+    "why": "ゲームの知らせだと思って見すごしたから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "ふるえは分かったけど、歩いているときは見られなかった。見ても漢字も「Flood」も分からなくて、ゲームの知らせだと思った。そのまま川ぞいの道を通って帰った。"
+ },
+ "notice": {
+  "scene": "塾の帰りに、高田馬場から下落合の家へ、傘をさして神田川ぞいの道を一人で歩いている。",
+  "place_fit": "そのまま",
+  "safe_move": "川ぞいの道や低い道、アンダーパスを通らずに、川から離れた高い道を通って帰るか、近くのじょうぶな建物の上の階へ移る。おとなに連絡して、迎えに来てもらうのもよい。",
+  "phone": "学校と塾のきまりでマナーモード（ふるえだけ）のままにしていて、上着のポケットに入れている。",
+  "noticed": true,
+  "minutes": 15,
+  "how": "ポケットがふるえたのは分かったけど、傘を持っていたので見なかった。家に着いてから画面を見て気づいた。",
+  "look": "見たが、そのまま",
+  "why": "赤いマークと「3」は見えたけど、漢字は読めない。「はんらん けいほう」は読めても、意味が分からない。「Flood」も知らない言葉。もう家に着いていたし、ゲームの知らせかと思って、ひらかなかった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0484172,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3425,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1022,
+    "output_tokens_details": {
+     "thinking_tokens": 479
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3425,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1022,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3425,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3425
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 13.6
+  },
+  "away": {
+   "cost_usd": 0.151312,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11300,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2989,
+    "output_tokens_details": {
+     "thinking_tokens": 1184
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11300,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2989,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11300,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11300
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 33.1
+  }
+ },
+ "cost_usd": 0.1997292,
+ "took": 46.7,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P069",
+  "age": 14,
+  "lang": "韓国語",
+  "body": "軽い知的障害",
+  "situation": "学校の帰り",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:42:35",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

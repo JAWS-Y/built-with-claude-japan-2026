@@ -1,0 +1,251 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 12,
+    "how": "歩いているときのふるえは分かったが、雨なので携帯は出さなかった。家に着いて画面を見て気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 14,
+    "how": "漢字は読めない。でも「Flood」、赤、「れべる3」、「かわの みずが あふれる」「みちが みずに つかる」は分かった。「しんじゅくく」は学校の住所で知っている。「はつだい あんだー」がどこかは分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 19,
+    "how": "赤とレベルの数字が本物っぽいと思った。でも気象庁の漢字は読めないので、ママに見せた。ママがテレビをつけると、雨と大雨の字が出ていたので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 19,
+    "how": "さっきまで川のすぐ横を歩いていた。家も川から近いので、わたしのことだと思って少しこわくなった。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 22,
+    "how": "ママに「今日はもう外に出ない、川の道には行かない」と言われ、そのきまりにすることにした。家はアパートの2かい。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 22,
+    "how": "コンビニに行くのをやめて、2かいの家から出なかった。川には近づかなかった。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "ほかのきっかけで",
+  "without_notice": "離れた",
+  "did_safe_move": "一部した",
+  "minutes": 22,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "川ぞいの遊歩道で、ポケットのふるえを少し感じた。雨なので携帯は出さず、そのまま歩いた"
+   },
+   {
+    "minutes": 12,
+    "action": "家（川の近くの低い所にあるアパートの2かい）に着き、画面を見て知らせに気づいた。押してアプリを開いた"
+   },
+   {
+    "minutes": 14,
+    "action": "ひらがなと英語のところを何回も読んだ。「はつだい あんだー」がどこか分からなくて、ぐるぐる考えた"
+   },
+   {
+    "minutes": 16,
+    "action": "ママに画面を見せて、タガログ語で「川があふれるって」と言った"
+   },
+   {
+    "minutes": 19,
+    "action": "ママがテレビをつけた。雨のニュースを見た"
+   },
+   {
+    "minutes": 22,
+    "action": "ママと、今日は外に出ない・川の道には行かないと決めた。コンビニに行くのをやめた"
+   },
+   {
+    "minutes": 40,
+    "action": "窓から雨を見た。川を見には行かず、家にいた"
+   }
+  ],
+  "fit": {
+   "言葉": "ひらがなと、かんたんな英語。言えるならタガログ語の決まった文も（JMA の多言語辞書の言葉）。",
+   "文字": "漢字はぜんぶ読めない。地名・川の名前・気象庁にひらがなをつける（はつだい、かんだがわ、きしょうちょう）。",
+   "読み上げ": "イヤホンをしているので、ひらがなの行を読み上げると届く。",
+   "音・ふるえ": "マナーモードでも分かる、長くてくり返すふるえ。ふつうの短いふるえとちがう形にする。",
+   "見た目・色": "赤とレベルの数字は分かった。川と水の絵が一つあると、すぐ分かる。",
+   "長さ": "はじめに1行だけ。「かわの みずが あふれる おそれ」。数字や km はあとにする。",
+   "その他": "自閉スペクトラムなので、いつも同じ形・同じ順番で出すと分かりやすい。分からない地名が出るとそこで止まって考えてしまう。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "マナーモードでも、警報は長いふるえを決まった形で何回もくり返す。開くまで止めない。",
+    "why": "ふるえは感じていたのに、ふつうの通知だと思って12分見なかったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の1文で名指しする物を、携帯にいちばん近いものにする。いまは0.84km先のアンダーだが、すぐ横の神田川を「かんだがわ の はんらん に けいかい して ください」と書く。",
+    "why": "知らない「はつだい あんだー」ではなく、いま歩いている川の名前が出れば、すぐ自分のことだと分かるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の1文に、JMA の多言語辞書のタガログ語の決まった文をつける（携帯の言葉で選べる）。",
+    "why": "英語とひらがなをつなげて読むより、母語のほうが早く確かに分かるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "気象庁・地名・川の名前に、ひらがなのふりがなをつける。",
+    "why": "「きしょうちょう」と読めれば、ママに聞かなくても自分で本物だと分かるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "「かわの ちかくから はなれて、たかい ところへ」と、することをひらがなで1つだけ書く。",
+    "why": "何をすればいいか知りたくて開いたのに、することが書いていなかったから。きまりがはっきりあると決めやすい。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "わたしが川の道を離れられたのは、知らせのおかげではなく、ふつうに家に帰ったからです。家で見て、ママとテレビで確かめてから、今日は外に出ないと決めました。でも、ふるえを感じたときは、それが大事な知らせだと分かりませんでした。それに、出てきたのは知らない「はつだい」で、わたしの横にある川の名前ではありませんでした。"
+ },
+ "notice": {
+  "scene": "学校の部活と日本語の補習のあと、かさをさして神田川ぞいの遊歩道（下落合のあたり、川べりの低い道）を歩いて家に帰るところ。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな川の近く・低い土地にいるので、川ぞいの道を歩くのをやめ、自分から川から離れて高い所へ移る。家が低い所なら、家の上の階など安全な所へ移るか、早めにほかの場所へ移る。",
+  "phone": "学校のきまりでマナーモード（ふるえだけ、音なし）のままにしていて、携帯は上着のポケットに入れ、イヤホンで音楽を聞いている。",
+  "noticed": true,
+  "minutes": 12,
+  "how": "歩いているときにポケットのふるえは少し感じたが、雨の中で携帯は出さないと決めているので、家に着いてから画面を見たときに気づいた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読めないし「はんらん けいほう」の意味もよく分からないが、英語の「Flood」と赤いマーク、「3」は分かった。さっき川のそばを歩いていたので気になって、何をすればいいか知りたくて押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0578012,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3433,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1488,
+    "output_tokens_details": {
+     "thinking_tokens": 886
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3433,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1488,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3433,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3433
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 19.9
+  },
+  "away": {
+   "cost_usd": 0.179776,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11573,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4303,
+    "output_tokens_details": {
+     "thinking_tokens": 2062
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11573,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4303,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11573,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11573
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 50.0
+  }
+ },
+ "cost_usd": 0.2375772,
+ "took": 69.9,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P001",
+  "age": 14,
+  "lang": "タガログ語",
+  "body": "自閉スペクトラム",
+  "situation": "学校の帰り",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:27:39",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

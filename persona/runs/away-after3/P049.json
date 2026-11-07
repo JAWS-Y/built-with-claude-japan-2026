@@ -1,0 +1,244 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": false,
+    "minutes": null,
+    "how": "店はにぎやかで耳も遠い。携帯はいすの背にかけたかばんの中で、小さな音とふるえは届かなかった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "知らせに気づいていない。日本語もほとんど読めない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "気づいていないので通っていない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "気づいていないので通っていない。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "帰り道を変える話にはならなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもの神田川ぞいの道で帰った。"
+   }
+  ],
+  "stop": "気づく",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "2階の席で店じまいを待つ。かばんの中で通知が鳴ったが聞こえない。"
+   },
+   {
+    "minutes": 20,
+    "action": "店のお客さんとネパール語で話し、お茶を飲む。"
+   },
+   {
+    "minutes": 40,
+    "action": "息子が店を閉める。外は雨だが、道に水はまだ見えない。"
+   },
+   {
+    "minutes": 50,
+    "action": "息子に手を引かれて階段を下り、車に乗る。"
+   },
+   {
+    "minutes": 55,
+    "action": "いつもの神田川ぞいの低い道とガード下を通って中野へ向かう。"
+   }
+  ],
+  "fit": {
+   "言葉": "ネパール語。英語はほとんど分からない。",
+   "文字": "大きな数字の「3」と色。ネパール語の文字（デーヴァナーガリー）なら少し読めるかもしれない（きまり 3 とぶつかるかもしれない。公式のネパール語訳がなければ）。",
+   "読み上げ": "ネパール語の声で短く（気象庁の公式の多言語の文が無ければ、きまり 3 とぶつかる）。",
+   "音・ふるえ": "電話が来たときのような、長く鳴りつづける大きな音と強いふるえ。かばんの中でも気づける強さ。",
+   "見た目・色": "画面いっぱいの赤。水につかった道と車の絵、大きな「3」。",
+   "長さ": "ひとこと。読む力ではなく、見て分かる量。",
+   "その他": "本人より、支えている息子や孫の携帯に届くのがいちばん効く。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "本人が登録した家族（息子・孫）の携帯にも、同じ知らせを届ける「支える人」の宛先を作る。位置は送らず、知らせの文だけを送る。",
+    "why": "帰り道を決めて運転するのは息子なので、息子に届けば道を変えられる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる",
+     "その他のきまり"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報のときは、ビデオ電話の着信のように画面いっぱいに出て、止めるまで大きく鳴りつづける形にする。",
+    "why": "本人は「鳴るのは電話のとき」と思っていて、電話には出る習慣がある。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "家と登録した帰り道に近い所（神田川ぞいの道・ガード下）を名指しして「〜の冠水に警戒してください」の 1 文にする。",
+    "why": "初台アンダーは自分の帰り道ではないので、帰り道の名前のほうが息子にも本人にも響く。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語の公式の文（ネパール語）を使い、警報の名前と案内をネパール語で出し、読み上げる。",
+    "why": "日本語も英語もほとんど読めないので、母語でなければ中身が分からない。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "文字のほかに、赤い色、大きな「3」、水につかった道と車の絵を出す。",
+    "why": "文字を読めず、認知症のはじめでもあるので、ひと目で「危ない水」と分かる形がいる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "かばんの中の携帯は鳴っても聞こえず、私は何も知らないまま、息子の車でいつもの川ぞいの低い道を帰りました。知らせるなら、運転する息子に届けてください。"
+ },
+ "notice": {
+  "scene": "大久保駅の近く、息子が営むネパール料理店の2階の席で、店じまいを待っている。このあと息子の車で、神田川ぞいの低い道とガード下を通って中野の家へ帰る予定。",
+  "place_fit": "そのまま",
+  "safe_move": "避難に時間のかかるお年寄りなので、支える家族といっしょに、雨が強くなる前に早めに動くのがよい。神田川ぞいの道やアンダー・ガード下など低い所は通らず、高い所を通る道で帰るか、帰らずに店の2階など安全な建物の中にとどまる。",
+  "phone": "孫が設定したままの音・ふるえありの設定で（マナーモードもおやすみモードもなし）、携帯はいすの背にかけた布のかばんの中に入れている。",
+  "noticed": false,
+  "minutes": null,
+  "how": "店がにぎやかで話し声や音楽が大きく、耳も遠くなっているので、かばんの中の小さな通知の音とふるえは届かなかった。",
+  "look": "気づかなかった",
+  "why": "携帯は家族からのビデオ電話に出るときだけ使うもので、自分から画面を見ることはない。鳴るのは電話のときだけだと思っているし、かばんに入れたことも忘れていた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.04912520000000001,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3461,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1043,
+    "output_tokens_details": {
+     "thinking_tokens": 435
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3461,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1043,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3461,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3461
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 13.8
+  },
+  "away": {
+   "cost_usd": 0.14913200000000001,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11310,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2876,
+    "output_tokens_details": {
+     "thinking_tokens": 1065
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11310,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2876,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11310,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11310
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 33.3
+  }
+ },
+ "cost_usd": 0.19825720000000002,
+ "took": 47.1,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P049",
+  "age": 91,
+  "lang": "ネパール語",
+  "body": "認知症のはじめ",
+  "situation": "都心の駅の近くにいる",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:38:03",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

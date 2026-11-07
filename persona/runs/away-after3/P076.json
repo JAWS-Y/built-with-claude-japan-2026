@@ -1,0 +1,271 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 12,
+    "how": "ふるえには気づかなかった。CMで夫の連絡を見ようと携帯を手に取り、赤い印の知らせを見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 15,
+    "how": "アプリを開いて読んだ。新宿区にレベル3の氾濫警報、川の水があふれる知らせだと分かった。ただ名前が出ていたのは初台アンダーの道路で、うちの横の神田川のことかは書いていなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 19,
+    "how": "「川の洪水予報」を押して気象庁のページを見た。テレビを字幕のままNHKにかえ、dボタンで新宿区の警報も確かめた。気象庁の発表なら本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 24,
+    "how": "初台は遠いけど、うちは神田川のすぐ横の1階。区のハザードマップでここが浸水する所なのは知っていた。前に母親学級で聞いた「レベル3は時間のかかる人が逃げる合図、妊婦も入る」を思い出し、自分のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 33,
+    "how": "夫にLINEしたら「目白の実家に行こう、すぐ帰る」と返ってきた。暗い雨の中、一人で川沿いを歩くのはこわいので、夫を待ってタクシーで行くと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 35,
+    "how": "母子手帳や薬、着替えをかばんに入れ始めた。夫が帰ってきて、川沿いを通らずに52分ごろタクシーで目白の高い所の実家へ出た。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "した",
+  "minutes": 35,
+  "did": [
+   {
+    "minutes": 12,
+    "action": "夫の連絡を見ようと携帯を手に取り、知らせに気づいてアプリを開いた"
+   },
+   {
+    "minutes": 15,
+    "action": "画面を下まで読んだ。初台アンダーの話で少しとまどった"
+   },
+   {
+    "minutes": 17,
+    "action": "「川の洪水予報（気象庁）」を開いた"
+   },
+   {
+    "minutes": 19,
+    "action": "テレビをNHKにかえ、dボタンで新宿区の警報を確かめた"
+   },
+   {
+    "minutes": 22,
+    "action": "区のハザードマップを携帯で見て、家のあたりが浸水する所だと確かめた"
+   },
+   {
+    "minutes": 25,
+    "action": "夫にLINEで「警報が出た、こわい」と送った"
+   },
+   {
+    "minutes": 31,
+    "action": "夫から「目白の実家に行こう、すぐ帰る」と返事が来た"
+   },
+   {
+    "minutes": 33,
+    "action": "夫を待ってタクシーで行くと決め、義母にLINEした"
+   },
+   {
+    "minutes": 35,
+    "action": "母子手帳・薬・着替え・充電器をかばんに入れ始めた"
+   },
+   {
+    "minutes": 48,
+    "action": "夫が帰ってきた。携帯のアプリでタクシーを呼んだ"
+   },
+   {
+    "minutes": 52,
+    "action": "川沿いの道を通らずに、タクシーで目白の夫の実家へ出た"
+   },
+   {
+    "minutes": 62,
+    "action": "実家に着いた"
+   }
+  ],
+  "fit": {
+   "言葉": "ふつうの日本語でよい。いちばん近い川の名前（神田川）と「1階」「浸水」の言葉があれば、すぐ自分のことと分かる。",
+   "文字": "漢字のままでよい。いちばん上に、いま居る所の川の名前を大きく出す。",
+   "読み上げ": "使わない。",
+   "音・ふるえ": "音は聞こえない。テーブルの上の一回のふるえでは気づかない。長く、くり返しふるえるのとカメラのライトの点滅、スマートウォッチへの転送が要る。",
+   "見た目・色": "赤い帯と赤い印はよく効いた。画面がつく・ライトが光るなど、目に入るものがいちばん頼り。",
+   "長さ": "いちばん上の2行で、どの川か・レベル3か・いまの所が浸水想定かが分かる長さ。くわしいことはその下でよい。",
+   "その他": "レベル3の意味（高齢者等避難、時間のかかる人）を公式の言葉のまま一行で出すと、妊婦の自分のことと気づきやすい。家族に知らせを送るボタンもあるとよい。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "レベル3以上では、気づくまでふるえをくり返し、カメラのライトの点滅や画面をつけっぱなしにする設定と、スマートウォッチへの転送をそなえる。",
+    "why": "音が聞こえず、一回のふるえでは12分気づかなかったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の1文で、遠いアンダーではなく、位置にいちばん近い公式の浸水想定区域や川を名指しする（例: 神田川の氾濫に警戒してください）。",
+    "why": "初台アンダーの名前で一度とまどった。うちの横の川の名前なら、すぐ自分のことと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "区が出した高齢者等避難の発令と、レベル3の公式の説明（避難に時間のかかる人）を、そのまま一行で出す。",
+    "why": "妊婦が「時間のかかる人」に入ると気づけば、ためらわずに決められる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "神田川の水位（東京都の水位観測所の公式の値）と、区の開いている避難所を、画面に出すかリンクで開けるようにする。",
+    "why": "自分で調べる時間が減り、早く確かめて決められる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "知らせを夫など決めた家族に、すぐ送れるボタンを置く。",
+    "why": "一人で決めにくく、夫と話してから決めたから。位置を送るなら家族にも見える。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "赤い印で開いたし、気象庁の知らせで信じられた。でも、ふるえには12分気づかなかったし、初台アンダーの名前で一度迷った。神田川の名前が出ていたら、もっと早く動けたと思う。"
+ },
+ "notice": {
+  "scene": "新宿区下落合の神田川のすぐそばにある、古いアパートの1階の自分の家。土曜の夜で、夫はまだ帰っておらず、ソファで字幕をつけたドラマを見ている。",
+  "place_fit": "そのまま",
+  "safe_move": "妊娠中なので避難に時間のかかる人にあたり、レベル3の今のうちに川べりの低い1階を離れる。高い所の親せきや知り合いの家、または区の避難所へ、川沿いの道を通らずに移る。外へ出るのが危ないときは、同じ建物の上の階の安全な所へ移る。",
+  "phone": "耳が聞こえにくく、音はふだんから聞こえないので、マナーモード（ふるえだけ）にしている。携帯はソファの前のテーブルに画面を上にして置いている。",
+  "noticed": true,
+  "minutes": 12,
+  "how": "テーブルの上のふるえには気づかなかった。CMのときに夫からの連絡を見ようと携帯を手に取って、画面の知らせを見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "「新宿区 レベル3 氾濫警報」と赤い印を見て、すぐ横の神田川のことだと思った。おなかに赤ちゃんがいるし、外は雨なので、くわしく知りたくて押して開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0491612,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3433,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1056,
+    "output_tokens_details": {
+     "thinking_tokens": 420
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3433,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1056,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3433,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3433
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 13.9
+  },
+  "away": {
+   "cost_usd": 0.17188799999999999,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11607,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3895,
+    "output_tokens_details": {
+     "thinking_tokens": 1432
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11607,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3895,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11607,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11607
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 44.5
+  }
+ },
+ "cost_usd": 0.2210492,
+ "took": 58.4,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P076",
+  "age": 28,
+  "lang": "日本語（母語）",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "妊娠中",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:44:24",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

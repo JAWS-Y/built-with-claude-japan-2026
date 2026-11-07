@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 0,
+    "how": "YouTubeを見ていたら、音とふるえと一緒に通知が上に出た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 4,
+    "how": "英語の「Level 3 Warning (Flood)」「road flooding nearby」は読めた。漢字の「氾濫警報」はGoogleレンズで「flood warning」と出た。新宿で水の危険があることは分かった。でも「初台アンダー 0.84km」がどこかは分からなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 4,
+    "how": "赤いマークとレベル3、それに「気象庁」と読めるリンクがあったので本物だと思った。外も雨が降っている。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 6,
+    "how": "窓から見ると、神田川の音がいつもより大きかった。家は川のすぐ横の1階なので、自分のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "英語には「道が水につかる」としか書いていない。「川があふれる」「家を出る」とは読めなかった。避難所の場所も分からない。友だちも「日本はよく警報が出る、家にいて」と言った。夜の雨の中で外に出るほうがこわいと思い、出ないことにした。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "離れる・上の階へ移ることは始めなかった。在留カードと財布をかばんに入れただけ。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "通知に気づき、押してアプリを開いた"
+   },
+   {
+    "minutes": 2,
+    "action": "英語の行を読んだ。上下に送って、ベトナム語が無いか探した"
+   },
+   {
+    "minutes": 4,
+    "action": "Googleレンズで画面の漢字を写して訳した"
+   },
+   {
+    "minutes": 6,
+    "action": "窓を開けて、雨と川の音を確かめた"
+   },
+   {
+    "minutes": 8,
+    "action": "ベトナム人の友だちのMessengerグループに画面の写しを送って聞いた"
+   },
+   {
+    "minutes": 15,
+    "action": "友だちから「家にいれば大丈夫」と返事が来た。英語で「Shinjuku flood」を検索したが、よく分からなかった"
+   },
+   {
+    "minutes": 20,
+    "action": "在留カード・財布・充電器をかばんに入れ、携帯を充電した"
+   },
+   {
+    "minutes": 30,
+    "action": "1階の部屋に残ったまま、ときどき窓の外を見ながらYouTubeに戻った"
+   }
+  ],
+  "fit": {
+   "言葉": "ベトナム語がいちばんいい。英語もやさしい文なら分かる",
+   "文字": "漢字は読めない。ひらがなの行も役に立たない。英語かベトナム語を一番上に",
+   "読み上げ": "なくてよい。読めない日本語を読み上げられても分からない",
+   "音・ふるえ": "いまのままで気づける。レベル3以上は、ほかの通知と違う長い音にすると、ただごとでないと分かる",
+   "見た目・色": "赤とレベルの数字は分かった。川の絵や地図の上の「自分の位置と川」を見せると、すぐ分かる",
+   "長さ": "英語・ベトナム語で 1〜2 文。最初の行で「近くの川」と分かること",
+   "その他": "「初台アンダー」より、家の横の「神田川」を名指ししてほしい。公式の多言語ページ（新宿区・東京都）へのリンクも"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の文に、気象庁の多言語辞書にあるベトナム語の決まった訳の行を足す。携帯の言葉がベトナム語なら、その行を一番上に出す。",
+    "why": "漢字もひらがなも読めないので、母語の決まった文ならレンズも友だちも使わずにすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の 1 文で名指しする物を、いる所にいちばん近い危ない物にする。たとえば「神田川の増水・氾濫に警戒してください」。公式の洪水浸水想定区域で、いまの位置が浸かる想定の中かどうかも、事実として書く（位置は PC が読む）。",
+    "why": "0.84km 先のアンダーの話だと思って「家にいれば平気」と決めたので、自分の家の横の川だと分かれば決められる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "警戒レベル3の公式の意味（内閣府・気象庁の「危険な場所から高齢者等は避難、ほかの人も準備」）を、決まった英訳・ベトナム語訳で 1 行出す。",
+    "why": "「レベル3」が何を求める段階か分からず、友だちの「家にいて」に流れたので、公式の意味が分かれば動くきっかけになる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "新宿区の公式の避難所と、多言語の防災ページ（ベトナム語あり）へのリンクを出す。いま開いている避難所の公式データがあれば、近い順に地図で見せる。",
+    "why": "どこへ行けばいいか分からないことが、夜に出ない理由の一つだったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "知らせの全文を、携帯の訳す機能（Google 翻訳）でベトナム語に訳して見せるボタンを付ける。",
+    "why": "決まった訳が無い細かいところも、その場ですぐ母語で読める。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   }
+  ],
+  "overall": "赤とレベル3で「こわい」とは思いました。でも、英語には「道が水につかる」としか書いてなくて、家の横の川があふれるかもとは読めませんでした。どこへ逃げればいいかも分からず、夜の雨の中で外に出るほうがこわくて、結局1階の部屋にいました。"
+ },
+ "notice": {
+  "scene": "土曜の夜。高田馬場の神田川のすぐそば（新宿区側）にある古いアパートの1階の自分の部屋で、バイトのあとベッドに寝ころんで携帯でYouTubeを見ている。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな川のすぐそばの1階にいるので、レベル3の今のうちに自分から川から離れ、高い所（知り合いの家や近くの高い建物、避難所など）へ移る。すぐ出られないときは、せめて建物の上の階へ移り、夜道で川沿いやアンダーパスを通らない。",
+  "phone": "家では音もふるえもオンでマナーモードやおやすみモードは使っておらず、携帯は手に持って動画を見ている。",
+  "noticed": true,
+  "minutes": 0,
+  "how": "動画を見ている最中に、画面の上に通知が出て、音とふるえがあった。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "日本語は読めないけど、赤いマークと「3」と英語の「Flood」は分かった。家が川のすぐ横なのでこわくなり、英語かベトナム語の説明がないか見ようと押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0502572,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3420,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1116,
+    "output_tokens_details": {
+     "thinking_tokens": 535
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3420,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1116,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3420,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3420
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.5
+  },
+  "away": {
+   "cost_usd": 0.171452,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11540,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3900,
+    "output_tokens_details": {
+     "thinking_tokens": 1559
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11540,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3900,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11540,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11540
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 43.8
+  }
+ },
+ "cost_usd": 0.2217092,
+ "took": 58.3,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P062",
+  "age": 28,
+  "lang": "ベトナム語",
+  "body": "なし",
+  "situation": "一人暮らし",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:41:18",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

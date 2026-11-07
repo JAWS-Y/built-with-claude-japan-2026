@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 15,
+    "how": "犬が止まったときに、時間とLINEを見ようと携帯を出して気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 15,
+    "how": "「はんらん けいほう」と赤いマークで、川のことかなと分かった。漢字の「新宿区」も読めた。どの川か、どの道かは分からなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 15,
+    "how": "アプリからだから本当の知らせだとは思った。うそとは思わなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "道に水が出ていないし、新宿区は広いので、いまの自分の散歩とは関係ないと思った。「川の近くの遊歩道があぶない」とはつながらなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "関係ないと思ったので、散歩をやめるとは決めなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "決めていないので、いつもの道のまま。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 15,
+    "action": "犬が止まったときに携帯を出し、通知の題を見た。川のことかなと思ったが、すぐポケットにしまった。"
+   },
+   {
+    "minutes": 17,
+    "action": "いつもどおり川ぞいの低い遊歩道へおりて、犬と歩いた。"
+   },
+   {
+    "minutes": 30,
+    "action": "川の水がいつもより多くて音が大きいと思ったが、そのまま歩いた。"
+   },
+   {
+    "minutes": 40,
+    "action": "お母さんから「雨ひどいから早く帰ってきて」とLINEが来ているのに気づき、遊歩道を通って家に帰った。"
+   },
+   {
+    "minutes": 50,
+    "action": "家に着いた。知らせのことはお母さんに言わなかった。"
+   }
+  ],
+  "fit": {
+   "言葉": "「かわの そばの みち」「ていぼう・ゆうほどう」など、目の前の物の言葉。むずかしい言葉は使わない。",
+   "文字": "題からひらがな中心で、ふりがなを付ける。漢字だけの行を先にしない。",
+   "読み上げ": "ふだんは使わないが、イヤホンで短く読み上げる設定があれば届く（いまは無い）。",
+   "音・ふるえ": "マナーモードでも分かる、長く何回もくり返すふるえ。ふつうのふるえ一回では雨の中で気づかない。",
+   "見た目・色": "赤いマークは見えている。たたんだ形のままで、川の絵と「ちかくの かわ」が見えるとよい。",
+   "長さ": "たたんだ形の2行で分かる長さ。開かないと読めない文は届かない。",
+   "その他": "手がふさがっているので、押さなくても分かることが大事。家の人にも同じ知らせが行くと、家の人が電話で止められる。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "たたんだ通知の2行目に、携帯の近くの公式の想定の場所の名前と距離を出す（例:「ちかくの かわ・みち 0.2km」「神田川ぞいの冠水に警戒してください」）。",
+    "why": "「新宿区」だけでは自分と関係ないと思ったが、いつもの川の名前があれば自分のことと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "レベル3以上は、マナーモードでも分かる長いくり返しのふるえにして、見るまで数分ごとにもう一度知らせる。",
+    "why": "雨と歩きでふるえ一回に気づかず、15分おくれた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "題と1行目をひらがなとふりがな中心にし、「かわの みずが あふれる」をたたんだ形でも見えるようにする。",
+    "why": "漢字の「氾濫警報」で止まり、開かずにしまった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "本人が選んだ家族の携帯にも、同じ知らせと「いま川の近くにいる」ことを伝える。",
+    "why": "お母さんのLINEで帰ったように、家の人の一言で動ける。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "案内の1文の下に「かわから はなれて たかい みちを とおって かえろう」と短く出す。",
+    "why": "何をすればよいか自分で組み立てるのが難しいので、一つの動きが書いてあると動ける。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "赤い知らせは見たけど、「新宿区」だと自分の散歩道のことと思えなくて、いつもの川ぞいを歩いてしまった。お母さんのLINEで帰った。"
+ },
+ "notice": {
+  "scene": "雨の夜、下落合の家から犬の散歩に出ていて、これからいつもの神田川・妙正寺川ぞいの低い遊歩道へおりて歩こうとしている。",
+  "place_fit": "そのまま",
+  "safe_move": "川ぞいの遊歩道や低い道にはおりず、散歩をやめて、高い所を通る大きな道から家に帰る（小さな川の近くなので、自分から離れるのがよい）。家ではおうちの人に知らせる。",
+  "phone": "学校があるのでふだんからマナーモード（ふるえだけ）にしていて、散歩のあいだは上着のポケットに入れ、片手にリード、もう片手にかさを持っている。",
+  "noticed": true,
+  "minutes": 15,
+  "how": "ポケットのふるえは雨と歩いているのでわからなかった。犬がにおいをかいで止まったときに、時間とLINEを見ようと携帯を出して気づいた。",
+  "look": "見たが、そのまま",
+  "why": "「はんらん けいほう」と赤いマークで、なんか川のことかなと思った。でも漢字はむずかしいし、道に水も出ていないから、だいじょうぶだと思ってすぐしまった。手がふさがっていて押すのもめんどうだった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0485372,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3430,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1026,
+    "output_tokens_details": {
+     "thinking_tokens": 424
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3430,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1026,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3430,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3430
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 13.5
+  },
+  "away": {
+   "cost_usd": 0.143316,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11358,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2566,
+    "output_tokens_details": {
+     "thinking_tokens": 620
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11358,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2566,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11358,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11358
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 29.6
+  }
+ },
+ "cost_usd": 0.1918532,
+ "took": 43.1,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P095",
+  "age": 14,
+  "lang": "日本語（母語）",
+  "body": "軽い知的障害",
+  "situation": "犬と散歩している",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:48:22",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

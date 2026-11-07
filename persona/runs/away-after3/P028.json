@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 0,
+    "how": "地図を見ていたら、画面の上に出て、音とふるえもあった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 2,
+    "how": "英語の「Level 3 Warning (Flood)」「road flooding nearby」を読んで、近くの道が水につかるかもしれないと分かった。漢字の場所の名前は読めず、どこなのかは「0.84km」しか分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 5,
+    "how": "「気象庁」は読めないけど、雨が強いし Level 3 なので、本当だろうと思った。親に見せて Google 翻訳のカメラで画面を読ませたら「Japan Meteorological Agency」と出た。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 7,
+    "how": "翻訳で「初台アンダーの冠水」「3km 以内に 4 か所」と出た。初台がどこかは分からないけど、これから川ぞいの道と線路の下の低い道を通るので、自分たちの道も危ないかもと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 9,
+    "how": "お父さんに言ったら『川のそばと下の道はやめよう』となった。地図アプリで、大きな通りを通る道か電車にすると決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 11,
+    "how": "川ぞいの道へ曲がるのをやめ、新宿駅へ戻って山手線で高田馬場へ行き、駅から大通りを歩いて民泊へ帰った。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "した",
+  "minutes": 11,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "通知に気づいて、アプリを開いた"
+   },
+   {
+    "minutes": 2,
+    "action": "英語の行を読んだ。場所の名前（漢字）は読めなかった"
+   },
+   {
+    "minutes": 4,
+    "action": "立ち止まって、親に画面を見せてスペイン語で説明した"
+   },
+   {
+    "minutes": 6,
+    "action": "Google 翻訳のカメラで画面の漢字を訳した"
+   },
+   {
+    "minutes": 9,
+    "action": "家族で、川ぞいの道とアンダーパスを通らないと決めた"
+   },
+   {
+    "minutes": 11,
+    "action": "道を変えて新宿駅へ戻り、電車で高田馬場へ。駅から大通りを歩いて民泊に着いた（40 分ごろ）"
+   }
+  ],
+  "fit": {
+   "言葉": "スペイン語がいちばん。英語も読める。気象庁の多言語辞書のスペイン語なら公式。",
+   "文字": "ひらがなとローマ字・英語・数字。漢字の場所の名前は英語の表記も添える（決まった表記でないなら きまり 3 とぶつかる）。",
+   "読み上げ": "使わない。画面で読む。",
+   "音・ふるえ": "いまのままで気づけた（音とふるえ、高い重要度）。",
+   "見た目・色": "赤は暗く見えるので、色だけにしない。大きな「3」、波の絵、太い線や模様で強さを出す。",
+   "長さ": "たたんだ通知の 1 行に「Level 3 Flood Warning – Shinjuku」を先に。英語の行は短い 2 文まで。",
+   "その他": "「どこが危ないか」を地図で見せると、自分の道と比べられる（位置はこの携帯の中だけで使う）。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "冠水想定 4 か所を、英語の名前（例: Hatsudai Underpass）と小さな地図で見せる。",
+    "why": "漢字の「初台アンダー」は読めないので、自分の道にあるアンダーパスと比べられず、翻訳アプリに頼るしかなかった。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "「道路」の行にも決まった英文を出す（例: Road: 4 places expected to flood within 3 km. Nearest: 0.84 km）。",
+    "why": "いちばん大事な場所の行が漢字だけで、この人には「0.84km」しか読めなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書にあるスペイン語の警報の名前と決まった文を出す。言葉は設定で選べるようにする。",
+    "why": "母語なら、親にもそのまま見せられて、家族ですぐ決められる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "赤い線とマークに、大きな「3」の数字と波の絵、太い線をつけて、色が分からなくても強さが分かるようにする。",
+    "why": "P 型の色覚なので赤が暗く見え、強い知らせだと目で分からなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "案内の文に「川ぞいの道やアンダーパスを通らないで」と、とる道まで書く。",
+    "why": "旅行中で土地を知らないので、どこを通ればよいかが分かると早く決められる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "「Flood」と「road flooding」で危ないと分かったけど、どこが危ないのかは翻訳アプリを使わないと分からなかった。英語かスペイン語で場所が分かれば、もっと早く道を変えられた。"
+ },
+ "notice": {
+  "scene": "家族旅行で新宿にいる。夕食のあと、雨の中を歩いて高田馬場近くの民泊へ帰るところで、地図アプリの道案内に従って、これから神田川ぞいの道と線路の下の低いアンダーパスを通るところ。",
+  "place_fit": "そのまま",
+  "safe_move": "川ぞいの道や線路下のアンダーパスなど低い所は通らず、高い大通りを回る道に変える。危ないと感じたら、駅や丈夫な建物の中で待つか、上の階へ移る。",
+  "phone": "音もふるえもオン（マナーモード・おやすみモードは使っていない）で、道案内のために携帯を手に持って画面を見ながら歩いている。",
+  "noticed": true,
+  "minutes": 0,
+  "how": "地図を見ていたら、画面の上に出て音とふるえもあったので、すぐ気づいた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字とカタカナは読めないけど、「3」と英語の「Flood」は分かった。「はんらん けいほう」は読めたけど意味は分からない。赤いマークは暗い色に見えて、あまり目立たなかった。でも雨の中、これから川のそばを歩くので「Flood」が気になって、英語の説明があるか見るために押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.052777199999999996,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3430,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1238,
+    "output_tokens_details": {
+     "thinking_tokens": 614
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3430,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1238,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3430,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3430
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.1
+  },
+  "away": {
+   "cost_usd": 0.15773199999999998,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11595,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3192,
+    "output_tokens_details": {
+     "thinking_tokens": 1088
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11595,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3192,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11595,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11595
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 36.2
+  }
+ },
+ "cost_usd": 0.21050919999999998,
+ "took": 53.3,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P028",
+  "age": 17,
+  "lang": "スペイン語",
+  "body": "色の見分けがつきにくい（P 型）",
+  "situation": "旅行で来ている",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:33:23",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

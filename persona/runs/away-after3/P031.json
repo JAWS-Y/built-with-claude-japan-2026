@@ -1,0 +1,239 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 20,
+    "how": "歩いているときは雨と車の音で分からなかった。家でYouTubeを見ようとして、画面で赤いマークに気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "「Flood」と「3」は分かった。でもどこの話か、何に気をつけるのかは日本語で読めない。ひらかなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "中身が分からないので、本当かどうかは考えなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "大人むけの知らせで、もう家にいるから自分には関係ないと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "もう川ぞいの道を通って帰ってきていたので、決めることはなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "動画を見ただけ。お母さんにも見せなかった。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "お母さんとかさをさして歩いていた。ポケットの音もふるえも分からなかった"
+   },
+   {
+    "minutes": 5,
+    "action": "いつもの神田川ぞいの低い道を通って帰った"
+   },
+   {
+    "minutes": 20,
+    "action": "家に着き、YouTubeを開こうとして通知に気づく。赤いマーク・Flood・3だけ分かった"
+   },
+   {
+    "minutes": 21,
+    "action": "大人むけだと思い、ひらかずに動画を見た。お母さんにも言わなかった"
+   }
+  ],
+  "fit": {
+   "言葉": "ネパール語がいちばん。英語はかんたんな単語なら分かる（Flood, River, Road, Water, Level 3）。",
+   "文字": "日本語は読めない。たたんだ通知に英語の1文と「Kanda River」のような地名の英語があれば分かる。",
+   "読み上げ": "ふだん使わない。",
+   "音・ふるえ": "外を歩いているときはふつうの通知音では気づかない。ひらくまでくり返す長いふるえと音が要る。",
+   "見た目・色": "赤いマークは目に入った。水につかった道の絵と大きな「3」があれば、子どもでも意味が分かる。",
+   "長さ": "英単語が少しだけの1行。長い文は読まない。",
+   "その他": "9歳なので、自分で決めずにお母さんに見せる。お母さんの携帯にも届くといちばん確か。"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "警報の通知は、ひらくまで音とふるえを何度もくり返す（Android のくり返す通知）。",
+    "why": "雨と車の音の中を歩いていても、低い道に入る前に気づけた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の2行目に、決まった英語の文「Level 3 Warning (Flood). Be on alert for road flooding nearby.」を出し、ひらがなはひらいた形にまわす。",
+    "why": "この子が読めるのは英語だけで、たたんだ形に「Flood」しかなかったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書（ネパール語あり）の公式の訳で、警報の名前と案内の1文をネパール語でも出す。",
+    "why": "母語なら子どももお母さんも一目で分かる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "登録した家族（お母さん）の携帯にも同じ知らせを出す。子どもの位置は見せず、区の名前だけにする。",
+    "why": "9歳は自分で道を決めないので、いっしょに歩いているお母さんに届けば道を変えられた。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "水につかった道の絵と大きな「3」を出し、公式のデータで近くの川の名前を英語でも出す（Kanda River）。",
+    "why": "文字が読めなくても、川と道の水のことだと絵で分かる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   }
+  ],
+  "overall": "赤いのとFloodは分かったけど、もう川ぞいの道を通って家に着いていた。歩いているときに分かる音と英語があれば、お母さんに言えたのに。"
+ },
+ "notice": {
+  "scene": "新大久保のネパール料理店でお母さんと夕ごはんを食べた帰りに、雨の中をかさをさして歩いている。家は高田馬場の近くで、これから神田川ぞいの低い道を通って帰るところ。",
+  "place_fit": "そのまま",
+  "safe_move": "神田川ぞいの低い道やアンダーパスは通らず、少し遠回りでも高い大きな道を通って帰る。子ども連れなので早めに川べりから離れ、今夜はもう近づかない。",
+  "phone": "親が持たせたキッズ向けの Android で、音もふるえもオン（マナーモードやおやすみモードは使っていない）。ジャンパーのポケットに入れている。",
+  "noticed": true,
+  "minutes": 20,
+  "how": "歩いているあいだは、雨と車の音でポケットの音もふるえも分からなかった。家に着いて YouTube を見ようとしたときに、画面で気づいた。",
+  "look": "見たが、そのまま",
+  "why": "赤いマークと「Flood」「3」は分かった（ネパールの英語の学校で習った）。でも、ほかは日本語で読めない。もう家にいるし、大人むけの知らせだと思って、ひらかずに動画を見た。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0549652,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3421,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1351,
+    "output_tokens_details": {
+     "thinking_tokens": 759
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3421,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1351,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3421,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3421
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.8
+  },
+  "away": {
+   "cost_usd": 0.154128,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11342,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3113,
+    "output_tokens_details": {
+     "thinking_tokens": 1307
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11342,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3113,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11342,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11342
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 35.9
+  }
+ },
+ "cost_usd": 0.20909319999999998,
+ "took": 53.7,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P031",
+  "age": 9,
+  "lang": "ネパール語",
+  "body": "なし",
+  "situation": "引っ越してきたばかり",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:34:05",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

@@ -1,0 +1,239 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 20,
+    "how": "自転車のあいだはポケットの中でふるえに気づかなかった。家に着いてメッセンジャーを開いたら、赤いマークの通知があった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "漢字は読めない。「はんらん けいほう」はひらがなで読めても、意味がわからない。「Flood」と赤い色で少しどきっとしたが、どこの何が危ないのかは分からなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "何の知らせか分からないので、ここまで来なかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "もう家にいて、外は雨だけで水も出ていない。自分には関係ないと感じた。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "何も決めていない。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "友だちのメッセージに気をとられて、知らせのことは忘れた。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "雨の中、自転車で神田川ぞいの低い道と線路下の道を通って帰る（ふるえに気づかない）"
+   },
+   {
+    "minutes": 20,
+    "action": "家に着いてメッセンジャーを開き、赤い通知を見る"
+   },
+   {
+    "minutes": 21,
+    "action": "「Flood」に少しどきっとするが、押さずに友だちのメッセージへ"
+   },
+   {
+    "minutes": 30,
+    "action": "夕ごはんを食べ、友だちとやりとりする。知らせのことは忘れたまま"
+   }
+  ],
+  "fit": {
+   "言葉": "英語の決まった文。いちばん良いのはネパール語（きまり3とぶつかる）",
+   "文字": "漢字はなしで、英語とひらがなを題の行に。分かち書きにする",
+   "読み上げ": "英語の文を読み上げる。自転車でイヤホンをしていても聞こえるように",
+   "音・ふるえ": "ふつうとちがう、長くて強いふるえをくり返す。止めるまで鳴らす",
+   "見た目・色": "赤い色と水・波の絵、低い道の絵",
+   "長さ": "1行目に「Flood – road near you」くらいの短さで",
+   "その他": "ADHDなので、読まずに閉じたら少しあとでもう一度知らせる。警報が続くあいだはロック画面に残す"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の2行目に、英語の決まった文「Level 3 Warning (Flood). Be on alert for road flooding nearby.」をそのまま出す。",
+    "why": "この人が読めるのは英語だけで、たたんだ形には「Flood」の1語しかなかったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報の通知だけは、長く強いふるえのくり返しと大きな音にして、開くまで数分おきに鳴らし続ける。",
+    "why": "自転車でポケットの中にあり、ふつうのふるえ1回では気づかずに低い道を通ってしまったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "PCが読んだ位置から、いちばん近い冠水想定の場所（神田川ぞいの道や線路下のアンダー）を、題に英語と地図の絵で名指しする。",
+    "why": "「新宿区」だけでは、いつも通る道のことだと結びつかないから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の文を、気象庁の多言語辞書などの公式の訳を使ってネパール語でも出す。",
+    "why": "母語なら意味もこわさもすぐに分かるから。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "警報が続くあいだは、通知をロック画面に残す。開かずに閉じたら、15分後にもう一度知らせる。",
+    "why": "ADHDで、ほかのメッセージに気をとられて忘れやすいから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "赤い「Flood」は見えたけど、何がどこで危ないのか分からなかった。もう家だし、外は雨だけ。帰り道の川ぞいとアンダーは、知らないまま通っていた。"
+ },
+ "notice": {
+  "scene": "新大久保のネパール料理店の台所で仕事を終え、雨の中、自転車で高田馬場・下落合のアパートへ帰るところ。神田川ぞいの低い道と、線路の下をくぐる道を通る。",
+  "place_fit": "そのまま",
+  "safe_move": "神田川ぞいの道や線路下のアンダーなど低い所を通らず、高い所の道を選ぶか、店にもう少しいて様子を見る。家が川の近くの低い所の1階なら、早めに知り合いの家や高い所へ移ることも考える。",
+  "phone": "音とふるえはオンでマナーモードにしていないが、自転車に乗る間はズボンのポケットに入れていて、雨がっぱのフードで音は聞こえにくい。",
+  "noticed": true,
+  "minutes": 20,
+  "how": "走っているときはふるえに気づかなかった。家に着いてメッセンジャーを見ようと画面をひらいたら、たくさんの通知の中に赤いマークがあった。",
+  "look": "見たが、そのまま",
+  "why": "漢字は読めず、「はんらん けいほう」もひらがなは読めたが意味がわからない。「Flood」と赤い色で少しどきっとしたが、もう家に着いていて、外は雨だけで水は出ていない。友だちのメッセージに気をとられて、そのまま忘れた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0545652,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3416,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1333,
+    "output_tokens_details": {
+     "thinking_tokens": 699
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3416,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1333,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3416,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3416
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.8
+  },
+  "away": {
+   "cost_usd": 0.14728,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11386,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2753,
+    "output_tokens_details": {
+     "thinking_tokens": 965
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11386,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2753,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11386,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11386
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 31.2
+  }
+ },
+ "cost_usd": 0.2018452,
+ "took": 48.0,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P078",
+  "age": 35,
+  "lang": "ネパール語",
+  "body": "ADHD",
+  "situation": "一人暮らし",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:44:49",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

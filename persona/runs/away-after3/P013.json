@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 4,
+    "how": "友だちのLINEを見ようと携帯を出したら、画面の上に出ていた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 4,
+    "how": "「新宿区 レベル3 氾濫警報」は読めた。新宿区で川があふれるかもしれない、くらいは分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 4,
+    "how": "本物の警報だとは思った。雨も降っているし、うそだとは思わなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "新宿区は広いし、レベル3ならまだ大丈夫だと思った。いま歩いている道が川のすぐそばだとは結びつかなかった。赤いマークも暗い色にしか見えず、急ぐ感じがしなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思っていないので、離れると決めていない。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "川ぞいの道を歩いたまま、川の近くのホテルの低い階の部屋にもどった。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 4,
+    "action": "LINEを見ようとして通知に気づき、題だけ読んだ。ひらかなかった"
+   },
+   {
+    "minutes": 5,
+    "action": "友だちに「警報きてる」と言ったが「レベル3ならまだ平気でしょ」で終わり、携帯をポケットにもどした"
+   },
+   {
+    "minutes": 5,
+    "action": "傘をさしたまま、神田川ぞいの低い道を歩きつづけた"
+   },
+   {
+    "minutes": 15,
+    "action": "川の近くのホテルに着き、2階の部屋に入った"
+   },
+   {
+    "minutes": 30,
+    "action": "窓から雨を見て「けっこう降ってるね」と話したが、そのままシャワーと動画"
+   },
+   {
+    "minutes": 60,
+    "action": "部屋にいたまま寝る用意。知らせはもう見ていない"
+   }
+  ],
+  "fit": {
+   "言葉": "「新宿区」ではなく「神田川」「いまいる道」など、自分の目の前の物の名前。レベル3の公式の意味（高齢者等避難）も短く。",
+   "文字": "ふつうの日本語で読める。たたんだ形の1行目に、川の名前と距離を出す。",
+   "読み上げ": "使っていない。ただ歩きながら見られないので、イヤホンで題を読み上げる設定があるとよい。",
+   "音・ふるえ": "雨と傘の音で聞こえない。開くまで何度か鳴る・長く強いふるえの型にする。",
+   "見た目・色": "P型なので赤は暗く見える。赤だけでなく、太い枠・波の形のマーク・白黒でも分かる強い差で目立たせる。",
+   "長さ": "たたんだ形で1〜2行。そこに『どこの何が危ないか』を入れきる。",
+   "その他": "旅行先で土地を知らないので、いまの場所が浸水想定区域の中かどうかを、公式のハザードマップをもとに示す。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "PCが位置を読み、近くの川と公式の浸水想定区域を照らして、通知の1行目を「神田川 0.1km・いまの場所は浸水想定区域の中」「神田川の氾濫に警戒してください」にする。",
+    "why": "「新宿区」では他人ごとだったが、いま歩いている川の名前と距離が出れば、自分の道のことだとすぐ結びつく。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "「レベル3」の横に、気象庁・内閣府の公式の言葉（警戒レベル3＝高齢者等避難）をそのまま添える。",
+    "why": "「レベル3ならまだ大丈夫」という思いこみを、公式の言葉で正せる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "赤だけに頼らず、色覚にかかわらず分かる太い枠・形のマーク・強い明暗差で警報を示す。",
+    "why": "P型のこの人には赤いマークが暗く見え、急ぐ感じが伝わらなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報のときは、開くまで数分ごとにくり返し鳴らし、長く強いふるえの型を使う。",
+    "why": "雨と傘の音、歩くゆれで、1回の音とふるえは分からなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ形で、ひらがなの行より先に案内の1文（その場所の物を名指し）を出す。",
+    "why": "この人はひらかずに題だけ見て終わるので、たたんだ形に要の文が要る。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "この人は警報を本物だと思ったけれど、「新宿区」「レベル3」とだけ書かれていたので、自分の歩く川ぞいの道のことだとは思いませんでした。赤い色も目立たないまま、そのまま川のそばにとどまりました。"
+ },
+ "notice": {
+  "scene": "友だちと東京に遊びに来ていて、高田馬場で夕ごはんを食べたあと、傘をさして神田川ぞいの低い道を歩き、川の近くの安いホテルへもどるところ。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな川の近く・低い土地にいるので、自分から川ぞいの道を離れ、高い所や丈夫な建物の上の階へ移る。ホテルにもどるなら、低い階ではなく上の階にいて、夜の川ぞいには近づかない。",
+  "phone": "旅行中なのでマナーモードにはせず音もふるえも入れたまま、上着のポケットに入れて歩いている。",
+  "noticed": true,
+  "minutes": 4,
+  "how": "雨と傘の音で通知の音は聞こえず、ふるえも歩いていて分からなかった。友だちのLINEを見ようと携帯を出したとき、画面の上に出ていて気づいた。",
+  "look": "見たが、そのまま",
+  "why": "「レベル3 氾濫警報」は読めたが、赤いマークは暗い色に見えて目立たず、急ぐ感じがしなかった。レベル3ならまだ大丈夫だろうし、ホテルもすぐ近くだから、そのまま歩いて帰ることにした。自分のいる道が川のすぐそばだとは、あまり考えなかった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0532052,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3441,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1255,
+    "output_tokens_details": {
+     "thinking_tokens": 615
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3441,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1255,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3441,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3441
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.8
+  },
+  "away": {
+   "cost_usd": 0.161308,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11417,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3442,
+    "output_tokens_details": {
+     "thinking_tokens": 1397
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11417,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3442,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11417,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11417
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 39.0
+  }
+ },
+ "cost_usd": 0.21451320000000001,
+ "took": 55.8,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P013",
+  "age": 17,
+  "lang": "日本語（母語）",
+  "body": "色の見分けがつきにくい（P 型）",
+  "situation": "旅行で来ている",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:29:54",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

@@ -1,0 +1,251 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 1,
+    "how": "テーブルの携帯が鳴ってふるえた。娘の電話かと思って手にとった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 1,
+    "how": "「はんらん けいほう」と「Flood」は読めた。雨で川があぶないという知らせだと分かった。「3」がどのくらいかは分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 1,
+    "how": "娘が入れたアプリで、外も雨なので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 2,
+    "how": "「しんじゅく」は自分の町で、これから川ぞいの道を通る。少しは関わると思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "「3」はまだ大したことではないと思った。道に水も出ていない。娘を待たせたくないので、気をつけて運転すればいいと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "決めていないので、やめなかった。いつもどおり出かけた。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 1,
+    "action": "鳴った携帯を手にとって通知を見た。読めるところだけ読んだ。"
+   },
+   {
+    "minutes": 2,
+    "action": "押さずに閉じて、携帯をポケットに入れた。"
+   },
+   {
+    "minutes": 5,
+    "action": "家を出て、坂を下りて車に乗った。"
+   },
+   {
+    "minutes": 8,
+    "action": "妙正寺川ぞいの低い道を、ゆっくり運転して高田馬場へ向かった。"
+   },
+   {
+    "minutes": 25,
+    "action": "高田馬場駅の近くに着いて、娘を待った。"
+   },
+   {
+    "minutes": 35,
+    "action": "娘が乗った。娘に「警報が出ているのに」と言われたが、来たときと同じ川ぞいの道で家へ帰った。"
+   },
+   {
+    "minutes": 55,
+    "action": "家に着いた。道に水は少したまっていたが、通れた。"
+   }
+  ],
+  "fit": {
+   "言葉": "ミャンマー語がいちばん届く（きまり 3 とぶつかる）。日本語ならひらがなとカタカナで、やさしく短く。",
+   "文字": "漢字は使わずに、ひらがな・カタカナ・数字にする。通知をたたんだ形でも「みちが みずに つかる」がすぐ見えるようにする。",
+   "読み上げ": "運転の前や運転中は、ひらがなの文をゆっくり日本語で読み上げる。ミャンマー語の決まった音声もあるとよい（きまり 3 とぶつかる）。",
+   "音・ふるえ": "いまのままでよい。電話と違う音にして、娘の電話と間違えないようにする。",
+   "見た目・色": "赤だけに頼らない（P 型だと黒っぽく見える）。「3/5」の目もりや波の形、太い黒わくで、どのくらいあぶないかを見せる。",
+   "長さ": "たたんだ形の 2 行で、どこの何があぶないかが分かるようにする。",
+   "その他": "娘にも同じ知らせが行けば、娘が電話で「来ないで」と言える。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "たたんだ形の 2 行目を、ひらがなの案内の 1 文「ちかくの みちが みずに つかる ことに けいかい して ください」にする。初台アンダーや川ぞいの道の名もカタカナ・ひらがなで出す。",
+    "why": "この人は通知を開かないので、2 行で「これから通る道があぶない」と分かれば、出かけるのを考え直す。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "レベル3 の公式の意味（警戒レベル3＝高齢者等避難）を「れべる3 は こうれいしゃ など が ひなん する だんかい」とひらがなで添える。",
+    "why": "83 歳のこの人は「3 は大したことない」と思って止まったので、自分の年が名指しされれば出るのをやめやすい。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "レベルを赤い色だけでなく、5 つの目もりのうち 3 つがうまる形と数字で見せる。",
+    "why": "P 型の色覚では赤いマークが黒っぽく見えて、あぶなさが伝わらなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "アプリを入れた家族（娘）にも同じ知らせを送り、「おかあさんの いる あたりに けいほう」と知らせる。",
+    "why": "娘が電話で「迎えに来ないで、電車で帰る」と言えば、この人は迎えをやめられる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の 1 文に、ミャンマー語の決まった訳と読み上げをつける。",
+    "why": "母語なら「3」の重さも道の危なさも一度で分かる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   }
+  ],
+  "overall": "この人は「川があぶない」とは分かりましたが、「3」がどのくらいあぶないか分からず、娘を迎えに川ぞいの道を通ってしまいました。開かなくても見える 2 行に、年寄りと道のことが書いてあれば、出かけるのをやめられたと思います。"
+ },
+ "notice": {
+  "scene": "新宿区中井の家（坂の上のアパート2階）で、上着を着て車のかぎを持ったところ。21時ごろ、高田馬場駅まで娘を車で迎えに行くつもりで、妙正寺川・神田川ぞいの低い道を通る。",
+  "place_fit": "そのまま",
+  "safe_move": "83歳で避難に時間のかかる人なので、出かけるのをやめて家（2階）にいるのがよい。迎えは娘にタクシーや電車で帰ってもらい、どうしても出るなら川ぞいの道やアンダーパス・低い道を通らない。",
+  "phone": "音もふるえも入れたまま（マナーモードやおやすみモードは使い方が分からない）で、出かける前なので居間のテーブルの上に置いている。",
+  "noticed": true,
+  "minutes": 1,
+  "how": "テーブルの携帯が鳴ってふるえたので、娘からの電話かと思って手にとり、画面を見た。",
+  "look": "見たが、そのまま",
+  "why": "漢字は読めないけど「レベル3」「はんらん けいほう」と英語の「Flood」は読めて、雨で川があぶないという知らせだと思った。でも「3」がどのくらいあぶないのかは分からないし、赤いマークも黒っぽく見えて目立たない。娘の入れたアプリで、押すとむずかしい画面が出そうだからそのまま閉じた。いつもの道を気をつけて運転すればいいと思った。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0598532,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3462,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1579,
+    "output_tokens_details": {
+     "thinking_tokens": 904
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3462,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1579,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3462,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3462
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 19.2
+  },
+  "away": {
+   "cost_usd": 0.158144,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11459,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3267,
+    "output_tokens_details": {
+     "thinking_tokens": 1123
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11459,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3267,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11459,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11459
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 38.2
+  }
+ },
+ "cost_usd": 0.2179972,
+ "took": 57.4,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P044",
+  "age": 83,
+  "lang": "ミャンマー語",
+  "body": "色の見分けがつきにくい（P 型）",
+  "situation": "車を運転している",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:37:08",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

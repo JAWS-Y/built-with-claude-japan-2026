@@ -1,0 +1,251 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 50,
+    "how": "仕事が終わってロッカーで携帯を見たら、WhatsAppやLINEといっしょに赤いマークの通知が残っていた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "「3」と「Flood」は分かったけど、漢字が読めないので、どこが危ないのか、どの道なのかは分からない。開けても日本語ばかりだと思って開けなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "何の知らせか分からないままなので、本当かどうか考えるところまで行かなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "外は雨だけで水は見えない。帰り道のことだとは思わなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "道を変える・待つとは決めなかった。いつもの道で帰るつもりのまま。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもの神田川ぞいの道と線路下のアンダーを歩いた。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 50,
+    "action": "ロッカーで携帯を見て、赤いマークと「3」「Flood」の通知に気づいたが、開けなかった"
+   },
+   {
+    "minutes": 52,
+    "action": "友だちのWhatsAppとLINEに返事をした"
+   },
+   {
+    "minutes": 55,
+    "action": "着がえて、店長に「おつかれさまです」と言って店を出た"
+   },
+   {
+    "minutes": 60,
+    "action": "かさをさして、いつもの道で高田馬場の方へ歩き出した"
+   },
+   {
+    "minutes": 75,
+    "action": "神田川ぞいの道を歩いた。川の水が多いと思ったけど、そのまま歩いた"
+   },
+   {
+    "minutes": 85,
+    "action": "線路下のアンダーを通った。下に水たまりが少しあったが、はしを歩いて通りぬけた"
+   },
+   {
+    "minutes": 95,
+    "action": "アパートに着いた"
+   }
+  ],
+  "fit": {
+   "言葉": "インドネシア語がいちばん分かる。英語は短いやさしい単語（Flood, Road, Water, Danger, Level 3）なら分かる。",
+   "文字": "漢字・カタカナ・ひらがなは読めない。たたんだ通知の題の下にも、英語の決まった文（Be on alert for road flooding nearby.）を全部出す。気象庁の多言語のインドネシア語の警報名があればそれも（きまり 3 とぶつかる）。",
+   "読み上げ": "使わない。",
+   "音・ふるえ": "仕事中はふるえだけで、携帯はロッカーの中。警報が続くあいだは、時間をおいてもう一度知らせると、仕事あとに見たとき新しい通知として上に来る。",
+   "見た目・色": "赤とレベルの数字は分かった。道が水につかる絵（道と波のマーク）と、名指しの場所の地図のピンがあると、「道のこと」と分かる。",
+   "長さ": "短く。英語は1文、場所の名前は一つだけ。長い日本語の段落は読まずに閉じる。",
+   "その他": "軽い知的障害があり、「何に気をつけるか」が場所の名前と絵でひとつに決まっていると分かりやすい。帰り道は毎日同じ。"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の題の下の行に「Flood」だけでなく、決まった英語の1文「Level 3 Warning (Flood). Be on alert for road flooding nearby.」と、名指しの場所（例: Hatsudai underpass）を出す。",
+    "why": "この人は通知を開かないので、たたんだ形で「道が水につかる」と分からないと先へ進めない。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "警報が続くあいだ、PC が携帯の位置の動きを見て、冠水想定の所（川ぞいの道・線路下のアンダー）に近づいたら、その場所を名指しした「〜の冠水に警戒してください」の知らせをもう一度送る。",
+    "why": "仕事中は携帯を見られないが、帰り道を歩き出したときなら気づいて、目の前のアンダーのことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "通知と画面に、道が水につかる絵と、名指しの場所の小さな地図を出す。",
+    "why": "文字が読めなくても、絵と地図なら「この道のこと」と分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "設定でインドネシア語を選べるようにして、警報の名前は気象庁の多言語の決まった訳を使い、案内の1文もアプリの決まったインドネシア語訳を用意する。",
+    "why": "母語なら、軽い知的障害があっても何に警戒するかがすぐ分かる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報が続いているあいだ、時間をおいて同じ知らせを出し直し、通知のいちばん上に来るようにする（ロック画面にも出す）。",
+    "why": "仕事が終わって携帯を見たとき、友だちのメッセージより上に新しい知らせとして目に入る。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "赤いマークと「Flood」は見たけど、どこが危ないのか分からなかった。雨だけだと思って、いつもの川ぞいの道とアンダーを通って帰った。"
+ },
+ "notice": {
+  "scene": "新宿駅西口近くの居酒屋の台所でアルバイト中。21時半に仕事が終わったら、神田川ぞいの道と線路下のアンダーを通って、高田馬場の近くのアパートへ歩いて帰るつもり。",
+  "place_fit": "そのまま",
+  "safe_move": "帰り道では神田川の川べりや線路下のアンダーなど低い道を通らず、高い所の大通りや電車を使う。危ないと感じたら、すぐ出ずに店や駅の建物の中で待つ。",
+  "phone": "仕事中は店のルールでマナーモード（ふるえだけ）にして、エプロンのポケットではなく休憩室のロッカーのかばんに入れている。",
+  "noticed": true,
+  "minutes": 50,
+  "how": "仕事が終わってロッカーで携帯を見たとき、WhatsAppやLINEの通知といっしょに上に残っていた。",
+  "look": "見たが、そのまま",
+  "why": "漢字は読めない。赤いマークと「3」と「Flood」は分かったが、外は雨だけで水はないし、何をすればいいか分からない。友だちのメッセージを先に返して、そのまま帰りじたくをした。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0508932,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3457,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1133,
+    "output_tokens_details": {
+     "thinking_tokens": 553
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3457,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1133,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3457,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3457
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.9
+  },
+  "away": {
+   "cost_usd": 0.15882400000000002,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11364,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3339,
+    "output_tokens_details": {
+     "thinking_tokens": 1147
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11364,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3339,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11364,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11364
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 37.0
+  }
+ },
+ "cost_usd": 0.20971720000000002,
+ "took": 51.9,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P007",
+  "age": 22,
+  "lang": "インドネシア語",
+  "body": "軽い知的障害",
+  "situation": "都心の駅の近くにいる",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:28:21",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

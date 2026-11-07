@@ -1,0 +1,255 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 1,
+    "how": "ハンドルの上で音とふるえ。赤信号で画面を見た。赤いマーク、「3」、「Flood」が見えた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 6,
+    "how": "届け先に着いてから通知をひらき、英語の行を読んだ。「Level 3 Warning (Flood)」「road flooding nearby」で、近くの道が水につかるかもしれないと分かった。でも「初台アンダー」は漢字なので読めず、どの道かは分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 7,
+    "how": "「Warning」で公式のものらしいと思った。外を見ると雨が強くなっていて、フィリピンの洪水を思い出した。念のため本当と思うことにした。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 7,
+    "how": "「Shinjuku City」と書いてある。いま新宿の下落合にいて、さっき神田川ぞいの道とアンダーを通ってきた。帰りも同じ道なので、自分のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 8,
+    "how": "帰りと次の配達では、川ぞいの道と線路の下のアンダーは通らないで、坂の上の大きい道（目白通りのほう）を通ると決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 12,
+    "how": "次の注文が入り、地図で川ぞいの道を通らないように道を選んで走り出した。そのあとの1時間も、川ぞいの道とアンダーは通らなかった。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "一部した",
+  "minutes": 12,
+  "did": [
+   {
+    "minutes": 1,
+    "action": "赤信号で画面を見た。赤いマークと Flood が見えて気になったが、道に水はないので走り続けた。"
+   },
+   {
+    "minutes": 3,
+    "action": "そのまま神田川ぞいの道を走り、線路の下のアンダーをくぐった（まだ水は無かった）。"
+   },
+   {
+    "minutes": 5,
+    "action": "下落合の届け先に着いて、料理を渡した。"
+   },
+   {
+    "minutes": 6,
+    "action": "通知をひらいて英語の行を読んだ。どの道が危ないかは分からなかった。"
+   },
+   {
+    "minutes": 7,
+    "action": "空を見て、雨が強くなっているのを確かめた。"
+   },
+   {
+    "minutes": 8,
+    "action": "帰りは川ぞいの道とアンダーを通らないと決めた。"
+   },
+   {
+    "minutes": 12,
+    "action": "次の注文が入り、坂の上の大きい道を選んで走り出した。"
+   },
+   {
+    "minutes": 60,
+    "action": "この1時間、川ぞいの低い道とアンダーは通らずに配達を続けた。"
+   }
+  ],
+  "fit": {
+   "言葉": "英語がいちばん届く。タガログ語なら、もっと早く分かる。",
+   "文字": "ひらがなと英語。場所の名前はひらがなかローマ字で（例: はつだい あんだー / Hatsudai underpass）。",
+   "読み上げ": "自転車の上では画面を読めない。イヤホンがあれば、英語の決まった文を短く読み上げると届く。",
+   "音・ふるえ": "配達アプリの音とちがう、はっきり分かる音とふるえにする。",
+   "見た目・色": "赤とレベルの大きい「3」と Flood はすぐ分かった。このままでよい。",
+   "長さ": "たたんだ通知の1行で、英語の文がぜんぶ見えるくらい短く。",
+   "その他": "赤信号の数秒で分かるように、いちばん近い危ない道の名前を、たたんだ形にも出す。"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の2行目に、英語の決まった文「Level 3 Warning (Flood). Be on alert for road flooding nearby.」をそのまま出す。",
+    "why": "赤信号の数秒で、ひらかなくても英語で「近くの道が水につかる」と分かり、アンダーをくぐる前に分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書（タガログ語あり）の公式の訳を使い、警報の名前と案内をタガログ語でも出す。",
+    "why": "母語の言葉なので、英語より早く、まちがいなく分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC がいまの位置から、いちばん近い冠水しやすい道やアンダーを選んで名指しする。名前にはひらがなとローマ字をそえ、距離も出す。",
+    "why": "漢字の「初台」は読めないうえに遠い。いま通ろうとしている下落合のアンダーの名前があれば、すぐ自分のことと思える。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報が出ているあいだに、冠水しやすいアンダーや川ぞいの道に近づいたら、PC がもう一度、ちがう音で知らせる。",
+    "why": "配達で動き回る人なので、近づくそのときに知らせると、くぐる前に止まれる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "神田川（高田馬場など）の公式の水位を、数字と色で短く出す。",
+    "why": "自分の目で数字を見ると、急ぐ配達の中でも本気で道を変える気になる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "赤い Flood で気になったが、急いでいて英語の文を読む前にアンダーをくぐってしまった。読んでからは、川ぞいの道を通らなくなった。"
+ },
+ "notice": {
+  "scene": "雨の中、自転車でフードの配達をしている。高田馬場から下落合の家へ届けるため、神田川ぞいの道を通り、線路の下のアンダーをくぐろうとしている。",
+  "place_fit": "そのまま",
+  "safe_move": "神田川ぞいの道や、線路の下のアンダーのような低い道は通らず、高い所を通る道に変える。小さな川の近くや低い土地にいるときは、危ないと感じたら自分からそこを離れ、配達を止めることも考える。",
+  "phone": "配達アプリの注文を聞きのがさないように、マナーモードもおやすみモードも使わず、音とふるえはオン。携帯はハンドルのホルダーにつけている。",
+  "noticed": true,
+  "minutes": 1,
+  "how": "ハンドルの上で通知の音とふるえがあり、赤信号で止まったときに画面を見た。",
+  "look": "ひらいた（画面 2）",
+  "why": "赤いマークと「3」と英語の「Flood」は分かった。「はんらん けいほう」はひらがなで読めたけど、意味は分からない。フィリピンで洪水を知っているので気になり、届け先に着いてから通知をひらいて英語の部分を探した。でも配達中で急いでいたので、アプリまでは開かなかった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0512932,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3427,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1165,
+    "output_tokens_details": {
+     "thinking_tokens": 553
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3427,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1165,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3427,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3427
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.5
+  },
+  "away": {
+   "cost_usd": 0.190696,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11533,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4865,
+    "output_tokens_details": {
+     "thinking_tokens": 2672
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11533,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4865,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11533,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11533
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 53.8
+  }
+ },
+ "cost_usd": 0.24198920000000002,
+ "took": 69.3,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P047",
+  "age": 51,
+  "lang": "タガログ語",
+  "body": "なし",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:38:04",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

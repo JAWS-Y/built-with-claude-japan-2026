@@ -1,0 +1,260 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 1,
+    "how": "皿の横の携帯がふるえて画面がついたので、すぐ見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 3,
+    "how": "「新宿区」「氾濫警報」「道路 冠水想定 4か所 3km以内」は漢字の意味で分かる。Flood と赤い線で、雨で川や道が水につかるのだと分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 4,
+    "how": "「気象庁 発表」とある。国の気象の役所の知らせで、外も雨なので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 6,
+    "how": "文は道のことで、初台は 0.84km 先。でも自分は地下にいる。鄭州の地下鉄に水が入ったニュースを思い出し、連れと「地下はまずい」と話した。翻訳アプリのカメラでも確かめた。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 8,
+    "how": "料理はまだ残っていたが、早く会計して上に出て、ホテルへもどると連れと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 12,
+    "how": "会計して階段で地上に上がった。道にまだ水は無かった。地下鉄はやめてタクシーでホテルへ。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "した",
+  "minutes": 12,
+  "did": [
+   {
+    "minutes": 1,
+    "action": "ふるえで携帯を見て、通知を押してアプリを開いた"
+   },
+   {
+    "minutes": 3,
+    "action": "漢字と Flood を読み、道路の冠水 4か所、初台 0.84km を見た"
+   },
+   {
+    "minutes": 5,
+    "action": "翻訳アプリのカメラで画面を中国語にして、連れと読んだ"
+   },
+   {
+    "minutes": 6,
+    "action": "店員に「大丈夫？」と聞いたが、忙しそうで「雨、だいじょうぶ」とだけ言われた"
+   },
+   {
+    "minutes": 8,
+    "action": "連れと話して、早く出ると決めた"
+   },
+   {
+    "minutes": 12,
+    "action": "会計して、階段で地上へ上がった"
+   },
+   {
+    "minutes": 15,
+    "action": "外を見た。雨は強いが、道に水は無い。地下鉄の入口には入らなかった"
+   },
+   {
+    "minutes": 20,
+    "action": "タクシーに乗った"
+   },
+   {
+    "minutes": 35,
+    "action": "ホテルに着き、部屋（上の階）にいた。中国のニュースアプリでも東京の雨を見た"
+   }
+  ],
+  "fit": {
+   "言葉": "中国語（簡体字）がいちばん。英語はかんたんな文なら読める。（中国語はきまり 3 とぶつかる。公式の多言語のページへつなぐならぶつからない）",
+   "文字": "漢字は中国語の意味で分かる。かな書きの文法はあまり分からない。漢字の語（地下、浸水、道路）を残すほうがよく届く",
+   "読み上げ": "いらない",
+   "音・ふるえ": "いまのふるえと音で気づけた。店がうるさいので、ふるえは長め・強めがよい",
+   "見た目・色": "赤い線と Flood は効いた。レベル 3 が 5 段のどこか、絵で見たい",
+   "長さ": "上の 1〜2 行で、何が・どこが危ないかが分かる長さ",
+   "その他": "旅行者なので「地下」「地下鉄の駅」が関わるかがいちばん知りたい。いまの文は道のことだけで、自分の地下の店のことかは自分で考えるしかなかった"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "携帯が地下にいそうなとき（PC で位置を見て、地下街・地下の店の多い所なら）、案内の 1 文に「地下への浸水に警戒してください」を出す。",
+    "why": "この人は道の冠水を自分のことにするのに、昔のニュースの記憶に頼るしかなかった。地下と書いてあれば迷わない。",
+    "clash": [
+     "その他のきまり"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "公式の多言語のページ（気象庁の多言語ページ、観光庁の Safety tips アプリ）へのつなぎを、通知とアプリのいちばん上に、中文 / English の字で置く。",
+    "why": "中国語で公式の文を読めれば、機械の訳を使わずにすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "案内の 1 文と警報名に、決まった中国語（簡体字）の訳を用意して出す。",
+    "why": "母語なら数秒で分かり、連れにもそのまま見せられる。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "レベル 3 が 5 段のどこかを、色の帯と数字（3/5）で見せる。",
+    "why": "字に頼らずに、どれくらい強いかが旅行者にも分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "動く",
+    "idea": "冠水想定の所の地図に、近くの地下鉄の入口や地下道を、公式のデータで並べて示す。",
+    "why": "帰り道に地下鉄や地下道を使うか迷う旅行者が、入らない所を自分で選べる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる",
+     "その他のきまり"
+    ]
+   }
+  ],
+  "overall": "漢字と Flood で何の知らせかは分かりました。でも「地下にいる自分のこと」と思えたのは昔のニュースを覚えていたからで、知らせの文にはそれがありませんでした。中国語の公式ページか、地下のことを書く一文があれば、もっと早く出られたと思います。"
+ },
+ "notice": {
+  "scene": "新宿三丁目にある、地下 1 階の居酒屋で、旅行の連れと晩ごはんを食べている。ホテルにもどる前の、旅の夜。",
+  "place_fit": "そのまま",
+  "safe_move": "地下は、あふれた水が一気に入りやすく、外の様子も分からないので、早めに地上へ上がって、じょうぶな建物の上の階かホテルへ移る。そのあとは、地下の店・地下道・アンダーパスに入らない。",
+  "phone": "マナーモードにはしていない（音とふるえあり）。旅行中で、地図と翻訳をよく使うので、テーブルの皿の横に置いている。",
+  "noticed": true,
+  "minutes": 1,
+  "how": "店の中はうるさいが、テーブルの上で携帯がふるえて画面がついたので、すぐ見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "日本語の漢字は習っていないが、中国語なので「新宿区」「氾濫警報」は字の意味で分かる（洪水の警報だ）。「Flood」と赤いマークも見えた。外は雨で、自分はいま地下にいる。何をすればいいのか知りたくて、押して開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0537452,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3426,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1288,
+    "output_tokens_details": {
+     "thinking_tokens": 697
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3426,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1288,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3426,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3426
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.1
+  },
+  "away": {
+   "cost_usd": 0.16399599999999998,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11548,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3524,
+    "output_tokens_details": {
+     "thinking_tokens": 1318
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11548,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3524,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11548,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11548
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 40.7
+  }
+ },
+ "cost_usd": 0.21774119999999997,
+ "took": 56.8,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P068",
+  "age": 51,
+  "lang": "中国語",
+  "body": "なし",
+  "situation": "旅行で来ている",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:42:36",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

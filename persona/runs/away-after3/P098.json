@@ -1,0 +1,263 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 0,
+    "how": "インスタを見ていたら、音とふるえといっしょに上に通知が出た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 2,
+    "how": "英語の行の「Shinjuku City: Level 3 Warning (Flood)」「road flooding nearby」を読んで、新宿の洪水の警報で、道が水につかるかもしれない、と分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 8,
+    "how": "携帯に来た警報だし、窓から見ると雨が強めだったので、本当だと思った。でも道にはまだ水は無かった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "漢字の地名をパパゴ（Papago）のカメラで訳すと「初台アンダー」が出た。グーグルマップで見ると、ここから遠い西の方で、行く道ではなかった。「Level 3」もまん中くらいに思えて、自分たちの道は大丈夫だろうと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分たちに関係ないと思ったので、行くのをやめるとは決めなかった。少し雨が弱くなるのを待っただけ。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "買い物の予定は変えず、大ガード下を通ってドン・キホーテへ行った。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "一部した",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "通知に気づく。「Flood」と「3」が目に入る"
+   },
+   {
+    "minutes": 1,
+    "action": "通知を押してアプリを開く"
+   },
+   {
+    "minutes": 2,
+    "action": "英語の行を読む。友だちに「新宿に洪水の警報だって」と韓国語で言う"
+   },
+   {
+    "minutes": 4,
+    "action": "パパゴのカメラで画面の日本語を訳す。訳は少しおかしいが「初台 underpass」「4か所」が分かる"
+   },
+   {
+    "minutes": 6,
+    "action": "グーグルマップで初台を探す。西の遠い所で、行く道ではないと思う"
+   },
+   {
+    "minutes": 8,
+    "action": "窓から外を見る。雨は強いが、道に水は無い"
+   },
+   {
+    "minutes": 10,
+    "action": "友だちと「うちらの道は関係ない、雨が弱くなったら行こう」と決める"
+   },
+   {
+    "minutes": 25,
+    "action": "かさを持ってゲストハウスを出る"
+   },
+   {
+    "minutes": 35,
+    "action": "大ガード下を通る。道のはしに水たまりがあるが、そのまま歩く"
+   },
+   {
+    "minutes": 40,
+    "action": "ドン・キホーテに着いて買い物をする"
+   }
+  ],
+  "fit": {
+   "言葉": "韓国語がいちばん届く。気象庁の多言語辞書の韓国語（홍수 경보 など）なら決まった訳。英語もやさしい文なら読める。",
+   "文字": "漢字の地名はローマ字か英語の公式の名前を添える（例: Okubo / Seibu-Shinjuku Ogado underpass）。",
+   "読み上げ": "使わない。",
+   "音・ふるえ": "いまの高い重要度の音とふるえで十分気づいた。",
+   "見た目・色": "赤は暗く見えるので、色だけでなく「Level 3 / 5」の文字と、水につかった道の形の絵で強さを見せる。",
+   "長さ": "英語・韓国語の行を上に、短く 2〜3 行。試しの断り書きや漢字の長い行は下へ。",
+   "その他": "冠水しそうな所を地図で出し、近い所だけでなく、まわり全部を見せると、自分の道が入っていると気づける。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "「冠水想定 4 か所」の 4 つすべてを、公式の名前と英語またはローマ字で並べ、携帯の中の地図に点で出す（大ガード下も入るなら、それと分かるように）。",
+    "why": "いちばん近い初台が行く道に無かったので「関係ない」と思ったが、大ガード下が並んでいれば自分の道だと気づけた。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書にある決まった韓国語の訳（警報の名前と、案内の 1 文）を、携帯の言葉の設定が韓国語なら出す。",
+    "why": "英語より韓国語のほうが早く確かに分かり、パパゴで変な訳を見て迷うこともなくなる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "英語の行で「Underpass」に短い決まった説明（low road under a railway）を添え、「Level 3 of 5」と書く。",
+    "why": "旅行者はアンダーが何か、レベル 3 がどれくらい強いかを知らず、軽く見てしまった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "強さを赤い帯だけで見せず、レベルの数字を大きな四角の中に出し、形やもようでも分かるようにする。",
+    "why": "P 型の色の見え方では赤が暗く見え、危なさの強さが伝わらなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "案内の 1 文を、いちばん近い所でなく、いる所のまわりで人が通りやすいアンダー（例: 大ガード下）の名前で出し、警報が続く間は時間をおいてもう一度知らせる。",
+    "why": "出かける前の時間にもう一度、自分の近くの名前で届けば、出かけるのをのばす気になれた。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "英語で洪水の警報だとは分かりましたが、名前が出ていたアンダーは遠い初台だけだったので、「自分たちの道とは関係ない」と思いました。そのまま大ガード下を通って買い物に出てしまいました。"
+ },
+ "notice": {
+  "scene": "新大久保のゲストハウスの部屋で、友だちとベッドに座ってインスタを見ている。このあと、西武新宿駅の近くの大ガード下（低い道）を通って、歌舞伎町のドン・キホーテへ買い物に行こうと話している。",
+  "place_fit": "そのまま",
+  "safe_move": "今夜は出かけるのをやめるか、先にのばす。どうしても出るなら、大ガード下のようなアンダーや低い道、川べりを通らず、高い所の道を選ぶ。危ないと感じたら、建物の中の上の階にいる。",
+  "phone": "音もふるえもオンのまま（旅行中なので家族からの連絡にすぐ気づけるように）で、携帯は手に持って使っている。",
+  "noticed": true,
+  "minutes": 0,
+  "how": "インスタを見ている時に、画面の上に通知が出て、音とふるえもあった。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読めないけど、「Flood」と「3」は分かった。外は雨だし、これから出かけるので気になった。赤いマークは暗い色に見えて、あまり目立たなかった。でも「Flood」の字が気になって、英語の説明があるかと思って押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0543132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3462,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1302,
+    "output_tokens_details": {
+     "thinking_tokens": 700
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3462,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1302,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3462,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3462
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.1
+  },
+  "away": {
+   "cost_usd": 0.17593599999999998,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11598,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4101,
+    "output_tokens_details": {
+     "thinking_tokens": 1791
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11598,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4101,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11598,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11598
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 48.5
+  }
+ },
+ "cost_usd": 0.2302492,
+ "took": 64.6,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P098",
+  "age": 17,
+  "lang": "韓国語",
+  "body": "色の見分けがつきにくい（P 型）",
+  "situation": "旅行で来ている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:49:23",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

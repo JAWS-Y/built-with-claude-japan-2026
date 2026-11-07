@@ -1,0 +1,251 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 0,
+    "how": "明治通りを走っているとき、通知の音が鳴った。ホルダーの画面に赤い印と「Flood」が見えた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 12,
+    "how": "妻を待つ駐車場で止まって開いた。漢字は読めないが、ひらがなの「かわの みずが あふれる」「みちが みずに つかる」と、英語の「road flooding nearby」で、川があふれて近くの道に水が出るかもしれない、と分かった。「アンダー」はカタカナで読めた。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 13,
+    "how": "「Level 3 Warning」と赤い色で、ちゃんとした警報だと思った。外の雨も強くなっている。半分は「大げさかも」と思ったが、念のため気をつけることにした。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 14,
+    "how": "「しんじゅくく」で、自分がいるのも新宿区。帰りは神田川のそばの低い道とアンダーを通るつもりだったので、自分の道のことだと思った。「4」「3km」の数字も目に入った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 15,
+    "how": "帰りは川のそばの道とアンダーを通らず、来た明治通りで帰ろうと決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 16,
+    "how": "Google マップで帰りの道を明治通りに変えた。21時7分ごろ、妻が来てから、その道で出た。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "した",
+  "minutes": 16,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "運転中に音が鳴り、画面の「レベル3」「Flood」を見た。触らずにそのまま走った"
+   },
+   {
+    "minutes": 10,
+    "action": "高田馬場の駐車場に止めて、通知を押してアプリを開いた"
+   },
+   {
+    "minutes": 12,
+    "action": "ひらがなの行と英語の行を読んだ。漢字の行は分からないので飛ばした"
+   },
+   {
+    "minutes": 13,
+    "action": "フロントガラスの雨と、まわりの道を見た。まだ水は出ていない"
+   },
+   {
+    "minutes": 14,
+    "action": "妻に Viber で「川の けいほう。帰りは べつの道」と送った"
+   },
+   {
+    "minutes": 16,
+    "action": "Google マップで、帰りの道を川のそばとアンダーを通らない明治通りに変えた"
+   },
+   {
+    "minutes": 22,
+    "action": "妻が来たので通知を見せて話し、明治通りで大久保へ帰った。川のそばの道とアンダーは通らなかった"
+   }
+  ],
+  "fit": {
+   "言葉": "ミャンマー語がいちばん届く。気象庁の多言語辞書にはミャンマー語の決まった訳があるので、それを使う。そのつぎは英語とひらがな",
+   "文字": "漢字は読めない。地名はカタカナかローマ字（Hatsudai Underpass）で。数字と Level は大きく",
+   "読み上げ": "運転中は画面を見られないので、通知の決まった文を声で読む（英語またはミャンマー語の決まった文）。ミャンマー語を機械で訳すのは（きまり 3 とぶつかる）",
+   "音・ふるえ": "いまの音で気づけた。運転中でも聞き分けられる、警報だけの音があるとよい",
+   "見た目・色": "赤とレベルの数字、アンダーと水の絵があれば、一目で分かる",
+   "長さ": "たたんだ形の 1 行で分かるように。「Level 3 Flood Warning: road flooding / アンダー」くらい",
+   "その他": "Android Auto や運転モードのときは、止まるまで大事な 1 文だけを出し、止まったら全部を見せる"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書にある決まったミャンマー語の訳で、警報の名前と決まった文を出す。言葉は設定で選べるようにする。",
+    "why": "母語なら、運転中にちらっと見ただけでも、何が危ないかがすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "運転中（Android Auto・運転モード）は、題と案内の 1 文を英語かミャンマー語の決まった文で声に出して読む。",
+    "why": "10 分も止まらずに走っていた。走りながら意味が分かれば、アンダーに入る前に決められる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "冠水想定の 4 か所を、カタカナかローマ字の名前と地図の印と、いまの位置からの距離で出す。地図は自分の携帯の中だけで見る。",
+    "why": "「初台」も「冠水想定」も読めなかった。自分が通るアンダーが入っているかを、地図で見て分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の 2 行目に、「Flood」だけでなく決まった英文「Be on alert for road flooding nearby」と「アンダー」を入れる。",
+    "why": "開かなくても、運転中に見た 1 行で「道に水が出る」が分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "「水が出たアンダーには入らないで、引き返して」と、どう動くかを短く出す。",
+    "why": "車の人には、アンダーに入らないことがいちばん大事。言われればそのまま動ける。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "ひらがなと英語の行で「道に水が出る」と分かり、帰りはアンダーと川べりの道をやめられました。ただ、運転中は「Flood」しか分からず、意味が分かったのは止まってからでした。走りながら声で聞けたり、ミャンマー語で読めたりすれば、もっと早く決められます。"
+ },
+ "notice": {
+  "scene": "大久保の家から車を出して、高田馬場で仕事を終える妻を迎えに行くところ。今は明治通りを走っていて、このあと神田川の近くの低い道とアンダーパスを通るつもりでいる。",
+  "place_fit": "そのまま",
+  "safe_move": "急がない出かけは見合わせるか、アンダーパス・川べり・低い道を通らない高い道を選ぶ。道に水が出ていたら入らずに引き返し、妻には近くの安全な建物で待ってもらう。",
+  "phone": "音とふるえはオンでマナーモードにはしておらず、携帯はダッシュボードのホルダーで地図を出している。",
+  "noticed": true,
+  "minutes": 0,
+  "how": "運転中に通知の音が鳴り、ホルダーの画面の上に赤い印と「Flood」が出たのが目に入った。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "運転中なので、見えたのは「レベル3」と「Flood」だけ。漢字は読めず、「はんらん」の意味もよく分からない。雨の中でこれから川の近くを通るので気になり、約10分後に妻を待つ駐車場で止まってから通知を押して開いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.055797200000000005,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3450,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1381,
+    "output_tokens_details": {
+     "thinking_tokens": 791
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3450,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1381,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3450,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3450
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.4
+  },
+  "away": {
+   "cost_usd": 0.181632,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11570,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4397,
+    "output_tokens_details": {
+     "thinking_tokens": 2113
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11570,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4397,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11570,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11570
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 48.5
+  }
+ },
+ "cost_usd": 0.2374292,
+ "took": 65.9,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P100",
+  "age": 35,
+  "lang": "ミャンマー語",
+  "body": "なし",
+  "situation": "車を運転している",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:50:09",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

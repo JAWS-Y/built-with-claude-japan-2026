@@ -1,0 +1,256 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 3,
+    "how": "雨で音は聞こえなかったが、ポケットのふるえに気づいた。信号で携帯を出した。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 8,
+    "how": "漢字とカタカナは読めない。ひらがなの行をゆっくり読んで「かわの みずが あふれる」「みちが みずに つかる」が分かった。「Flood」で banjir だと分かった。でも「初台アンダー 0.84km」はどこか分からない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 8,
+    "how": "赤いマークが出ているし、雨も強い。本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 9,
+    "how": "「しんじゅくく」は自分の住む所。「かわ」と読んで、いつも通る神田川を思い出した。おなかの赤ちゃんのこともあって、こわくなった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "知っている帰り道は川ぞいの道だけ。ほかの道は分からないし、知らせにもどこを通ればいいか書いていない。夫に電話したら「早く帰っておいで」と言われた。水が来る前に急いで帰るのがいいと思った。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "道を変えると決めていないので、離れる動きは始めていない。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 3,
+    "action": "信号で止まって、通知を押してアプリを開いた"
+   },
+   {
+    "minutes": 4,
+    "action": "店の軒下に入って、ひらがなの行を一つずつ指でなぞって読んだ"
+   },
+   {
+    "minutes": 8,
+    "action": "「かわの みずが あふれる」が分かって、こわくなった"
+   },
+   {
+    "minutes": 10,
+    "action": "家にいる夫にインドネシア語で電話した。夫も日本語は少ししか読めない。「早く帰っておいで、気をつけて」と言われた"
+   },
+   {
+    "minutes": 12,
+    "action": "いつもの道を急いで歩き出した"
+   },
+   {
+    "minutes": 18,
+    "action": "神田川ぞいの低い道に入った。川の水が高くて茶色いのを見たが、道にはまだ水が無いので、そのまま急いだ"
+   },
+   {
+    "minutes": 26,
+    "action": "アパートに着いた。夫に「川の水がこわかった」と話した"
+   },
+   {
+    "minutes": 40,
+    "action": "アパートは2階なので、そのまま家にいた"
+   }
+  ],
+  "fit": {
+   "言葉": "インドネシア語（警報の名前は気象庁の多言語辞書の Indonesian）。そのあとにひらがな。",
+   "文字": "大きなひらがなで、短く。漢字にはふりがな。英語は「Flood」くらいでよい。",
+   "読み上げ": "インドネシア語の決まった文を声で読む（決まった文を読むだけなら、きまり 3 とぶつからない）。",
+   "音・ふるえ": "雨で音は聞こえない。長いふるえを、開くまでくり返す。",
+   "見た目・色": "赤い色と、川から水があふれる絵。川の場所が分かる簡単な地図（自分の位置をのせるなら、きまり 4 とぶつかる）。",
+   "長さ": "1〜2 文。いちばん上に「川の名前と、それが危ない」ことを書く。",
+   "その他": "夫に、同じ知らせをインドネシア語で送るボタン（位置は送らない）。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "近くの物として、いまいる所から近い神田川（かんだがわ）とその川ぞいの道を名指しする。「かんだがわ ぞいの みちの かんすいに けいかい して ください」をひらがなで、公式の水位や洪水予報も添える。",
+    "why": "知らない「初台アンダー」ではなく、毎日通る川の名前なら、その道が危ないとすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "知らせのいちばん上に、インドネシア語の決まった文を出す。警報の名前は気象庁の多言語辞書を使い、案内の 1 文は人が作った決まった訳にする。",
+    "why": "漢字もカタカナも読めず、知的障害もある人には、ひらがなを読み解くより母語の方がずっと早く確かに分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "アプリが「川から遠くて高い道を通って」と帰り道を示す。妊娠中は早めに動く、という一言も添える。",
+    "why": "この人が止まったのは、川ぞいの道しか知らないからで、ほかの道を示されないと道を変えられない。",
+    "clash": [
+     "2 どう動くかを指図する",
+     "1 公式の事実だけ（予報・判断・安全を作る、公式でないデータを出す）"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "公式の浸水想定区域と川に赤くぬった簡単な地図を出し、その上に自分の位置を示す。",
+    "why": "字が読めなくても、自分の帰り道が赤い所を通ることが目で見て分かる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "「家族に送る」ボタンを付ける。押すと、同じ知らせがインドネシア語の決まった文で夫に届く（位置は送らない）。",
+    "why": "この人は夫に聞いてから決める。夫も「川が危ない」と分かれば、「急いで帰って」ではなく「川の道は通らないで」と言える。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "この人は、ポケットのふるえに気づいて知らせを開き、ひらがなから「川の水があふれる」ことも分かりました。それでも、いつもの神田川ぞいの道を急いで通ってしまいました。止まったのは「決める」の段階です。知っている帰り道は一つだけで、知らせにある「初台アンダー」は知らない場所でした。夫に電話すると「早く帰っておいで」と言われ、水が来る前に急いで帰るのがいいと思いました。サークルの知らせが無くても、同じことになったと思います。どちらの道が危ないかが母語と川の名前で分からず、ほかの道も示されないと、急いで帰ることしかできません。"
+ },
+ "notice": {
+  "scene": "高田馬場のお弁当工場で働いた帰り。高田馬場駅から、下落合のアパートへ傘をさして歩いている。これから神田川ぞいの低い道を通る。",
+  "place_fit": "そのまま",
+  "safe_move": "妊娠している人は避難に時間がかかる人なので、今のうちに危ない所から離れる。神田川ぞいの道や低い道は通らず、川から遠くて高い道で帰るか、川の近くに行かずに安全な建物にとどまる。家が低い所なら、上の階か親しい人の家などへ移る。",
+  "phone": "仕事中はマナーモードにしているが、帰るときに音を戻す。音とふるえはオン、おやすみモードはなし。携帯はコートのポケットに入れている。",
+  "noticed": true,
+  "minutes": 3,
+  "how": "雨の音で通知の音は聞こえにくかったが、ポケットの中のふるえに気づいた。信号で止まったときに携帯を出して画面を見た。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "赤いマークと「3」と「Flood」が見えて、「Flood」は「banjir（洪水）」だと分かった。「はんらん けいほう」は読めるけれど、意味はよく分からない。こわくなって、いつもアプリを開くときと同じように通知を押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0566692,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3429,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1433,
+    "output_tokens_details": {
+     "thinking_tokens": 800
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3429,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1433,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3429,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3429
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 18.2
+  },
+  "away": {
+   "cost_usd": 0.19066,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11591,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4840,
+    "output_tokens_details": {
+     "thinking_tokens": 2395
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11591,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4840,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11591,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11591
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 53.1
+  }
+ },
+ "cost_usd": 0.2473292,
+ "took": 71.3,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P024",
+  "age": 35,
+  "lang": "インドネシア語",
+  "body": "軽い知的障害",
+  "situation": "妊娠中",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:32:29",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

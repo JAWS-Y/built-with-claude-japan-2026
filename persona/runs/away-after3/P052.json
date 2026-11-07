@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 0,
+    "how": "バッグの中で通知の音が鳴ったので気づいた。運転中なので見なかった。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 25,
+    "how": "家に着いて車をとめてから、通知をひらいて全部読んだ。新宿区に川の氾濫の警報が出て、道が水につかるおそれがあると分かった。でも、アンダーパスはもう通ったあとだった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 27,
+    "how": "「気象庁」「発表」の時刻が書いてあるので本当だと思った。窓の外の雨も強かった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 28,
+    "how": "20:45 の発表なら、自分がアンダーパスを通るより前に出ていたと気づいた。自分が通った道のことだと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "もう家にいて、低い道は通り終わっていた。いまから決めることが無かった。今夜はもう車を出さないと思っただけ。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "離れる・避けるにあたる動きは無かった。"
+   }
+  ],
+  "stop": "決める",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "バッグの中で音が鳴ったのを聞いた。運転中なので見ずにそのまま走った"
+   },
+   {
+    "minutes": 10,
+    "action": "いつもの道のとおり、線路の下のアンダーパスを通った（まだ水は出ていなかった）"
+   },
+   {
+    "minutes": 25,
+    "action": "家に着いて車をとめ、通知を見てひらき、全部読んだ"
+   },
+   {
+    "minutes": 28,
+    "action": "発表の時刻を見て、通る前に出ていたと気づいた"
+   },
+   {
+    "minutes": 35,
+    "action": "テレビで新宿区の警報を確かめ、今夜はもう車を出さないことにした"
+   }
+  ],
+  "fit": {
+   "言葉": "はっきりした言い方で一つの意味だけにする。「近くの道」でなく、通る場所の名前をそのまま出す（例: 高田馬場のアンダーパス）",
+   "文字": "漢字はそのままでよい。題に「道路冠水」と、どこの物かを入れる",
+   "読み上げ": "運転中は車のスピーカーで、題と案内の1文だけを読み上げる。毎回同じ順番、同じ声で",
+   "音・ふるえ": "警報だけの決まった音にする。毎回同じ音で、ほかの通知とまちがえないようにする",
+   "見た目・色": "いまの赤いしるしでよい。いつも同じ並びにする",
+   "長さ": "運転中は1文だけ。くわしいことは車をとめてから読めるように分ける",
+   "その他": "本人の決まり（運転中は見ない）を崩さずに届く形にする。決まったやり方を先に覚えてもらっておくと安心できる"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "Android Auto や車のスピーカーに知らせを出し、題と案内の1文（公式の文）を読み上げる。",
+    "why": "運転中は携帯に触らないという本人の決まりを崩さずに、通る前に中身が耳に入る。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が位置から、いちばん近いアンダーパスや冠水の想定の場所を選び、その名前を案内の1文に入れる（「〇〇アンダーの冠水に警戒してください」）。",
+    "why": "「近くの道」でなく自分が通る場所の名前があれば、いつもの道のことだとすぐ分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "「道路冠水の警報」だけの決まった音と、決まった読み上げの文の形をそろえ、試しで前もって聞いておけるようにする。",
+    "why": "決まった形なら意味を一度で覚えられ、音だけで「大事な知らせ」と分かって、とまる所を探しはじめられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "運転中は「アンダーパスや低い道を通らないでください」と、どう動くかを読み上げる。",
+    "why": "はっきり言われたことには従いやすく、いつもの道を変える決めごとがすぐできる。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "全体",
+    "idea": "出かける前と車に乗る前に、出ている警報をアプリの画面の一か所で見られるようにし、見る手順を本人の決まりに入れてもらう。",
+    "why": "決まった手順で動く人なので、出る前に見る習慣があれば運転中の知らせに頼らずに済む。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "音には気づいたのに、運転中は見ないという決まりのせいで、読めたのは家に着いてからだった。アンダーパスはもう通ったあとで、たまたま水が出ていなかっただけだった。"
+ },
+ "notice": {
+  "scene": "土曜の夜、買い物の帰りに一人で車を運転し、新宿区の高田馬場あたりで神田川沿いの道を走っている。この先、線路の下をくぐる低いアンダーパスを通って家へ帰るところ。",
+  "place_fit": "そのまま",
+  "safe_move": "アンダーパスや川沿いの低い道には入らず、高い所を通る道に変える。安全な所に車をとめて知らせを確かめ、危ないと感じたら川や低い土地から離れる。",
+  "phone": "マナーモードもおやすみモードも使っておらず、音もふるえもオンのまま。運転中は触らないと決めていて、助手席のバッグに入れている。",
+  "noticed": true,
+  "minutes": 0,
+  "how": "バッグの中で通知の音が鳴ったので、その場で気づいた。ただ運転中なので見なかった。アンダーパスを通って家に着き、車をとめた約25分後に画面を見た。",
+  "look": "ひらいた（画面 2）",
+  "why": "運転中は携帯を見ないのが自分の決まりで、それは崩さない。家に着いてから「レベル3」「警報」の文字に気づき、言葉の意味をきちんと知りたくて、通知をひらいて全部読んだ。もう家にいるので、アプリまでは開かなかった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0527132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3427,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1236,
+    "output_tokens_details": {
+     "thinking_tokens": 616
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3427,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1236,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3427,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3427
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.2
+  },
+  "away": {
+   "cost_usd": 0.15603999999999998,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11541,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3129,
+    "output_tokens_details": {
+     "thinking_tokens": 1153
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11541,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3129,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11541,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11541
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 35.0
+  }
+ },
+ "cost_usd": 0.20875319999999997,
+ "took": 51.2,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P052",
+  "age": 60,
+  "lang": "日本語（母語）",
+  "body": "自閉スペクトラム",
+  "situation": "車を運転している",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:38:55",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

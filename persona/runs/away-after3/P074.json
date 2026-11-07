@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 45,
+    "how": "21時半に目覚ましで起きて時刻を見たとき、画面に残っていた知らせが目に入った。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 45,
+    "how": "「新宿区 レベル3 氾濫警報」は読めた。新宿区で川があふれそうな警報だとは分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 45,
+    "how": "雨が降っているので「そうだろうね」と思い、うそだとは思わなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "「新宿区」は広い。いつもの神田川ぞいの道や線路下のくぐり道のことだとは思わなかった。起きたばかりでぼんやりしていて、仕事の支度で頭がいっぱいだった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思わなかったので、休むことも道を変えることも考えなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもどおり支度をつづけた。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 45,
+    "action": "目覚ましで起き、画面の知らせの題を読んだが、ひらかずに携帯を置いた"
+   },
+   {
+    "minutes": 50,
+    "action": "顔を洗い、お茶を飲んで、作業着と弁当の支度をした"
+   },
+   {
+    "minutes": 65,
+    "action": "窓の外の雨を見て「けっこう降ってるね」と思い、かっぱと長ぐつを出した"
+   },
+   {
+    "minutes": 80,
+    "action": "テレビは付けず、携帯も見ないまま、いつもの時間に合わせて玄関で靴をはいた"
+   },
+   {
+    "minutes": 85,
+    "action": "いつもどおり神田川ぞいの道から線路下のくぐり道へ向かって歩き出した"
+   }
+  ],
+  "fit": {
+   "言葉": "なじみの地名だけを使う。「神田川」「高田馬場」「線路の下の くぐり道」。「新宿区」や「アンダー」は自分の所と結びつかない。",
+   "文字": "ふつうに読めるが、たたんだ形の一行目だけで分かるようにする。漢字は少なく、大きく。",
+   "読み上げ": "目で読む前に声で一回読み上げると、寝起きでも耳に入る（ふだん TalkBack は使っていない）。",
+   "音・ふるえ": "短い一回の音では起きない。止めるまで鳴りつづける長い音と強いふるえで、出かける前にもう一度鳴らす。",
+   "見た目・色": "赤い帯で画面いっぱいに出す。小さな通知の一行だけだと見落とす。",
+   "長さ": "一文だけ。「神田川と 線路の下の くぐり道の 冠水に 警戒してください」くらい。",
+   "その他": "もの忘れがあるので、一回読んでも出かけるときには忘れる。出る時刻の前にもう一度出るのが大事。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "「いつも通る所」（神田川ぞいの道・線路下のくぐり道）を前もって家族と登録しておき、警報が出たらたたんだ形の一行目にその名前を出して「〜の冠水に警戒してください」と書く。",
+    "why": "「新宿区」では自分の道と思わなかったが、毎日通る道の名前が出れば、すぐ自分のことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報が出ているあいだは、いつも出かける時刻（22時）の少し前に同じ知らせを、止めるまで鳴る音とふるえ、画面いっぱいの形でもう一度出す。",
+    "why": "寝ていて一回目の音に気づかず、もの忘れもあるので、家を出る直前にもう一度目に入ることがいちばん効く。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "警報のとき、登録した家族や職場にも同じ知らせと「本人に届いた・ひらいていない」を送り、電話してもらえるようにする。",
+    "why": "自分では休むと決めにくいが、家族や職場から「今日は休んで」と言われれば家にいられる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "知らせを自動で一回読み上げ、たたんだ形でも案内の一文が見えるようにする。",
+    "why": "寝起きでぼんやりしていて題だけ見て置いたが、声と一文があれば道のことだと耳に残る。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "神田川の水位（東京都の公式の観測値）を、ふだんの水位とくらべて一つの数字と図で出す。",
+    "why": "「雨だからね」で済ませたが、川の水がどれだけ上がっているか目で見れば、川ぞいを歩くのはやめようと思える。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "知らせは見えたけれど、「新宿区」と書かれていても、毎晩歩く神田川の道やくぐり道のことだとは思わなかった。それに家を出るころには、知らせのことはもう忘れていた。"
+ },
+ "notice": {
+  "scene": "高田馬場の神田川近くにあるアパートの 3 階の自宅で、ふとんで寝ている。夜勤明けで昼間あまり眠れず、夕方から横になっていた。22 時すぎに家を出て、川ぞいの道と線路下の低いくぐり道を歩いて、ビル清掃の夜の仕事へ行くつもり。",
+  "place_fit": "そのまま",
+  "safe_move": "お年寄りなので、川ぞいの道やアンダーを通って出かけるのはやめる。3 階の家にいるのがいちばん安全なので、仕事は休むと職場に電話するか、どうしても出るなら川とくぐり道を通らない高い道を選ぶ。",
+  "phone": "音とふるえはふつうに出る設定だが、音量は小さめで、携帯は枕元から少しはなれたちゃぶ台の上で充電している。",
+  "noticed": true,
+  "minutes": 45,
+  "how": "届いたときはぐっすり寝ていて、短い音に気づかなかった。21 時半に目覚ましで起きて時刻を見たとき、画面に残っていた知らせに目がいった。",
+  "look": "見たが、そのまま",
+  "why": "起きたばかりで頭がぼんやりしていた。「新宿区 レベル3 氾濫警報」は読めたが、「雨だからね」と思っただけで、自分が通る道のことだとは思わなかった。仕事の支度が気になって、そのまま携帯を置いた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.055033200000000004,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3457,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1340,
+    "output_tokens_details": {
+     "thinking_tokens": 667
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3457,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1340,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3457,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3457
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.6
+  },
+  "away": {
+   "cost_usd": 0.15946,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11461,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3332,
+    "output_tokens_details": {
+     "thinking_tokens": 1246
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11461,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3332,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11461,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11461
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 37.8
+  }
+ },
+ "cost_usd": 0.2144932,
+ "took": 55.4,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P074",
+  "age": 83,
+  "lang": "日本語（母語）",
+  "body": "認知症のはじめ",
+  "situation": "夜勤明けで寝ている",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:44:02",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

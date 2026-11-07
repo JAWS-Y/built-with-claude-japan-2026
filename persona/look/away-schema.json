@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["steps", "stop", "outcome", "because", "without_notice", "did_safe_move", "minutes", "did", "fit",
+               "ideas", "overall"],
+  "properties": {
+    "steps": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "description": "6 つの段階を、気づく・分かる・信じる・自分のことと思う・決める・動くの順に一つずつ",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "passed", "minutes", "how"],
+        "properties": {
+          "stage": {"type": "string", "enum": ["気づく", "分かる", "信じる", "自分のことと思う", "決める", "動く"]},
+          "passed": {"type": "boolean",
+                     "description": "この段階を通れたか。前の段階で止まったなら false。気づく は一回目の答えと同じ"},
+          "minutes": {"type": ["number", "null"],
+                      "description": "知らせが届いてから何分で通ったか（確かめてから通ったなら、確かめ終わった分）。通っていなければ null"},
+          "how": {"type": "string",
+                  "description": "何を見て・聞いて・思って通れたか、なぜ通れなかったか（この人の目から、短く）"}
+        }
+      }
+    },
+    "stop": {"type": "string", "enum": ["止まらなかった", "気づく", "分かる", "信じる", "自分のことと思う", "決める", "動く"],
+             "description": "はじめて通れなかった段階。6 つとも通れたなら 止まらなかった"},
+    "outcome": {"type": "string", "enum": ["離れた", "避けた", "近づかずにいた", "とどまった", "動けない", "近づいてしまった"],
+                "description": "離れた: 危ない所から離れた（家の上の階へ移ったのも入る）。避けた: 通る・行くはずだったのをやめた・道を変えた。近づかずにいた: 危なくない所にいて近づかなかった。とどまった: 危ない所（地下・低い所など）にいて離れなかった。動けない: 離れたいが体やまわりの事情で離れられない。近づいてしまった: 危ない所を通った・行った・見に行った"},
+    "because": {"type": "string", "enum": ["サークルの知らせで", "ほかのきっかけで", "もともと近づかなかった", "離れられていない"],
+                "description": "outcome が 離れた・避けた・近づかずにいた なら、そのいちばんのきっかけ。とどまった・動けない・近づいてしまった なら 離れられていない"},
+    "without_notice": {"type": "string", "enum": ["離れた", "避けた", "近づかずにいた", "とどまった", "動けない", "近づいてしまった"],
+                       "description": "サークルの知らせが無かったら、この人はどうなったと思うか（outcome と同じ選びかた）"},
+    "did_safe_move": {"type": "string", "enum": ["した", "一部した", "しなかった"],
+                      "description": "一回目の safe_move に当たることを、この人がしたか"},
+    "minutes": {"type": ["number", "null"],
+                "description": "離れる・避けるために動き出したのは、知らせが届いてから何分後か（決める より後、動く の分と同じ）。避けた なら予定をやめた・変えた分。動いていなければ null"},
+    "did": {
+      "type": "array",
+      "description": "知らせが届いてから、この人がしたこと（時の順に）",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["minutes", "action"],
+        "properties": {
+          "minutes": {"type": "number", "description": "知らせが届いてから何分後か"},
+          "action": {"type": "string"}
+        }
+      }
+    },
+    "fit": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "この人に届く出し方（相談役として、短く）。きまりとぶつかるなら「（きまり 3 とぶつかる）」のように書き添える",
+      "required": ["言葉", "文字", "読み上げ", "音・ふるえ", "見た目・色", "長さ", "その他"],
+      "properties": {
+        "言葉": {"type": "string"},
+        "文字": {"type": "string"},
+        "読み上げ": {"type": "string"},
+        "音・ふるえ": {"type": "string"},
+        "見た目・色": {"type": "string"},
+        "長さ": {"type": "string"},
+        "その他": {"type": "string"}
+      }
+    },
+    "ideas": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "description": "この人がもっと早く、もっと確かに離れる・近づかないための、サークルの案（効く順）",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "idea", "why", "clash"],
+        "properties": {
+          "stage": {"type": "string", "enum": ["気づく", "分かる", "信じる", "自分のことと思う", "決める", "動く", "全体"],
+                    "description": "どの段階を助けるか"},
+          "idea": {"type": "string", "description": "サークルが何をするか（1〜2 文）"},
+          "why": {"type": "string", "description": "なぜこの人に効くか（1 文）"},
+          "clash": {"type": "array", "minItems": 1,
+                    "items": {"type": "string",
+                              "enum": ["ぶつからない",
+                                       "1 公式の事実だけ（予報・判断・安全を作る、公式でないデータを出す）",
+                                       "2 どう動くかを指図する",
+                                       "3 決まった訳・公式の訳でない（機械の訳など）",
+                                       "4 位置を PC 以外が読む・人に見せる",
+                                       "その他のきまり"]},
+                    "description": "ぶつかるサークルのきまりをすべて。ぶつからないなら ぶつからない だけ"}
+        }
+      }
+    },
+    "overall": {"type": "string", "description": "この人の立場から見た、ひとこと"}
+  }
+}

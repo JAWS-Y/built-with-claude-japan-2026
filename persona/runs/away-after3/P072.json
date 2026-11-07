@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 5,
+    "how": "お母さんに「おわった」と送ろうとして携帯を出したとき、赤いマークの知らせが見えた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 9,
+    "how": "自分では「しんじゅくく」「けいほう」しか分からなかった。お母さんから「川の水があふれるかもしれないってこと。川のそばの道は水がたまるかも」と返ってきて、やっと分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 9,
+    "how": "お母さんが「本当に出てるよ」と言ったし、外は雨なので本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 10,
+    "how": "お母さんに「いつもの川のそばの道とトンネルは通っちゃだめ」と言われて、自分の帰り道のことだと分かった。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 10,
+    "how": "お母さんの「塾で待ってて。むかえに行くね」のとおり、歩いて帰らずに待つことにした。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 10,
+    "how": "塾の先生に「お母さんがむかえに来る」と言って、入り口の中で待った。35分ごろお母さんが来て、大通りを通って帰った。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "避けた",
+  "because": "サークルの知らせで",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "した",
+  "minutes": 10,
+  "did": [
+   {
+    "minutes": 5,
+    "action": "携帯を出して赤い知らせを見たが、ひらかずにお母さんに「おわった」「なんか けいほう きた」と送った"
+   },
+   {
+    "minutes": 9,
+    "action": "お母さんから電話。「川があふれるかもってこと」と聞いた"
+   },
+   {
+    "minutes": 10,
+    "action": "「川のそばとトンネルは通らないで、塾で待ってて」と言われ、歩いて帰るのをやめた"
+   },
+   {
+    "minutes": 11,
+    "action": "塾の先生に話して、入り口の中で待った"
+   },
+   {
+    "minutes": 35,
+    "action": "お母さんがむかえに来て、大通りを通って家に帰った"
+   }
+  ],
+  "fit": {
+   "言葉": "「かわの みずが あふれる」「みちが みずに つかる」のように、こどもが知っていることばで",
+   "文字": "ひらがなの行を、たたんだ形でもいちばん上に。むずかしい漢字（氾濫・冠水・警戒）は、たたんだ形では出さない",
+   "読み上げ": "ボタンひとつで、ひらがなの決まった文を読み上げる（目を近づけずに分かる）",
+   "音・ふるえ": "マナーモードでも、長く強いふるえを、見るまでくり返す",
+   "見た目・色": "大きい文字・白黒のはっきりした色で、赤いマークの横に水の絵",
+   "長さ": "たたんだ形は2行まで。「なにが・どこで」だけ",
+   "その他": "お母さんに見せる・送るボタン（決まった文をそのまま送る）"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ形の2行めを「かわの みずが あふれる けいほう」とし、ひらいた形のひらがなの行をそのまま先に出す。",
+    "why": "「はんらん」が分からず、ひらかなかったこの子でも、たたんだ形だけで何が危ないか分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "家族の携帯にも、同じ区の知らせが同じ文で届くようにする（家族はそれぞれ自分で区を登録し、子の位置は見せない）。",
+    "why": "9歳の子は自分で道を決めず、お母さんが決めるので、お母さんが早く知れば早くむかえに来られる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "子の携帯が知らせを受けたとき、登録した家族に「○○さんの近くで けいほう」と知らせる。",
+    "why": "子が「なんか けいほう きた」としか言えなくても、親がすぐに何の知らせか分かる。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "レベル3以上は、マナーモードでも長く強いふるえを、ひらくまでくり返す（アプリの設定で選べる）。",
+    "why": "リュックの中のふるえに5分気づかなかったので、もっと早く気づける。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "たたんだ形に「よみあげる」ボタンを付け、ひらがなの決まった文を声で読む。",
+    "why": "弱視で目を近づけるのが大変でも、耳で中身が分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "ひとりではよく分からなかったけど、お母さんに「けいほう きた」と送れたので、川のそばの道を歩かずにすんだ。"
+ },
+ "notice": {
+  "scene": "高田馬場の塾で授業がおわり、帰りじたくをしている。このあと神田川ぞいの道と線路下のアンダーを通って歩いて家に帰るか、お母さんのむかえを待つところ。",
+  "place_fit": "合わせた",
+  "safe_move": "神田川ぞいの道や線路下のアンダーなど低い所は通らず、高い大通りを通るか、塾の中で待って大人にむかえに来てもらう。危ないと感じたら、川や低い道に近づかない。",
+  "phone": "塾ではきまりでマナーモード（ふるえだけ）にしていて、文字は大きくしてあり、携帯はリュックの前ポケットに入れている。",
+  "noticed": true,
+  "minutes": 5,
+  "how": "リュックの中でふるえたのは気づかなかった。お母さんに「おわった」と送ろうとして携帯を出したとき、画面に赤いマークが出ているのを見た。",
+  "look": "見たが、そのまま",
+  "why": "「新宿区」「レベル3」と、ひらがなの「はんらん けいほう」は読めたけど、「はんらん」の意味はよく分からなかった。むずかしい漢字は読めないし、目を近づけて読むのは大変。お母さんに連絡するほうが先なので、ひらかずに「なんか けいほう きた」とだけ伝えた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0548132,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3462,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1327,
+    "output_tokens_details": {
+     "thinking_tokens": 695
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3462,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1327,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3462,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3462
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.1
+  },
+  "away": {
+   "cost_usd": 0.151916,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11423,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2970,
+    "output_tokens_details": {
+     "thinking_tokens": 1039
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11423,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2970,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11423,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11423
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 33.5
+  }
+ },
+ "cost_usd": 0.2067292,
+ "took": 50.6,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P072",
+  "age": 9,
+  "lang": "日本語（母語）",
+  "body": "弱視（文字を大きくしている）",
+  "situation": "学校の帰り",
+  "reading": "小学校で習った漢字まで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:43:26",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "このあと出かける",
+ "check": []
+}

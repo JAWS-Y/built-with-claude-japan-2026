@@ -1,0 +1,235 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 0,
+    "how": "動画を見ているときに音が鳴って、上に通知が出た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 0,
+    "how": "赤い印と「レベル3」「Flood」で、新宿区のどこかで水の警報が出たのは分かった。どの川か、どこが危ないかは読んでいない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 0,
+    "how": "いつもの警報っぽい通知なので、うそだとは思わなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "「新宿区」は広いし、雨もそこまで強くない。家の横の川のことだとは結びつかず、「あとで見ればいい」と思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思わなかったので、何も決めていない。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "1階の部屋でベッドにいたまま。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "とどまった",
+  "because": "離れられていない",
+  "without_notice": "とどまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "通知を見て「レベル3」「Flood」だけ目に入り、動画にもどる"
+   },
+   {
+    "minutes": 35,
+    "action": "雨の音が少し強くなり、窓から外を見る。道に水は無いので、またベッドで動画"
+   },
+   {
+    "minutes": 60,
+    "action": "まだ1階の部屋にいる。通知は開いていない"
+   }
+  ],
+  "fit": {
+   "言葉": "「みょうしょうじがわ」「この近くの川」など、自分の家の横の川の名前。むずかしい言葉は使わない。",
+   "文字": "大きく、行を短く。題は10字くらい。漢字がつまった行は避け、川の名前とレベルの数字を先に。",
+   "読み上げ": "通知に「読み上げる」ボタン。押すと決まった文をそのまま声で読む。読むのがしんどい人でも聞ける。",
+   "音・ふるえ": "いまのままで気づけた。開かなければ10〜15分後にもう一度鳴らす。",
+   "見た目・色": "赤い印に加えて、川と水の絵。レベルの数字を大きく。",
+   "長さ": "通知は1行で川の名前とレベルだけ。くわしくは開いた先で、まず1文。",
+   "その他": "通知が勝手に消えないように、開くまで上に残す。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が位置からいちばん近い公式の対象の川（妙正寺川）を選び、題と案内の1文を「妙正寺川の氾濫に警戒してください」にする。0.84km 先の初台アンダーではなく、家のすぐ横の物を名指しする。",
+    "why": "「新宿区」では他人ごとだったが、毎日見ている川の名前なら自分のことだと分かる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "通知とアプリに「読み上げる」ボタンを付け、決まった文（ひらがなの行など）をそのまま音声で読む。",
+    "why": "ディスレクシアで、漢字のつまった行を読む前にあきらめてしまうので、聞けば中身が入る。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "開くまで通知を上に残し、10〜15分たっても開かれなければもう一度鳴らす。",
+    "why": "一度見て「あとで」と思って動画にもどったが、もう一度鳴れば読み直すきっかけになる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "東京都の公式の浸水予想区域図から、いまの位置の想定の深さ（例: 0.5〜1m）と、妙正寺川の公式の水位を数字と絵で出す。",
+    "why": "「雨がそこまで強くない」という自分の見立てより、家の場所の公式の数字のほうが重く受けとれる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "1階・低い土地にいる人に「2階より上か、高い所へ」とはっきり書く。",
+    "why": "何をすればいいかが読まずに分かれば、すぐ動き出しやすい。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   }
+  ],
+  "overall": "「Flood」は見えたけど、新宿区のどこかの話だと思った。うちの横の川の名前が出ていたら、ちゃんと読んだかもしれない。"
+ },
+ "notice": {
+  "scene": "下落合の妙正寺川のすぐそば、まわりより低い所に建つ古いアパートの 1 階で、一人で部屋にいる。ベッドで寝ころんで、携帯で動画を見ている。",
+  "place_fit": "そのまま",
+  "safe_move": "小さな川の近くの低い土地の 1 階なので、道に水が出る前に、自分から高い所にある避難所や知り合いの家へ移る。川ぞいの道やアンダーパスは通らない。すぐに出られないときは、建物の 2 階より上へ移る。",
+  "phone": "マナーモードもおやすみモードも使っておらず、音もふるえもオン。いまは手に持って動画を見ている。",
+  "noticed": true,
+  "minutes": 0,
+  "how": "動画を見ているときに通知の音が鳴って、画面の上に通知が出た。",
+  "look": "見たが、そのまま",
+  "why": "赤い印、「レベル3」、「Flood」は目に入った。でも漢字がつまった行は読むのがしんどくて、ちゃんと読む前に通知が消えた。雨はそこまで強くないし、あとで見ればいいかと思って、そのまま動画にもどった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0497572,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3440,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1083,
+    "output_tokens_details": {
+     "thinking_tokens": 510
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3440,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1083,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3440,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3440
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.1
+  },
+  "away": {
+   "cost_usd": 0.154024,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11344,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3107,
+    "output_tokens_details": {
+     "thinking_tokens": 1317
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11344,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3107,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11344,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11344
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 35.7
+  }
+ },
+ "cost_usd": 0.2037812,
+ "took": 50.8,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P092",
+  "age": 22,
+  "lang": "日本語（母語）",
+  "body": "ディスレクシア（読み書きの障害）",
+  "situation": "一人暮らし",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:48:04",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

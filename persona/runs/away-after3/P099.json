@@ -1,0 +1,260 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 1,
+    "how": "テーブルの上で携帯がふるえて、画面を見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 3,
+    "how": "漢字は読めない。でも「かわの みずが あふれる」「ちかくの みちが みずに つかる」はひらがななのでゆっくり読めた。英語の Flood と road flooding も分かった。川があふれて道が水につかるかもしれない、ということは分かった。場所（新宿区、初台アンダー）は読めなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 7,
+    "how": "赤いしるしと Level 3 が本物らしく見えた。日本に長くいる友だちに見せたら「新宿区、ここだよ」と言われた。店の人も「神田川はすぐそこ」と言ったので、本当だと思った。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": true,
+    "minutes": 8,
+    "how": "店は地下で、すぐ近くに川がある。ジャカルタの banjir（洪水）を思い出して、水が来たら地下はこわいと思った。"
+   },
+   {
+    "stage": "決める",
+    "passed": true,
+    "minutes": 12,
+    "how": "みんなで話して、ごはんを早めに終わらせて地上へ出て、川から離れて帰ると決めた。"
+   },
+   {
+    "stage": "動く",
+    "passed": true,
+    "minutes": 15,
+    "how": "お金を払って階段を上がり、川べりの道は通らずに駅へ歩いた。"
+   }
+  ],
+  "stop": "止まらなかった",
+  "outcome": "離れた",
+  "because": "サークルの知らせで",
+  "without_notice": "とどまった",
+  "did_safe_move": "一部した",
+  "minutes": 15,
+  "did": [
+   {
+    "minutes": 1,
+    "action": "ふるえで気づき、通知を押してアプリを開いた"
+   },
+   {
+    "minutes": 3,
+    "action": "ひらがなの行と英語をゆっくり読んで、川の水と道の水のことだと分かった"
+   },
+   {
+    "minutes": 5,
+    "action": "テーブルの友だちに画面を見せた。日本に長くいる友だちが「新宿区はここ」と言った"
+   },
+   {
+    "minutes": 7,
+    "action": "店の人に聞いたら「神田川はすぐ近く、雨の強い日はこわい」と言われた"
+   },
+   {
+    "minutes": 12,
+    "action": "みんなで、食べるのを早めに終えて帰ると決めた"
+   },
+   {
+    "minutes": 15,
+    "action": "お金を払い、地下の店から階段を上がって地上に出た"
+   },
+   {
+    "minutes": 20,
+    "action": "雨の中、川べりの道を通らずに高田馬場駅へ歩いた。地下鉄ではなく JR に乗ると決めた"
+   },
+   {
+    "minutes": 25,
+    "action": "JR の電車に乗って、高い所にある家へ向かった"
+   },
+   {
+    "minutes": 55,
+    "action": "家に着き、インドネシア人のグループチャットに画面の写しを送って、ほかの友だちにも知らせた"
+   }
+  ],
+  "fit": {
+   "言葉": "インドネシア語がいちばん届く。ふつうの英語の短い文も分かる。",
+   "文字": "ひらがなと英語。漢字・カタカナには、ひらがなを付ける（ふりがな）。",
+   "読み上げ": "いらない。ただ、ひらがなの行やインドネシア語を声で聞けると、にぎやかな店でも分かりやすい（インドネシア語は、決まった訳が無ければきまり 3 とぶつかる）。",
+   "音・ふるえ": "店がうるさいので、長くて強いふるえが何回か来るのがよい。",
+   "見た目・色": "赤いしるしと大きな「Level 3」の数字が効いた。川と水のしるし、地下のしるしの絵があると、すぐ分かる。",
+   "長さ": "短く。いちばん上に「どの川か・どの場所か」をひらがなと英語で 1 行。",
+   "その他": "ほかの国の友だちにも見せやすいように、その場で写しを送れるとよい（位置は入れない）。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の 1 文と「近い所」の行で、PC が読んだ携帯の位置にいちばん近い危ない物を名指しする（例: 神田川のはんらん、地下の浸水）。0.84km 先の初台アンダーではなく、いまいる所のそばの物を出す。",
+    "why": "この人が本当に危ないのは目の前の神田川と地下の店で、初台アンダーの名前は読めず、自分のことにつながらなかったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "気象庁の多言語辞書にある公式のインドネシア語の訳で、警報の名前と案内の文を出す（ひらがなと英語の行に足す）。",
+    "why": "母語なら漢字が読めなくても、何が危ないかが一目で分かり、友だちに聞く時間が要らないから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "ひらがなの行に、場所の名前（しんじゅくく・かんだがわ・はつだい あんだー）と「どうろ かんすい そうてい」の行もひらがなで出し、英語にも川の名前と距離を入れる。",
+    "why": "いまはこの人に読めない漢字の部分に、場所と距離という、自分のことと思うための大事なことが書いてあるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "たたんだ通知の 2 行目に、ひらがなと英語の決まった文（川の水があふれる・Flood Warning Level 3）を入れ、川と地下のしるしの絵を付ける。グループチャットへ写しを送るボタンも付ける（位置は入れない）。",
+    "why": "開く前に意味が分かり、同じ国の友だちとすぐ分け合えて、みんなで早く信じて決められるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "インドネシア語で「地下から地上へ、川から離れて高い所へ」と動き方を書く。",
+    "why": "地下にいるこの人には、どうすればよいかが母語ではっきり分かり、12 分かかった話し合いが短くなるから。",
+    "clash": [
+     "2 どう動くかを指図する",
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   }
+  ],
+  "overall": "ひらがなと英語と赤い 3 のおかげで、地下の店から早めに出られた。ただ、ここが新宿区で川がすぐ近くだと分かるには、友だちと店の人の助けが要った。"
+ },
+ "notice": {
+  "scene": "土曜の夜、高田馬場駅の近くで、神田川に近い低い土地にある地下のインドネシア料理店にいる。同じ国の友だちと夕ごはんを食べて話している。",
+  "place_fit": "そのまま",
+  "safe_move": "地下の店から早めに地上へ出て、神田川と低い土地から離れる。丈夫な建物の上の階など高い所へ移り、川べりやアンダーパス、ほかの地下には近づかない。",
+  "phone": "マナーモードにはしておらず、音とふるえはオン。おやすみモードは使っていない。携帯はテーブルの上、皿の横に置いている。",
+  "noticed": true,
+  "minutes": 1,
+  "how": "店がにぎやかで音はよく聞こえなかったが、テーブルの上でふるえたので画面を見て気づいた。",
+  "look": "押してアプリを開いた（画面 3・4）",
+  "why": "漢字は読めず、「はんらん けいほう」は読めても意味は分からない。でも英語の「Flood」は分かるし、赤いしるしと「3」も見えた。外は雨なので心配になって、くわしく知りたくて押した。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0549572,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3425,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1349,
+    "output_tokens_details": {
+     "thinking_tokens": 785
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3425,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1349,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3425,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3425
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.2
+  },
+  "away": {
+   "cost_usd": 0.177664,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11524,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 4217,
+    "output_tokens_details": {
+     "thinking_tokens": 1782
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11524,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 4217,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11524,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11524
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 46.3
+  }
+ },
+ "cost_usd": 0.23262119999999997,
+ "took": 62.5,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P099",
+  "age": 60,
+  "lang": "インドネシア語",
+  "body": "なし",
+  "situation": "都心の駅の近くにいる",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:49:24",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "いま危ない所",
+ "check": []
+}

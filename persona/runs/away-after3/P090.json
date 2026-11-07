@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 2,
+    "how": "イヤホンの音楽の上に通知音が鳴って、ポケットもふるえた。犬が止まったときに画面を見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 2,
+    "how": "「新宿区 レベル3 氾濫警報」は読めた。川があふれるかもって話だとは分かった。どの川かは書いてなかった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 2,
+    "how": "警報が出てるのは本当なんだろうと思った。疑ってはいない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "レベル3なら一番やばいやつじゃないし、雨もそんなに強くない。道に水も出てない。新宿区全体の話で、いつもの川沿いのことだとは思わなかった。すぐポケットに戻して、音楽と犬のほうに気が行った。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思っていないので、道を変えようとは考えなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもどおり神田川沿いの遊歩道へ下りた。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 2,
+    "action": "犬が止まったときに携帯を出して、通知の題だけ見た。レベル3だからまあいいかと思ってポケットに戻した"
+   },
+   {
+    "minutes": 4,
+    "action": "いつもの坂を下りて、神田川沿いの低い遊歩道に入った"
+   },
+   {
+    "minutes": 5,
+    "action": "音楽を聞きながら、犬と遊歩道を歩きつづけた"
+   },
+   {
+    "minutes": 25,
+    "action": "川の水がいつもより多くて流れが速いのを見たけど、まだ遊歩道の上までは来ていなかった。雨も寒いし、いつもの折り返しで引き返した"
+   },
+   {
+    "minutes": 40,
+    "action": "遊歩道から上がって家に戻った。犬の足を拭いて、通知はそのまま見なかった"
+   }
+  ],
+  "fit": {
+   "言葉": "「神田川」と川の名前を出す。区の名前より先に、自分がいつも行く川の名前があるほうが「自分のことだ」とすぐ分かる。",
+   "文字": "たたんだ通知の 1 行目に「神田川 氾濫警報 レベル3」。2 行目に案内の 1 文「神田川の増水に警戒してください」を入れる。",
+   "読み上げ": "イヤホンをしているので、音のあとに題を 1 回だけ読み上げる（「神田川、氾濫警報、レベル3」）。手がふさがっていても耳で入る。",
+   "音・ふるえ": "ふつうの通知と違う、長めのふるえ方にする。音楽の上で鳴るのはそのままでいい。気づくところまではもう届いている。",
+   "見た目・色": "5 段階の警戒レベルの帯を出して、3 の所を気象庁の色（赤）で光らせる。「一番上じゃない」ではなく「5 つのうち 3 で、もう赤」と一目で分かるようにする。",
+   "長さ": "ちらっと見ただけで分かる長さにする。題と 1 文だけ。ほかのことは開いたあとに出す。",
+   "その他": "雨にぬれた画面をちょっと見るだけ、手もふさがっている前提で作る。開かなくても伝わる中身にする。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "PC が読んだ位置から近くの指定河川（神田川）を選び、通知の題を「神田川 氾濫警報 レベル3」にする。案内の 1 文は「神田川の増水に警戒してください」にし、たたんだ通知に出す。",
+    "why": "いまは区の名前と 0.84km 先の初台アンダーだけで、これから下りる川のことだと結びつかなかった。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警戒レベルの 5 段階の帯を、気象庁の色のまま通知とアプリに出す。レベル 3 の公式の意味（気象庁・内閣府の決まった文）も添える。",
+    "why": "「レベル3は一番やばくない」と思い込んだのが止まった理由で、3 がもう赤だと形で見えれば思い込みが崩れる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報が出ているあいだに携帯が神田川の低い所（洪水浸水想定区域）へ入ったら、PC がもう一度、音とふるえと読み上げで知らせる。",
+    "why": "一回見てポケットに戻すと忘れてしまう人には、川に近づいたその時のもう一度がいちばん効く。",
+    "clash": [
+     "その他のきまり"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "題と案内の 1 文を、通知のときにイヤホンへ 1 回だけ読み上げる。",
+    "why": "傘とリードで手がふさがっていて画面も雨でぬれているので、耳から入れば画面を見なくてすむ。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "神田川の公式の水位（水位観測所の、いまの値と氾濫危険水位）を、数字と帯でアプリの上に出す。",
+    "why": "「雨そんなに強くない」と感じていても、いまの川の水位が公式の数字で見えれば、本当に増えていると納得できる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "「レベル3」と「新宿区」だけだと、いつもの神田川の遊歩道のことだとは思えなくて、そのまま下りちゃった。"
+ },
+ "notice": {
+  "scene": "下落合の家から犬と出て、雨の中、傘とリードを持っている。これからいつもの散歩道の、神田川沿いの低い遊歩道へ下りるところ。",
+  "place_fit": "そのまま",
+  "safe_move": "神田川沿いの遊歩道や、まわりより低い道へは下りない。高い所の大通りを通って早めに家へ戻り、そのあとも川には近づかない。",
+  "phone": "マナーモードもおやすみモードも切ったまま（音とふるえあり）。携帯は上着のポケットに入れ、ワイヤレスイヤホンで音楽を聞いている。",
+  "noticed": true,
+  "minutes": 2,
+  "how": "イヤホンの音楽の上に通知の音が鳴り、ポケットもふるえた。犬が止まったときに携帯を出して画面を見た。",
+  "look": "見たが、そのまま",
+  "why": "「氾濫警報」は読めたけど、レベル3なら一番やばいやつじゃないと思った。傘とリードで手がふさがっていて、画面も雨でぬれてるし、犬が引っぱるからすぐポケットに戻した。そのあとは音楽と犬のほうに気が行って、もう一回見ることはなかった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0514492,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3424,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1174,
+    "output_tokens_details": {
+     "thinking_tokens": 584
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3424,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1174,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3424,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3424
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 15.8
+  },
+  "away": {
+   "cost_usd": 0.15666,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11346,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3238,
+    "output_tokens_details": {
+     "thinking_tokens": 1021
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11346,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3238,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11346,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11346
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 37.6
+  }
+ },
+ "cost_usd": 0.2081092,
+ "took": 53.4,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P090",
+  "age": 17,
+  "lang": "日本語（母語）",
+  "body": "ADHD",
+  "situation": "犬と散歩している",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:47:26",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

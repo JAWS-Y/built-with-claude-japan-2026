@@ -1,0 +1,243 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 40,
+    "how": "雨ガッパの上からではふるえが分からなかった。現場で一服して時間を見ようと携帯を出し、画面で気づいた。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 40,
+    "how": "「新宿区 レベル3 氾濫警報」と読めて、川があふれるかもしれない知らせだとは分かった。ひらいて先は見ていない。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 40,
+    "how": "気象の知らせだから、うそだとは思わなかった。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "雨はいつものこと、道に水も出ていない。レベル3ならまだ大丈夫、年寄りが逃げる段だとは思わなかった。仕事中でもあり、すぐ何の知らせだったか分からなくなった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のこととは思わなかったので、離れようとは決めなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "川べりの現場で、そのまま交通誘導を続けた。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 0,
+    "action": "携帯を内ポケットに入れたまま、高田馬場から神田川ぞいの低い道を歩く。ふるえには気づかない。"
+   },
+   {
+    "minutes": 30,
+    "action": "下落合の川べりの現場に着き、責任者に挨拶して支度をする。"
+   },
+   {
+    "minutes": 40,
+    "action": "一服のとき時間を見ようと携帯を出し、「レベル3 氾濫警報」の通知を見る。まだ大丈夫と思い、ひらかずにポケットへ戻す。"
+   },
+   {
+    "minutes": 45,
+    "action": "誘導灯を持って、川べりで交通誘導の持ち場に立つ。知らせのことははっきり覚えていない。"
+   },
+   {
+    "minutes": 60,
+    "action": "雨が強くなってもカッパのまま持ち場を続ける。携帯は見ていない。"
+   }
+  ],
+  "fit": {
+   "言葉": "ふだんの言葉で短く。「レベル3 お年寄りは ひなんの とき」のように、レベル3が自分の段だと分かる公式の言い方（きまり 2 とぶつかる）",
+   "文字": "大きな太字。題に「神田川」と「レベル3」だけ",
+   "読み上げ": "マナーモードでも題を声で読み上げる。認知症のはじめで忘れるので、くり返す",
+   "音・ふるえ": "マナーでも鳴る警報の音と、長く強いふるえを、開くまで10分ごとにくり返す。腕時計にもふるえを送る",
+   "見た目・色": "画面いっぱいの赤。ロック画面に出したまま消えない",
+   "長さ": "1〜2 行。ひらかなくても分かる長さ",
+   "その他": "現場の責任者や家族にも同じ知らせが届くと、まわりが声をかけてくれる（きまり 4 とぶつかる）"
+  },
+  "ideas": [
+   {
+    "stage": "気づく",
+    "idea": "警報（レベル3以上）は、マナーモードでも鳴る警報の音と、長く強いふるえで届ける。開くまで10分ごとに鳴らし直し、腕時計にもふるえを送る。",
+    "why": "カッパの下のふるえに40分気づかず、気づいたときにはもう川べりに着いていたから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "レベル3には、内閣府・気象庁の決まった言い方「高齢者等避難」の意味を添える。利用者が設定で年齢を入れていれば、その人のための行だと示す。",
+    "why": "「レベル3ならまだ大丈夫」と思いこんだのが止まった所で、91歳の本人がまさに離れる段だと分かるから。",
+    "clash": [
+     "2 どう動くかを指図する"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の1文で、いる所に近い物を名指しする。たとえば「神田川の氾濫に警戒してください」と出し、通知の題にも「神田川」を入れる。",
+    "why": "新宿区の初台アンダーより、いま立っている神田川の名前のほうが自分のことと思えるから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "全体",
+    "idea": "本人が許せば、同じ知らせを現場の責任者や家族の携帯にも送る。",
+    "why": "認知症のはじめで知らせを忘れても、まわりの人が声をかけて川から連れ出せるから。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "開くまで通知を消さずにロック画面に残し、30分おきに題を読み上げる。",
+    "why": "一度ポケットに戻すと、何の知らせだったか忘れてしまうから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   }
+  ],
+  "overall": "知らせを見たときにはもう川べりにいました。「レベル3ならまだ大丈夫」と思って仕事を続け、知らせのことも忘れてしまいました。"
+ },
+ "notice": {
+  "scene": "夜の道路工事の交通誘導のアルバイトで、高田馬場の駅から神田川ぞいの低い道を歩いて、下落合の川べりの現場へ向かうところ。雨ガッパを着ている。",
+  "place_fit": "そのまま",
+  "safe_move": "お年寄りは警戒レベル3で離れる側の人なので、神田川ぞいの低い道や川べりの現場には行かず、高い所の道を通って、現場の責任者に知らせてから川から離れた建物へ移る。",
+  "phone": "仕事中はマナーモード（ふるえだけ）と決めていて、携帯は雨ガッパの下、上着の内ポケットに入れている。",
+  "noticed": true,
+  "minutes": 40,
+  "how": "雨ガッパの上からではふるえに気づかなかった。現場について一服したとき、時間を見ようと携帯を出して画面で見た。",
+  "look": "見たが、そのまま",
+  "why": "「レベル3 氾濫警報」とは読めたが、雨はいつものことで道に水も出ていない。レベル3ならまだ大丈夫だろうと思い、仕事中なのでポケットにもどした。少しして、何の知らせだったかはっきりしなくなった。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0262496,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 552,
+    "cache_read_input_tokens": 5728,
+    "output_tokens": 1034,
+    "output_tokens_details": {
+     "thinking_tokens": 447
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 552,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1034,
+      "cache_read_input_tokens": 5728,
+      "cache_creation_input_tokens": 552,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 552
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 14.3
+  },
+  "away": {
+   "cost_usd": 0.1521,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11351,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3008,
+    "output_tokens_details": {
+     "thinking_tokens": 978
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11351,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3008,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11351,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11351
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 33.1
+  }
+ },
+ "cost_usd": 0.17834960000000002,
+ "took": 47.4,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P032",
+  "age": 91,
+  "lang": "日本語（母語）",
+  "body": "認知症のはじめ",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:34:10",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

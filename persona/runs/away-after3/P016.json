@@ -1,0 +1,247 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 10,
+    "how": "出がけに携帯を取ったとき、画面に出ているのを見た。"
+   },
+   {
+    "stage": "分かる",
+    "passed": true,
+    "minutes": 10,
+    "how": "「新宿区 レベル3 氾濫警報」と読めた。新宿区で川があふれるおそれの知らせだと分かった。"
+   },
+   {
+    "stage": "信じる",
+    "passed": true,
+    "minutes": 10,
+    "how": "気象庁の警報が出たのだろうとは思った。うそとは思わない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "新宿区は広い。道に水も出ていないし、神田川ぞいは何十年も歩いて平気だった。自分の通る道のことだとは思わなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "自分のことと思わなかったので、休むとも道を変えるとも決めなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもどおり川ぞいの低い道と線路下のくぐり道を歩いて出かけた。"
+   }
+  ],
+  "stop": "自分のことと思う",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 10,
+    "action": "題を読み、ひらかずに携帯を上着のポケットに入れた"
+   },
+   {
+    "minutes": 12,
+    "action": "傘をさして家を出た"
+   },
+   {
+    "minutes": 20,
+    "action": "神田川ぞいの低い道を歩いた。川がいつもより高いと思ったが、そのまま歩いた"
+   },
+   {
+    "minutes": 30,
+    "action": "線路下のくぐり道を通った。水たまりが少しあったが歩けた"
+   },
+   {
+    "minutes": 45,
+    "action": "高田馬場の仕事先に着き、見回りの用意をした"
+   },
+   {
+    "minutes": 55,
+    "action": "同僚に「警報が出てるよ」と言われ、「来られたから大丈夫」と答えた"
+   }
+  ],
+  "fit": {
+   "言葉": "「神田川」「線路下のくぐり道」など、知っている場所の名前。「新宿区」だけでは自分のことにならない。",
+   "文字": "ふつうに読めるが、通知はたたんだ1行しか見ない。その1行に場所の名前を入れる。",
+   "読み上げ": "使わない。",
+   "音・ふるえ": "メールの「ピロン」とちがう、長めの警報の音とふるえ。出かける前にもう一度鳴る。",
+   "見た目・色": "赤い大きな字。ひらかなくても全部見える形。",
+   "長さ": "1行目に「神田川ぞいの道の冠水に警戒してください」までを入れる短さ。",
+   "その他": "91歳でひらき方が分からない。押さなくても要る文が見えること。家族や仕事先から一言あると効く。"
+  },
+  "ideas": [
+   {
+    "stage": "自分のことと思う",
+    "idea": "たたんだ通知の1行目に、この人の家や道のそばの公式の冠水想定の所（例: 神田川ぞい・下落合の線路下）を名指しした1文を入れる。遠い初台アンダーではなく、いちばん近い所を出す。",
+    "why": "「新宿区」では他人ごとだが、毎日歩く道の名前なら自分のことと思う。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "警報が出ている間に、携帯の位置が川ぞいや線路下の冠水想定の所に近づいたら、PC が見てもう一度知らせる（「神田川ぞいの道の冠水に警戒してください」）。",
+    "why": "出がけ・歩きはじめの、まだ引き返せるところでもう一度知らせられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "信じる",
+    "idea": "神田川の公式の水位（近くの観測所の、いまの水位と氾濫危険水位）を、数字で通知に出す。",
+    "why": "「何十年平気だった」という思いこみに、いまの川の数字で応えられる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "サークルの知らせの音をメールとちがう警報の音にし、ひらかれるまで数分おきにくり返す。",
+    "why": "「ピロン」をメールだと思ったのを防げる。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "決める",
+    "idea": "本人が決めた家族や仕事先にも、この人の区の警報を同時に送り、電話してもらえるようにする。",
+    "why": "91歳の人は、知り合いの「今夜は来なくていい」の一言で休める。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる"
+    ]
+   }
+  ],
+  "overall": "この人は、警報が出ていることは分かっていましたが、「新宿区」と書かれていても自分が毎晩歩く神田川ぞいの道のことだとは思わず、いつもどおり出かけてしまいました。通知に知っている場所の名前と川の水位の数字が出ていれば、休むきっかけになったと思います。"
+ },
+ "notice": {
+  "scene": "昼に寝て、夕方起きた。今夜もマンションの夜の見回りの仕事があり、下落合の家から高田馬場まで、神田川ぞいの低い道と線路下のくぐり道を歩いて出かけるしたくをしている。",
+  "place_fit": "合わせた",
+  "safe_move": "91歳で避難に時間がかかる人なので、レベル3では川ぞいの道や線路下のくぐり道に近づかないのがよい。今夜は出かけるのをやめて仕事先に知らせ、家の安全な所にいる。どうしても出るなら、川から離れた高い道を通る。",
+  "phone": "マナーモードにはせず音とふるえはふつうの設定のまま。携帯は居間のちゃぶ台に置き、出るときに上着のポケットに入れる。",
+  "noticed": true,
+  "minutes": 10,
+  "how": "着がえていて「ピロン」は聞こえたが、メールだと思った。出がけに携帯を手に取ったとき、画面に出ているのを見た。",
+  "look": "見たが、そのまま",
+  "why": "「氾濫警報」とは読めたが、雨はいつものことで、道にまだ水も出ていない。この道は何十年も歩いているから大丈夫と思った。通知の広げ方もよく分からず、時間もないのでそのままポケットに入れた。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.0547292,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3424,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1338,
+    "output_tokens_details": {
+     "thinking_tokens": 713
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3424,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1338,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3424,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3424
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 17.9
+  },
+  "away": {
+   "cost_usd": 0.15422000000000002,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11381,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 3102,
+    "output_tokens_details": {
+     "thinking_tokens": 1159
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11381,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 3102,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11381,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11381
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 35.0
+  }
+ },
+ "cost_usd": 0.20894920000000003,
+ "took": 52.9,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P016",
+  "age": 91,
+  "lang": "日本語（母語）",
+  "body": "なし",
+  "situation": "夜勤明けで寝ている",
+  "reading": "日本語はふつうに読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:30:17",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}

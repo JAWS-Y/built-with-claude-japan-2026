@@ -1,0 +1,244 @@
+{
+ "answer": {
+  "steps": [
+   {
+    "stage": "気づく",
+    "passed": true,
+    "minutes": 2,
+    "how": "ポケットでブルッとして音が鳴った。お母さんからかと思って出した。"
+   },
+   {
+    "stage": "分かる",
+    "passed": false,
+    "minutes": null,
+    "how": "赤いマークと「レベル3」は読めた。でも漢字は読めないし、「はんらん けいほう」は知らないことば。「Flood」も習っていない。何のことか分からないまま、ポケットにもどした。"
+   },
+   {
+    "stage": "信じる",
+    "passed": false,
+    "minutes": null,
+    "how": "何の知らせか分からないので、ここまで来ていない。"
+   },
+   {
+    "stage": "自分のことと思う",
+    "passed": false,
+    "minutes": null,
+    "how": "自分の帰り道のことだとは思わなかった。"
+   },
+   {
+    "stage": "決める",
+    "passed": false,
+    "minutes": null,
+    "how": "道を変えようとは思わなかった。"
+   },
+   {
+    "stage": "動く",
+    "passed": false,
+    "minutes": null,
+    "how": "いつもの道のまま、お母さんと歩いた。"
+   }
+  ],
+  "stop": "分かる",
+  "outcome": "近づいてしまった",
+  "because": "離れられていない",
+  "without_notice": "近づいてしまった",
+  "did_safe_move": "しなかった",
+  "minutes": null,
+  "did": [
+   {
+    "minutes": 2,
+    "action": "ふるえに気づいて携帯を出し、題を見たが分からずにポケットへもどした"
+   },
+   {
+    "minutes": 3,
+    "action": "お母さんとかさをさして、神田川ぞいの低い道を歩き続けた"
+   },
+   {
+    "minutes": 15,
+    "action": "線路の下のアンダーパスを通った。水たまりはあったが、まだ通れた"
+   },
+   {
+    "minutes": 25,
+    "action": "下落合の家に着いた"
+   },
+   {
+    "minutes": 40,
+    "action": "家で思い出して、お母さんに「赤いのが来た」と画面を見せた。お母さんもよく読めず、外の雨を見て「もう家だから大丈夫」と言った"
+   }
+  ],
+  "fit": {
+   "言葉": "韓国語がいちばん分かる。日本語はやさしいひらがなのことばだけ（「みず」「みち」「あぶない」は分かる。「はんらん」「けいほう」は分からない）。",
+   "文字": "ひらがな・カタカナ。漢字は読めない。たたんだ通知の 1 行目にひらがなの意味（かわの みずが あふれる）が要る。韓国語の決まった訳があれば最も早い（いまの決まった訳に無いので、公式の訳でなければきまり 3 とぶつかる）。",
+   "読み上げ": "歩いていて画面を見られないので、ふるえのあとにひらがなの行を声で読んでくれると分かる。",
+   "音・ふるえ": "お母さんからの連絡と同じふるえだと、ちがいが分からない。警報だけの長いふるえと音にする。",
+   "見た目・色": "赤いマークは目に入った。道に水がたまる・線路の下に水が入る絵があれば、字が読めなくても分かる。",
+   "長さ": "1 行目だけで分かる短さ。ひらく・アプリを開くところまではしない。",
+   "その他": "9 歳で、道を決めるのはお母さん。子どもが分かるだけでは足りず、お母さん（韓国語）に同じ知らせが届くことが大事。"
+  },
+  "ideas": [
+   {
+    "stage": "分かる",
+    "idea": "たたんだ通知の 2 行目を、「はんらん けいほう」ではなく「かわの みずが あふれる けいほう」と、ひらいた形にあるひらがなの言いかえそのままにし、道に水がたまる絵のアイコンを付ける。",
+    "why": "この子が見たのはたたんだ形だけで、知らないことばのせいでそこで止まったから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "全体",
+    "idea": "子どもの携帯に知らせが届いたとき、登録したお母さんの携帯にも同じ警報（気象庁の多言語ページにある韓国語の警報名）を届ける。",
+    "why": "道を決めるのはお母さんで、お母さんは韓国語なら警報だとすぐ分かるから。",
+    "clash": [
+     "4 位置を PC 以外が読む・人に見せる",
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   },
+   {
+    "stage": "自分のことと思う",
+    "idea": "案内の 1 文で、いちばん近い初台アンダーではなく、この子がこれから通る下落合の線路の下のアンダーパスや神田川ぞいの道を、公式の冠水想定から PC が選んで名指しする。",
+    "why": "「しんじゅくく」は広すぎて、自分の帰り道のこととは思えないから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "気づく",
+    "idea": "警報だけのふるえ方と音にし、ふるえのあとでひらがなの行を声で読み上げる。",
+    "why": "歩きながら画面を見るなと言われていて、聞くことしかできないから。",
+    "clash": [
+     "ぶつからない"
+    ]
+   },
+   {
+    "stage": "分かる",
+    "idea": "警報の名前と案内の 1 文に、決まった韓国語訳（気象庁の多言語の警報名と、アプリの決まった訳）を一行足す。",
+    "why": "韓国語ならこの子もお母さんも、ひと目で分かるから。",
+    "clash": [
+     "3 決まった訳・公式の訳でない（機械の訳など）"
+    ]
+   }
+  ],
+  "overall": "「赤いのが来た」とは分かったけど、何のことか分からなかった。だからお母さんとふつうに、川ぞいの道と線路の下を通って帰っちゃった。"
+ },
+ "notice": {
+  "scene": "お母さんと新大久保の韓国スーパーで買い物をした帰り道。かさをさして歩いていて、これから神田川ぞいの低い道と、線路の下のアンダーパスを通って、下落合の新しい家に帰るところ。",
+  "place_fit": "そのまま",
+  "safe_move": "川ぞいの低い道やアンダーパスには入らず、高い所を通る大通りなど、別の道を選んで帰る。子どもは避難に時間がかかる人を支える側ではないが、小さな川の近く・低い土地は自分から離れるのがよいので、早めにその場から離れる。",
+  "phone": "親が連絡用に持たせたキッズ向けAndroidで、音とふるえはオン（マナー・おやすみモードはなし）、上着のポケットに入れている。",
+  "noticed": true,
+  "minutes": 2,
+  "how": "ポケットでブルッとふるえて音が鳴った。雨とかさで少し遅れたが、お母さんからかと思って取り出した。",
+  "look": "見たが、そのまま",
+  "why": "赤いマークと「レベル3」は読めたけど、漢字は読めないし「はんらん けいほう」も知らないことばで、何のことか分からない。かさと買い物ぶくろを持っていて、お母さんに「歩きながら見ないで」と言われ、ポケットにもどした。"
+ },
+ "calls": {
+  "notice": {
+   "cost_usd": 0.051397200000000004,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 3425,
+    "cache_read_input_tokens": 2846,
+    "output_tokens": 1171,
+    "output_tokens_details": {
+     "thinking_tokens": 542
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 3425,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 1171,
+      "cache_read_input_tokens": 2846,
+      "cache_creation_input_tokens": 3425,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 3425
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 16.0
+  },
+  "away": {
+   "cost_usd": 0.151788,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 11382,
+    "cache_read_input_tokens": 5620,
+    "output_tokens": 2980,
+    "output_tokens_details": {
+     "thinking_tokens": 895
+    },
+    "server_tool_use": {
+     "web_search_requests": 0,
+     "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 11382,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+     {
+      "input_tokens": 2,
+      "output_tokens": 2980,
+      "cache_read_input_tokens": 5620,
+      "cache_creation_input_tokens": 11382,
+      "cache_creation": {
+       "ephemeral_5m_input_tokens": 0,
+       "ephemeral_1h_input_tokens": 11382
+      },
+      "type": "message"
+     }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+   },
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "took": 34.0
+  }
+ },
+ "cost_usd": 0.2031852,
+ "took": 50.0,
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "person": {
+  "id": "P082",
+  "age": 9,
+  "lang": "韓国語",
+  "body": "なし",
+  "situation": "引っ越してきたばかり",
+  "reading": "ひらがなとカタカナは読める"
+ },
+ "test": "away",
+ "at": "2026-11-08 00:45:39",
+ "files_sha256": {
+  "away-notice-prompt.md": "375e98d9d8f64037d7dcee2f6c3856f9a375a15d475dadc96c8ee6a81f501f5b",
+  "away-notice-schema.json": "8859c56de44d8cc8b12192b7052ce45f13fd26499d9ab8b50a1ea14e74bfb7d8",
+  "away-prompt.md": "61e374aae336eb21a5f01146a8c79727624e21da02a026d63873227b43cfaf75",
+  "away-schema.json": "579040b9d6dd8ef22d9e30e7ec8404d328ca13f1cb1a5311fb5e2f0a39a8e168"
+ },
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "model": "opus",
+ "place": "これから通る",
+ "check": []
+}
