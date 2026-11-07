@@ -250,28 +250,55 @@ def site_line(name, area):
     return name
 
 
+FACT_ORDER = ('zone', 'kiki', 'wildlife', 'road', 'rain', 'lore')  # what is at this spot, nearest first
+
+
+def fact_lines(out):
+    """The facts for the phone, most important first: the warnings by their official names, so the level is
+    said in words and does not rest on the color (TalkBack does not read colors), then what is at this spot.
+    Official facts only, the same ones the PC shows."""
+    n, warn = out['notice'], out.get('warning') or {}
+    trig = sorted((w for w in warn.get('warnings', []) + warn.get('flood', []) if w['group1'] and w['level'] >= 3),
+                  key=lambda w: -w['level'])
+    names = dict.fromkeys(app.warning_name(w['hazard'], w['level']) + ('（試し）' if w.get('demo') else '')
+                          for w in trig)
+    lines = [f"{n.get('area', '')}に{'、'.join(names)}"] if names else []
+    facts = [f for f in n.get('facts', []) if f.get('line') and f['id'] != 'warning']
+    facts.sort(key=lambda f: next((i for i, k in enumerate(FACT_ORDER) if f['id'].startswith(k)), len(FACT_ORDER)))
+    return lines + [f['line'] for f in facts]
+
+
 def message_for(out, age=None):
     """The FCM data (strings only) for a notice, cut to fit the FCM size limit.
 
-    The body names the official pages for this place, in the buttons' order (the facts are on the PC's
-    screen). The tail (the 試し note, the age of the position) always stays; the last pages go first."""
+    The body says the facts first (the warning by its official name, then what is at this spot), then names
+    the official pages for this place in the buttons' order. The folded line is the first fact. The app's
+    screen shows the facts and the tail as `notes`, above its list of pages. The tail (the 試し note, the age
+    of the position) always stays; when it does not fit, the last pages go first, then the last facts."""
     n = out['notice']
     tail = list(n.get('notes', []))
     links = links_for(out)
     # the app lists the pages under the same names as the notice's body
     pages = [[site_line(name, n.get('area', '')), url] for name, url in sorted(links, key=page_order)]
+    facts = fact_lines(out)
     lines = [name for name, _ in pages][:PHONE_LINES]
     if age is not None and age > OLD_POSITION:
         tail.append(f'位置は {age // 3600} 時間 {age % 3600 // 60} 分前のもの')
     data = {'title': n['title'], 'area': n.get('area', ''), 'links': json.dumps(pages, ensure_ascii=False),
-            'notes': '\n'.join(tail), 'buttons': json.dumps(buttons_for(links), ensure_ascii=False),
+            'buttons': json.dumps(buttons_for(links), ensure_ascii=False),
             'level': str(n.get('level', 0)), 'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0',
-            'summary': (lines or tail)[0]}
+            'summary': (facts or lines or tail)[0]}
     while True:
-        data['body'] = '\n'.join(lines + tail)
-        if len(json.dumps(data, ensure_ascii=False).encode()) <= DATA_LIMIT or len(lines) <= 1:
+        data['body'] = '\n'.join(facts + lines + tail)
+        data['notes'] = '\n'.join(facts + tail)
+        if len(json.dumps(data, ensure_ascii=False).encode()) <= DATA_LIMIT:
             return data
-        lines.pop(-1)
+        if len(lines) > 1:
+            lines.pop(-1)
+        elif len(facts) > 1:
+            facts.pop(-1)
+        else:
+            return data
 
 
 # ---------------------------------------------------------------- 状態（.phone/phone.json、このユーザーだけが読める）

@@ -187,13 +187,16 @@ class PushTest(unittest.TestCase):
         self.assertTrue(all(isinstance(v, str) for v in m.values()))
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
         self.assertEqual(m['title'], '土砂災害に気をつけて')
-        # the body names the official pages for this place, in the buttons' order; the facts are on the PC
-        self.assertEqual(m['body'].split('\n'), ['千代田区の警報・注意報（気象庁）', 'この場所の土砂キキクル（気象庁）',
-                                                  'この場所の重ねるハザードマップ', '位置は 3 時間 5 分前のもの'])
-        self.assertEqual(m['summary'], '千代田区の警報・注意報（気象庁）')  # the folded line names the place
-        # the app lists every page under the body's names, and the notes apart
-        self.assertEqual([n for n, _ in json.loads(m['links'])], m['body'].split('\n')[:3])
-        self.assertEqual(m['notes'], '位置は 3 時間 5 分前のもの')
+        # the body says the facts first: the warning by its official name (the level in words, not only the
+        # color), then what is at this spot; then it names the official pages, in the buttons' order
+        facts = ['千代田区にレベル４土砂災害危険警報', 'ここ　土石流の警戒区域', 'ここ　土砂キキクル「危険（紫）警戒レベル４相当」',
+                 '雨　いま 30～50 mm/h、1時間後 50～80 mm/h', '伝承碑　2.5km 先（土砂災害）']
+        pages = ['千代田区の警報・注意報（気象庁）', 'この場所の土砂キキクル（気象庁）', 'この場所の重ねるハザードマップ']
+        self.assertEqual(m['body'].split('\n'), facts + pages + ['位置は 3 時間 5 分前のもの'])
+        self.assertEqual(m['summary'], '千代田区にレベル４土砂災害危険警報')  # the folded line says the level in words
+        # the app lists every page under the body's names, and shows the facts and the notes above them
+        self.assertEqual([n for n, _ in json.loads(m['links'])], pages)
+        self.assertEqual(m['notes'].split('\n'), facts + ['位置は 3 時間 5 分前のもの'])
         self.assertEqual(m['area'], '千代田区')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['警報を開く', '土砂キキクル'])
         self.assertEqual(m['level'], '4')
@@ -204,7 +207,9 @@ class PushTest(unittest.TestCase):
         m = phone.message_for(o, age=3 * 3600)
         self.assertEqual(m['title'], '土砂災害に気をつけて（試し）')
         lines = m['body'].split('\n')
-        self.assertEqual(lines[0], '千代田区の警報・注意報（気象庁）')
+        self.assertEqual(lines[0], '千代田区にレベル４土砂災害危険警報（試し）')
+        self.assertEqual(m['summary'], lines[0])
+        self.assertIn('千代田区の警報・注意報（気象庁）', lines)
         self.assertEqual(lines[-2], '警報は試しの作りもの。ほかは本物')
         self.assertTrue(lines[-1].startswith('位置は '))
         self.assertEqual(m['demo'], '1')
@@ -214,7 +219,8 @@ class PushTest(unittest.TestCase):
         self.assertEqual([n for n, _ in phone.links_for(o)], ['クマダス（秋田県）', '記録の地点（地理院地図）'])
         m = phone.message_for(o)
         self.assertEqual(m['title'], 'ツキノワグマに気をつけて')
-        self.assertEqual(m['body'], 'クマダス（秋田県）\n記録の地点（地理院地図）')
+        self.assertEqual(m['body'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）\nクマダス（秋田県）\n記録の地点（地理院地図）')
+        self.assertEqual(m['summary'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['クマダス', '記録の地点'])
         self.assertEqual(m['level'], '0')
         self.assertEqual(json.loads(m['links'])[1][1], BEAR['link'])
@@ -235,8 +241,21 @@ class PushTest(unittest.TestCase):
 
     def test_no_instructions(self):
         m = phone.message_for(out_for(warn(('03', 'rain', 3), ('49', 'landslide', 4))), age=9 * 3600)
-        for word in ('避難', 'してください', 'しましょう', 'おそれ', '予想'):
+        for word in ('避難', 'してください', 'しましょう', 'おそれ', '予想', '命'):
             self.assertNotIn(word, m['body'])
+            self.assertNotIn(word, m['notes'])
+        self.assertTrue(m['body'].startswith('千代田区にレベル４土砂災害危険警報、レベル３大雨警報\n'))
+
+    def test_too_long_drops_pages_then_facts(self):
+        o = out_for(warn(('49', 'landslide', 4)))
+        long_tail = ['あ' * 450]  # the tail always stays; the pages go first (all but one), then the last facts
+        o['notice'] = {**o['notice'], 'notes': long_tail}
+        m = phone.message_for(o)
+        self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
+        self.assertEqual(m['body'].split('\n'), ['千代田区にレベル４土砂災害危険警報', 'ここ　土石流の警戒区域',
+                                                  'ここ　土砂キキクル「危険（紫）警戒レベル４相当」',
+                                                  '千代田区の警報・注意報（気象庁）'] + long_tail)
+        self.assertEqual(m['notes'].split('\n'), m['body'].split('\n')[:3] + long_tail)
 
 
 class FakeGoogle:
