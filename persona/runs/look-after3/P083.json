@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "赤い印の知らせが来た。漢字とひらがなは読めない。最後の「TEST Flood」だけ読めて、「洪水の試し？」と思った。場所も、どれくらい危ないかも分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらくと、下の方に英語があった。「Shinjuku City」「Level 3 Warning」「Flood」「road flooding nearby」は読めた。新宿で近くの道が水につかるらしいと分かった。でも、どの道かは分からない。「Be on alert」「made up」は少し難しい。青い字のリンクは日本語なので押さなかった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "英語は通知と同じだった。その下の行に 4、3km、0.84km という数字があるけれど、何の数字か分からない。「20:45」は時計の 8:46 と別の時間に見えて、少しまよった。右上の緑の丸と下の大きいボタンは日本語なので、何なのか分からず、さわらなかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送っても、増えたのは日本語の説明だけ。「Firebase」「PC」という字は見えたが、意味は分からない。何をすればいいか分からないまま、ふつうに家へ帰ろうとした。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "新宿区 レベル3 氾濫警報（試し）",
+    "kind": "言語",
+    "why": "題が漢字だけなので、何の知らせかが題では分からない。数字の 3 しか読めない。",
+    "severity": 2,
+    "fix_hint": "題に英語（できればベトナム語）で「Flood Warning」を入れる"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "長さ・量",
+    "why": "英語は「TEST Flood」の2語だけで、場所もレベルも分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ行の英語に「Shinjuku Level 3 Flood Warning」まで入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "言語",
+    "why": "母語のベトナム語がない。英語は学校で習っている途中なので、「made up」「Be on alert」は意味があやしい。",
+    "severity": 2,
+    "fix_hint": "ベトナム語の文を足すか、英語をやさしい言葉（This is a test / Be careful）にする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up)",
+    "kind": "並び・順番",
+    "why": "英語の行が本文のいちばん下にあり、日本語を何行も読みとばしてやっと見つかる。",
+    "severity": 1,
+    "fix_hint": "選んだ言葉の行を本文のいちばん上に出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "どの道が危ないかが日本語でしか書かれていない。英語には「nearby」としかなく、どこをさけたらいいか分からない。",
+    "severity": 2,
+    "fix_hint": "場所の名前と距離を英語・ローマ字でも書く（Hatsudai underpass, 0.84 km）"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "リンクが日本語だけで、押すと何が出るか分からない。開いた先も日本語だと思う。",
+    "severity": 1,
+    "fix_hint": "リンクの名前を英語でも書き、英語のページにつなぐ"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "レベル3",
+    "kind": "数字・単位",
+    "why": "レベル3が5段のうちどれくらい危ないのか分からない。いますぐ逃げるべきかが分からない。",
+    "severity": 1,
+    "fix_hint": "「Level 3 of 5」と書き、何をすればいいかを一言そえる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 8:46 なので、20:45 が今のことだと分からず、古い知らせかとまよう。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ形で書くか、「just now」と出す"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守り中",
+    "kind": "言語",
+    "why": "位置を送っていることが日本語でしか書かれていない。自分の場所が誰かに送られていることを知らないまま使っている。",
+    "severity": 2,
+    "fix_hint": "英語・ベトナム語で「Sending your location to your PC」と出す"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "いちばん大きいボタンなのに何をするのか読めない。まちがえて押すと、知らせが来なくなるかもしれない。",
+    "severity": 2,
+    "fix_hint": "ボタンに英語をそえるか、押したときに「本当に止める？」と英語で聞く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言語",
+    "why": "自分の位置がどう使われるかの説明が日本語だけ。Firebase、PC の意味も分からない。",
+    "severity": 1,
+    "fix_hint": "位置の使い方をやさしい英語・ベトナム語でも書く"
+   }
+  ],
+  "outside": [
+   "ベトナム語で出す切りかえ",
+   "危ない道（初台アンダー）と自分の場所が分かる地図",
+   "「その道を通らないで帰る」など、すぐにすることを教える一言",
+   "親に知らせを送るボタン",
+   "日本語の文を自分の言葉に訳す働き"
+  ],
+  "overall": "「TEST」と「Flood」だけで、試しの洪水の知らせだとは分かりました。でも、どの道が危ないのか、どうすればいいのかは日本語でしか書いてありません。帰り道で何に気をつければいいのか分かりませんでした。右上の緑の丸や大きいボタンも、何なのか分からなくて少しこわかったです。"
+ },
+ "cost_usd": 0.1545994,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10714,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3419,
+  "output_tokens_details": {
+   "thinking_tokens": 1137
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10714,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3419,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10714,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10714
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 37.0,
+ "person": {
+  "id": "P083",
+  "age": 14,
+  "lang": "ベトナム語",
+  "body": "なし",
+  "situation": "学校の帰り",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 21:01:51"
+}

@@ -1,0 +1,176 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "娘の家（新宿区）に泊まりに来ていた。赤い印とベルの絵で、何か大事な知らせだと思った。日本語は読めない。英語の『TEST Flood』だけ拾えて、『水の知らせ？でもテスト？』と迷った。どこの話か、どれくらい危ないかは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらいたら日本語の長い文がたくさん並び、目がすべって読むのをやめかけた。いちばん下の英語の行で『Shinjuku』『Level 3 Warning』『Flood』『road flooding nearby』が分かり、近くの道が水につかるらしいと分かった。どの道か、何をすればいいかは分からない。青い字の二つは日本語で、何のボタンか分からないので押さなかった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても、同じ日本語の文がもう一度並んでいる。英語の行をまた探して読んだ。その下の行は日本語で、『4』『3km』『0.84km』という数字だけ見えた。1km 足らずの所に何かあるらしいが、何なのか、どの方向なのか分からない。下の大きな白いボタンは何か分からず、押してしまいそうで怖い。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送っても、また同じ文と日本語ばかり。『Firebase』『PC』は見えたが、私には関係ない言葉に見えた。結局、家の近くの道に水が来るかもしれない、ということしか分からず、娘に電話して聞くことにした。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "言語",
+    "why": "英語は『TEST Flood』だけで、場所も Level も無い。『TEST』が先に来るので、本当かどうか迷って後回しにしやすい。",
+    "severity": 2,
+    "fix_hint": "たたんだ行の英語にも『Shinjuku: Level 3 Flood Warning』と場所と強さを入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "並び・順番",
+    "why": "読める英語の行が、読めない日本語の長い文の後ろにある。ADHD で長い文を見ると途中で飽きて、英語までたどり着かずに閉じてしまう。",
+    "severity": 2,
+    "fix_hint": "英語など短い行を本文の一番上に置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "言語",
+    "why": "ミャンマー語がどこにも無い。英語は少し読めるが、83 歳で慌てたときは母語でないと頭に入らない。",
+    "severity": 2,
+    "fix_hint": "携帯の言語や登録した言語（ミャンマー語）でも一行出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3 Warning",
+    "kind": "言葉",
+    "why": "Level 3 がどれくらい危ないのか、逃げるべきか、家にいてよいのか分からない。『Be on alert』だけでは何をすればいいか決められない。",
+    "severity": 2,
+    "fix_hint": "英語で『逃げなくてよい／低い道へ行かない』など、することを一言で書く"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "青い字のボタンは日本語だけで、何が開くか分からない。開いた先も日本語のページだと思う。",
+    "severity": 1,
+    "fix_hint": "ボタンに英語の名前を添える（例: Official warning page）"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な『どこの道が危ないか』が日本語だけ。数字の 0.84km しか読めず、何が 0.84km 先なのか分からない。地名も読めない。",
+    "severity": 2,
+    "fix_hint": "この行も英語にし、地名をローマ字（Hatsudai underpass）で書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "試し　この警報は作りもの（20:45 作成、気象庁は出していません）",
+    "kind": "同じものが何度も",
+    "why": "通知と同じ長い文が、日本語・ひらがな・英語で三回分並ぶ。同じ話の繰り返しで、どこを読めばいいか分からず疲れる。",
+    "severity": 1,
+    "fix_hint": "自分の読める言語だけを大きく出し、ほかはたたむ"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "画面でいちばん大きいボタンが日本語だけで、何をするか分からない。ADHD で間違えてさわり、見守りを止めてしまいそう。",
+    "severity": 2,
+    "fix_hint": "英語を添え、押したら確かめる一言を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "最後に届いた知らせ",
+    "kind": "文字の大きさ",
+    "why": "本文の文字が細くて小さく、古い携帯で年寄りの目には読みにくい。",
+    "severity": 1,
+    "fix_hint": "本文、とくに英語の行を大きく太くする"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase、PC など分からない言葉ばかりで、私に何か操作が要るのか不安になる。",
+    "severity": 1,
+    "fix_hint": "使う人に関係ない設定は奥へしまう"
+   }
+  ],
+  "outside": [
+   "ミャンマー語で知らせを出す・読み上げる",
+   "危ない道の場所を地図で見せる",
+   "今いる所からどちらへ行けばいいか絵で示す",
+   "ボタン一つで家族（娘）に知らせる・電話する"
+  ],
+  "overall": "赤い印で大事な知らせだとは思ったけれど、読めるのは英語の一行だけでした。近くの道に水が来るらしいことしか分からず、どこの道か、何をすればいいかは分からなかったので、娘に電話して聞くしかありませんでした。"
+ },
+ "cost_usd": 0.1500674,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10720,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3190,
+  "output_tokens_details": {
+   "thinking_tokens": 912
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10720,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3190,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10720,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10720
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 37.5,
+ "person": {
+  "id": "P003",
+  "age": 83,
+  "lang": "ミャンマー語",
+  "body": "ADHD",
+  "situation": "古い携帯を使っている",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:48:37"
+}

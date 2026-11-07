@@ -1,0 +1,194 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "赤いピンの知らせが来た。上の行は漢字で読めない。「はんらん けいほう / TEST Flood」は読めて、洪水のことだと分かる。でも TEST なので、本当なのか練習なのか迷う。どのアプリからの知らせかも分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらがなと英語の所だけ読む。しんじゅくく、れべる3、川の水があふれる、近くの道が水につかる、Be on alert までは分かった。「れべる3」がどれくらい危ないのか、どの道なのか、何をすればいいのかは分からない。「made up」なので、うそなのかと思い、帰り道を変えずに歩き続けそう。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "知らせと同じ文がもう一度出る。下の「道路… 4… 3km… 0.84km」は数字だけ見える。どこが 0.84km なのか読めない。青い漢字のリンクも、下の『見守り』の所も読めない。何を押せばいいのか分からず、画面を見たまま止まる。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下は漢字と Firebase、PC ばかりで、何の画面か分からない。大きなボタン「見守りを止める」の意味が分からず、押していいのか迷う。位置が送られていることにも気づかない。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "新宿区 レベル3 氾濫警報（試し）",
+    "kind": "漢字・読み",
+    "why": "題がいちばん目立つのに漢字だけで、ひらがなしか読めない私には読めない。",
+    "severity": 2,
+    "fix_hint": "題にも、ひらがなか英語を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "言葉",
+    "why": "「made up（作りもの）」と「Be on alert（気をつけて）」が同じ文にある。言葉どおりに受けとるので、うそなら何もしなくていいと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "本物のときと試しのときで書き方をはっきり分け、本物なら「本物です」と書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "けいかい して ください",
+    "kind": "言葉",
+    "why": "「気をつけて」だけでは、何をすればいいのか分からない。歩き続けていいのか、家に帰るのか、道を変えるのか決められない。",
+    "severity": 2,
+    "fix_hint": "「低い道を通らない」「すぐ家に帰る」のように、することを一つずつ書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "れべる3",
+    "kind": "数字・単位",
+    "why": "3 が何段のうちの 3 なのか、どれくらい危ないのか分からない。",
+    "severity": 2,
+    "fix_hint": "「5だんかいの 3。あぶない」のように物差しを書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な、どの道が水につかるかと、その場所までの近さが、漢字とカタカナでしか書いてない。ひらがなと英語の文には無い。",
+    "severity": 2,
+    "fix_hint": "場所と距離を、ひらがなと英語でも書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "本物は「道路」の行",
+    "kind": "行の変わり目",
+    "why": "文の途中で行が変わり、「行」の後ろがすぐ「初台アンダー」に続く。どこまでが一つの文なのか分からない。",
+    "severity": 1,
+    "fix_hint": "一つの文は同じ行のまとまりにし、言葉ごとに段を分ける"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "漢字・読み",
+    "why": "リンクが漢字だけで、押すと何が開くのか分からない。",
+    "severity": 1,
+    "fix_hint": "リンクにもひらがなか英語の名前をつける"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "いちばん大きいボタンなのに読めない。間違って押して見守りを切ってしまいそうで、こわくて触れない。",
+    "severity": 2,
+    "fix_hint": "ボタンにひらがなと英語を入れ、押す前に確かめる画面を出す"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "漢字・読み",
+    "why": "自分の場所が送られていることに気づけない。",
+    "severity": 1,
+    "fix_hint": "「あなたの ばしょを おくっています / Sharing your location」と書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase や PC が何なのか分からず、自分に関係あるのかも分からない。",
+    "severity": 1,
+    "fix_hint": "使う人には、むずかしい名前を見せない"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "20:45 作成",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 8:45 なのに、文は 20:45。同じ時刻だと分かるまで時間がかかり、違う時の知らせかと思う。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ書き方にする"
+   },
+   {
+    "screen": 2,
+    "where": "アプリの画面",
+    "quote": "サークル",
+    "kind": "漢字・読み",
+    "why": "アプリの名前がカタカナで読めず、誰からの知らせか分からない。",
+    "severity": 1,
+    "fix_hint": "名前を「Circle」とも書く"
+   }
+  ],
+  "outside": [
+   "タガログ語で読める文",
+   "水につかる道を見せる地図と、安全な帰り道の案内",
+   "「いま すること」を 1・2・3 と順番に見せる画面",
+   "家族に「だいじょうぶ」と知らせるボタン"
+  ],
+  "overall": "洪水のこと（Flood）なのは分かったよ。でも「made up」って書いてあるから、うそなら帰っていいのかなって思った。どの道があぶなくて、何をすればいいのかが書いてないから、そのまま歩いて帰ると思う。"
+ },
+ "cost_usd": 0.15889939999999997,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10719,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3632,
+  "output_tokens_details": {
+   "thinking_tokens": 1332
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10719,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3632,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10719,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10719
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 41.0,
+ "person": {
+  "id": "P001",
+  "age": 14,
+  "lang": "タガログ語",
+  "body": "自閉スペクトラム",
+  "situation": "学校の帰り",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:48:41"
+}

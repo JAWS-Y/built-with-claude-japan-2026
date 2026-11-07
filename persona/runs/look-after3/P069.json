@@ -1,0 +1,195 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "学校の帰りに通知が来た。赤い丸の絵があるので、悪いことかもと思った。上の行は漢字ばかりで読めない。「はんらん けいほう」は声に出して読めるけど、意味は分からない。「TEST」は分かったので、本当じゃないのかなと思った。「Flood」は知らない単語。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらいたら、ひらがなの所に「かわの みずが あふれる」とあり、川の水があふれることだと分かった。「しんじゅくく」は読めて、いま自分がいる所だと分かった。でも「けいかい」と「つかる」は分からなかった。どの道が危ないのか、自分は何をすればいいのかも分からない。上の漢字の文は読まずにとばした。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いても、ひらがなの文は同じだった。下の行に「0.84km」と数字があるけど、何までの距離なのか読めない（初台アンダーが読めない）。青い文字のボタンも漢字なので押さなかった。大きいボタン「見守りを止める」は何のボタンか分からず、押すのがこわかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても、新しく分かることは無かった。「Firebase」「PC」と英語みたいな言葉があるけど、意味が分からない。結局、川の水のことで気をつけるらしい、ということだけ。お母さんに電話しようと思った。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "言葉",
+    "why": "ひらがなは読めるけど、「はんらん」「けいほう」はむずかしい言葉で意味が分からない。たたんだ形だと、何の危険かが伝わらない。",
+    "severity": 2,
+    "fix_hint": "「かわの みずが あふれる かも」のように、やさしい言葉を1行目に出す"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "新宿区 レベル3 氾濫警報（試し）",
+    "kind": "漢字・読み",
+    "why": "題が漢字だけで、ふりがなも無い。いちばん目立つ所なのに一つも読めない。",
+    "severity": 2,
+    "fix_hint": "題にもひらがなを付けるか、ひらがなの題にする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "けいかい して ください",
+    "kind": "言葉",
+    "why": "「けいかい」の意味が分からないので、何をすればいいのか分からない。",
+    "severity": 2,
+    "fix_hint": "「みずの ある みちに ちかづかないで」のように、することをはっきり書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "ちかくの みちが みずに つかる",
+    "kind": "言葉",
+    "why": "「つかる」が分からない。「みちが みずで いっぱいに なる」なら分かる。",
+    "severity": 1,
+    "fix_hint": "もっとやさしい言い方にする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "近いのは 初台アンダー 0.84km",
+    "kind": "漢字・読み",
+    "why": "どの道が危ないのかがカタカナと漢字でしか書いてないので、ひらがなの文には場所が出てこない。0.84km が何までの距離なのか分からない。",
+    "severity": 2,
+    "fix_hint": "ひらがなの文にも「はつだい あんだー（せんろの したの みち）」と場所を書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "れべる3",
+    "kind": "言葉",
+    "why": "レベル3がどのくらい危ないのか分からない。すぐ逃げるのか、まだ大丈夫なのか分からない。",
+    "severity": 2,
+    "fix_hint": "「5の うちの 3。まだ にげなくて いいけど きを つけて」のように書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "本物は「道路」の行\n初台アンダーの冠水に警戒してください",
+    "kind": "行の変わり目",
+    "why": "「行」のところで行が変わっていて、文がどこで終わるのか分からない。読める所を探すのがたいへん。",
+    "severity": 1,
+    "fix_hint": "文の切れ目で行を変え、ひらがなの文をいちばん上に置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "試し　この警報は作りもの（20:45 作成、気象庁は出していません）",
+    "kind": "並び・順番",
+    "why": "最初が読めない漢字の文なので、読める所までたどりつくのに時間がかかる。",
+    "severity": 1,
+    "fix_hint": "やさしい文を先にする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "言語",
+    "why": "韓国語が無い。英語もむずかしい単語（Flood, alert）が多くて分からない。",
+    "severity": 2,
+    "fix_hint": "韓国語の文を付ける"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "漢字・読み",
+    "why": "リンクが漢字だけで、押すと何が出るのか分からない。",
+    "severity": 1,
+    "fix_hint": "ひらがなを付けるか、絵を付ける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きいボタンだけど漢字で読めない。押していいのか、押したら困るのか分からない。まちがえて押しそう。",
+    "severity": 2,
+    "fix_hint": "ひらがなで書き、押すとどうなるかをやさしく書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase や PC の話は何のことか分からず、こわくなる。",
+    "severity": 1,
+    "fix_hint": "使う人に関係ない言葉は出さない"
+   }
+  ],
+  "outside": [
+   "韓国語で知らせる",
+   "危ない道を地図や絵で見せる",
+   "「いえに かえって いい？」「どの みちで かえる？」が分かる案内",
+   "お母さん・お父さんにすぐ知らせるボタン",
+   "文を読み上げるボタン"
+  ],
+  "overall": "「かわの みずが あふれる」の所だけは分かったけど、どの道が危ないのか、ぼくは何をすればいいのかは分からなかった。漢字が多すぎるし、韓国語も無い。こわいから、お母さんに電話する。"
+ },
+ "cost_usd": 0.1563754,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10721,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3505,
+  "output_tokens_details": {
+   "thinking_tokens": 1165
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10721,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3505,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10721,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10721
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 39.8,
+ "person": {
+  "id": "P069",
+  "age": 14,
+  "lang": "韓国語",
+  "body": "軽い知的障害",
+  "situation": "学校の帰り",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:59:50"
+}

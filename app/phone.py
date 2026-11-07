@@ -263,36 +263,35 @@ def site_line(name, area):
 
 
 KANA_GLOSS = {'はんらん': 'かわの みずが あふれる', 'たかしお': 'うみの みずが たかく なる'}  # definitions only
-FACT_ORDER = ('zone', 'kiki', 'wildlife', 'road', 'rain', 'lore')  # what is at this spot, nearest first
+BODY_CHARS = 300  # one screen (WEA research: 280 characters read better than 90, 140 or 1,380)
 
 
-def fact_lines(out):
-    """The facts for the phone, most important first: the warnings by their official names, so the level is
-    said in words and does not rest on the color (TalkBack does not read colors), the same in hiragana (for
-    people who do not read kanji or katakana) and in the JMA's own English, then what is at this spot.
-    Official facts only, the same ones the PC shows; the readings and the English add no new fact."""
+def fact_parts(out):
+    """The phone's lines in two parts. `core` always stays: the head (for a 試し, what is made up and what
+    is real; for a real warning, who issued it and when), the guide sentence (「〜に警戒してください」), then
+    the warnings and the guide once in hiragana (for people who do not read kanji or katakana) and once in
+    the JMA's own English. Each reading is for its own readers, so a 試し is marked once at its start.
+    `facts` is what is at this spot, most important first (the one the guide names leads), each with its
+    hiragana and English readings. Official facts and the one guide only; the readings add no new fact.
+    The level is said in words, so it does not rest on the color."""
     n, warn = out['notice'], out.get('warning') or {}
     c20 = (out.get('area') or {}).get('class20') or {}
     trig = sorted((w for w in warn.get('warnings', []) + warn.get('flood', []) if w['group1'] and w['level'] >= 3),
                   key=lambda w: -w['level'])
     trig = list({(w['hazard'], w['level'], bool(w.get('demo'))): w for w in trig}.values())
-    names = [app.warning_name(w['hazard'], w['level']) + ('（試し）' if w.get('demo') else '') for w in trig]
-    facts = [f for f in n.get('facts', []) if f.get('line') and f['id'] != 'warning']
-    facts.sort(key=lambda f: next((i for i, k in enumerate(FACT_ORDER) if f['id'].startswith(k)), len(FACT_ORDER)))
-    head = [f"{n.get('area', '')}に{'、'.join(names)}"] if names else []
-    if not head:  # the bear alone: its fact comes first, the folded line stays in kanji as the record says it
-        head = [f['line'] for f in facts if f['id'] == 'wildlife'][:1]
-        facts = [f for f in facts if f['id'] != 'wildlife']
+    g = n.get('guide') or {}
+    core = [x for x in (n.get('head'), g.get('line')) if x]
     kana, en = [], []
     if trig:
-        said = '、'.join(app.warning_reading(w['hazard'], w['level']) + ('（ためし）' if w.get('demo') else '')
+        every = all(w.get('demo') for w in trig)  # all made up: one mark at the start of each reading
+        said = '、'.join(app.warning_reading(w['hazard'], w['level']) + ('（ためし）' if w.get('demo') and not every else '')
                         for w in trig)
         for word, gloss in KANA_GLOSS.items():  # r2: 「はんらん」「たかしお」 alone were not understood
             said = said.replace(word, f'{word}（{gloss}）', 1)
-        kana.append((c20['kana'] + ' に ' if c20.get('kana') else '') + said)
-        en.append((c20['enName'] + ': ' if c20.get('enName') else '')
-                  + ', '.join(app.warning_en(w['hazard'], w['level']) + (' (TEST)' if w.get('demo') else '')
-                              for w in trig))
+        kana.append(('ためし　' if every else '') + (c20['kana'] + ' に ' if c20.get('kana') else '') + said)
+        en.append(('TEST (made up) — ' if every else '') + (c20['enName'] + ': ' if c20.get('enName') else '')
+                  + ', '.join(app.warning_en(w['hazard'], w['level'])
+                              + (' (TEST, made up)' if w.get('demo') and not every else '') for w in trig))
     bear = ((out.get('wildlife') or {}).get('notify') or {})
     if bear.get('count'):
         r, d, k = f"{bear['radius_km']:g}", bear['days'], bear['count']
@@ -303,33 +302,75 @@ def fact_lines(out):
                         + (f'、あたらしいのは {day}' if day else ''))
             en.append(f"{eng}: {k} record{'s' if k != 1 else ''} within {r} km (last {d} days)"
                       + (f', newest {day}' if day else ''))
-    # each fact at the spot, then the same fact read out and in English when it has them (the zone: its
-    # name's own meaning), so a cut for size drops a fact with its readings
-    return head + kana + en + [x for f in facts for x in (f['line'], f.get('kana'), f.get('en')) if x]
+    if kana and g.get('kana'):  # the guide closes the first reading, in the same words
+        kana[0] += '。' + g['kana']
+        en[0] += '. ' + g['en']
+    first = {n.get('head')}
+    facts = [f for f in n.get('facts', []) if f.get('line') and f['id'] not in ('warning', 'demo', 'guide')
+             and f['line'] not in first]
+    order = [k for k in (g.get('about'),) if k] + list(app.FACT_ORDER)
+    facts.sort(key=lambda f: next((i for i, k in enumerate(order) if f['id'].startswith(k)), len(order)))
+    return core + kana + en, [(f['line'], [x for x in (f.get('kana'), f.get('en')) if x]) for f in facts]
+
+
+def chars(lines):
+    """Characters of these lines as a body, a newline after each."""
+    return sum(len(x) + 1 for x in lines)
+
+
+def fit(core, parts, budget=BODY_CHARS):
+    """`core`, then each part's line while the body stays within `budget` characters (a part that does not
+    fit is left out; a later, shorter one may still fit), then the readings of the kept parts the same way.
+    Each reading stays under its own line."""
+    kept, used = [], chars(core)
+    for line, readings in parts:
+        if used + len(line) + 1 <= budget:
+            kept.append((line, readings, []))
+            used += len(line) + 1
+    for _, readings, more in kept:
+        for x in readings:
+            if used + len(x) + 1 <= budget:
+                more.append(x)
+                used += len(x) + 1
+    return core + [y for line, _, more in kept for y in [line] + more]
+
+
+def fact_lines(out, budget=BODY_CHARS):
+    """The phone's body lines, cut to one screen (`fit`). A 試し's head names the real lines by their
+    names, so it is made again from the lines that were kept (it only gets shorter, so it still fits)."""
+    n = out['notice']
+    core, parts = fact_parts(out)
+    lines = fit(core, parts, budget=budget)
+    if n.get('demo_head') and core and core[0] == n.get('head'):
+        kept = set(lines[len(core):])
+        lines[0] = app.demo_head(**n['demo_head'], labels=[app.line_label(x) for x, _ in parts if x in kept])
+    return lines
 
 
 def message_for(out, age=None):
-    """The FCM data (strings only) for a notice, cut to fit the FCM size limit.
+    """The FCM data (strings only) for a notice, one screen long (BODY_CHARS) and within the FCM size limit.
 
-    The body says the facts first (the warning by its official name, then what is at this spot), then names
-    the official pages for this place that have no button (the first pages are the buttons, and the
-    emulator showed the same names twice). The folded line is the first fact. The app's screen shows the
-    facts and the tail as `notes`, above its list of all the pages. The tail (the 試し note, the age of the
-    position) always stays; when it does not fit, the last pages go first, then the last facts."""
+    The body is `fact_lines` (head, guide, readings, then what is at this spot while it fits), then the
+    official pages for this place that have no button, while they fit (the first pages are the buttons,
+    and the emulator showed the same names twice). The folded line is the notice's `summary` (readings
+    and English, so it does not repeat the title). The app's screen shows the same lines and the tail as
+    `notes`, above its list of all the pages. The tail (the age of the position) always stays."""
     n = out['notice']
-    tail = list(n.get('notes', []))
+    tail = []
     links = links_for(out)
     # the app lists the pages under the same names as the notice's body
     pages = [[site_line(name, n.get('area', '')), url] for name, url in sorted(links, key=page_order)]
-    facts = fact_lines(out)
     buttons = buttons_for(links)
-    lines = [name for name, _ in pages][len(buttons):PHONE_LINES]
     if age is not None and age > OLD_POSITION:
         tail.append(f'位置は {age // 3600} 時間 {age % 3600 // 60} 分前のもの')
+    room = BODY_CHARS - chars(tail)
+    facts = fact_lines(out, room)
+    # the pages without a button, while the body stays on one screen
+    lines = fit(facts, [(name, []) for name, _ in pages][len(buttons):PHONE_LINES], budget=room)[len(facts):]
     data = {'title': n['title'], 'area': n.get('area', ''), 'links': json.dumps(pages, ensure_ascii=False),
             'buttons': json.dumps(buttons, ensure_ascii=False),
             'level': str(n.get('level', 0)), 'checked': out['checked_at'], 'demo': '1' if out.get('demo') else '0',
-            'summary': (facts or lines or tail)[0]}
+            'summary': n.get('summary') or (facts or lines or tail)[0]}
     while True:
         data['body'] = '\n'.join(facts + lines + tail)
         data['notes'] = '\n'.join(facts + tail)
@@ -337,7 +378,7 @@ def message_for(out, age=None):
             return data
         if lines:
             lines.pop(-1)
-        elif len(facts) > 1:
+        elif len(facts) > 2:
             facts.pop(-1)
         else:
             return data

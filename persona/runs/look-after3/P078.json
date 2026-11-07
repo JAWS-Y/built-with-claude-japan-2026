@@ -1,0 +1,213 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "新宿のネパール料理店で仕事中に通知に気づいた。漢字とカタカナの行は読めない。「はんらん けいほう」はひらがなで読めるが意味がわからない。「TEST Flood」で水の災害だとわかったが、TEST とあるので『練習かな』と思い、すぐ閉じそうになった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらいて、ひらがなの「かわの みずが あふれる」「みちが みずに つかる」で洪水だとわかった。英語の Shinjuku City Level 3 も読めた。でも、どの道が危ないのかはひらがなにも英語にも書いていない。上の漢字の文が長いので、途中で読むのをやめかけた。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたが、名前（カタカナ）も見出しも読めない。同じ文がまた出ている。下に増えた行は漢字で、数字の 4、3km、0.84km だけ見えて、何の距離なのかわからない。青い字（リンク）とボタンも読めないので、どこを押せばいいかわからない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても、増えたのは Firebase、PC など読めない設定の話だけ。危ない場所も逃げる先もわからないまま、『道に気をつける』とだけ覚えてアプリを閉じた。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "新宿区 レベル3 氾濫警報（試し）",
+    "kind": "漢字・読み",
+    "why": "題が全部漢字とカタカナで、一番大きい行なのに読めない。読めるのは「3」だけ。",
+    "severity": 2,
+    "fix_hint": "題にもひらがなか英語の「Flood」を入れる"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう",
+    "kind": "言葉",
+    "why": "ひらがなで読めても「はんらん」「けいほう」という言葉を知らない。たたんだ形では説明が見えない。",
+    "severity": 1,
+    "fix_hint": "「かわの みずが あふれる」をたたんだ1行にも出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "本物は「道路」の行初台アンダーの冠水に警戒してください",
+    "kind": "漢字・読み",
+    "why": "危ない場所（初台アンダー）が漢字とカタカナの文にしかない。ひらがなと英語の文には「ちかくの みち」「nearby」としか書いていない。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語の文にも場所の名前と読みを入れる（はつだい / Hatsudai）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "けいかい して ください",
+    "kind": "言葉",
+    "why": "「けいかい」の意味がわからない。英語も「Be on alert」だけで、何をすればいいのか（その道を通らない、など）がない。",
+    "severity": 2,
+    "fix_hint": "「その みちを とおらないで」のように、することを短く書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "試し　この警報は作りもの（20:45 作成、気象庁は出していません）",
+    "kind": "並び・順番",
+    "why": "読めない漢字の文が一番上にあって長いので、ADHD の私は読めるところに着く前にあきらめてしまう。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語の短い文を一番上に置く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "ためし　しんじゅくく に れべる3\nはんらん（かわの みずが あふれる）\nけいほう。",
+    "kind": "行の変わり目",
+    "why": "「はんらん…けいほう」が途中で行が変わってわかりにくい。「しんじゅくく」もどこで切るのかわからない。",
+    "severity": 1,
+    "fix_hint": "言葉の途中で行を変えない。「しんじゅく く」と分ける"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "20:45 作成",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 8:45 と出ているのに 20:45 と書いてあって、同じ時間なのか一瞬わからない。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ書き方にするか「8:45 PM」も書く"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "漢字・読み",
+    "why": "押せる青い字が漢字だけで、何のページなのかわからない。押しても日本語のページだろうと思う。",
+    "severity": 1,
+    "fix_hint": "英語かひらがなの説明をつける"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "漢字・読み",
+    "why": "アプリで増えた大事な情報なのに漢字だけ。数字は見えても、何が 4 で何が 0.84km なのかわからない。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語でも書く（Flooding roads: 4, nearest 0.84km）"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きいボタンなのに読めない。閉じるボタンだと思って押してしまいそう。",
+    "severity": 2,
+    "fix_hint": "ひらがなと英語の説明をつけ、押したら確認する"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "サークル",
+    "kind": "漢字・読み",
+    "why": "アプリの名前がカタカナで、何のアプリから来た知らせなのかわからない。",
+    "severity": 1,
+    "fix_hint": "英語の名前「Circle」も出す"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言葉",
+    "why": "私の場所が送られていることが読めない。一人暮らしなので、誰に送っているのか気になる。",
+    "severity": 1,
+    "fix_hint": "ひらがなと英語で、どこへ送っているかを書く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "TEST (made up) — Shinjuku City: Level 3 Warning",
+    "kind": "言語",
+    "why": "ネパール語がどこにもない。英語も少ししか読めないので、細かいことはわからない。",
+    "severity": 2,
+    "fix_hint": "短いネパール語の文を一つ足す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "何が済んだのか、「変える」を押すとどうなるのか、まったくわからない。",
+    "severity": 1,
+    "fix_hint": "ふつうの人には見せないか、短い英語で説明する"
+   }
+  ],
+  "outside": [
+   "ネパール語で知らせを受けとる",
+   "危ない道を地図で見る",
+   "近くの避難所への道案内",
+   "「することリスト」を一つずつ短く出す",
+   "知らせを読み上げる（ひらがな・英語・ネパール語）"
+  ],
+  "overall": "洪水だとはわかりました。でも、どの道が危ないのか、何をすればいいのかは、私の読める字には書いてありませんでした。読めない字がいっぱいで、途中で読むのが疲れました。"
+ },
+ "cost_usd": 0.17321939999999997,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10714,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 4350,
+  "output_tokens_details": {
+   "thinking_tokens": 1756
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10714,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 4350,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10714,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10714
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 44.6,
+ "person": {
+  "id": "P078",
+  "age": 35,
+  "lang": "ネパール語",
+  "body": "ADHD",
+  "situation": "一人暮らし",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 21:01:10"
+}

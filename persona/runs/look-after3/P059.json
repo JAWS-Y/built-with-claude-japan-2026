@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "夜勤明けで寝ぼけたまま引き下ろした。読めたのは英語の「TEST Flood」と、漢字の「新宿区」くらい。洪水らしいとは分かったが、どこの何が危ないのかは分からない。時計は 8:46 で、朝か夜かもはっきりしない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "日本語が長くて、途中で読むのをやめた。いちばん下の英語で、新宿で洪水のレベル3、近くの道が水につかるかもしれない、と分かった。でも「nearby」がどこのことかは書いていない。青い字の二つのリンクは日本語だけで、何なのか分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたが、同じ文がまた出ていた。下に「0.84km」と「アンダー」は見えたが、場所の名前（初台）と「冠水想定」は読めない。英語には場所も距離も無い。自分が逃げるべきなのかどうかは、結局分からなかった。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送ると、Firebase などの機械の言葉が出てきて、ますます分からない。何をすればいいかは書いておらず、また寝てしまいそう。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な「どこが・どれくらい近いか」が日本語にしか無い。英語は「nearby」だけなので、場所が分からない。",
+    "severity": 3,
+    "fix_hint": "英語にも「Hatsudai underpass, 0.84 km from you」と場所と距離を入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Be on alert for road flooding nearby.",
+    "kind": "言葉",
+    "why": "レベル3は、お年寄りは逃げはじめる段階のはず。でも「道に気をつけて」としか書いておらず、75歳の自分が逃げるべきかどうか分からない。",
+    "severity": 3,
+    "fix_hint": "「Level 3: older people should evacuate now」のように、することをはっきり書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood).",
+    "kind": "並び・順番",
+    "why": "読める英語は、長い日本語とひらがなの後ろの最後にしか無い。ADHD があって寝起きでもあるので、そこまで読まずに閉じてしまう。",
+    "severity": 2,
+    "fix_hint": "英語の行をいちばん上に置く（または母語を先に出す）"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "文字が切れる",
+    "why": "たたんだ形では、英語が「TEST Flood」で切れている。Warning なのか、どこなのかも分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行を「Flood warning Lv3 – Shinjuku」のように短い英語ではじめる"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "新宿区・20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 8:46 なのに知らせは 20:45 になっている。夜勤明けで朝なのか夜なのか分からず、古い知らせかと思ってしまう。",
+    "severity": 2,
+    "fix_hint": "携帯と同じ時刻の書き方にして、「1分前」も書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "本物は「道路」の行\n初台アンダーの冠水に警戒してください",
+    "kind": "行の変わり目",
+    "why": "文の途中で行が変わっていて、「道路」の行とは何のことか分からない。漢字が少し読めても、意味がつながらない。",
+    "severity": 1,
+    "fix_hint": "一つの文を一つのまとまりにして、言い方も短くする"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "ためし　しんじゅくく に れべる3",
+    "kind": "同じものが何度も",
+    "why": "同じ知らせが日本語・ひらがな・英語で、通知とアプリに何度も出る。長いので、大事な所を見つけられない。",
+    "severity": 1,
+    "fix_hint": "その人の言葉を一つだけ大きく出し、ほかの言葉はたたむ"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "言語",
+    "why": "リンクが日本語だけで、押すと何が出るのか分からない。",
+    "severity": 1,
+    "fix_hint": "英語の名前も付ける（JMA warnings など）"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きなボタンなのに日本語だけ。何か分からないまま押して、見守りを止めてしまいそう。",
+    "severity": 2,
+    "fix_hint": "英語も付け、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "機械の言葉で意味が分からず、不安になる。",
+    "severity": 1,
+    "fix_hint": "ふつうの人には見せない"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 20:45",
+    "kind": "言葉",
+    "why": "どの PC なのか分からない。日本語だけでもある。",
+    "severity": 1,
+    "fix_hint": "「Checked 1 min ago」のように書く"
+   }
+  ],
+  "outside": [
+   "寝ていても起きられるまで鳴りつづける、強い音とふるえ",
+   "知らせ全体を英語で出す切りかえ",
+   "初台アンダーの場所を地図で見せる",
+   "レベル3のときに、お年寄りが行く避難所を案内する",
+   "英語の読み上げ"
+  ],
+  "overall": "寝起きで分かったのは「新宿で洪水、レベル3」だけでした。どこが危なくて、75歳の私が今逃げるべきなのか、どこにも英語で書いていません。日本語が長すぎて英語までたどり着けず、また寝てしまいそうです。"
+ },
+ "cost_usd": 0.1543394,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10714,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3406,
+  "output_tokens_details": {
+   "thinking_tokens": 1151
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10714,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3406,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10714,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10714
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 36.6,
+ "person": {
+  "id": "P059",
+  "age": 75,
+  "lang": "英語",
+  "body": "ADHD",
+  "situation": "夜勤明けで寝ている",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:57:54"
+}

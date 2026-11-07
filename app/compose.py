@@ -29,7 +29,7 @@ SYSTEM = """あなたは、いまいる場所の公式の防災情報を、携�
 - 使ってよいのは渡した事実だけです。事実にない数字・名前・地名・時刻・理由を足さないでください。
 - 渡した事実はどれも、どこかの文で必ず使ってください。数字と名前は事実に書いてあるとおりに書き、数字は算用数字のままにします。
 - 事実をつないだり、順を変えたりしてかまいません。警報の事実があるときは、最初の文で、出ている警報とこの場所の性質を結びつけてください。
-- ただし id が demo の事実（試しの作りものの警報）は、ほかの事実と同じ文に入れず、それだけで最初の 1 文にしてください。この場所の性質は次の文に書きます。ほかの文には「試し」「作りもの」と書かないでください。
+- ただし id が demo の事実（試しの作りものの警報）は、ほかの事実と同じ文に入れず、「試し」の言葉を残して、それだけで最初の 1 文にしてください。この場所の性質は次の文に書きます。ほかの文には「試し」「作りもの」と書かないでください。
 - どう動けばよいか（逃げる・控える・備えるなど）は書かないでください。
 - 「安全」「大丈夫」「起きない」のように、無いこと・心配いらないことは書かないでください。
 - 事実にない見込みや予想は書かないでください。
@@ -127,6 +127,8 @@ def validate(facts, result):
         demo = [f for f in cited if f['source'] == DEMO_SOURCE]
         if demo and len(demo) < len(cited):
             raise ComposeError(f'{i} 文目に試しの事実と本物の事実が混ざっている')
+        if demo and DEMO_SOURCE not in text:
+            raise ComposeError(f'{i} 文目は試しの事実なのに「{DEMO_SOURCE}」と書いていない')
         if not demo:
             said = [w for w in DEMO_WORDS if w in text]
             if said:
@@ -148,11 +150,29 @@ def validate(facts, result):
             bad = [w for w in words if w in text and w not in src_text]
             if bad:
                 raise ComposeError(f'{i} 文目に書かない言葉（{kind}）: {bad}')
-        out.append(text.rstrip('。') + '（' + '・'.join(_sources(cited)) + '）。')
+        # 試しの文は自分で「試し」と言うので、出典「（試し）」は付けない（試しの印は 1 か所）
+        out.append(text.rstrip('。') + ('' if demo else '（' + '・'.join(_sources(cited)) + '）') + '。')
     missing = [f['id'] for f in facts if f['id'] not in used]
     if missing:
         raise ComposeError(f'使われていない事実: {missing}')
     return out
+
+
+GUIDE = 'guide'
+
+
+def for_claude(facts):
+    """The facts Claude writes from. The guide (「〜に警戒してください」) is the app's own sentence in the
+    気象庁 form: Claude never rewrites it, the app puts it in as it is."""
+    return [f for f in facts if f['id'] != GUIDE]
+
+
+def with_guide(lines, facts):
+    """Claude's lines with the app's guide sentence second, as in the plain body (head, then what to do)."""
+    guide = next((f for f in facts if f['id'] == GUIDE), None)
+    if not guide:
+        return lines
+    return lines[:1] + [guide['text'].rstrip('。') + '（' + guide['source'] + '）。'] + lines[1:]
 
 
 class ClaudeClient:
@@ -268,13 +288,15 @@ def cached(notice):
 def _apply(notice, done):
     out = dict(notice, plain_body=notice['body'], composer=done['composer'])
     if done['composer']['ok']:
-        out['body'] = '\n'.join(done['lines'] + notice.get('notes', []))  # the 試し note stays last
+        # notes は素の本文の試しの頭（「本物は「道路」の行」）。Claude の文では試しの文が自分で言うので足さない
+        out['body'] = '\n'.join(done['lines'])
     return out
 
 
 def compose(notice, client):
     """Return the notice with a Claude-written body when it passes the checks, else with the plain body."""
-    if not notice.get('notify') or client is None or not notice.get('facts'):
+    facts = for_claude(notice.get('facts') or [])
+    if not notice.get('notify') or client is None or not facts:
         return notice
     key = facts_key(notice)
     with _lock:
@@ -284,8 +306,8 @@ def compose(notice, client):
         if hit:
             return hit
         try:
-            result = client.write(notice['facts'])
-            lines = validate(notice['facts'], result)
+            result = client.write(facts)
+            lines = with_guide(validate(facts, result), notice['facts'])
             done = {'lines': lines, 'composer': {'ok': True, 'by': result.get('model') or MODEL,
                                                  'request_id': result.get('request_id')}}
         except ComposeError as e:

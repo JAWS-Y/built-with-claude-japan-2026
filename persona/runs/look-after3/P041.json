@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "耳が遠く、音には気づかなかった。たまたま携帯を見て、赤い印と「TEST Flood」で洪水の試しの知らせだと分かった。「はんらん けいほう」は音では読めたが、意味は分からない。漢字は読めず、場所がどこか分からない。「レベル3」の数字は見えたが、どのくらい危ないのかは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "開いたら下の方に英語の行があった。試しの知らせで、Shinjuku City にレベル3の洪水警報、近くの道が水につかるかもしれないと分かった。ひらがなの「かわの みずが あふれる」も助けになった。泊まっているホテルが新宿なので自分のことだと思った。でも、どの道が危ないのかは書いていない。青い字の二つのリンクは漢字だけなので、押していない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたが、上は漢字だらけ。英語の行は知らせと同じ。下の行の「4」「3km」「0.84km」は読めたが、何の数字か分からない。近くに何かが4つあって、いちばん近いのが0.84kmらしい、とだけ思った。「見守り」の欄は読めず、緑の点がついているので、何かが動いていることしか分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても英語の説明はなかった。「Firebase circle-demo」と「PC」の文字だけ読めて、パソコン向けの設定だろうと思った。自分の位置がどこかへ送られているとは分からないまま。どのボタンも漢字なので、こわくて押していない。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん役に立つ「どこが、どのくらい近いか」が漢字とカタカナだけで、英語の行にもない。数字だけ見えても意味が分からない。",
+    "severity": 2,
+    "fix_hint": "英語の行に「4 flood-prone roads within 3 km; nearest: Hatsudai underpass, 0.84 km」と入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Be on alert for road flooding nearby.",
+    "kind": "言葉",
+    "why": "英語では「近く」としか書いていない。旅行者には、どの道を避ければいいのか分からない。",
+    "severity": 2,
+    "fix_hint": "英語でも危ない道の名前（ローマ字）を書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3 Warning",
+    "kind": "言葉",
+    "why": "レベル3が5段階のどこなのか、旅行者には分からない。日本ではレベル3はお年寄りが逃げはじめる目安なのに、75歳の自分がどうすればいいか書いていない。",
+    "severity": 2,
+    "fix_hint": "「Level 3 of 5: older people should start to evacuate」のように、すべきことを英語で書く"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "言語",
+    "why": "たたんだ形の英語は「TEST Flood」だけ。場所（新宿区）とレベルは漢字の題にしかなく、英語では分からない。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行を「TEST Flood L3 – Shinjuku」のように、場所も英語で入れる"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "",
+    "kind": "その他",
+    "why": "耳が遠く、鳴った音に気づけない。見た目はふつうの通知と変わらず、たまたま見るまで届かなかった。",
+    "severity": 3,
+    "fix_hint": "音だけでなく、強い震えや画面いっぱいの表示で知らせる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "試し　この警報は作りもの（20:45 作成、気象庁は出していません）。本物は「道路」の行",
+    "kind": "並び・順番",
+    "why": "漢字の文が先で、読める英語はいちばん下にある。開いて探さないと読めない。",
+    "severity": 1,
+    "fix_hint": "携帯の言葉が英語なら、英語の行を上に出す"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）",
+    "kind": "言語",
+    "why": "リンクが漢字だけなので、何のページか分からず押せない。",
+    "severity": 1,
+    "fix_hint": "「JMA Warnings (official)」のように英語の名前もつける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "位置を送っています",
+    "kind": "言語",
+    "why": "自分の位置が送られていると分からない。「見守りを止める」も読めず、まちがって押しそうでこわい。",
+    "severity": 2,
+    "fix_hint": "見守りの説明とボタンに英語をつける"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "開発の言葉で、旅行者には意味がない。",
+    "severity": 1,
+    "fix_hint": "ふつうの言葉で「Set up」とだけ出す"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "新宿区・20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "上の時計は「8:45」なのに、本文は「20:45」。同じ時刻だとすぐに分からない。",
+    "severity": 1,
+    "fix_hint": "時計と同じ書き方にするか、「8:45 PM」と書く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "PC が調べた時刻 11/7 20:45",
+    "kind": "文字の大きさ",
+    "why": "灰色の小さい字で、75歳の目には読みにくい。",
+    "severity": 1,
+    "fix_hint": "字を大きく、色を濃くする"
+   }
+  ],
+  "outside": [
+   "音が聞こえない人のために、ライトを光らせる、強く震わせるといった知らせ方",
+   "危ない道（初台アンダー）の場所を見せる地図",
+   "近くの避難所への英語の案内",
+   "アプリ全体を英語に切りかえる",
+   "家族やホテルに知らせる"
+  ],
+  "overall": "音が聞こえない私には、見るまで届かなかった。英語の行で「新宿で洪水の試しの知らせ」とは分かった。でも、どの道が危ないのか、75歳の私がもう逃げるべきなのかは、英語では分からない。"
+ },
+ "cost_usd": 0.16623539999999998,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10731,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3994,
+  "output_tokens_details": {
+   "thinking_tokens": 1679
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10731,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3994,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10731,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10731
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 42.8,
+ "person": {
+  "id": "P041",
+  "age": 75,
+  "lang": "英語",
+  "body": "難聴（音が聞こえにくい）",
+  "situation": "旅行で来ている",
+  "reading": "日本語はひらがなまで読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:55:12"
+}

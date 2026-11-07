@@ -1,0 +1,158 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "赤いピンの知らせが来た。日本語の行は読めない。読めたのは英語の「TEST Flood」だけ。「Flood（洪水）の試しかな」と思ったが、どこの話か、どのくらい危ないかは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "日本語の長い文を飛ばして、下の英語の行を読んだ。「Shinjuku City」「Level 3 Warning」「Flood」「road flooding nearby」から、新宿で道に水があふれるかもしれないと分かった。でも「nearby」がどの道なのかは分からない。青い日本語のリンクは押さなかった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開いたが、見えている文字はほとんど日本語。英語の行は通知と同じだった。その下に「4」「3km」「0.84km」という数字があるが、何の距離なのか分からない。大きな四角いボタン（見守りを止める）が何のボタンか分からず、触るのが怖い。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送っても日本語ばかり。読めたのは「Firebase circle-demo」だけで、意味は分からない。自分の位置がどこかへ送られていることには気づかない。新しく分かったことはない。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) — Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "言語",
+    "why": "日本語のほかに、手がかりは英語の1行だけ。スペイン語は全くない。英語も得意ではないので、あいまいなまま読むことになる。",
+    "severity": 2,
+    "fix_hint": "スペイン語でも、短い一文を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な「どの道が危ないか、どれだけ近いか」が日本語だけ。英語の行には「nearby」としか書いていないので、どこを避ければいいか分からない。",
+    "severity": 2,
+    "fix_hint": "道の名前と距離を英語（ローマ字）でも書く。例「Hatsudai underpass, 0.84 km」"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "言語",
+    "why": "たたんだ形の英語は「TEST Flood」だけ。場所もレベルも警報であることも、英語では書いていない。",
+    "severity": 1,
+    "fix_hint": "たたんだ行にも「Shinjuku Level 3 Flood Warning」まで英語で入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "けいかい して ください",
+    "kind": "並び・順番",
+    "why": "同じ内容の日本語が漢字とひらがなで7行も続き、英語は最後にある。読める行を探すまで時間がかかり、途中で読むのをやめそうになる。",
+    "severity": 1,
+    "fix_hint": "英語の行を上のほうに出すか、言葉ごとに分けて短くする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up)",
+    "kind": "言葉",
+    "why": "「made up」はくだけた英語で、英語が母語でない人には分かりにくい。「Level 3」も、いくつ中の3なのか、何をすればいいのかが分からない。",
+    "severity": 1,
+    "fix_hint": "「This is a drill, not real」のようなやさしい英語にして、レベルの意味を一言そえる"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "何のボタンか読めないのに、大きくて押しやすい場所にある。手がふるえるので、知らないうちに押して見守りを止めてしまうおそれがある。",
+    "severity": 2,
+    "fix_hint": "英語の説明をつけ、押したら確かめる画面を出す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "この携帯の位置は、設定した Firebase に書き、あなたの PC だけが読みます。",
+    "kind": "言語",
+    "why": "自分の位置が送られていることも、その説明も日本語だけ。しかも「Firebase」「PC」という分からない言葉が入っていて、何が起きているか知りようがない。",
+    "severity": 1,
+    "fix_hint": "「Your location is being shared」とやさしい英語で示す"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "操作",
+    "why": "日本語のリンクで、文字が小さく、二つが近くに並んでいる。手がふるえると押しまちがえる。開いた先も日本語だろうと思って押さない。",
+    "severity": 1,
+    "fix_hint": "大きなボタンにして、英語の名前と「Japanese page」の印をつける"
+   }
+  ],
+  "outside": [
+   "スペイン語で文字と読み上げを出す",
+   "危ない道（初台アンダー）を地図で見せる",
+   "「何をすればいいか」（その道を通らない、高い所へ行く）を絵で見せる",
+   "外国人むけの相談窓口や避難所への案内"
+  ],
+  "overall": "英語の1行のおかげで「新宿で洪水の警報らしい」ことは分かりました。でも、どの道が危ないのか、私が何をすればいいのかは分かりません。アプリの中もほとんど日本語で、何のボタンか分からず押すのが怖かったです。"
+ },
+ "cost_usd": 0.2581344,
+ "usage": {
+  "input_tokens": 4,
+  "cache_creation_input_tokens": 18327,
+  "cache_read_input_tokens": 15712,
+  "output_tokens": 5418,
+  "output_tokens_details": {
+   "thinking_tokens": 1352
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 18327,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 2064,
+    "cache_read_input_tokens": 13215,
+    "cache_creation_input_tokens": 7609,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 7609
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 50.4,
+ "person": {
+  "id": "P077",
+  "age": 22,
+  "lang": "スペイン語",
+  "body": "手のふるえ",
+  "situation": "スマホに慣れていない",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 21:01:14"
+}

@@ -1,0 +1,185 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "配達で新宿に来ていて、荷物を運ぶ合間に引き下ろした。読めたのは「新宿区」「レベル3」「TEST Flood」。水の危ないことらしいと分かった。でも「TEST」を見て練習だと思い、ほうっておきそうになった。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらがなの「ちかくの みちが みずに つかる」をゆっくり読んで、近くの道が水につかるらしいと分かった。けれど、どこの道か、自分は何をすればいいかは分からない。漢字の段と英語の段を両方読もうとして、途中で何を読んでいたか分からなくなった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "「初台アンダー 0.84km」は読めたが、初台がどこにあるか知らない。上の「20:45」と携帯の時計の「8:46」が違うので、古い知らせではないかと迷った。下の「見守りを止める」は大きなボタンで、押していいのか分からなくて不安になった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "同じ文がもう一度出てきたので、前に読んだものか新しいものか分からなくなった。Firebase や PC の文は、何のことか全く分からない。結局、トラックを低い道に入れないほうがいいのか、決められなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood).",
+    "kind": "言語",
+    "why": "母語のポルトガル語が一行もない。英語も少ししか読めないので、たよりになる行がない。",
+    "severity": 2,
+    "fix_hint": "ポルトガル語の短い一行を入れる（例: Alerta de enchente nível 3）"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "言葉",
+    "why": "たたんだ形では「TEST」がいちばん目につく。練習だと思って、中身を見ずに消してしまう。",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に、何に気をつけるかを先に書く（例: ちかくの みちに みず）"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "本物は「道路」の行\n初台アンダーの冠水に警戒してください",
+    "kind": "行の変わり目",
+    "why": "「試し」と「本物は」が同じ段に混ざっていて、行の切れ目もおかしい。どちらが本当の知らせか分からない。",
+    "severity": 2,
+    "fix_hint": "試しの説明と、本当の危険を、はっきり別の段に分ける"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "けいかい して ください",
+    "kind": "言葉",
+    "why": "「けいかい」と言われても、何をすればいいか分からない。外で車を動かしている人は、すぐ動ける言葉がほしい。",
+    "severity": 2,
+    "fix_hint": "「ひくい みちに はいらない」のように、することを書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "初台アンダー 0.84km",
+    "kind": "言葉",
+    "why": "初台を知らないので、どちらの方へ0.84kmなのかが分からない。ほかの3か所は名前も出ていない。",
+    "severity": 2,
+    "fix_hint": "方角か、近くの目じるしを書き、4か所とも名前を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は「8:46」で、アプリは「20:45」と書く。同じ時刻だと気づけず、古い知らせかと迷う。",
+    "severity": 1,
+    "fix_hint": "時計と同じ書き方にするか、「いま」と書く"
+   },
+   {
+    "screen": 4,
+    "where": "アプリの画面",
+    "quote": "ためし　しんじゅくく に れべる3",
+    "kind": "同じものが何度も",
+    "why": "同じことを漢字・ひらがな・英語で三回書いていて、長い。読んでいるうちに、どこまで読んだか分からなくなる。",
+    "severity": 2,
+    "fix_hint": "一番上に、短い一文だけを大きく出す"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きなボタンで、何が止まるのか分からない。迷ったまま押してしまいそう。",
+    "severity": 2,
+    "fix_hint": "押す前に絵と短いひらがなで確かめるか、目立たない所へ移す"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase や PC の文は、まったく分からない。こわれているのかと不安になる。",
+    "severity": 1,
+    "fix_hint": "使う人には見せない"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "PC が調べた時刻 11/7 20:45",
+    "kind": "古い情報",
+    "why": "「PC」と時刻が出ても、いまの知らせなのか分からない。",
+    "severity": 1,
+    "fix_hint": "「〇分前」と、やさしく書く"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "漢字・読み",
+    "why": "リンクは漢字だけで、押すと何が出るのか分からない。",
+    "severity": 1,
+    "fix_hint": "ふりがなか、絵をつける"
+   }
+  ],
+  "outside": [
+   "ポルトガル語で読み上げる",
+   "地図で、水につかる道と自分のいる場所を見せる",
+   "よけて通れる道を教える",
+   "家族に知らせを送る"
+  ],
+  "overall": "水の危ないことは何となく分かった。でも「TEST」で気がゆるんでしまう。それに、どの道がだめで、自分は何をすればいいのかが分からない。ポルトガル語で、ひとことだけでいいから欲しい。"
+ },
+ "cost_usd": 0.1405874,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10735,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 2710,
+  "output_tokens_details": {
+   "thinking_tokens": 585
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10735,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 2710,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10735,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10735
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 29.8,
+ "person": {
+  "id": "P006",
+  "age": 68,
+  "lang": "ポルトガル語（ブラジル）",
+  "body": "認知症のはじめ",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:49:07"
+}

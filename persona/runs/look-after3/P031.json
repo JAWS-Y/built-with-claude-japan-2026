@@ -1,0 +1,186 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "赤い印の知らせが鳴った。日本語の行は読めない。最後の「TEST Flood」だけ読めて、「洪水？テスト？」と思った。どこの話かは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "日本語の長い文は飛ばして、下の英語を探した。「Shinjuku」「Level 3」「Flood」「road」「nearby」は分かった。近くの道が水につかるらしい。でも、どの道か、どうすればいいかは分からない。青い字のボタンは読めないので押さなかった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "同じ英語がまたあった。その下に「4」「3km」「0.84km」の数字があるけど、何の数か分からない。「20:45」も、携帯の「8:46」と合わなくてまよった。緑の点と、下の大きいボタンは何か分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 1,
+    "gist": "下へ送ると、知らない日本語と「Firebase」「PC」が出てきた。危ないことと関係あるのか分からない。お母さんに見せようと思った。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "言語",
+    "why": "英語は「TEST Flood」だけ。場所もレベルも英語で出ないので、自分の近くのことか分からない。「TEST」は学校のテストにも見える",
+    "severity": 2,
+    "fix_hint": "たたんだ1行に「Flood warning – Shinjuku」と、場所も英語で入れる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) — Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "並び・順番",
+    "why": "読める英語が、読めない日本語7行のいちばん下にある。探さないと見つからない",
+    "severity": 2,
+    "fix_hint": "英語の行を上のほうに出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Be on alert for road flooding nearby.",
+    "kind": "言葉",
+    "why": "9歳には「Be on alert」が何をすることか分からない。近づかない、大人に言う、などの「すること」が無い",
+    "severity": 2,
+    "fix_hint": "「Do not go near water on roads. Tell an adult.」のように、することを短く書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは 初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な「どこが危ないか」が日本語だけ。数字は見えても何の数か分からない",
+    "severity": 2,
+    "fix_hint": "「Nearest: Hatsudai underpass, 0.84 km」と英語でも出す"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "言語",
+    "why": "ボタンの名前が日本語だけで、押すと何が出るか分からない",
+    "severity": 1,
+    "fix_hint": "ボタンにも英語の名前をつける"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "はんらん（かわの みずが あふれる）",
+    "kind": "言語",
+    "why": "ひらがなの説明も、日本語が読めないので届かない。ネパール語は一つも無い",
+    "severity": 2,
+    "fix_hint": "ネパール語の行を足す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は「8:46」なのに、知らせは「20:45」。同じ時間だと分からず、古い知らせか新しいのか迷う",
+    "severity": 1,
+    "fix_hint": "携帯と同じ書き方（8:45 PM）で出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "Level 3",
+    "kind": "言葉",
+    "why": "レベル3がどれくらい危ないのか分からない（いくつまであるのか）",
+    "severity": 1,
+    "fix_hint": "「Level 3 of 5」のように書く"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きくて押しやすいボタンだけど、日本語だけなので何のボタンか分からない。うっかり押してしまいそう",
+    "severity": 2,
+    "fix_hint": "英語をつけて、押す前に確かめる"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守り中",
+    "kind": "色",
+    "why": "緑の点は「だいじょうぶ」に見える。赤い警報の横で、安全なのか危ないのか迷う",
+    "severity": 1,
+    "fix_hint": "意味を英語で書くか、警報と色を分ける"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "「Firebase」「PC」は子どもには分からない。警報と関係があるのか、さわっていいのか分からない",
+    "severity": 1,
+    "fix_hint": "設定は知らせとは別の所に分けて置く"
+   }
+  ],
+  "outside": [
+   "ネパール語で知らせる",
+   "近くにいる大人や家族に、同じ知らせを送る",
+   "危ない道を地図で見せる",
+   "子ども向けに「すること」を絵で見せる",
+   "声で読み上げる（ネパール語か英語）"
+  ],
+  "overall": "英語の「Flood」で洪水らしいことは分かったけど、どの道が危ないのか、ぼくは何をすればいいのか分からなかった。お母さんに携帯を見せに行く。"
+ },
+ "cost_usd": 0.1528314,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10723,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3327,
+  "output_tokens_details": {
+   "thinking_tokens": 1313
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10723,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3327,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10723,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10723
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 35.9,
+ "person": {
+  "id": "P031",
+  "age": 9,
+  "lang": "ネパール語",
+  "body": "なし",
+  "situation": "引っ越してきたばかり",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:53:17"
+}

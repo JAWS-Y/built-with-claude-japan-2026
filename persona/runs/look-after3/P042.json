@@ -1,0 +1,176 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "配達で新宿を回っているときに届いた。赤いピンの印と「3」は見えたが、漢字は読めない。行の終わりの「TEST Flood」は小さい灰色の字で、目を近づけてやっと読めた。「Flood」は水のことらしいと何となく思ったが、試しなのか本物なのか、自分に関係あるのかは分からない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "ひらいても、上の大半は日本語で読めない。いちばん下の英語「Level 3 Warning (Flood)… road flooding nearby」をゆっくり読んで、近くの道が水につかる警報（の試し）らしいと分かった。でも、どの道かは分からない。青い字のリンクも日本語なので押さなかった。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "アプリを開くと大きい赤い線があり、大事な知らせだと感じた。英語の行は同じことしか書いていない。その下の「0.84km」「4」「3km」の数字は見えたが、日本語なので、何の数字でどこのことかは分からない。トラックで避けるべき道が分からないままだった。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下へ送ると、日本語のボタンと「Firebase」「PC」という言葉が出てきたが、意味は分からない。大きい「見守りを止める」ボタンを押してよいのか迷い、触らずに閉じた。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "試し　この警報は作りもの（20:45 作成、気象庁は出していません）",
+    "kind": "言語",
+    "why": "韓国語が一つもない。漢字の文もひらがなの文も読めず、手がかりは短い英語の行だけになる。",
+    "severity": 3,
+    "fix_hint": "携帯の言葉（韓国語）で本文と題を出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "どこが危ないか（初台アンダー、0.84km）は日本語の行にしかない。英語は「nearby」だけなので、配達の道でどこを避ければよいか分からない。",
+    "severity": 3,
+    "fix_hint": "場所の名前と距離を英語・韓国語の行にも入れる"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "並び・順番",
+    "why": "読める英語が2行目の終わりにしかなく、小さい灰色の字。題は漢字だけなので、ひと目では何の知らせか分からない。",
+    "severity": 2,
+    "fix_hint": "英語（母語）を題の先頭に出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood).",
+    "kind": "同じものが何度も",
+    "why": "同じ中身が漢字・ひらがな・英語と3回並び、英語はいちばん下に押し出される。目が悪いと読める行を探すのに時間がかかる。",
+    "severity": 2,
+    "fix_hint": "携帯の言葉の文を一つだけ先に出し、ほかはたたむ"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "",
+    "kind": "文字の大きさ",
+    "why": "字を大きくしているのに、知らせの本文は小さく、薄い灰色の地に灰色の字で読みにくい。目を近づけないと英語の行も読めない。",
+    "severity": 2,
+    "fix_hint": "字の大きさの設定に合わせ、濃い字・強いコントラストにする"
+   },
+   {
+    "screen": 2,
+    "where": "ボタン",
+    "quote": "警報（気象庁）　川の洪水予報",
+    "kind": "言語",
+    "why": "ボタンが日本語だけで、何が開くのか分からない。押しても日本語のページだろうと思い、使えない。",
+    "severity": 1,
+    "fix_hint": "ボタンの名前を母語にして、開く先も母語のページにする"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "レベル3",
+    "kind": "数字・単位",
+    "why": "「3」は読めるが、いくつまであるうちの3なのか、逃げるべき強さなのかが分からない。",
+    "severity": 2,
+    "fix_hint": "「5段階のうち3」と、とるべき行動を短く添える"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "言語",
+    "why": "いちばん大きいボタンなのに意味が読めない。押すと警報が来なくなるのかと思い、迷った。位置を送っていることも分からない。",
+    "severity": 2,
+    "fix_hint": "見守りの説明とボタンを母語にし、押すとどうなるかを書く"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "「Firebase」「PC」は英語の字でも意味が分からず、不安になる。",
+    "severity": 1,
+    "fix_hint": "仕組みの名前を使わず、「設定できています」とだけ出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "上の時計は「8:46」なのに、中は「20:45」。同じ時刻だとすぐには結びつかない。",
+    "severity": 1,
+    "fix_hint": "携帯の時計と同じ時刻の形で出す"
+   }
+  ],
+  "outside": [
+   "水につかる道を地図で見せる",
+   "配達・車の道で、つかる道を避ける案内",
+   "韓国語の読み上げ（耳で聞ける）",
+   "外の音がうるさいときにも気づける、強い振動や音"
+  ],
+  "overall": "赤い印で大事な知らせだとは分かった。英語の小さい行をやっと読んで、水の警報らしいとも分かった。でも、どの道が危ないかは日本語にしか書いていない。仕事中にどこを避ければいいのか、分からないままだった。韓国語で、もっと大きい字で出てほしい。"
+ },
+ "cost_usd": 0.1568674,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10730,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3526,
+  "output_tokens_details": {
+   "thinking_tokens": 1357
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10730,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3526,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10730,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10730
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 39.4,
+ "person": {
+  "id": "P042",
+  "age": 68,
+  "lang": "韓国語",
+  "body": "弱視（文字を大きくしている）",
+  "situation": "外で働いている（工事・配達など）",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:55:15"
+}

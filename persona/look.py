@@ -5,6 +5,7 @@ across two lines, an old position, a page named twice. This round shows the real
 
 python3 look.py run --set before --round look-before [--first 5] [-j 4] [--model opus]
 python3 look.py run --set after  --round look-after
+python3 look.py run --set after3 --round look-after3   (the rebuilt notice, 2026-11-07)
 python3 look.py tally look-before look-after      -> prints the counts, writes runs/<last>/tally.md
 
 Images: look/shots/<set>-1-collapsed.png, -2-expanded.png, -3-app.png, -4-app-down.png (emulator, 1080x2400).
@@ -169,24 +170,37 @@ FIXED = [('題が切れて「気をつけて」が見えない',
 ACT = re.compile(r'逃げ|避難|すぐ.{0,6}(動|離れ|行)|何をすれば|どうすれば|どう動|行動|高い所|上の階')
 ROAD = re.compile(r'冠水想定|アンダー')
 
+# The corners the 11-07 rebuild aimed at (research/ui-ux-20261107.md): what each one names, matched in the quote, why
+# and fix hint. Keyword rules, a rough guide like the rows above.
+WHEN = re.compile(r'いつ(?!も)|発表(時刻|の時刻|時間|された時)')
+REBUILT = [('🌊 を津波と読む', lambda c: '津波' in _text(c)),
+           ('試しの行「ほかは本物」が分からない', lambda c: 'ほかは本物' in _text(c)),
+           ('試し／TEST を練習・訓練と読む', lambda c: bool(re.search(r'練習|訓練', _text(c)))),
+           ('何をすればよいか書いてない', lambda c: bool(ACT.search(c['fix_hint'] + ' ' + c['why']))),
+           ('いつの知らせか分からない', lambda c: bool(WHEN.search(_text(c) + ' ' + c['fix_hint']))),
+           ('たたんだ形（題と 1 行）が読めない（漢字・読み、言語）',
+            lambda c: c['where'] in ('通知の題', 'たたんだ1行') and c['kind'] in ('漢字・読み', '言語'))]
+
 CHOICES = [
     ('直した', '見た目の 4 つ（題が切れる、語が行の途中で割れる、位置が古い、ページの名前が二度出る）',
      '写しを見て Joe が「見た目も直して」', 'Joe', lambda c: any(FIXED[i][1](c) for i in (0, 2, 4, 5))),
     ('直した', 'レベルの数字が切れる、「止める」ボタン（残りは新しい「見守りを止める」への角）',
      'Joe が「2 つを直して」', 'Joe', lambda c: any(FIXED[i][1](c) for i in (1, 7))),
-    ('残す', '「警報は試しの作りもの。ほかは本物」の行がまぎらわしい',
-     '作りものの警報を本物と取りちがえないための行。消さない', 'Joe（試しの警報と、その印を「直して」）',
-     lambda c: '作りもの' in c['quote']),
-    ('残す', '同じ文が漢字・ひらがな・英語で並ぶ',
-     'ひらがなだけ、英語だけ読む人に届くための行。消さずに、並びを見直す候補', 'agent（Joe のテーマ「誰にでも届く」から）',
-     lambda c: FIXED[6][1](c)),
+    ('直した', '試しの行（作りもの・本物）がまぎらわしい',
+     '作りものの警報を本物と取りちがえないための行なので消さない。11-07 に、試しの印を 1 か所にし、「ほかは本物」をやめて'
+     '本物の行を名指しした（調べもの 5）', 'Joe（「作り直して」）', lambda c: '作りもの' in c['quote'] or '本物' in c['quote']),
+    ('直した', '同じ文が漢字・ひらがな・英語で並ぶ',
+     'ひらがなだけ、英語だけ読む人に届くための行なので消さない。11-07 に、同じ警報を 1 回ずつにし、ひらがな・英語の行は'
+     'その言葉の人だけが読む短い行にした（調べもの 4）', 'Joe（「作り直して」）', lambda c: FIXED[6][1](c)),
     ('まだ', 'ほかの言葉（中国語・ベトナム語・ミャンマー語など）で読みたい',
      '画面には公式の事実だけを出すので、英語も気象庁の公式の英語だけ。公式の多言語辞書を入れるかは Joe が決める', 'Joe（まだ）',
      lambda c: c['kind'] == '言語'),
-    ('まだ', '道の行（冠水想定・アンダー）が分からない', 'どう出すか、まだ決めていない', 'Joe（まだ）',
-     lambda c: bool(ROAD.search(c['quote']))),
-    ('直さない', 'どう動くか（「お年寄りは逃げて」など）を書いてほしい',
-     'サークルは公式の事実と出典だけを出し、どう動くかは書かない。判断と責任は人が持つ', 'Joe の決まり（当てはめは agent）',
+    ('一部直した', '道の行（冠水想定・アンダー）が分からない',
+     '11-07 に、やさしい日本語の行で「ちかくの みちが みずに つかる」と言いかえた。「アンダー」はデータにある道の名前のまま',
+     'Joe（「作り直して」）', lambda c: bool(ROAD.search(c['quote']))),
+    ('一部直した', 'どう動くか（「お年寄りは逃げて」など）を書いてほしい',
+     '11-07 に、気象庁の形で「〜に警戒してください」「〜に注意してください」と、何に気をつけるかを具体に書いた。'
+     '逃げる・避難の指図は書かない。判断と責任は人が持つ', 'Joe（「〜に注意してください、でいいんじゃない？」）',
      lambda c: bool(ACT.search(c['fix_hint'] + ' ' + c['why']))),
 ]
 
@@ -223,6 +237,9 @@ def stats(rows):
         'fixed': [(name, sum(1 for c in corners if f(c)), len({r['person']['id'] for r in rows
                                                                for c in r['answer']['corners'] if f(c)}))
                   for name, f in FIXED],
+        'rebuilt': [(name, sum(1 for c in corners if f(c)), len({r['person']['id'] for r in rows
+                                                                 for c in r['answer']['corners'] if f(c)}))
+                    for name, f in REBUILT],
         'quotes': collections.Counter(c['quote'].strip() for c in corners if c['quote'].strip() and c['severity'] >= 2),
         'chosen': collections.Counter(choose(c) for c in corners),
     }
@@ -251,6 +268,10 @@ def tally(a):
               '|---|' + '---|' * len(st)]
     for i, (name, _) in enumerate(FIXED):
         row(name, lambda s, i=i: f"{s['fixed'][i][1]} / {s['fixed'][i][2]} 人")
+    lines += ['', '## 11-07 の作り直しが狙った角（角の数 / 挙げた人）', '', '| | ' + ' | '.join(r for r, _ in st) + ' |',
+              '|---|' + '---|' * len(st)]
+    for i, (name, _) in enumerate(REBUILT):
+        row(name, lambda s, i=i: f"{s['rebuilt'][i][1]} / {s['rebuilt'][i][2]} 人")
     lines += ['', '## 人が見直して選んだこと（取捨選択）', '',
               '作りものの人は、見えた不満を全部、角として挙げる（AI はすべての角を取ろうとする）。'
               'どれを直し、どれをわざと残し、どれをしないかは、人が角を読んで決めた。どっちも要る。', '',
@@ -281,7 +302,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     sub = ap.add_subparsers(dest='cmd', required=True)
     r = sub.add_parser('run')
-    r.add_argument('--set', required=True, choices=['before', 'after'])
+    r.add_argument('--set', required=True, choices=['before', 'after', 'after3'])
     r.add_argument('--round', required=True)
     r.add_argument('--only')
     r.add_argument('--first', type=int)

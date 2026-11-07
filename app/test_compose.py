@@ -59,6 +59,7 @@ class ComposeTest(unittest.TestCase):
         self.assertEqual(out['body'].split('\n'), [
             '千代田区にレベル4土砂災害危険警報が出ていて、いる場所は土砂災害警戒区域（土石流）に入っています'
             '（気象庁・ハザードマップポータル）。',
+            '土石流に警戒してください（アプリの案内）。',
             '土砂キキクルはこの地点で「危険（紫）警戒レベル４相当」です（気象庁 11/03 12:00）。',
             '降水ナウキャストでは、この地点はいま 30～50 mm/h、60分後は 50～80 mm/h です（気象庁）。',
             '2.5km 先に土砂災害の伝承碑「B」があります（国土地理院）。'])
@@ -73,7 +74,7 @@ class ComposeTest(unittest.TestCase):
         self.assertEqual(json.dumps(n, ensure_ascii=False, sort_keys=True), before)
 
     def test_same_source_with_time_wins(self):
-        out = compose.validate(landslide()['facts'], {'lines': [
+        out = compose.validate(compose.for_claude(landslide()['facts']), {'lines': [
             {'text': '千代田区にレベル4土砂災害危険警報が出ていて、土砂キキクルは「危険（紫）警戒レベル４相当」です。',
              'facts': ['warning', 'kiki-land']},
             {'text': 'いる場所は土砂災害警戒区域（土石流）に入っています。', 'facts': ['zone']},
@@ -172,18 +173,40 @@ class ComposeTest(unittest.TestCase):
     def test_demo_note_stays_last(self):
         w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), app.datetime(2026, 11, 3, tzinfo=app.JST))
         n = app.build_notice(AREA, w, [], [], None, [])
-        self.assertEqual([(f['id'], f['plain'], f['source']) for f in n['facts']], [('demo', False, '試し')])
+        self.assertEqual([(f['id'], f['plain'], f['source']) for f in compose.for_claude(n['facts'])],
+                         [('demo', False, '試し')])
         out = compose.compose(n, compose.FakeClient({'lines': [
             {'text': '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）。',
              'facts': ['demo']}]}))
         self.assertTrue(out['composer']['ok'], out['composer'])
+        # 試しの印は、試しの文の 1 か所だけ（出典の「（試し）」も、素の本文の試しの頭も足さない）
         self.assertEqual(out['body'].split('\n'), [
-            '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。'] + n['notes'])
+            '千代田区にレベル４土砂災害危険警報が出ています（これは試しの作りもので、気象庁は出していません）。',
+            '土砂災害に警戒してください（アプリの案内）。'])
+        self.assertEqual(out['body'].count('試し'), 1)
+
+    def test_demo_sentence_must_say_demo(self):
+        w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), app.datetime(2026, 11, 3, tzinfo=app.JST))
+        n = app.build_notice(AREA, w, [], [], None, [])
+        _, out, _ = self.compose({'lines': [{'text': '千代田区にレベル４土砂災害危険警報が出ています。',
+                                             'facts': ['demo']}]}, n)
+        self.assertFalse(out['composer']['ok'])
+        self.assertIn('「試し」と書いていない', out['composer']['reason'])
+        self.assertEqual(out['body'], n['body'])
+
+    def test_guide_is_the_apps_own_sentence(self):
+        # Claude never gets the guide; the app puts it in second, word for word
+        n = landslide()
+        self.assertIn('guide', [f['id'] for f in n['facts']])
+        self.assertNotIn('guide', [f['id'] for f in compose.for_claude(n['facts'])])
+        _, out, _ = self.compose(GOOD, n)
+        self.assertEqual(out['body'].split('\n')[1], n['guide']['line'] + '（アプリの案内）。')
+        self.assertIn('どう動けばよいか', compose.SYSTEM)
 
     def demo_flood(self):
         w = app.add_demo({'warnings': [], 'flood': []}, ('flood', 3), app.datetime(2026, 11, 3, tzinfo=app.JST))
         n = app.build_notice(AREA, w, [], [], None, [], ROAD)
-        self.assertEqual([(f['id'], f['source']) for f in n['facts']],
+        self.assertEqual([(f['id'], f['source']) for f in compose.for_claude(n['facts'])],
                          [('demo', '試し'), ('road', '国土交通省 関東地方整備局')])
         return n
 
@@ -220,9 +243,10 @@ class ComposeTest(unittest.TestCase):
             {'text': self.ROAD_TEXT + 'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です。', 'facts': ['road']}]}, n)
         self.assertTrue(out['composer']['ok'], out['composer'])
         self.assertEqual(out['body'].split('\n'), [
-            '千代田区にレベル３氾濫警報が出ています（これは試しの作りもので、気象庁は出していません）（試し）。',
+            '千代田区にレベル３氾濫警報が出ています（これは試しの作りもので、気象庁は出していません）。',
+            '〇〇アンダーパスの冠水に警戒してください（アプリの案内）。',
             '3km 以内に、国が道路冠水想定箇所として挙げている所が 7 か所あります。'
-            'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です（国土交通省 関東地方整備局）。'] + n['notes'])
+            'いちばん近いのは 0.4km 先の「〇〇アンダーパス」です（国土交通省 関東地方整備局）。'])
 
     def test_prompt_keeps_the_demo_fact_alone(self):
         self.assertIn('id が demo の事実', compose.SYSTEM)

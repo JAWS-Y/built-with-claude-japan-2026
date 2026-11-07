@@ -189,11 +189,16 @@ class NoticeTest(unittest.TestCase):
         n = app.build_notice(AREA, warn(('49', 'landslide', 4)), ZONE_ITEMS, KIKI, RAIN, LORE)
         self.assertTrue(n['notify'])
         lines = n['body'].split('\n')
-        self.assertEqual(lines[0], 'ここ　土石流の警戒区域')
-        self.assertEqual(lines[-1], '警報　レベル４土砂災害危険警報')  # the place first, the warning after
-        self.assertEqual(n['title'], '⛰️ 土砂災害に気をつけて')  # no level: the folded title cuts at about 15 characters
+        # source → hazard → where → when → what to do (WEA research): the title is the hazard with its level, the
+        # first line who issued it for which area, the second the one guide sentence, then this spot
+        self.assertEqual(n['title'], 'レベル4 土砂災害危険警報')
+        self.assertEqual(lines[0], '千代田区　気象庁')
+        self.assertEqual(lines[1], '土石流に警戒してください')
+        self.assertEqual(lines[2], 'ここ　土石流の警戒区域')
+        self.assertNotIn('警報　', n['body'])  # the warning is said once, in the title
         self.assertEqual(n['level'], 4)
-        self.assertEqual(n['summary'], lines[0])
+        self.assertEqual(n['summary'], 'どしゃさいがい きけんけいほう')  # the folded second line is the reading
+        self.assertEqual(n['notes'], [])
         self.assertNotIn('内水', n['body'])
         self.assertNotIn('急傾斜', n['body'])
         # the map's own name (土砂災害の危険度分布), not only its nickname
@@ -205,20 +210,21 @@ class NoticeTest(unittest.TestCase):
         self.assertTrue(n['place_found'])
 
     def test_folded_title_fits_whole(self):
-        # the emulator's folded notice cut the title after about 15 full-width characters ('…に…', then 'レベ…':
-        # 74 of the 100 people in the look round lost the level number), so for one hazard the whole title, 試し in
-        # front, must fit; the level is said in the folded notice's second line (test_phone) and by the color
-        def width(text):
-            return sum(0 if c in '\u200d\ufe0f' else 2 if ord(c) >= 0x2600 and not '\u3000' <= c <= '\u9fff'
-                       else 1 if ord(c) >= 0x3000 else 0.5 for c in text)
+        # the emulator's folded notice cut both lines at about 16 full-width characters (74 of the 100 people in
+        # the look round lost the level number), so for one hazard the whole title fits: the level number in text
+        # first, the official name, then the one test mark. The second line is the reading, not the title again
+        expect = {'rain': ('レベル3 大雨警報（試し）', 'おおあめ けいほう'),
+                  'landslide': ('レベル4 土砂災害危険警報（試し）', 'どしゃさいがい きけんけいほう'),
+                  'flood': ('レベル4 氾濫危険警報（試し）', 'はんらん きけんけいほう'),
+                  'tide': ('レベル5 高潮特別警報（試し）', 'たかしお とくべつけいほう')}
         for hazard, level in (('rain', 3), ('landslide', 4), ('flood', 4), ('tide', 5)):
             w = app.add_demo(warn(), (hazard, level), app.datetime(2026, 11, 3, 23, 50, tzinfo=app.JST))
-            title = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)['title']
-            self.assertTrue(title.startswith('試し '), title)
-            self.assertTrue(title.endswith('に気をつけて'), title)
-            self.assertLessEqual(width(title), 15, title)
-        for animal in app.ANIMALS:
-            self.assertLessEqual(width(f'{app.ANIMALS[animal][0]} {animal}に気をつけて'), 15, animal)
+            n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
+            self.assertEqual((n['title'], n['summary']), expect[hazard])
+            self.assertLessEqual(app.text_width(n['title']), app.TITLE_WIDTH, n['title'])
+            self.assertLessEqual(app.text_width(n['summary']), app.SUMMARY_WIDTH, n['summary'])
+            self.assertNotIn('🌊', n['title'] + n['body'])  # 33 people read 🌊 as a tsunami
+        self.assertEqual(app.text_width('⛰️ 土砂'), 4.5)  # an emoji is 2 wide, its joiners 0
 
     def test_rain_line(self):
         r = lambda now, later=None: {'now': {'rain': now}, **({'plus60': {'rain': later}} if later else {})}
@@ -264,8 +270,16 @@ class NoticeTest(unittest.TestCase):
     def test_no_instructions(self):
         n = app.build_notice(AREA, warn(('03', 'rain', 3), ('49', 'landslide', 4)), ZONE_ITEMS, KIKI, RAIN, LORE, ROAD)
         self.assertIn('冠水想定', n['body'])
+        # one guide sentence in the JMA's own form (Joe 11-07: 注意報 →「〜に注意してください」, 警報 and above →
+        # 「〜に警戒してください」, with a concrete object); nothing else tells people how to move, nor forecasts
+        lines = n['body'].split('\n')
+        self.assertEqual(lines[1], n['guide']['line'])
+        self.assertRegex(lines[1], r'^.+に(警戒|注意)してください$')
+        self.assertNotIn('備えて', n['body'])
+        rest = '\n'.join(lines[:1] + lines[2:])
         for word in ('避難', 'してください', 'しましょう', 'おそれ', '予想'):
-            self.assertNotIn(word, n['body'])
+            self.assertNotIn(word, rest)
+        self.assertNotIn('避難', lines[1])
 
     def test_no_notice_below_level3_or_other_hazards(self):
         self.assertFalse(app.build_notice(AREA, warn(('10', 'rain', 2)), ZONE_ITEMS, KIKI, RAIN, LORE)['notify'])
@@ -472,24 +486,29 @@ class WildlifeTest(unittest.TestCase):
     def test_bear_alone_notifies(self):
         n = self.bear_notice()
         self.assertEqual((n['notify'], n['weather']), (True, False))
-        self.assertEqual(n['title'], '🐻 ツキノワグマに気をつけて')
+        self.assertEqual(n['title'], '千代田区 ツキノワグマの記録 1件')  # where and what, no emoji
+        self.assertLessEqual(app.text_width(n['title']), app.TITLE_WIDTH)
         self.assertEqual(n['level'], 0)
-        self.assertEqual([f['id'] for f in n['facts']], ['wildlife'])  # no rain or road without a warning
-        self.assertEqual(n['body'], 'ツキノワグマの記録　1km 以内に 1 件（60 日以内）、新しいのは 9/20')
+        # no rain or road without a warning; the guide is the app's own sentence, not a fact for Claude
+        self.assertEqual([f['id'] for f in n['facts']], ['wildlife', 'guide'])
+        self.assertEqual(n['body'], 'ツキノワグマの記録　1km 以内に 1 件（60 日以内）、新しいのは 9/20\n'
+                                    'ツキノワグマの出没に注意してください')
         self.assertEqual(n['wildlife']['time'], '2026/09/20 06:10')
-        lines = compose.validate(n['facts'], {'lines': [{'text': n['facts'][0]['text'] + '。', 'facts': ['wildlife']}]})
-        self.assertEqual(lines, [n['facts'][0]['text'] + '（秋田県 クマダス）。'])
+        facts = compose.for_claude(n['facts'])
+        self.assertEqual([f['id'] for f in facts], ['wildlife'])
+        lines = compose.validate(facts, {'lines': [{'text': facts[0]['text'] + '。', 'facts': ['wildlife']}]})
+        self.assertEqual(lines, [facts[0]['text'] + '（秋田県 クマダス）。'])
         # the bear fact is 2 sentences, so Claude may write it as 2 lines; 3 lines are still too many
-        two = [{'text': x + '。', 'facts': ['wildlife']} for x in n['facts'][0]['text'].split('。')]
-        self.assertEqual(len(compose.validate(n['facts'], {'lines': two})), 2)
+        two = [{'text': x + '。', 'facts': ['wildlife']} for x in facts[0]['text'].split('。')]
+        self.assertEqual(len(compose.validate(facts, {'lines': two})), 2)
         with self.assertRaisesRegex(compose.ComposeError, '事実より文が多い'):
-            compose.validate(n['facts'], {'lines': two + two[:1]})
+            compose.validate(facts, {'lines': two + two[:1]})
 
     def test_bear_with_warning(self):
         n = self.bear_notice(warn(('03', 'rain', 3)))
-        self.assertEqual(n['title'], '🌧️ 大雨・🐻 ツキノワグマに気をつけて')
+        self.assertEqual(n['title'], '千代田区 レベル3 大雨警報ほか')  # the warning leads, the bear is ほか
         self.assertTrue(n['weather'])
-        self.assertEqual([f['id'] for f in n['facts']], ['warning', 'rain', 'road', 'wildlife'])
+        self.assertEqual([f['id'] for f in n['facts']], ['warning', 'rain', 'road', 'wildlife', 'guide'])
 
     def test_no_bear_near(self):
         self.assertEqual(self.bear_notice(lat=39.72), {'notify': False})  # nearest bear 1.11 km
@@ -530,21 +549,31 @@ class DemoTest(unittest.TestCase):
         w = app.add_demo({'warnings': [], 'flood': []}, ('landslide', 4), self.NOW)
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
         self.assertTrue(n['notify'])
-        self.assertEqual(n['title'], '試し ⛰️ 土砂災害に気をつけて')  # 試し first, where the folded title still shows it
+        self.assertEqual(n['title'], 'レベル4 土砂災害危険警報（試し）')
         lines = n['body'].split('\n')
-        self.assertTrue(lines[0].startswith('ここ　'))
-        self.assertEqual(lines[-1], '警報は試しの作りもの。ほかは本物')
-        self.assertEqual(n['notes'], lines[-1:])
+        # one test mark, first, naming what is made up and what is real (96 people stumbled on 「ほかは本物」)
+        self.assertEqual(lines[0], '試し　この警報は作りもの（23:30 作成、気象庁は出していません）。'
+                                   '本物は「ここ」「雨」「伝承碑」の行')
+        self.assertEqual(n['notes'], lines[:1])
+        self.assertEqual(lines[1], '土石流に警戒してください')
+        self.assertEqual(n['body'].count('試し'), 1)
+        self.assertNotIn('ほかは本物', n['body'])
         self.assertNotIn('警報　', n['body'])  # the fake one is never shown as a 気象庁 fact
         self.assertIn('ここ　土砂災害の危険度', n['body'])
-        self.assertIn('試しの作りもの', n['facts'][0]['text'])  # Claude and the screen get the full note
+        self.assertEqual(n['facts'][0]['id'], 'demo')
+        self.assertIn('試し', n['facts'][0]['text'])  # Claude and the screen get the full note
 
     def test_fake_with_real(self):
         w = app.add_demo(warn(('03', 'rain', 3)), ('tide', 5), self.NOW)
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
-        self.assertTrue(n['body'].endswith('警報　レベル３大雨警報\n警報は試しの作りもの。ほかは本物'))
-        self.assertNotIn('高潮特別警報', n['body'])  # the fake one is only in the title
-        self.assertEqual(n['title'], '🌊 高潮（試し）・🌧️ 大雨に気をつけて')
+        lines = n['body'].split('\n')
+        self.assertEqual(lines[0], '試し　レベル5 高潮特別警報は作りもの（23:30 作成、気象庁は出していません）。'
+                                   '本物はレベル３大雨警報と「ここ」「雨」「伝承碑」の行')  # the real one by name
+        self.assertEqual(lines[1], '高潮による浸水に警戒してください')
+        self.assertEqual(n['body'].count('試し'), 1)
+        self.assertNotIn('ほかは本物', n['body'])
+        self.assertEqual(n['title'], 'レベル5 高潮特別警報（試し）ほか')
+        self.assertEqual(n['level'], 5)
         self.assertEqual(w['warnings'][0]['hazard'], 'tide')
 
     def test_flood_goes_with_rivers_and_key_changes(self):

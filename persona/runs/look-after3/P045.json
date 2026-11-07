@@ -1,0 +1,205 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 2,
+    "gist": "耳が聞こえないので、音では気づかない。たまたま携帯を見て、赤い印と「TEST Flood」の英語から『洪水の試し』だと分かった。「新宿区」「レベル3」は読めたが、漢字の「氾濫警報」は読めない。"
+   },
+   {
+    "screen": 2,
+    "understood": 2,
+    "gist": "長い日本語はゆっくりなら少し読めるが、時間がかかる。結局いちばん下の英語「road flooding nearby」で『近くの道が水につかるかも』と分かった。「初台アンダー」がどこなのかは分からない。"
+   },
+   {
+    "screen": 3,
+    "understood": 2,
+    "gist": "同じ文がまた出て、下に「初台アンダー 0.84km」の数字がある。近いことは分かったが、引っ越してきたばかりなので場所が思いつかない。「冠水想定」は読めない。レベル3で自分が何をすればいいのかも分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 2,
+    "gist": "下に送ると、見守り・Firebase・PC と、機械の話になって分からない。大きい「見守りを止める」ボタンは、押していいのか不安になる。避難するかどうかは決められなかった。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "新宿区 レベル3 氾濫警報（試し）",
+    "kind": "読み上げ",
+    "why": "音（ベルの印）で知らせる形で、ろうの私は鳴っても気づかない。見えるか震えるかで気づける手がかりが写しに見えない。",
+    "severity": 3,
+    "fix_hint": "強い振動や画面の点滅で知らせ、ろうの人向けの知らせ方を選べるようにする"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "言語",
+    "why": "母語のポルトガル語が無い。英語もいちばん下で、手話が第一の言葉の私には長い文がつらい。",
+    "severity": 2,
+    "fix_hint": "ポルトガル語の短い一文を上の方に出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "道路　冠水想定 4 か所（3km 以内）、近いのは初台アンダー 0.84km",
+    "kind": "言語",
+    "why": "いちばん大事な場所と距離が日本語だけで、英語の行には無い。「冠水想定」は読めない。",
+    "severity": 2,
+    "fix_hint": "場所と距離も英語・ひらがなで書く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "初台アンダー",
+    "kind": "言葉",
+    "why": "引っ越したばかりで、どこにあるのか分からない。「アンダー」が地下の道のことだとも分からない。",
+    "severity": 2,
+    "fix_hint": "「〇〇駅の近くの地下の道（underpass）」のように、目印と方角をつける"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "本物は「道路」の行",
+    "kind": "行の変わり目",
+    "why": "「の行」で行が切れていて、次の行とどうつながるのか分からない。「本物は」の意味も分からず、試しなのか本物なのかで迷う。",
+    "severity": 2,
+    "fix_hint": "文の途中で切らず、試しの説明と本当の中身を分けて書く"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "レベル3",
+    "kind": "言葉",
+    "why": "日本の警戒レベルが分からず、3が逃げる段階かどうか判断できない。",
+    "severity": 2,
+    "fix_hint": "「レベル3＝お年寄りなどは逃げる準備」のように、何をするかを一言そえる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "けいかい して ください",
+    "kind": "言葉",
+    "why": "ひらがなは読めるが「けいかい」という言葉を知らないので、何をすればいいか分からない。",
+    "severity": 1,
+    "fix_hint": "「ひくい みちに ちかづかないで」のように、することを具体的に書く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "試し　この警報は作りもの（20:45 作成、気象庁は出していません）。",
+    "kind": "同じものが何度も",
+    "why": "漢字・ひらがな・英語で同じ中身が3回続き、長くて読むのに疲れる。大事な所がうもれる。",
+    "severity": 1,
+    "fix_hint": "一番上に短い要点（何が・どこ・何をする）だけを置く"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "",
+    "kind": "文字の大きさ",
+    "why": "本文の文字が題より小さく、外国語として読む私には詰まって読みにくい。",
+    "severity": 1,
+    "fix_hint": "本文の文字を大きくし、行の間をあける"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "川の洪水予報（指定河川洪水予報・気象庁）",
+    "kind": "言語",
+    "why": "公式のページへの道が漢字だけで、開いても日本語のページだと思うので押さない。",
+    "severity": 1,
+    "fix_hint": "リンクに英語の名前をつける"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "Firebase、PC、見守りが何なのか分からない。防災の知らせと関係あるのか分からない。",
+    "severity": 1,
+    "fix_hint": "何のための設定かを、短いやさしい言葉で書く"
+   },
+   {
+    "screen": 4,
+    "where": "ボタン",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "大きなボタンで目立つが、押すと知らせが来なくなるのか分からず、まちがえて押しそうで不安。",
+    "severity": 2,
+    "fix_hint": "押すと何が止まるかをボタンのそばに書く"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "20:45 に届きました",
+    "kind": "数字・単位",
+    "why": "携帯の時計は 8:46 なのに 20:45 と書いてあり、古い知らせなのか一瞬迷った。",
+    "severity": 1,
+    "fix_hint": "「1分前」のように、どれくらい前かを出す"
+   }
+  ],
+  "outside": [
+   "ポルトガル語に切りかえる",
+   "手話の動画で知らせを見る",
+   "初台アンダーの場所を地図で見せる",
+   "いまいる場所からの避難所への道案内",
+   "耳が聞こえない人が文字（チャット）で聞ける窓口",
+   "家族や友だちに『無事』を送る"
+  ],
+  "overall": "試しの洪水の知らせが来たことは英語の行で分かりました。ただ、私は耳が聞こえないので、音で知らせられても気づけません。それに、いちばん大事な「どこが危ないか」は日本語だけでした。引っ越してきたばかりなので「初台アンダー」がどこにあるのか分からず、レベル3で私が何をすればいいのかも分からないままです。"
+ },
+ "cost_usd": 0.1540634,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10732,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3385,
+  "output_tokens_details": {
+   "thinking_tokens": 935
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10732,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3385,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10732,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10732
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 37.9,
+ "person": {
+  "id": "P045",
+  "age": 28,
+  "lang": "ポルトガル語（ブラジル）",
+  "body": "ろう（手話が第一の言葉）",
+  "situation": "引っ越してきたばかり",
+  "reading": "漢字も少し読める"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:55:50"
+}

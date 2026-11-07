@@ -1,0 +1,205 @@
+{
+ "answer": {
+  "screens": [
+   {
+    "screen": 1,
+    "understood": 1,
+    "gist": "娘の家に泊まりに来て、新宿にいる。音は聞こえないので、携帯を手に取ったときにたまたま気づいた。赤い丸の印と「3」と「TEST Flood」だけ見えた。ベトナム語の字と同じアルファベットなので読めるが、英語の意味は分からない。何か赤い知らせが来た、とだけ思った。"
+   },
+   {
+    "screen": 2,
+    "understood": 1,
+    "gist": "ひらくと字が長くなったが、ほとんど日本語。英語の2行は字としては読めるが、意味は分からない。「Level 3」「Warning」は何となく注意かと思うだけ。「20:45」の数字を見て、いまは 8:46 なのにと首をかしげた。"
+   },
+   {
+    "screen": 3,
+    "understood": 1,
+    "gist": "アプリの画面にも同じ字が並んでいるだけ。左の赤い線と「0.84km」「4」「3km」の数字は見えたが、何の距離か分からない。青い字は押すものらしいが、日本語なので押さなかった。下の大きなボタンは、何のボタンか分からない。"
+   },
+   {
+    "screen": 4,
+    "understood": 0,
+    "gist": "下へ送っても、新しく分かることは無かった。「Firebase」「PC」などの字は機械の言葉らしく、自分には関係なさそうだと思った。結局、娘に見せて手話で聞くしかない。"
+   }
+  ],
+  "corners": [
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up) ─ Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.",
+    "kind": "言語",
+    "why": "ベトナム語がどこにも無い。いちばん分かりそうなのが英語の行だが、91歳の私には英語の意味がとれない。何の危険か届かない。",
+    "severity": 3,
+    "fix_hint": "端末の言葉に合わせて、ベトナム語で短く出す"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "",
+    "kind": "その他",
+    "why": "鈴の印があるだけで、知らせは音で来るらしい。私は聞こえないので、携帯をさわるまで気づかない。夜中や手元に無いときは知らないまま。",
+    "severity": 3,
+    "fix_hint": "強いふるえ、画面やライトの点滅で知らせる"
+   },
+   {
+    "screen": 1,
+    "where": "たたんだ1行",
+    "quote": "はんらん けいほう / TEST Flood",
+    "kind": "その他",
+    "why": "水があふれる、と分かる絵が無い。文字が読めない私には、赤い印だけでは火事か地震か水かも分からない。",
+    "severity": 2,
+    "fix_hint": "水・川の絵（ピクトグラム）を題の横に出す"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "",
+    "kind": "色",
+    "why": "赤い印は地図のピンの形なので、場所の知らせか道案内に見えた。危ない、という印には見えにくい。",
+    "severity": 2,
+    "fix_hint": "危険を示す三角や！の形にする"
+   },
+   {
+    "screen": 1,
+    "where": "通知の題",
+    "quote": "レベル3",
+    "kind": "数字・単位",
+    "why": "「3」が見えても、どれくらい危ないのか分からない。5段階の真ん中かどうか、私には手がかりが無い。",
+    "severity": 2,
+    "fix_hint": "5段階のうちどこかを、色の段の絵で見せる"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "20:45 作成",
+    "kind": "数字・単位",
+    "why": "上の時計は 8:46 なのに、知らせは 20:45。昨日の夜の古い知らせなのか、いまの知らせなのか迷った。",
+    "severity": 2,
+    "fix_hint": "時計と同じ書き方で時刻を出し、何分前かも出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "TEST (made up)",
+    "kind": "言葉",
+    "why": "「試し」かどうかが英語と日本語でしか書かれていない。本当に逃げるべきなのか、練習なのか、私には分からない。",
+    "severity": 2,
+    "fix_hint": "試しであることを、言葉に頼らない印か母語ではっきり出す"
+   },
+   {
+    "screen": 3,
+    "where": "アプリの画面",
+    "quote": "近いのは初台アンダー 0.84km",
+    "kind": "数字・単位",
+    "why": "読めるのは数字だけ。何が 0.84km 先にあり、どちらへ行くと危ないのか分からない。場所の名前もカタカナで読めない。",
+    "severity": 2,
+    "fix_hint": "危ない場所の向きと距離を、矢印などの絵で出す"
+   },
+   {
+    "screen": 3,
+    "where": "ボタン",
+    "quote": "新宿区の警報・注意報（気象庁）",
+    "kind": "言語",
+    "why": "公式のページへの青い字は日本語で、行き先も日本語のページらしい。押しても私には読めない。",
+    "severity": 1,
+    "fix_hint": "母語で読めるページか、行き先が分かる印を付ける"
+   },
+   {
+    "screen": 3,
+    "where": "見守り・設定",
+    "quote": "見守りを止める",
+    "kind": "操作",
+    "why": "いちばん大きいボタンだが、何のボタンか読めない。何かするボタンだと思って押すと、位置を送るのが止まってしまう。",
+    "severity": 2,
+    "fix_hint": "止めるボタンは小さくし、押す前に絵で確かめる"
+   },
+   {
+    "screen": 3,
+    "where": "本文",
+    "quote": "本物は「道路」の行",
+    "kind": "同じものが何度も",
+    "why": "同じ中身が漢字・ひらがな・英語で3回並び、長い。英語の行が真ん中に埋もれ、探しにくい。",
+    "severity": 1,
+    "fix_hint": "端末の言葉の文を一つだけ、いちばん上に出す"
+   },
+   {
+    "screen": 2,
+    "where": "本文",
+    "quote": "「道路」の行\n初台アンダーの冠水",
+    "kind": "行の変わり目",
+    "why": "文の途中で行が変わり、切れ方が変。読める人にも分かりにくい所だと思う。",
+    "severity": 1,
+    "fix_hint": "言葉の切れ目で行を変える"
+   },
+   {
+    "screen": 4,
+    "where": "見守り・設定",
+    "quote": "済み（Firebase circle-demo）",
+    "kind": "言葉",
+    "why": "機械の名前ばかりで、私には何のことか全く分からない。",
+    "severity": 1,
+    "fix_hint": "ふつうの人には見せない所へ移す"
+   }
+  ],
+  "outside": [
+   "ベトナム語での知らせ",
+   "手話の動画で知らせる",
+   "強いふるえ・ライトの点滅での知らせ",
+   "危ない場所と逃げる向きの地図や矢印",
+   "近くの家族（娘）にも同時に知らせる",
+   "避難所への案内"
+  ],
+  "overall": "音が聞こえないので気づけるかどうかも怪しいです。気づいたとしても、日本語と英語ばかりで、赤い色と「3」と数字しか分かりませんでした。何の危険で、どこへ行けばいいのか分からないので、娘に手話で聞くしかありません。"
+ },
+ "cost_usd": 0.1572674,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 10730,
+  "cache_read_input_tokens": 2497,
+  "output_tokens": 3546,
+  "output_tokens_details": {
+   "thinking_tokens": 1073
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 10730,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3546,
+    "cache_read_input_tokens": 2497,
+    "cache_creation_input_tokens": 10730,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 10730
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "models": [
+  "claude-opus-5-5"
+ ],
+ "took": 39.4,
+ "person": {
+  "id": "P012",
+  "age": 91,
+  "lang": "ベトナム語",
+  "body": "ろう（手話が第一の言葉）",
+  "situation": "山あいに住んでいる",
+  "reading": "日本語はほとんど読めない"
+ },
+ "model": "opus",
+ "set": "after3",
+ "shots_sha256": "d53823c021bcd0356e75e81a6c2bf86ce239d2235f66dfe83a45337f899af3cb",
+ "at": "2026-11-07 20:50:00"
+}

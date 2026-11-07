@@ -221,7 +221,6 @@ GROUP1 = ('rain', 'landslide', 'tide', 'flood')
 # 漢字やカタカナが読めない人に: 公式の名前の読み（ひらがな）と、文字によらない絵
 READING = {'rain': 'おおあめ', 'landslide': 'どしゃさいがい', 'flood': 'はんらん', 'tide': 'たかしお'}
 RANK_READING = {2: 'ちゅういほう', 3: 'けいほう', 4: 'きけんけいほう', 5: 'とくべつけいほう'}
-PICTO = {'rain': '🌧️', 'landslide': '⛰️', 'flood': '🌊', 'tide': '🌊'}
 # 気象庁の英語ページと同じ名前（例 Level 4 Urgent Warning (Landslide)）
 EN_HAZARD = {'rain': 'Heavy Rain', 'landslide': 'Landslide', 'flood': 'Flood', 'tide': 'Storm Surge'}
 EN_RANK = {2: 'Advisory', 3: 'Warning', 4: 'Urgent Warning', 5: 'Emergency Warning'}
@@ -783,14 +782,91 @@ def short_day(stamp):
     return f'{int(m[1])}/{int(m[2])}' if m else stamp
 
 
+# たたんだ通知に出る幅（全角 1 字 = 1）。エミュレータ（1080x2400、字の大きさは標準）で題も 2 行目も 16 字ほどで切れた
+TITLE_WIDTH = 16
+SUMMARY_WIDTH = 16
+FACT_ORDER = ('zone', 'kiki', 'wildlife', 'road', 'rain', 'lore')  # what is at this spot, nearest first
+
+
+def text_width(text):
+    """Width on the phone's line, a full-width letter as 1: kana, kanji and full-width signs 1, ASCII and
+    half-width kana 0.5, an emoji 2, joiners 0."""
+    width = 0.0
+    for ch in text:
+        c = ord(ch)
+        if c in (0x200D, 0xFE0F):
+            continue
+        if c >= 0x1F000 or 0x2600 <= c <= 0x27FF:
+            width += 2
+        elif 0xFF61 <= c <= 0xFFDC:
+            width += 0.5
+        elif 0x3000 <= c <= 0x9FFF or 0xFF00 <= c <= 0xFF60 or 0xFFE0 <= c <= 0xFFE6:
+            width += 1
+        else:
+            width += 0.5 if c < 0x1100 else 1
+    return width
+
+
+def warning_title(hazard, level, gap=' '):
+    """The warning's name for the title: half-width digit, no picture (TTS read 🌊 as 「波」)."""
+    return f'レベル{level}{gap}{LEVELED[hazard]}{RANK[level]}'
+
+
+def first_fit(options, width):
+    """The first option that fits the width, else the last one."""
+    return next((o for o in options if text_width(o) <= width), options[-1])
+
+
+# たたんだ通知の 2 行目: 題を繰り返さず、漢字を読まない人と日本語を読まない人に届く読みと英語
+KANA_FOLD = {'rain': 'おおあめ', 'landslide': 'どしゃさいがい', 'flood': 'かわの はんらん', 'tide': 'たかしお'}
+# 何に気をつけるか。気象庁の警報の文の形（「〜に警戒してください」、注意報は「〜に注意してください」）で、
+# この地点のものがあればそれを名指しする。どう逃げるか・いつ何が起きるかは書かない
+GUIDE = {'rain': ('低い土地の浸水', 'ひくい ところが みずに つかる こと', 'flooding in low-lying areas'),
+         'landslide': ('土砂災害', 'どしゃさいがい（がけくずれ など）', 'landslides'),
+         'flood': ('河川の増水や氾濫', 'かわの みずが ふえて あふれる こと', 'rising rivers and flooding'),
+         'tide': ('高潮による浸水', 'うみの みずが たかく なって みずに つかる こと', 'storm surge flooding')}
+ZONE_GUIDE = {'dosekiryu': ('土石流', 'どせきりゅう', 'debris flows'), 'kyukeisha': ('がけ崩れ', 'がけくずれ', 'slope failures'),
+              'jisuberi': ('地すべり', 'じすべり', 'landslides')}
+VERB = {True: ('警戒', 'けいかい', 'Be on alert for'), False: ('注意', 'ちゅうい', 'Watch out for')}
+# 試しの知らせで「本物」と言うもの（本文に出た事実の名前）
+
+
+def guide(hazard, level, road_near=None, inside=()):
+    """「〜に警戒してください」 in kanji, in hiragana and in English, for the spot when it can name it."""
+    what = GUIDE[hazard]
+    if road_near and LINKS[hazard]['road']:
+        what = (f"{road_near['name']}の冠水", 'ちかくの みちが みずに つかる こと', 'road flooding nearby')
+    elif hazard == 'landslide':
+        what = next((ZONE_GUIDE[z['key']] for z in inside if z['key'] in ZONE_GUIDE), what)
+    verb, vkana, ven = VERB[level >= 3]
+    return f'{what[0]}に{verb}してください', f'{what[1]}に {vkana} して ください', f'{ven} {what[2]}.'
+
+
+def line_label(line):
+    """The name a reader sees at the start of a fact line: 「道路」 of 「道路　冠水想定 …」."""
+    return line.split('　')[0]
+
+
+def demo_head(what, made, real, labels):
+    """A 試し's first line: what is made up, then what is real, by the names of the lines the reader sees
+    (「ほかは本物」 confused 96 of 100 simulated people). The phone calls this again with only the lines
+    it kept, so the head never names a line that was cut."""
+    named = '「' + '」「'.join(dict.fromkeys(labels)) + '」の行' if labels else ''
+    true = 'と'.join(x for x in (real, named) if x)
+    return f'試し　{what}は作りもの（{made} 作成、気象庁は出していません）' + (f'。本物は{true}' if true else '')
+
+
 def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild=None):
     """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out, or a bear was recorded near the spot
-    (WILDLIFE_NOTIFY). Each part can notify alone. The text lists official facts only.
+    (WILDLIFE_NOTIFY). Each part can notify alone. The text lists official facts, plus one guide sentence in
+    the JMA form (「〜に注意してください」 for 注意報, 「〜に警戒してください」 for 警報 and above) that names
+    the thing at this spot (the nearest flood-prone road, the slope zone it is in).
 
     `facts` keeps each fact apart from its source, so a writer (compose.py) can join them into sentences
-    and the code can still put the sources back. `body` is the plain text for the phone: one short line per
-    fact, the place first (the first line is what a folded notification shows), then the warning, then
-    `notes` (the 試し note, which always stays last).
+    and the code can still put the sources back. `title` says what and where in ≤16 widths (a folded
+    notice cuts there); `summary` is the folded second line, in kana and English so it does not repeat the
+    title; `head` is the first body line: for a 試し, what is made up and what is real; for a real warning,
+    who issued it and when. `body` = head, the guide, then one short line per fact.
     """
     trig = [w for w in (warn or {}).get('warnings', []) + (warn or {}).get('flood', [])
             if w['group1'] and w['level'] >= 3]
@@ -811,10 +887,9 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
                       **({'kana': kana} if kana else {}), **({'en': en} if en else {})})
 
     if fake:
-        notes.append('警報は試しの作りもの。ほかは本物')
         fact('demo', f'{area_name}に{fake}が出ています（これは試しの作りもので、気象庁は出していません）', '試し')
     if real:
-        fact('warning', f'{area_name}に{real}が出ています', '気象庁', f'警報　{real}')
+        fact('warning', f'{area_name}に{real}が出ています', '気象庁')
     place, inside = [], [z for z in zone_items or [] if z['key'] in zone_keys and z.get('in')]
     for z in inside:
         place.append(f"{z['label']}" + (f"（{z['value']}）" if z.get('value') else ''))
@@ -847,14 +922,17 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
              f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）、近いのは {near['name']} {near['km']}km")
-    # 題は短く、何の知らせかだけ: 「試し ⛰️ 土砂災害に気をつけて」。たたんだ通知は 15 字ほどで切れる（エミュレータで
-    # 確かめた）。レベルの数字を題の後ろに置くと「レベ…」で切れた（見た目の 100 人で 74 人）ので、題には入れない。
-    # レベルは、たたんだ通知の 2 行目（「新宿区にレベル３氾濫警報」）と色で出す。読みがなは本文の 2 行目にある
     top = {}  # (hazard, demo) -> its highest level, highest first
     for w in sorted(trig, key=lambda w: -w['level']):
         top.setdefault((w['hazard'], bool(w.get('demo'))), w['level'])
-    heads = [(f'{PICTO[h]} {LEVELED[h]}', demo) for (h, demo), lv in top.items()]
+    heads = [((lambda gap, h=h, lv=lv: warning_title(h, lv, gap)), demo) for (h, demo), lv in top.items()]
     key = area['class20']['code'] + '|' + ','.join(sorted(f"{w['code']}@{w['reportDatetime']}" for w in trig))
+    kana_fold, en_fold = [], []
+    if trig:
+        (h, demo), lv = next(iter(top.items()))
+        test = 'TEST ' if demo else ''
+        kana_fold = [f'{KANA_FOLD[h]} {RANK_READING[lv]}', f'{READING[h]} {RANK_READING[lv]}']
+        en_fold = [f'{test}{EN_HAZARD[h]} {EN_RANK[lv]}', f'{test}{EN_HAZARD[h]}']
     if bear.get('count'):
         b = bear['newest']
         animals = '・'.join(bear['animals'])
@@ -863,16 +941,66 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
                          f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
              f"{animals}の記録　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）、"
              f"新しいのは {short_day(b['time'])}")
-        heads.append(('・'.join(f'{ANIMALS[a][0]} {a}' if a in ANIMALS else a for a in bear['animals']), False))
+        heads.append(((lambda gap: f"{animals}の記録{gap}{bear['count']}件"), False))
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
-    shown = [f for f in facts if f['plain']]
-    lines = [f['line'] for f in shown if f['id'] != 'warning'] + [f['line'] for f in shown if f['id'] == 'warning']
-    if all(demo for _, demo in heads):
-        title = '試し ' + '・'.join(name for name, _ in heads) + 'に気をつけて'
+        if not trig:
+            yomi = '・'.join(ANIMALS.get(a, ('', a, a))[1] for a in bear['animals'])
+            eng = ', '.join(ANIMALS.get(a, ('', a, a))[2] for a in bear['animals'])
+            kana_fold, en_fold = [f"{yomi}の きろく {bear['count']}けん"], [eng]
+    # 案内（気象庁の警報の文の形）: いちばん高い警報について、この地点のものを名指しして 1 文
+    near = road['items'][0] if any(f['id'] == 'road' for f in facts) else None
+    if trig:
+        (h, _), lv = next(iter(top.items()))
+        fact('guide', *(lambda t, k, e: (t, 'アプリの案内', t, k, e))(*guide(h, lv, near, inside)))
+        about = 'road' if near and LINKS[h]['road'] else 'zone' if inside else None
     else:
-        title = '・'.join(name + ('（試し）' if demo else '') for name, demo in heads) + 'に気をつけて'
-    return {'notify': True, 'title': title, 'area': area_name, 'body': '\n'.join(lines + notes), 'notes': notes, 'facts': facts,
-            'summary': (lines + notes)[0],  # the folded line stays a place fact even when Claude writes the body
+        yomi = '・'.join(ANIMALS.get(a, ('', a, a))[1] for a in bear['animals'])
+        eng = ', '.join(ANIMALS.get(a, ('', a, a))[2] for a in bear['animals'])
+        text = f'{animals}の出没に注意してください'
+        fact('guide', text, 'アプリの案内', text, f'{yomi}の でぼつに ちゅうい して ください', f'Watch out: {eng} recorded nearby.')
+        about = 'wildlife'
+    # 題: 何が・どこで、大事なものから 16 字ほどに収める（たたむと 16 字ほどで切れる）。試しは「（試し）」1 か所
+    def title_of(gap):
+        if all(demo for _, demo in heads):
+            return '・'.join(name(gap) for name, _ in heads) + '（試し）'
+        return '・'.join(name(gap) + ('（試し）' if demo else '') for name, demo in heads)
+    # 収まらないときは、いちばん大事なもの 1 つ ＋「ほか」（ほかは本文に出る）
+    first, first_demo = heads[0]
+    one = lambda gap: first(gap) + ('（試し）' if first_demo else '') + ('ほか' if len(heads) > 1 else '')
+    title = first_fit([f'{area_name} {title_of(" ")}', title_of(' '), f'{area_name} {one(" ")}', one(' '), one('')],
+                      TITLE_WIDTH)
+    # たたんだ 2 行目: 読みと英語（題の繰り返しにしない）
+    pairs = [f'{k} / {e}' for e in en_fold[:1] for k in kana_fold] + [f'{k} / {e}' for e in en_fold[1:] for k in kana_fold]
+    summary = first_fit(pairs + kana_fold[-1:], SUMMARY_WIDTH)
+    # 1 行目: 試しなら、何が作りもので何が本物か。本物の警報なら、出したところと時刻
+    shown = [f for f in facts if f['plain'] and f['id'] != 'guide']
+    shown.sort(key=lambda f: next((i for i, k in enumerate(FACT_ORDER) if f['id'].startswith(k)), len(FACT_ORDER)))
+    demo_ws = [w for w in trig if w.get('demo')]
+    by_level = sorted(trig, key=lambda w: -w['level'])
+    if demo_ws:
+        # 試しの印はここ 1 か所。何が作りものかと、本物の行を、読む人に見える行の名前で名指しする
+        # （「ほかは本物」は 96 人が迷った）
+        made = demo_ws[0]['time'].split()[-1]
+        what = 'この警報' if not real else '・'.join(dict.fromkeys(warning_title(w['hazard'], w['level']) for w in demo_ws))
+        reals = '・'.join(dict.fromkeys(w['name'] for w in by_level if not w.get('demo')))
+        demo_parts = {'what': what, 'made': made, 'real': reals}
+        head = demo_head(**demo_parts, labels=[line_label(f['line']) for f in shown])
+        notes.append(head)
+    elif trig:
+        times = sorted({w['time'] for w in trig if w.get('time')})
+        when = f' {times[-1]} 発表' if times else ''
+        names = '、'.join(dict.fromkeys(w['name'] for w in by_level))
+        head = f'{area_name}　気象庁{when}' if len(top) == 1 else f'{area_name}に{names}（気象庁{when}）'
+    else:
+        head = next(f['line'] for f in shown if f['id'] == 'wildlife')
+        shown = [f for f in shown if f['id'] != 'wildlife']
+    if not demo_ws:
+        demo_parts = None
+    the_guide = next(f for f in facts if f['id'] == 'guide')
+    lines = [head, the_guide['line']] + [f['line'] for f in shown]
+    return {'notify': True, 'title': title, 'area': area_name, 'body': '\n'.join(lines), 'notes': notes, 'facts': facts,
+            'summary': summary, 'head': head, 'demo_head': demo_parts,
+            'guide': {**{k: the_guide.get(k) for k in ('line', 'kana', 'en')}, 'about': about},
             'level': max((w['level'] for w in trig), default=0),
             'key': key, 'weather': bool(trig), 'wildlife': bear['newest'] if bear.get('count') else None,
             'place_found': bool(place), 'places': [z['key'] for z in zone_items or []
