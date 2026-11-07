@@ -190,10 +190,12 @@ class PushTest(unittest.TestCase):
         # the body says the facts first: the warning by its official name (the level in words, not only the
         # color), then what is at this spot; then it names the official pages, in the buttons' order
         # the official name again in hiragana and in the JMA's own English (no new fact)
-        facts = ['千代田区にレベル４土砂災害危険警報', 'ちよだくに れべる4 どしゃさいがい きけんけいほう',
+        # each fact at the spot has its readings right under it (the zone: what its name means)
+        facts = ['千代田区にレベル４土砂災害危険警報', 'ちよだく に れべる4 どしゃさいがい きけんけいほう',
                  'Chiyoda City: Level 4 Urgent Warning (Landslide)', 'ここ　土石流の警戒区域',
-                 'ここ　土砂キキクル「危険（紫）警戒レベル４相当」', '雨　いま 30～50 mm/h、1時間後 50～80 mm/h',
-                 '伝承碑　2.5km 先（土砂災害）']
+                 'ここは どせきりゅうの けいかいくいき', 'Here: debris flow warning zone',
+                 'ここ　土砂災害の危険度「危険（紫）警戒レベル４相当」', '雨　いま 30～50 mm/h、1時間後 50～80 mm/h',
+                 '伝承碑　2.5km 先（昔の土砂災害を伝える碑）']
         # the pages say what they show, then their official names
         pages = ['千代田区の警報・注意報（気象庁）', 'この場所の土砂災害の危険度分布の地図（土砂キキクル・気象庁）',
                  'この場所のハザードマップ（重ねるハザードマップ・国土交通省）']
@@ -214,7 +216,7 @@ class PushTest(unittest.TestCase):
         lines = m['body'].split('\n')
         self.assertEqual(lines[0], '千代田区にレベル４土砂災害危険警報（試し）')
         # the readings carry the mark too, so no one takes the made-up warning for a real one
-        self.assertEqual(lines[1], 'ちよだくに れべる4 どしゃさいがい きけんけいほう（ためし）')
+        self.assertEqual(lines[1], 'ちよだく に れべる4 どしゃさいがい きけんけいほう（ためし）')
         self.assertEqual(lines[2], 'Chiyoda City: Level 4 Urgent Warning (Landslide) (TEST)')
         self.assertEqual(m['summary'], lines[0])
         self.assertIn('千代田区の警報・注意報（気象庁）', lines)
@@ -222,16 +224,23 @@ class PushTest(unittest.TestCase):
         self.assertTrue(lines[-1].startswith('位置は '))
         self.assertEqual(m['demo'], '1')
 
+    def test_kana_glosses_the_hard_words(self):
+        # r2: 「はんらん」「たかしお」 in hiragana alone were not understood; the gloss is the word's meaning
+        o = out_for({'warnings': [], 'flood': [{'code': '52', 'hazard': 'flood', 'level': 4, 'name': 'x',
+                                                'reportDatetime': 't', 'group1': True}]})
+        kana = phone.fact_lines(o)[1]
+        self.assertEqual(kana, 'ちよだく に れべる4 はんらん（かわの みずが あふれる） きけんけいほう')
+
     def test_bear_alone(self):
         o = out_for(warn(), bear=BEAR)
         self.assertEqual([n for n, _ in phone.links_for(o)], ['クマダス（秋田県）', '記録の地点（地理院地図）'])
         m = phone.message_for(o)
         self.assertEqual(m['title'], '🐻 ツキノワグマ（つきのわぐま）に気をつけて')
-        self.assertEqual(m['body'].split('\n'), ['ツキノワグマ　1km 以内に 1 件（60 日以内）',
-                                                  'つきのわぐまの きろく 1けん（1km より ちかく、60にち の あいだ）',
-                                                  'Asian black bear: 1 record within 1 km (last 60 days)',
+        self.assertEqual(m['body'].split('\n'), ['ツキノワグマの記録　1km 以内に 1 件（60 日以内）、新しいのは 9/20',
+                                                  'つきのわぐまの きろく 1けん（1km より ちかく、60にち の あいだ）、あたらしいのは 9/20',
+                                                  'Asian black bear: 1 record within 1 km (last 60 days), newest 9/20',
                                                   '出没の記録の地図（クマダス・秋田県）', '記録の地点の地図（地理院地図）'])
-        self.assertEqual(m['summary'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
+        self.assertEqual(m['summary'], 'ツキノワグマの記録　1km 以内に 1 件（60 日以内）、新しいのは 9/20')
         self.assertEqual([b for b, _ in json.loads(m['buttons'])], ['出没の地図', '記録の地点'])
         self.assertEqual(m['level'], '0')
         self.assertEqual(json.loads(m['links'])[1][1], BEAR['link'])
@@ -265,7 +274,7 @@ class PushTest(unittest.TestCase):
         self.assertLessEqual(len(json.dumps(m, ensure_ascii=False).encode()), phone.DATA_LIMIT)
         # the warning's name and its readings stay before the facts at the spot
         self.assertEqual(m['body'].split('\n'), ['千代田区にレベル４土砂災害危険警報',
-                                                  'ちよだくに れべる4 どしゃさいがい きけんけいほう',
+                                                  'ちよだく に れべる4 どしゃさいがい きけんけいほう',
                                                   'Chiyoda City: Level 4 Urgent Warning (Landslide)',
                                                   'ここ　土石流の警戒区域',
                                                   '千代田区の警報・注意報（気象庁）'] + long_tail)

@@ -262,6 +262,7 @@ def site_line(name, area):
     return name
 
 
+KANA_GLOSS = {'はんらん': 'かわの みずが あふれる', 'たかしお': 'うみの みずが たかく なる'}  # definitions only
 FACT_ORDER = ('zone', 'kiki', 'wildlife', 'road', 'rain', 'lore')  # what is at this spot, nearest first
 
 
@@ -284,20 +285,27 @@ def fact_lines(out):
         facts = [f for f in facts if f['id'] != 'wildlife']
     kana, en = [], []
     if trig:
-        kana.append((c20.get('kana') + 'に ' if c20.get('kana') else '')
-                    + '、'.join(app.warning_reading(w['hazard'], w['level']) + ('（ためし）' if w.get('demo') else '')
-                               for w in trig))
+        said = '、'.join(app.warning_reading(w['hazard'], w['level']) + ('（ためし）' if w.get('demo') else '')
+                        for w in trig)
+        for word, gloss in KANA_GLOSS.items():  # r2: 「はんらん」「たかしお」 alone were not understood
+            said = said.replace(word, f'{word}（{gloss}）', 1)
+        kana.append((c20['kana'] + ' に ' if c20.get('kana') else '') + said)
         en.append((c20['enName'] + ': ' if c20.get('enName') else '')
                   + ', '.join(app.warning_en(w['hazard'], w['level']) + (' (TEST)' if w.get('demo') else '')
                               for w in trig))
     bear = ((out.get('wildlife') or {}).get('notify') or {})
     if bear.get('count'):
         r, d, k = f"{bear['radius_km']:g}", bear['days'], bear['count']
+        day = app.short_day((bear.get('newest') or {}).get('time'))
         for a in bear['animals']:
             _, yomi, eng = app.ANIMALS.get(a, ('', a, a))
-            kana.append(f'{yomi}の きろく {k}けん（{r}km より ちかく、{d}にち の あいだ）')
-            en.append(f"{eng}: {k} record{'s' if k != 1 else ''} within {r} km (last {d} days)")
-    return head + kana + en + [f['line'] for f in facts]
+            kana.append(f'{yomi}の きろく {k}けん（{r}km より ちかく、{d}にち の あいだ）'
+                        + (f'、あたらしいのは {day}' if day else ''))
+            en.append(f"{eng}: {k} record{'s' if k != 1 else ''} within {r} km (last {d} days)"
+                      + (f', newest {day}' if day else ''))
+    # each fact at the spot, then the same fact read out and in English when it has them (the zone: its
+    # name's own meaning), so a cut for size drops a fact with its readings
+    return head + kana + en + [x for f in facts for x in (f['line'], f.get('kana'), f.get('en')) if x]
 
 
 def message_for(out, age=None):

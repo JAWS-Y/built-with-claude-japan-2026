@@ -196,10 +196,11 @@ class NoticeTest(unittest.TestCase):
         self.assertEqual(n['summary'], lines[0])
         self.assertNotIn('内水', n['body'])
         self.assertNotIn('急傾斜', n['body'])
-        self.assertIn('ここ　土砂キキクル「危険（紫）警戒レベル４相当」', n['body'])
-        self.assertNotIn('浸水キキクル', n['body'])
+        # the map's own name (土砂災害の危険度分布), not only its nickname
+        self.assertIn('ここ　土砂災害の危険度「危険（紫）警戒レベル４相当」', n['body'])
+        self.assertNotIn('浸水', n['body'])
         self.assertIn('雨　いま 30～50 mm/h、1時間後 50～80 mm/h', n['body'])
-        self.assertIn('伝承碑　2.5km 先（土砂災害）', n['body'])
+        self.assertIn('伝承碑　2.5km 先（昔の土砂災害を伝える碑）', n['body'])
         self.assertLessEqual(max(map(len, lines)), 32)  # one phone line, two at most
         self.assertTrue(n['place_found'])
 
@@ -214,6 +215,35 @@ class NoticeTest(unittest.TestCase):
         self.assertEqual(app.zone_short({'label': '土砂災害警戒区域（土石流）', 'value': '特別警戒区域'}), '土石流の特別警戒区域')
         self.assertEqual(app.zone_short({'label': '洪水浸水想定区域（想定最大規模）', 'value': '0.5～3m'}), '洪水浸水想定区域 0.5～3m')
         self.assertEqual(app.zone_short({'label': '雪崩危険箇所', 'value': None}), '雪崩危険箇所')
+
+    def test_zone_meaning_and_readings(self):
+        # r2's simulated people: 「洪水浸水想定区域 0.5～3m」 alone does not say what the depth is, and the line
+        # did not reach people who do not read kanji. The readings are the zone name's own meaning, no new fact
+        flood = {'key': 'flood', 'label': '洪水浸水想定区域（想定最大規模）', 'in': True, 'value': '0.5～3m'}
+        self.assertEqual(app.zone_line(flood), '洪水浸水想定区域 0.5～3m（川があふれたときの深さ）')
+        self.assertEqual(app.zone_reading(flood), ('かわが あふれたら つかる と される ところ（0.5～3m）',
+                                                   'flood zone (if the river overflows), 0.5–3 m'))
+        special = {'key': 'dosekiryu', 'label': '土砂災害警戒区域（土石流）', 'in': True, 'value': '特別警戒区域'}
+        self.assertEqual(app.zone_reading(special), ('どせきりゅうの とくべつけいかいくいき', 'special debris flow warning zone'))
+        self.assertEqual(app.depth_en('20m以上'), '20 m or more')
+        n = app.build_notice(AREA, warn(('49', 'landslide', 4)), ZONE_ITEMS, KIKI, RAIN, LORE)
+        zone = next(f for f in n['facts'] if f['id'] == 'zone')
+        self.assertEqual((zone['kana'], zone['en']), ('ここは どせきりゅうの けいかいくいき', 'Here: debris flow warning zone'))
+        for word in ('おそれ', '予想', 'may '):  # 「想定」 is said as 「と される」, not as a forecast
+            self.assertNotIn(word, ' '.join(map(str, app.ZONE_KANA.values())) + ' '.join(app.ZONE_EN.values()))
+
+    def test_phone_lines_left_out(self):
+        # r2: 「雨　いま なし」 and the lowest キキクル step next to a レベル4 warning read as 「ここは平気」.
+        # The phone leaves them out; the PC and Claude's text still have the facts
+        dry = {'now': {'time': 't', 'rain': '降っていない'}, 'plus60': {'time': 't', 'rain': '降っていない'}}
+        low = [{**KIKI[0], 'level': 0, 'meaning': '今後の情報等に留意'}]
+        n = app.build_notice(AREA, warn(('49', 'landslide', 4)), ZONE_ITEMS, low, dry, LORE)
+        self.assertNotIn('雨　', n['body'])
+        self.assertNotIn('今後の情報等に留意', n['body'])
+        self.assertEqual({f['id'] for f in n['facts']} >= {'rain', 'kiki-land'}, True)
+        later = {**dry, 'plus60': {'time': 't', 'rain': '1～5 mm/h'}}
+        n = app.build_notice(AREA, warn(('49', 'landslide', 4)), ZONE_ITEMS, low, later, LORE)
+        self.assertIn('雨　いま なし、1時間後 1～5 mm/h', n['body'])
 
     def test_no_instructions(self):
         n = app.build_notice(AREA, warn(('03', 'rain', 3), ('49', 'landslide', 4)), ZONE_ITEMS, KIKI, RAIN, LORE, ROAD)
@@ -309,7 +339,7 @@ class RoadFloodTest(unittest.TestCase):
 
     def test_notice_line_only_for_rain_and_flood(self):
         n = app.build_notice(AREA, warn(('03', 'rain', 3)), [], [], None, [], ROAD)
-        self.assertIn('道路　冠水想定 7 か所（3km 以内）', n['body'])
+        self.assertIn('道路　冠水想定 7 か所（3km 以内）、近いのは 〇〇アンダーパス 0.4km', n['body'])
         n = app.build_notice(AREA, warn(('49', 'landslide', 4)), [], [], None, [], ROAD)
         self.assertNotIn('冠水', n['body'])
         n = app.build_notice(AREA, warn(('03', 'rain', 3)), [], [], None, [], {**ROAD, 'count': 0, 'items': []})
@@ -429,7 +459,7 @@ class WildlifeTest(unittest.TestCase):
         self.assertEqual(n['title'], '🐻 ツキノワグマ（つきのわぐま）に気をつけて')
         self.assertEqual(n['level'], 0)
         self.assertEqual([f['id'] for f in n['facts']], ['wildlife'])  # no rain or road without a warning
-        self.assertEqual(n['body'], 'ツキノワグマ　1km 以内に 1 件（60 日以内）')
+        self.assertEqual(n['body'], 'ツキノワグマの記録　1km 以内に 1 件（60 日以内）、新しいのは 9/20')
         self.assertEqual(n['wildlife']['time'], '2026/09/20 06:10')
         lines = compose.validate(n['facts'], {'lines': [{'text': n['facts'][0]['text'] + '。', 'facts': ['wildlife']}]})
         self.assertEqual(lines, [n['facts'][0]['text'] + '（秋田県 クマダス）。'])
@@ -490,7 +520,7 @@ class DemoTest(unittest.TestCase):
         self.assertEqual(lines[-1], '警報は試しの作りもの。ほかは本物')
         self.assertEqual(n['notes'], lines[-1:])
         self.assertNotIn('警報　', n['body'])  # the fake one is never shown as a 気象庁 fact
-        self.assertIn('ここ　土砂キキクル', n['body'])
+        self.assertIn('ここ　土砂災害の危険度', n['body'])
         self.assertIn('試しの作りもの', n['facts'][0]['text'])  # Claude and the screen get the full note
 
     def test_fake_with_real(self):

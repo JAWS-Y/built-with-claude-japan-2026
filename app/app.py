@@ -733,6 +733,56 @@ def zone_short(z):
     return label
 
 
+# 区域の行の読みと英語（r2 の作りものの 100 人: いちばん大事な「ここ」の行が、漢字の読めない人・日本語を
+# 読まない人に届かない）。どれも区域の名前の意味だけで、新しい事実は足さない
+ZONE_KANA = {'flood': 'かわが あふれたら つかる と される ところ', 'naisui': 'おおあめで まちに みずが たまったら つかる と される ところ',
+             'hightide': 'たかしおで つかる と される ところ',
+             'kaoku_hanran': 'かわの ながれで いえが たおれる と される ところ',
+             'kaoku_kagan': 'かわぎしが けずられて いえが たおれる と される ところ',
+             'dosekiryu': 'どせきりゅうの けいかいくいき', 'kyukeisha': 'がけくずれの けいかいくいき',
+             'jisuberi': 'じすべりの けいかいくいき'}
+ZONE_EN = {'flood': 'flood zone (if the river overflows)', 'naisui': 'inland flood zone (water pooling in town)',
+           'hightide': 'storm surge flood zone', 'kaoku_hanran': 'zone where flood flow is assumed to topple houses',
+           'kaoku_kagan': 'zone where bank erosion is assumed to topple houses', 'dosekiryu': 'debris flow warning zone',
+           'kyukeisha': 'cliff failure warning zone', 'jisuberi': 'landslide warning zone'}
+ZONE_MEANING = {'flood': '川があふれたときの深さ', 'naisui': '大雨で町に水がたまったときの深さ', 'hightide': '高潮のときの深さ',
+                'kyukeisha': 'がけ崩れ'}
+
+
+def depth_en(value):
+    """「0.5～3m」→「0.5–3 m」、「20m以上」→「20 m or more」。"""
+    m = re.fullmatch(r'([\d.]+)～([\d.]+)m', value or '')
+    if m:
+        return f'{m[1]}–{m[2]} m'
+    m = re.fullmatch(r'([\d.]+)m以上', value or '')
+    return f'{m[1]} m or more' if m else value
+
+
+def zone_line(z):
+    """「ここ」の行の区域の書き方: 名前と、その名前が言っていること（深さの区域は、何のときの深さか）。"""
+    text = zone_short(z)
+    return text + (f"（{ZONE_MEANING[z['key']]}）" if z['key'] in ZONE_MEANING else '')
+
+
+def zone_reading(z):
+    """The zone in hiragana and in English, as the zone's own name says it (no new fact)."""
+    special = (z.get('value') or '').startswith('特別')
+    kana = ZONE_KANA.get(z['key'], '')
+    en = ZONE_EN.get(z['key'], '')
+    if special:
+        kana, en = kana.replace('けいかいくいき', 'とくべつけいかいくいき'), 'special ' + en
+    value = z.get('value') or ''
+    if re.search(r'\dm', value):
+        kana, en = f'{kana}（{value}）', f'{en}, {depth_en(value)}'
+    return kana, en
+
+
+def short_day(stamp):
+    """「2026/09/20 06:10」→「9/20」。"""
+    m = re.match(r'\d{4}/(\d{1,2})/(\d{1,2})', stamp or '')
+    return f'{int(m[1])}/{int(m[2])}' if m else stamp
+
+
 def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild=None):
     """Notify when a レベル３以上 大雨・土砂災害・高潮・氾濫 is out, or a bear was recorded near the spot
     (WILDLIFE_NOTIFY). Each part can notify alone. The text lists official facts only.
@@ -756,41 +806,47 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
     fake = '、'.join(dict.fromkeys(warning_name(w['hazard'], w['level']) for w in trig if w.get('demo')))
     notes, facts = [], []
 
-    def fact(fid, text, source, line=None):
-        facts.append({'id': fid, 'text': text, 'source': source, 'plain': line is not None, 'line': line})
+    def fact(fid, text, source, line=None, kana=None, en=None):
+        facts.append({'id': fid, 'text': text, 'source': source, 'plain': line is not None, 'line': line,
+                      **({'kana': kana} if kana else {}), **({'en': en} if en else {})})
 
     if fake:
         notes.append('警報は試しの作りもの。ほかは本物')
         fact('demo', f'{area_name}に{fake}が出ています（これは試しの作りもので、気象庁は出していません）', '試し')
     if real:
         fact('warning', f'{area_name}に{real}が出ています', '気象庁', f'警報　{real}')
-    place = []
-    for z in zone_items or []:
-        if z['key'] in zone_keys and z.get('in'):
-            place.append(f"{z['label']}" + (f"（{z['value']}）" if z.get('value') else ''))
+    place, inside = [], [z for z in zone_items or [] if z['key'] in zone_keys and z.get('in')]
+    for z in inside:
+        place.append(f"{z['label']}" + (f"（{z['value']}）" if z.get('value') else ''))
     if place:
+        readings = [zone_reading(z) for z in inside]
         fact('zone', 'いる場所は ' + '、'.join(place) + ' に入っています', 'ハザードマップポータル',
-             'ここ　' + '、'.join(zone_short(z) for z in zone_items if z['key'] in zone_keys and z.get('in')))
+             'ここ　' + '、'.join(zone_line(z) for z in inside),
+             'ここは ' + '、'.join(k for k, _ in readings if k), 'Here: ' + '; '.join(e for _, e in readings if e))
     for k in kiki or []:
         if k['key'] in kiki_keys and k.get('level') is not None:
-            name = k['label'].split('（')[0]
+            name, whole = k['label'].split('（')[0], k['label'].split('（')[1].rstrip('）')
+            # the lowest step (「今後の情報等に留意」) stays off the phone: next to a レベル4 warning it reads as
+            # 「ここは平気」 (r2's simulated people). The PC and Claude's text still have it.
             fact(f"kiki-{k['key']}", f"{name}はこの地点で「{k['meaning']}」です", f"気象庁 {k['time']}",
-                 f"ここ　{name}「{k['meaning']}」")
+                 f"ここ　{whole.replace('分布', '')}「{k['meaning']}」" if k['level'] else None)
     if trig and rain and 'now' in rain:  # 雨の事実は、大雨などの警報が出ているときだけ添える
         text = f"降水ナウキャストではこの地点 いま {rain['now']['rain']}"
         if 'plus60' in rain:
             text += f"、60分後 {rain['plus60']['rain']}"
-        fact('rain', text, '気象庁', f'雨　{rain_line(rain)}')
+        dry = all(r['rain'] == '降っていない' for r in (rain['now'], rain.get('plus60') or rain['now']))
+        # 「雨　いま なし」 under a warning reads as 「もう大丈夫」 (r2), so the phone shows rain only when it rains
+        fact('rain', text, '気象庁', None if dry else f'雨　{rain_line(rain)}')
     for item in lore_items or []:
         if any(kind in item['kind'] for kind in lore_kinds):
             fact('lore', f"{item['km']}km 先に{item['kind']}の伝承碑「{item['name']}」があります", '国土地理院',
-                 f"伝承碑　{item['km']}km 先（{item['kind']}）")
+                 f"伝承碑　{item['km']}km 先（昔の{item['kind']}を伝える碑）")
             break
     if road and road.get('count') and any(LINKS[h]['road'] for h in hazards):
         near = road['items'][0]
         fact('road', f"{road['radius_km']:g}km 以内に、国が道路冠水想定箇所として挙げている所が {road['count']} か所あります。"
                      f"いちばん近いのは {near['km']}km 先の「{near['name']}」です", near['bureau'],
-             f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）")
+             f"道路　冠水想定 {road['count']} か所（{road['radius_km']:g}km 以内）、近いのは {near['name']} {near['km']}km")
     # 題は短く、何の知らせかだけ: 「⛰️ レベル4 土砂災害（どしゃさいがい）に気をつけて（試し）」。
     # レベルは色のほかに数字でも出し（色が見分けにくい人、読み上げの人に）、読みと絵を添える
     top = {}  # (hazard, demo) -> its highest level, highest first
@@ -804,7 +860,8 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         fact('wildlife', f"県が {b['data_until']} までの分を公開している出没の記録では、この地点から {bear['radius_km']:g}km 以内で、"
                          f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
                          f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
-             f"{animals}　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）")
+             f"{animals}の記録　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）、"
+             f"新しいのは {short_day(b['time'])}")
         heads.append(('・'.join(f'{ANIMALS[a][0]} {a}（{ANIMALS[a][1]}）' if a in ANIMALS else a
                                 for a in bear['animals']), False))
         key += f"|bear:{b['time']}@{b['link']}"  # 記録そのもの（地点との距離は動くたびに変わるので入れない）
