@@ -433,6 +433,11 @@ class WildlifeTest(unittest.TestCase):
         self.assertEqual(n['wildlife']['time'], '2026/09/20 06:10')
         lines = compose.validate(n['facts'], {'lines': [{'text': n['facts'][0]['text'] + '。', 'facts': ['wildlife']}]})
         self.assertEqual(lines, [n['facts'][0]['text'] + '（秋田県 クマダス）。'])
+        # the bear fact is 2 sentences, so Claude may write it as 2 lines; 3 lines are still too many
+        two = [{'text': x + '。', 'facts': ['wildlife']} for x in n['facts'][0]['text'].split('。')]
+        self.assertEqual(len(compose.validate(n['facts'], {'lines': two})), 2)
+        with self.assertRaisesRegex(compose.ComposeError, '事実より文が多い'):
+            compose.validate(n['facts'], {'lines': two + two[:1]})
 
     def test_bear_with_warning(self):
         n = self.bear_notice(warn(('03', 'rain', 3)))

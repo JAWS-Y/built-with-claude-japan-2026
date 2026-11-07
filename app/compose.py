@@ -106,7 +106,8 @@ def validate(facts, result):
     lines = (result or {}).get('lines')
     if not isinstance(lines, list) or not lines:
         raise ComposeError('文がありません')
-    if len(lines) > len(facts):
+    # 文は、事実にある文の数まで（クマの記録のように 1 つの事実が 2 文なら、2 文に分けてよい）
+    if len(lines) > sum(len([x for x in f['text'].split('。') if x.strip()]) for f in facts):
         raise ComposeError('事実より文が多い')
     used, out = set(), []
     for i, line in enumerate(lines, 1):
