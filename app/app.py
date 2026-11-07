@@ -580,9 +580,17 @@ WILDLIFE_COLUMNS = ('目撃日時', '情報種別', '獣種', '頭数', '市町�
 _wild_parsed, _wild_lock = {}, threading.Lock()
 
 
+def _csv_text(data):
+    """The CSV's text: UTF-8 (with or without BOM), else Shift_JIS. 秋田県 switched to Shift_JIS by 2026-11."""
+    try:
+        return data.decode('utf-8-sig')
+    except UnicodeDecodeError:
+        return data.decode('cp932', 'replace')
+
+
 def parse_wildlife(data):
     """Rows of a クマダス-style CSV: (lat, lon, datetime, 情報種別, 獣種, 頭数, 市町村). Bad rows are skipped."""
-    rows = csv.reader(io.StringIO(data.decode('utf-8-sig', 'replace')))
+    rows = csv.reader(io.StringIO(_csv_text(data)))
     head = next(rows, [])
     missing = [c for c in WILDLIFE_COLUMNS if c not in head]
     if missing:

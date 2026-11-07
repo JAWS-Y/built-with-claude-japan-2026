@@ -353,6 +353,11 @@ class WildlifeTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             app.parse_wildlife('a,b\n1,2\n'.encode())
 
+    def test_parse_reads_shift_jis(self):
+        # 2026-11: the 県's file came as Shift_JIS without a BOM
+        sjis = WILD_CSV.decode('utf-8-sig').encode('cp932')
+        self.assertEqual(app.parse_wildlife(sjis), app.parse_wildlife(WILD_CSV))
+
     def test_radius_days_order_and_counts(self):
         w = app.wildlife(39.70, 140.10, now=self.NOW)
         self.assertTrue(w['covered'])
