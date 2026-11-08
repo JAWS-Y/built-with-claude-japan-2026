@@ -138,6 +138,23 @@ class WarningTest(unittest.TestCase):
         self.assertEqual(got, [])
         self.assertEqual(unknown, ['99'])
 
+    def test_clock_text_says_morning_or_evening(self):
+        # 「20:45」 next to the phone's 「8:46」 was read as the morning or an old notice (simulated people)
+        self.assertEqual(app.clock_text('11/07 20:45'), '11/7 午後8:45')
+        self.assertEqual(app.clock_text('11/07 20:45', date=False), '午後8:45')
+        self.assertEqual(app.clock_text('01/02 00:30'), '1/2 午前0:30')
+        self.assertEqual(app.clock_text('11/07 11:59', date=False), '午前11:59')
+        self.assertEqual(app.clock_text('11/07 12:05', date=False), '午後0:05')
+        self.assertEqual(app.clock_text('2026/09/20 06:10'), '9/20 午前6:10')
+        self.assertEqual(app.clock_text('t'), 't')
+        self.assertEqual(app.clock_text(''), '')
+
+    def test_real_head_has_the_day_and_morning_or_evening(self):
+        w = warn(('49', 'landslide', 4))
+        w['warnings'][0]['time'] = '11/07 20:45'
+        lines = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)['body'].split('\n')
+        self.assertEqual(lines[0], '千代田区　気象庁 11/7 午後8:45 発表')
+
     def test_class10_fallback(self):
         reps = [report('t1', [{'code': '08', 'status': '発表'}], key='class10Items', code=C10)]
         got, _ = app.decode_warnings(reps, C20, C10)
@@ -496,6 +513,7 @@ class WildlifeTest(unittest.TestCase):
         self.assertEqual(n['wildlife']['time'], '2026/09/20 06:10')
         facts = compose.for_claude(n['facts'])
         self.assertEqual([f['id'] for f in facts], ['wildlife'])
+        self.assertIn('いちばん新しいのは 9/20 午前6:10 の', facts[0]['text'])  # the phone's one time form
         lines = compose.validate(facts, {'lines': [{'text': facts[0]['text'] + '。', 'facts': ['wildlife']}]})
         self.assertEqual(lines, [facts[0]['text'] + '（秋田県 クマダス）。'])
         # the bear fact is 2 sentences, so Claude may write it as 2 lines; 3 lines are still too many
@@ -552,7 +570,7 @@ class DemoTest(unittest.TestCase):
         self.assertEqual(n['title'], 'レベル4 土砂災害危険警報（試し）')
         lines = n['body'].split('\n')
         # one test mark, first, naming what is made up and what is real (96 people stumbled on 「ほかは本物」)
-        self.assertEqual(lines[0], '試し　この警報は作りもの（23:30 作成、気象庁は出していません）。'
+        self.assertEqual(lines[0], '試し　この警報は作りもの（午後11:30 作成、気象庁は出していません）。'
                                    '本物は「ここ」「雨」「伝承碑」の行')
         self.assertEqual(n['notes'], lines[:1])
         self.assertEqual(lines[1], '土石流に警戒してください')
@@ -567,7 +585,7 @@ class DemoTest(unittest.TestCase):
         w = app.add_demo(warn(('03', 'rain', 3)), ('tide', 5), self.NOW)
         n = app.build_notice(AREA, w, ZONE_ITEMS, KIKI, RAIN, LORE)
         lines = n['body'].split('\n')
-        self.assertEqual(lines[0], '試し　レベル5 高潮特別警報は作りもの（23:30 作成、気象庁は出していません）。'
+        self.assertEqual(lines[0], '試し　レベル5 高潮特別警報は作りもの（午後11:30 作成、気象庁は出していません）。'
                                    '本物はレベル３大雨警報と「ここ」「雨」「伝承碑」の行')  # the real one by name
         self.assertEqual(lines[1], '高潮による浸水に警戒してください')
         self.assertEqual(n['body'].count('試し'), 1)

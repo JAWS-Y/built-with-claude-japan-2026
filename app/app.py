@@ -157,6 +157,19 @@ def jst_iso(text):
         return text or ''
 
 
+def clock_text(stamp, date=True):
+    """'11/07 20:45' (or '2026/11/07 20:45') as a reader sees it: '11/7 午後8:45' ('午後8:45' with date=False);
+    anything else as it came.
+    午前/午後 with the 12-hour clock: the phone's status bar shows 「8:46」, and 「20:45」 next to it was read as
+    the morning or as an old notice by the simulated people. The phone writes its own times the same way."""
+    m = re.fullmatch(r'(?:\d{4}/)?(\d{1,2})/(\d{1,2}) (\d{1,2}):(\d{2})', stamp or '')
+    if not m:
+        return stamp or ''
+    month, day, hour, minute = map(int, m.groups())
+    clock = f"{'午前' if hour < 12 else '午後'}{hour % 12}:{minute:02d}"
+    return f'{month}/{day} {clock}' if date else clock
+
+
 # ---------------------------------------------------------------- area (気象庁の市町村等の区分)
 
 
@@ -903,7 +916,7 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
             name, whole = k['label'].split('（')[0], k['label'].split('（')[1].rstrip('）')
             # the lowest step (「今後の情報等に留意」) stays off the phone: next to a レベル4 warning it reads as
             # 「ここは平気」 (r2's simulated people). The PC and Claude's text still have it.
-            fact(f"kiki-{k['key']}", f"{name}はこの地点で「{k['meaning']}」です", f"気象庁 {k['time']}",
+            fact(f"kiki-{k['key']}", f"{name}はこの地点で「{k['meaning']}」です", f"気象庁 {clock_text(k['time'])}",
                  f"ここ　{whole.replace('分布', '')}「{k['meaning']}」" if k['level'] else None)
     if trig and rain and 'now' in rain:  # 雨の事実は、大雨などの警報が出ているときだけ添える
         text = f"降水ナウキャストではこの地点 いま {rain['now']['rain']}"
@@ -938,7 +951,7 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         animals = '・'.join(bear['animals'])
         fact('wildlife', f"県が {b['data_until']} までの分を公開している出没の記録では、この地点から {bear['radius_km']:g}km 以内で、"
                          f"{bear['days']} 日以内に{animals}の記録が {bear['count']} 件あります。"
-                         f"いちばん新しいのは {b['time']} の{b['kind']}で、{b['km']}km 先です", b['short'],
+                         f"いちばん新しいのは {clock_text(b['time'])} の{b['kind']}で、{b['km']}km 先です", b['short'],
              f"{animals}の記録　{bear['radius_km']:g}km 以内に {bear['count']} 件（{bear['days']} 日以内）、"
              f"新しいのは {short_day(b['time'])}")
         heads.append(((lambda gap: f"{animals}の記録{gap}{bear['count']}件"), False))
@@ -980,7 +993,7 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
     if demo_ws:
         # 試しの印はここ 1 か所。何が作りものかと、本物の行を、読む人に見える行の名前で名指しする
         # （「ほかは本物」は 96 人が迷った）
-        made = demo_ws[0]['time'].split()[-1]
+        made = clock_text(demo_ws[0]['time'], date=False)
         what = 'この警報' if not real else '・'.join(dict.fromkeys(warning_title(w['hazard'], w['level']) for w in demo_ws))
         reals = '・'.join(dict.fromkeys(w['name'] for w in by_level if not w.get('demo')))
         demo_parts = {'what': what, 'made': made, 'real': reals}
@@ -988,7 +1001,7 @@ def build_notice(area, warn, zone_items, kiki, rain, lore_items, road=None, wild
         notes.append(head)
     elif trig:
         times = sorted({w['time'] for w in trig if w.get('time')})
-        when = f' {times[-1]} 発表' if times else ''
+        when = f' {clock_text(times[-1])} 発表' if times else ''
         names = '、'.join(dict.fromkeys(w['name'] for w in by_level))
         head = f'{area_name}　気象庁{when}' if len(top) == 1 else f'{area_name}に{names}（気象庁{when}）'
     else:

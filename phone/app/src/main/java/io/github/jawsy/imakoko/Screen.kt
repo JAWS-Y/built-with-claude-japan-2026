@@ -112,7 +112,7 @@ object Screen {
             .filter { it.isNotEmpty() }.joinToString("\n")
         val checked = n.optString("checked")
         return Card(title, n.optString("level"), head, notes, pages(n.optString("links")),
-            if (checked.isEmpty()) "" else "PC が調べた時刻 ${day(checked)}")
+            if (checked.isEmpty()) "" else "PC が調べた時刻 ${day(checked, now)}")
     }
 
     /** Every [name, url] page, https only; anything malformed is left out. */
@@ -132,17 +132,23 @@ object Screen {
         return out
     }
 
-    /** "18:50" today, "11/4 18:50" on another day. */
+    /**
+     * "午後6:50" today, "11/4 午後6:50" on another day. 午前/午後 with the 12-hour clock, whatever the phone's
+     * setting: next to the status bar's "8:46", "20:45" was read as the morning or as an old notice (simulated
+     * people), and the PC writes the notice's own times the same way, so one screen never mixes two forms.
+     */
     fun clock(at: Long, now: Long): String {
         val a = Calendar.getInstance().apply { timeInMillis = at }
         val b = Calendar.getInstance().apply { timeInMillis = now }
         val today = a.get(Calendar.YEAR) == b.get(Calendar.YEAR) && a.get(Calendar.DAY_OF_YEAR) == b.get(Calendar.DAY_OF_YEAR)
-        return SimpleDateFormat(if (today) "H:mm" else "M/d H:mm", Locale.JAPAN).format(a.time)
+        val hour = a.get(Calendar.HOUR_OF_DAY)
+        val time = (if (hour < 12) "午前" else "午後") + "${hour % 12}:" + a.get(Calendar.MINUTE).toString().padStart(2, '0')
+        return if (today) time else "${a.get(Calendar.MONTH) + 1}/${a.get(Calendar.DAY_OF_MONTH)} $time"
     }
 
-    /** The PC's "2026-11-05 18:49" as "11/5 18:49"; anything else as it came. */
-    private fun day(checked: String): String = try {
-        SimpleDateFormat("M/d H:mm", Locale.JAPAN).format(SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.JAPAN).parse(checked)!!)
+    /** The PC's "2026-11-05 18:49" the way [clock] writes it; anything else as it came. */
+    private fun day(checked: String, now: Long): String = try {
+        clock(SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.JAPAN).parse(checked)!!.time, now)
     } catch (e: Exception) {
         checked
     }

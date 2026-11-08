@@ -218,7 +218,7 @@ class PushTest(unittest.TestCase):
         self.assertEqual(m['summary'], 'どしゃさいがい きけんけいほう')
         lines = m['body'].split('\n')
         # one test mark, first, naming what is made up and what is real (only the lines the phone kept)
-        self.assertEqual(lines[0], '試し　この警報は作りもの（23:50 作成、気象庁は出していません）。本物は「ここ」「伝承碑」の行')
+        self.assertEqual(lines[0], '試し　この警報は作りもの（午後11:50 作成、気象庁は出していません）。本物は「ここ」「伝承碑」の行')
         self.assertEqual(lines[1], '土石流に警戒してください')
         # each reading is for its own readers, so it carries the mark once, at its start
         self.assertTrue(lines[2].startswith('ためし　ちよだく に れべる4 どしゃさいがい きけんけいほう。'), lines[2])

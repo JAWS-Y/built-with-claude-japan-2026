@@ -131,7 +131,7 @@ LOOK_SHOTS = {'気づかなかった': [], '見たが、そのまま': [0], 'ひ
 # The real notice text (no test marks), from the app's own code for this scene (app.py first_fit / KANA_FOLD,
 # phone.py kana and English lines). The shots carry the test marks; the person reads only what they saw.
 REAL_FOLDED = ['題: 新宿区 レベル3 氾濫警報', '題の下の行: かわの はんらん けいほう / Flood']
-REAL_BODY = ['新宿区　気象庁 11/07 20:45 発表', '初台アンダーの冠水に警戒してください',
+REAL_BODY = ['新宿区　気象庁 11/7 午後8:45 発表', '初台アンダーの冠水に警戒してください',
              'しんじゅくく に れべる3 はんらん（かわの みずが あふれる） けいほう。'
              'ちかくの みちが みずに つかる ことに けいかい して ください',
              'Shinjuku City: Level 3 Warning (Flood). Be on alert for road flooding nearby.']

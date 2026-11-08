@@ -84,7 +84,7 @@ class ScreenTest {
         assertEquals(
             listOf(
                 Screen.Row("位置を送っています", Screen.Kind.OK),
-                Screen.Row("18:52 に位置を送りました", Screen.Kind.OK),
+                Screen.Row("午後6:52 に位置を送りました", Screen.Kind.OK),
             ),
             r.take(2),
         )
@@ -96,14 +96,14 @@ class ScreenTest {
     @Test
     fun writtenInPlainWords() {
         val t = at("2026-11-05 18:52")
-        assertEquals(Screen.Row("18:52 に位置を送りました", Screen.Kind.OK), Screen.written(t, "位置: 送れました", now))
-        assertEquals(Screen.Row("18:52 に通知の宛先を送りました", Screen.Kind.OK), Screen.written(t, "通知の宛先: 送れました", now))
-        assertEquals(Screen.Row("18:52 位置を送れませんでした（つながりません）", Screen.Kind.BAD), Screen.written(t, "位置: つながりません", now))
-        assertEquals(Screen.Row("18:52 位置を送れませんでした（HTTP 403）", Screen.Kind.BAD), Screen.written(t, "位置: 失敗（HTTP 403）", now))
+        assertEquals(Screen.Row("午後6:52 に位置を送りました", Screen.Kind.OK), Screen.written(t, "位置: 送れました", now))
+        assertEquals(Screen.Row("午後6:52 に通知の宛先を送りました", Screen.Kind.OK), Screen.written(t, "通知の宛先: 送れました", now))
+        assertEquals(Screen.Row("午後6:52 位置を送れませんでした（つながりません）", Screen.Kind.BAD), Screen.written(t, "位置: つながりません", now))
+        assertEquals(Screen.Row("午後6:52 位置を送れませんでした（HTTP 403）", Screen.Kind.BAD), Screen.written(t, "位置: 失敗（HTTP 403）", now))
         assertEquals(Screen.Kind.OK, Screen.written(t, "消去: 送れました", now).kind)
-        assertEquals(Screen.Row("18:52 Firebase の位置を消せませんでした（HTTP 500）", Screen.Kind.BAD), Screen.written(t, "消去: 失敗（HTTP 500）", now))
-        assertEquals(Screen.Row("18:52 なにか", Screen.Kind.INFO), Screen.written(t, "なにか", now))
-        assertEquals("11/4 18:52 に位置を送りました", Screen.written(at("2026-11-04 18:52"), "位置: 送れました", now).text)
+        assertEquals(Screen.Row("午後6:52 Firebase の位置を消せませんでした（HTTP 500）", Screen.Kind.BAD), Screen.written(t, "消去: 失敗（HTTP 500）", now))
+        assertEquals(Screen.Row("午後6:52 なにか", Screen.Kind.INFO), Screen.written(t, "なにか", now))
+        assertEquals("11/4 午後6:52 に位置を送りました", Screen.written(at("2026-11-04 18:52"), "位置: 送れました", now).text)
     }
 
     @Test
@@ -115,11 +115,11 @@ class ScreenTest {
         val c = Screen.card(raw, now)!!
         assertEquals("土砂災害に気をつけて（試し）", c.title)
         assertEquals("4", c.level)
-        assertEquals("名古屋市・18:50 に届きました", c.head)
+        assertEquals("名古屋市・午後6:50 に届きました", c.head)
         // the PC's own 試し note is kept and not doubled
         assertEquals("今いる所は土砂災害警戒区域です\n警報は試しの作りもの。ほかは本物", c.notes)
         assertEquals(listOf("気象庁 警報・注意報", "気象庁 キキクル"), c.pages.map { it.first })
-        assertEquals("PC が調べた時刻 11/5 18:49", c.checked)
+        assertEquals("PC が調べた時刻 午後6:49", c.checked)
     }
 
     @Test
@@ -148,7 +148,13 @@ class ScreenTest {
 
     @Test
     fun clockShowsTheDayOnlyWhenNotToday() {
-        assertEquals("9:05", Screen.clock(at("2026-11-05 09:05"), now))
-        assertEquals("11/4 23:59", Screen.clock(at("2026-11-04 23:59"), now))
+        assertEquals("午前9:05", Screen.clock(at("2026-11-05 09:05"), now))
+        assertEquals("11/4 午後11:59", Screen.clock(at("2026-11-04 23:59"), now))
+        assertEquals("午前0:30", Screen.clock(at("2026-11-05 00:30"), now))
+        assertEquals("午後0:05", Screen.clock(at("2026-11-05 12:05"), now))
+        assertEquals("午前11:59", Screen.clock(at("2026-11-05 11:59"), now))
+        // the PC's check time from another day keeps its day
+        assertEquals("PC が調べた時刻 11/4 午後11:50",
+            Screen.card("""{"title":"t","checked":"2026-11-04 23:50"}""", now)!!.checked)
     }
 }

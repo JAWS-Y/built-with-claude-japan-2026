@@ -60,7 +60,7 @@ class ComposeTest(unittest.TestCase):
             '千代田区にレベル4土砂災害危険警報が出ていて、いる場所は土砂災害警戒区域（土石流）に入っています'
             '（気象庁・ハザードマップポータル）。',
             '土石流に警戒してください（アプリの案内）。',
-            '土砂キキクルはこの地点で「危険（紫）警戒レベル４相当」です（気象庁 11/03 12:00）。',
+            '土砂キキクルはこの地点で「危険（紫）警戒レベル４相当」です（気象庁 11/3 午後0:00）。',
             '降水ナウキャストでは、この地点はいま 30～50 mm/h、60分後は 50～80 mm/h です（気象庁）。',
             '2.5km 先に土砂災害の伝承碑「B」があります（国土地理院）。'])
         self.assertEqual(out['plain_body'], n['body'])
@@ -80,7 +80,7 @@ class ComposeTest(unittest.TestCase):
             {'text': 'いる場所は土砂災害警戒区域（土石流）に入っています。', 'facts': ['zone']},
             {'text': 'この地点はいま 30～50 mm/h、60分後 50～80 mm/h です。', 'facts': ['rain']},
             {'text': '2.5km 先に土砂災害の伝承碑「B」があります。', 'facts': ['lore']}]})
-        self.assertTrue(out[0].endswith('（気象庁 11/03 12:00）。'))
+        self.assertTrue(out[0].endswith('（気象庁 11/3 午後0:00）。'))
 
     def test_missing_fact(self):
         self.assertPlain({'lines': GOOD['lines'][:3]}, '使われていない事実')
