@@ -16,7 +16,7 @@ import app
 import phone
 from test_app import AREA, KIKI, LORE, RAIN, ZONE_ITEMS, warn
 
-LAT, LON = 35.123456, 139.654321
+LAT, LON = 35.7106, 139.8133
 
 
 def b64u_decode(text):
@@ -386,10 +386,10 @@ class StateTest(unittest.TestCase):
                 contextlib.redirect_stdout(buf):
             phone.check_all(g, phone.load_state())
         self.assertIn('mine: 送りました', buf.getvalue())
-        for text in (str(LAT), str(LON), '35.12', '139.65'):
+        for text in (str(LAT), str(LON), '35.71', '139.81'):
             self.assertNotIn(text, buf.getvalue())
         with open(phone.STATE) as f:
-            self.assertNotIn('35.12', f.read())
+            self.assertNotIn('35.71', f.read())
 
 
 if __name__ == '__main__':
